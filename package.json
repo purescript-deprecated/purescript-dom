@@ -1,0 +1,10 @@
+{
+  "name": "purescript-dom",
+  "version": "0.0.0",
+  "description": "PureScript interface for the DOM.",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "^3.8.1",
+    "gulp-purescript": "0.0.8"
+  }
+}

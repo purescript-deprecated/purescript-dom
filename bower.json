@@ -1,0 +1,7 @@
+{
+  "name": "purescript-dom",
+  "version": "0.0.0",
+  "description": "PureScript interface for the DOM.",
+  "license": "MIT"
+}
+
