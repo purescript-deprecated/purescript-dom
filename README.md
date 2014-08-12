@@ -6,5 +6,9 @@
 
     data DOM :: !
 
+    data Node :: *
+
+    data NodeList :: *
+
 
 
