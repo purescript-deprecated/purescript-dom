@@ -1,7 +1,10 @@
 module DOM where
 
-  foreign import data Node :: *
-  
-  foreign import data NodeList :: *
+-- | Effect type for DOM maniupulation
+foreign import data DOM :: !
 
-  foreign import data DOM :: !
+-- | General type for DOM nodes.
+foreign import data Node :: *
+
+-- | General type for DOM node lists.
+foreign import data NodeList :: *
