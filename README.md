@@ -1,98 +1,18 @@
-# Module Documentation
+# purescript-dom
 
-## Module DOM
+[![Build Status](https://travis-ci.org/purescript-contrib/purescript-dom.svg?branch=master)](https://travis-ci.org/purescript-contrib/purescript-dom)
+[![Maintainer: garyb](https://img.shields.io/badge/maintainer-garyb-lightgrey.svg)](http://github.com/garyb)
 
-#### `DOM`
+Type definitions and standard effect for interacting with the DOM.
 
-``` purescript
-data DOM :: !
+## Installation
+
+```
+bower install purescript-dom
 ```
 
-Effect type for DOM maniupulation
+## Module documentation
 
-#### `Node`
-
-``` purescript
-data Node :: *
-```
-
-General type for DOM nodes.
-
-#### `NodeList`
-
-``` purescript
-data NodeList :: *
-```
-
-General type for DOM node lists.
-
-
-## Module DOM.File
-
-
-Types for the [W3C File API](http://dev.w3.org/2006/webapi/FileAPI/).
-
-#### `File`
-
-``` purescript
-data File :: *
-```
-
-A `File` object instance.
-
-#### `FileList`
-
-``` purescript
-data FileList :: *
-```
-
-A `FileList` object instance.
-
-#### `FileReader`
-
-``` purescript
-data FileReader :: *
-```
-
-A `FileReader` object instance.
-
-#### `Blob`
-
-``` purescript
-data Blob :: *
-```
-
-A `Blob` object instance.
-
-
-## Module DOM.XHR
-
-
-Types for the [WHATWG XMLHttpRequest Living Standard](https://xhr.spec.whatwg.org/#interface-formdata).
-
-#### `XMLHttpRequest`
-
-``` purescript
-data XMLHttpRequest :: *
-```
-
-An `XMLHttpRequest` object instance.
-
-#### `FormData`
-
-``` purescript
-data FormData :: *
-```
-
-A `FormData` object instance.
-
-#### `ProgressEvent`
-
-``` purescript
-data ProgressEvent :: *
-```
-
-A `ProgressEvent` object instance.
-
-
-
+- [DOM](docs/DOM.md)
+- [DOM.File](docs/DOM.File.md)
+- [DOM.XHR](docs/DOM.XHR.md)
