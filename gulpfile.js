@@ -26,24 +26,23 @@ gulp.task("clean-output", function (cb) {
 gulp.task("clean", ["clean-docs", "clean-output"]);
 
 gulp.task("make", function() {
-  return gulp.src(sources)
-    .pipe(purescript.pscMake({ ffi: foreigns }));
+  return purescript.psc({ src: sources, ffi: foreigns });
 });
 
 gulp.task("docs", ["clean-docs"], function () {
-  return gulp.src(sources)
-    .pipe(purescript.pscDocs({
+  return purescript.pscDocs({
+      src: sources,
       docgen: {
         "DOM": "docs/DOM.md",
-        "DOM.File": "docs/DOM.File.md",
-        "DOM.XHR": "docs/DOM.XHR.md"
+        "DOM.File": "docs/DOM/File.md",
+        "DOM.XHR": "docs/DOM/XHR.md"
       }
-    }));
+    });
 });
 
 gulp.task("dotpsci", function () {
-  return gulp.src(sources)
-    .pipe(purescript.dotPsci());
+  return purescript.psci({ src: sources, ffi: foreigns })
+    .pipe(gulp.dest("."));
 });
 
 gulp.task("default", ["make", "docs", "dotpsci"]);

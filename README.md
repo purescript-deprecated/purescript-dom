@@ -15,5 +15,5 @@ bower install purescript-dom
 ## Module documentation
 
 - [DOM](docs/DOM.md)
-- [DOM.File](docs/DOM.File.md)
-- [DOM.XHR](docs/DOM.XHR.md)
+- [DOM.File](docs/DOM/File.md)
+- [DOM.XHR](docs/DOM/XHR.md)
