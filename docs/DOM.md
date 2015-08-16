@@ -6,30 +6,7 @@
 data DOM :: !
 ```
 
-Effect type for DOM maniupulation
-
-#### `Document`
-
-``` purescript
-data Document :: *
-```
-
-General type for DOM documents.
-
-#### `Node`
-
-``` purescript
-data Node :: *
-```
-
-General type for DOM nodes.
-
-#### `NodeList`
-
-``` purescript
-data NodeList :: *
-```
-
-General type for DOM node lists.
+Effect type for when the DOM is being manipulated or mutable values are
+being read from the DOM.
 
 

@@ -29,20 +29,21 @@ gulp.task("make", function() {
   return purescript.psc({ src: sources, ffi: foreigns });
 });
 
-gulp.task("docs", ["clean-docs"], function () {
-  return purescript.pscDocs({
-      src: sources,
-      docgen: {
-        "DOM": "docs/DOM.md",
-        "DOM.File": "docs/DOM/File.md",
-        "DOM.XHR": "docs/DOM/XHR.md"
-      }
-    });
-});
+// gulp.task("docs", ["clean-docs"], function () {
+//   return purescript.pscDocs({
+//       src: sources,
+//       docgen: {
+//         "DOM": "docs/DOM.md",
+//         "DOM.File": "docs/DOM/File.md",
+//         "DOM.XHR": "docs/DOM/XHR.md"
+//       }
+//     });
+// });
 
 gulp.task("dotpsci", function () {
   return purescript.psci({ src: sources, ffi: foreigns })
     .pipe(gulp.dest("."));
 });
 
-gulp.task("default", ["make", "docs", "dotpsci"]);
+gulp.task("default", ["make", "dotpsci"]);
+// gulp.task("default", ["make", "docs", "dotpsci"]);
