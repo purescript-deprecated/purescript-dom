@@ -1,6 +1,6 @@
 module DOM.Event.Types
   ( Event()
-  , EventType()
+  , EventType(..)
   , EventTarget()
   , readEventTarget
   , AnimationEvent()

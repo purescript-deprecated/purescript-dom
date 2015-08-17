@@ -3,16 +3,23 @@ module DOM.HTML.Types where
 
 import Prelude
 
+import DOM.Event.Types
 import DOM.Node.Types
 
 import qualified Unsafe.Coerce as U
 
 foreign import data Window :: *
 
+windowToEventTarget :: Window -> EventTarget
+windowToEventTarget = U.unsafeCoerce
+
 foreign import data HTMLDocument :: *
 
 htmlDocumentToDocument :: HTMLDocument -> Document
 htmlDocumentToDocument = U.unsafeCoerce
+
+htmlDocumentToEventTarget :: HTMLDocument -> EventTarget
+htmlDocumentToEventTarget = U.unsafeCoerce
 
 foreign import data HTMLElement :: *
 
@@ -27,3 +34,6 @@ htmlElementToNonDocumentTypeChildNode = U.unsafeCoerce
 
 htmlElementToNode :: HTMLElement -> Node
 htmlElementToNode = U.unsafeCoerce
+
+htmlElementToEventTarget :: HTMLElement -> EventTarget
+htmlElementToEventTarget = U.unsafeCoerce
