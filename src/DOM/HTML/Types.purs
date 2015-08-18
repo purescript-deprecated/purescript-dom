@@ -26,10 +26,10 @@ foreign import data HTMLElement :: *
 htmlElementToElement :: HTMLElement -> Element
 htmlElementToElement = U.unsafeCoerce
 
-htmlElementToParentNode :: Element -> ParentNode
+htmlElementToParentNode :: HTMLElement -> ParentNode
 htmlElementToParentNode = U.unsafeCoerce
 
-htmlElementToNonDocumentTypeChildNode :: Element -> NonDocumentTypeChildNode
+htmlElementToNonDocumentTypeChildNode :: HTMLElement -> NonDocumentTypeChildNode
 htmlElementToNonDocumentTypeChildNode = U.unsafeCoerce
 
 htmlElementToNode :: HTMLElement -> Node
