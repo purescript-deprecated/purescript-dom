@@ -20,3 +20,6 @@ foreign import setClassName :: forall eff. String -> Element -> Eff (dom :: DOM 
 foreign import getElementsByTagName :: forall eff. String -> Element -> Eff (dom :: DOM | eff) HTMLCollection
 foreign import getElementsByTagNameNS :: forall eff. Nullable String -> String -> Element -> Eff (dom :: DOM | eff) HTMLCollection
 foreign import getElementsByClassName :: forall eff. String -> Element -> Eff (dom :: DOM | eff) HTMLCollection
+
+foreign import setAttribute :: forall eff. String -> String -> Element -> Eff (dom :: DOM | eff) String
+foreign import getAttribute :: forall eff. String -> Element -> Eff (dom :: DOM | eff) (Nullable String)
