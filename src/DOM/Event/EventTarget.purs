@@ -13,7 +13,7 @@ import DOM.Event.Types
 foreign import data EventListener :: # ! -> *
 
 -- | Creates an EventListener from a normal PureScript Eff function.
-foreign import eventListener :: forall eff a. (Event -> Eff (dom :: DOM) a) -> EventListener eff
+foreign import eventListener :: forall eff a. (Event -> Eff (dom :: DOM | eff) a) -> EventListener (dom :: DOM | eff)
 
 -- | Adds a listener to an event target. The boolean argument indicates whether
 -- | the listener should be added for the "capture" phase.
