@@ -6,6 +6,12 @@
 data Window :: *
 ```
 
+#### `windowToEventTarget`
+
+``` purescript
+windowToEventTarget :: Window -> EventTarget
+```
+
 #### `HTMLDocument`
 
 ``` purescript
@@ -16,6 +22,12 @@ data HTMLDocument :: *
 
 ``` purescript
 htmlDocumentToDocument :: HTMLDocument -> Document
+```
+
+#### `htmlDocumentToEventTarget`
+
+``` purescript
+htmlDocumentToEventTarget :: HTMLDocument -> EventTarget
 ```
 
 #### `HTMLElement`
@@ -33,19 +45,25 @@ htmlElementToElement :: HTMLElement -> Element
 #### `htmlElementToParentNode`
 
 ``` purescript
-htmlElementToParentNode :: Element -> ParentNode
+htmlElementToParentNode :: HTMLElement -> ParentNode
 ```
 
 #### `htmlElementToNonDocumentTypeChildNode`
 
 ``` purescript
-htmlElementToNonDocumentTypeChildNode :: Element -> NonDocumentTypeChildNode
+htmlElementToNonDocumentTypeChildNode :: HTMLElement -> NonDocumentTypeChildNode
 ```
 
 #### `htmlElementToNode`
 
 ``` purescript
 htmlElementToNode :: HTMLElement -> Node
+```
+
+#### `htmlElementToEventTarget`
+
+``` purescript
+htmlElementToEventTarget :: HTMLElement -> EventTarget
 ```
 
 

@@ -1,12 +1,19 @@
 ## Module DOM.Node.NonDocumentTypeChildNode
 
-#### `getElementById`
+#### `previousElementSibling`
 
 ``` purescript
-getElementById :: forall eff. ElementId -> NonDocumentTypeChildNode -> Eff (dom :: DOM | eff) (Nullable Element)
+previousElementSibling :: forall eff. NonDocumentTypeChildNode -> Eff (dom :: DOM | eff) (Nullable Element)
 ```
 
-The first element within node's descendants with a matching ID, or null if
-no such element exists.
+The previous sibling that is an element, or null if no such element exists.
+
+#### `nextElementSibling`
+
+``` purescript
+nextElementSibling :: forall eff. NonDocumentTypeChildNode -> Eff (dom :: DOM | eff) (Nullable Element)
+```
+
+The next sibling that is an element, or null if no such element exists.
 
 
