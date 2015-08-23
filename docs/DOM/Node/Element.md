@@ -33,7 +33,7 @@ id :: forall eff. Element -> Eff (dom :: DOM | eff) ElementId
 #### `setId`
 
 ``` purescript
-setId :: forall eff. ElementId -> Element -> Eff (dom :: DOM | eff) ElementId
+setId :: forall eff. ElementId -> Element -> Eff (dom :: DOM | eff) Unit
 ```
 
 #### `className`
@@ -45,7 +45,7 @@ className :: forall eff. Element -> Eff (dom :: DOM | eff) String
 #### `setClassName`
 
 ``` purescript
-setClassName :: forall eff. String -> Element -> Eff (dom :: DOM | eff) String
+setClassName :: forall eff. String -> Element -> Eff (dom :: DOM | eff) Unit
 ```
 
 #### `getElementsByTagName`
@@ -69,7 +69,7 @@ getElementsByClassName :: forall eff. String -> Element -> Eff (dom :: DOM | eff
 #### `setAttribute`
 
 ``` purescript
-setAttribute :: forall eff. String -> String -> Element -> Eff (dom :: DOM | eff) String
+setAttribute :: forall eff. String -> String -> Element -> Eff (dom :: DOM | eff) Unit
 ```
 
 #### `getAttribute`

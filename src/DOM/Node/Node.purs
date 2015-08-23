@@ -72,7 +72,7 @@ foreign import textContent :: forall eff. Node -> Eff (dom :: DOM | eff) String
 -- | If the node type is document fragment, element, text, processing
 -- | instruction, or comment this allows the node's data to be changed, or has
 -- | no effect in all other cases.
-foreign import setTextContent :: forall eff. Node -> Eff (dom :: DOM | eff) String
+foreign import setTextContent :: forall eff. Node -> Eff (dom :: DOM | eff) Unit
 
 -- | Removes empty text nodes and then combines any remaining text nodes that
 -- | are contiguous.
