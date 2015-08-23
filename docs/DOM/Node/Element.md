@@ -66,4 +66,16 @@ getElementsByTagNameNS :: forall eff. Nullable String -> String -> Element -> Ef
 getElementsByClassName :: forall eff. String -> Element -> Eff (dom :: DOM | eff) HTMLCollection
 ```
 
+#### `setAttribute`
+
+``` purescript
+setAttribute :: forall eff. String -> String -> Element -> Eff (dom :: DOM | eff) String
+```
+
+#### `getAttribute`
+
+``` purescript
+getAttribute :: forall eff. String -> Element -> Eff (dom :: DOM | eff) (Nullable String)
+```
+
 

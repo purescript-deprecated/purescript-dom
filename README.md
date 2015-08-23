@@ -18,6 +18,8 @@ bower install purescript-dom
 - [DOM.Event.Event](docs/DOM/Event/Event.md)
 - [DOM.Event.EventPhase](docs/DOM/Event/EventPhase.md)
 - [DOM.Event.EventTarget](docs/DOM/Event/EventTarget.md)
+- [DOM.Event.EventTypes](docs/DOM/Event/EventTypes.md)
+- [DOM.Event.Types](docs/DOM/Event/Types.md)
 - [DOM.File.Types](docs/DOM/File/Types.md)
 - [DOM.HTML](docs/DOM/HTML.md)
 - [DOM.HTML.Document](docs/DOM/HTML/Document.md)
