@@ -59,7 +59,7 @@ exports.textContent = getEffProp("textContent");
 exports.setTextContent = function (value) {
   return function (node) {
     return function () {
-      node.nodeValue = value;
+      node.textContent = value;
       return {};
     };
   };
