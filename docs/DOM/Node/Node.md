@@ -139,7 +139,7 @@ cases.
 #### `setTextContent`
 
 ``` purescript
-setTextContent :: forall eff. Node -> Eff (dom :: DOM | eff) Unit
+setTextContent :: forall eff. String -> Node -> Eff (dom :: DOM | eff) Unit
 ```
 
 If the node type is document fragment, element, text, processing
