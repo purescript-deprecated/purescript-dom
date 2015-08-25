@@ -3,6 +3,8 @@ module DOM.Node.Types where
 
 import Prelude
 
+import DOM.Event.Types
+
 import qualified Unsafe.Coerce as U
 
 foreign import data Node :: *
@@ -25,6 +27,9 @@ documentToParentNode = U.unsafeCoerce
 documentToNode :: Document -> Node
 documentToNode = U.unsafeCoerce
 
+documentToEventTarget :: Document -> EventTarget
+documentToEventTarget = U.unsafeCoerce
+
 foreign import data Element :: *
 
 newtype ElementId = ElementId String
@@ -37,6 +42,9 @@ elementToNonDocumentTypeChildNode = U.unsafeCoerce
 
 elementToNode :: Element -> Node
 elementToNode = U.unsafeCoerce
+
+elementToEventTarget :: Element -> EventTarget
+elementToEventTarget = U.unsafeCoerce
 
 foreign import data CharacterData :: *
 

@@ -3,10 +3,14 @@
 
 // module DOM.Node.NonDocumentTypeChildNode
 
-exports.getElementById = function (id) {
-  return function (node) {
-    return function () {
-      return node.getElementById(id);
-    };
+exports.previousElementSibling = function (node) {
+  return function () {
+    return node.previousElementSibling;
+  };
+};
+
+exports.nextElementSibling = function (node) {
+  return function () {
+    return node.nextElementSibling;
   };
 };

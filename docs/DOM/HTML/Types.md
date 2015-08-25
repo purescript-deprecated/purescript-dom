@@ -18,10 +18,33 @@ windowToEventTarget :: Window -> EventTarget
 data HTMLDocument :: *
 ```
 
+##### Instances
+``` purescript
+instance isForeignHTMLDocument :: IsForeign HTMLDocument
+```
+
 #### `htmlDocumentToDocument`
 
 ``` purescript
 htmlDocumentToDocument :: HTMLDocument -> Document
+```
+
+#### `htmlDocumentToNonElementParentNode`
+
+``` purescript
+htmlDocumentToNonElementParentNode :: HTMLDocument -> NonElementParentNode
+```
+
+#### `htmlDocumentToParentNode`
+
+``` purescript
+htmlDocumentToParentNode :: HTMLDocument -> ParentNode
+```
+
+#### `htmlDocumentToNode`
+
+``` purescript
+htmlDocumentToNode :: HTMLDocument -> Node
 ```
 
 #### `htmlDocumentToEventTarget`
@@ -30,10 +53,21 @@ htmlDocumentToDocument :: HTMLDocument -> Document
 htmlDocumentToEventTarget :: HTMLDocument -> EventTarget
 ```
 
+#### `readHTMLDocument`
+
+``` purescript
+readHTMLDocument :: Foreign -> F HTMLDocument
+```
+
 #### `HTMLElement`
 
 ``` purescript
 data HTMLElement :: *
+```
+
+##### Instances
+``` purescript
+instance isForeignHTMLElement :: IsForeign HTMLElement
 ```
 
 #### `htmlElementToElement`
@@ -64,6 +98,12 @@ htmlElementToNode :: HTMLElement -> Node
 
 ``` purescript
 htmlElementToEventTarget :: HTMLElement -> EventTarget
+```
+
+#### `readHTMLElement`
+
+``` purescript
+readHTMLElement :: Foreign -> F HTMLElement
 ```
 
 

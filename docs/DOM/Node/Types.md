@@ -66,6 +66,12 @@ documentToParentNode :: Document -> ParentNode
 documentToNode :: Document -> Node
 ```
 
+#### `documentToEventTarget`
+
+``` purescript
+documentToEventTarget :: Document -> EventTarget
+```
+
 #### `Element`
 
 ``` purescript
@@ -95,6 +101,12 @@ elementToNonDocumentTypeChildNode :: Element -> NonDocumentTypeChildNode
 
 ``` purescript
 elementToNode :: Element -> Node
+```
+
+#### `elementToEventTarget`
+
+``` purescript
+elementToEventTarget :: Element -> EventTarget
 ```
 
 #### `CharacterData`
