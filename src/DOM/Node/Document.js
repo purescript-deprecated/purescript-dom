@@ -59,7 +59,7 @@ exports.createElementNS = function (ns) {
   return function (qualifiedName) {
     return function (doc) {
       return function () {
-        return doc.createElement(ns, qualifiedName);
+        return doc.createElementNS(ns, qualifiedName);
       };
     };
   };
