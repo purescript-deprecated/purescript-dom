@@ -154,17 +154,11 @@ module DOM.Event.Types
 
 import Prelude
 
-import Control.Monad.Eff (Eff())
-
 import Data.Either (Either(..))
 import Data.Foreign (Foreign(), F(), unsafeReadTagged)
 import Data.Foreign.Class (IsForeign)
-import qualified Data.Maybe.Unsafe as U
 
 import qualified Unsafe.Coerce as U
-
-import DOM
-import DOM.Event.EventPhase
 
 -- | Basic type for all DOM events.
 foreign import data Event :: *

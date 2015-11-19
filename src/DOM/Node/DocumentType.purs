@@ -1,6 +1,5 @@
 module DOM.Node.DocumentType where
 
-import DOM
 import DOM.Node.Types
 
 foreign import name :: DocumentType -> String
