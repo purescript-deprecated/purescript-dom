@@ -87,19 +87,19 @@ createDocumentFragment :: forall eff. Document -> Eff (dom :: DOM | eff) Documen
 #### `createTextNode`
 
 ``` purescript
-createTextNode :: forall eff. String -> Eff (dom :: DOM | eff) Text
+createTextNode :: forall eff. String -> Document -> Eff (dom :: DOM | eff) Text
 ```
 
 #### `createComment`
 
 ``` purescript
-createComment :: forall eff. String -> Eff (dom :: DOM | eff) Comment
+createComment :: forall eff. String -> Document -> Eff (dom :: DOM | eff) Comment
 ```
 
 #### `createProcessingInstruction`
 
 ``` purescript
-createProcessingInstruction :: forall eff. String -> String -> Eff (dom :: DOM | eff) ProcessingInstruction
+createProcessingInstruction :: forall eff. String -> String -> Document -> Eff (dom :: DOM | eff) ProcessingInstruction
 ```
 
 #### `importNode`
