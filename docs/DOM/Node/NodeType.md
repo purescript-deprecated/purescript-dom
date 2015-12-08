@@ -20,11 +20,11 @@ data NodeType
 
 ##### Instances
 ``` purescript
-instance eqNodeType :: Eq NodeType
-instance ordNodeType :: Ord NodeType
-instance boundedNodeType :: Bounded NodeType
-instance boundedOrdNodeType :: BoundedOrd NodeType
-instance enumNodeType :: Enum NodeType
+Eq NodeType
+Ord NodeType
+Bounded NodeType
+BoundedOrd NodeType
+Enum NodeType
 ```
 
 

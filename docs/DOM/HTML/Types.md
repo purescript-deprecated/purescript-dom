@@ -20,7 +20,7 @@ data HTMLDocument :: *
 
 ##### Instances
 ``` purescript
-instance isForeignHTMLDocument :: IsForeign HTMLDocument
+IsForeign HTMLDocument
 ```
 
 #### `htmlDocumentToDocument`
@@ -59,6 +59,12 @@ htmlDocumentToEventTarget :: HTMLDocument -> EventTarget
 readHTMLDocument :: Foreign -> F HTMLDocument
 ```
 
+#### `Navigator`
+
+``` purescript
+data Navigator :: *
+```
+
 #### `HTMLElement`
 
 ``` purescript
@@ -67,7 +73,7 @@ data HTMLElement :: *
 
 ##### Instances
 ``` purescript
-instance isForeignHTMLElement :: IsForeign HTMLElement
+IsForeign HTMLElement
 ```
 
 #### `htmlElementToElement`

@@ -44,7 +44,7 @@ The integer value for the current event phase.
 #### `stopPropagation`
 
 ``` purescript
-stopPropagation :: Event -> Eff (dom :: DOM) Unit
+stopPropagation :: forall eff. Event -> Eff (dom :: DOM | eff) Unit
 ```
 
 Prevents the event from bubbling up to futher event listeners. Other event
@@ -53,7 +53,7 @@ listeners on the current target will still fire.
 #### `stopImmediatePropagation`
 
 ``` purescript
-stopImmediatePropagation :: Event -> Eff (dom :: DOM) Unit
+stopImmediatePropagation :: forall eff. Event -> Eff (dom :: DOM | eff) Unit
 ```
 
 Prevents all other listeners for the event from being called. This includes
@@ -78,7 +78,7 @@ Indicates whether the event can be cancelled.
 #### `preventDefault`
 
 ``` purescript
-preventDefault :: Event -> Eff (dom :: DOM) Unit
+preventDefault :: forall eff. Event -> Eff (dom :: DOM | eff) Unit
 ```
 
 Cancels the event if it can be cancelled.
