@@ -44,11 +44,11 @@ foreign import eventPhaseIndex :: Event -> Int
 
 -- | Prevents the event from bubbling up to futher event listeners. Other event
 -- | listeners on the current target will still fire.
-foreign import stopPropagation :: Event -> Eff (dom :: DOM) Unit
+foreign import stopPropagation :: forall eff. Event -> Eff (dom :: DOM | eff) Unit
 
 -- | Prevents all other listeners for the event from being called. This includes
 -- | event listeners added to the current target after the current listener.
-foreign import stopImmediatePropagation :: Event -> Eff (dom :: DOM) Unit
+foreign import stopImmediatePropagation :: forall eff. Event -> Eff (dom :: DOM | eff) Unit
 
 -- | Indicates whether the event will bubble up through the DOM or not.
 foreign import bubbles :: Event -> Boolean
@@ -57,7 +57,7 @@ foreign import bubbles :: Event -> Boolean
 foreign import cancelable :: Event -> Boolean
 
 -- | Cancels the event if it can be cancelled.
-foreign import preventDefault :: Event -> Eff (dom :: DOM) Unit
+foreign import preventDefault :: forall eff. Event -> Eff (dom :: DOM | eff) Unit
 
 -- | Indicates whether `preventDefault` was called on the event.
 foreign import defaultPrevented :: Event -> Boolean
