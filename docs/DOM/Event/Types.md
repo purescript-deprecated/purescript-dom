@@ -19,8 +19,8 @@ The type of strings used for event types.
 
 ##### Instances
 ``` purescript
-instance eqEventType :: Eq EventType
-instance ordEventType :: Ord EventType
+Eq EventType
+Ord EventType
 ```
 
 #### `EventTarget`
@@ -33,7 +33,7 @@ A DOM item that can emit events.
 
 ##### Instances
 ``` purescript
-instance isForeignEventTarget :: IsForeign EventTarget
+IsForeign EventTarget
 ```
 
 #### `readEventTarget`
@@ -50,7 +50,7 @@ data AnimationEvent :: *
 
 ##### Instances
 ``` purescript
-instance isForeignAnimationEvent :: IsForeign AnimationEvent
+IsForeign AnimationEvent
 ```
 
 #### `animationEventToEvent`
@@ -73,7 +73,7 @@ data AudioProcessingEvent :: *
 
 ##### Instances
 ``` purescript
-instance isForeignAudioProcessingEvent :: IsForeign AudioProcessingEvent
+IsForeign AudioProcessingEvent
 ```
 
 #### `audioProcessingEventToEvent`
@@ -96,7 +96,7 @@ data BeforeInputEvent :: *
 
 ##### Instances
 ``` purescript
-instance isForeignBeforeInputEvent :: IsForeign BeforeInputEvent
+IsForeign BeforeInputEvent
 ```
 
 #### `beforeInputEventToEvent`
@@ -119,7 +119,7 @@ data BeforeUnloadEvent :: *
 
 ##### Instances
 ``` purescript
-instance isForeignBeforeUnloadEvent :: IsForeign BeforeUnloadEvent
+IsForeign BeforeUnloadEvent
 ```
 
 #### `beforeUnloadEventToEvent`
@@ -142,7 +142,7 @@ data BlobEvent :: *
 
 ##### Instances
 ``` purescript
-instance isForeignBlobEvent :: IsForeign BlobEvent
+IsForeign BlobEvent
 ```
 
 #### `blobEventToEvent`
@@ -165,7 +165,7 @@ data ClipboardEvent :: *
 
 ##### Instances
 ``` purescript
-instance isForeignClipboardEvent :: IsForeign ClipboardEvent
+IsForeign ClipboardEvent
 ```
 
 #### `clipboardEventToEvent`
@@ -188,7 +188,7 @@ data CloseEvent :: *
 
 ##### Instances
 ``` purescript
-instance isForeignCloseEvent :: IsForeign CloseEvent
+IsForeign CloseEvent
 ```
 
 #### `closeEventToEvent`
@@ -211,7 +211,7 @@ data CompositionEvent :: *
 
 ##### Instances
 ``` purescript
-instance isForeignCompositionEvent :: IsForeign CompositionEvent
+IsForeign CompositionEvent
 ```
 
 #### `compositionEventToEvent`
@@ -234,7 +234,7 @@ data CSSFontFaceLoadEvent :: *
 
 ##### Instances
 ``` purescript
-instance isForeignCSSFontFaceLoadEvent :: IsForeign CSSFontFaceLoadEvent
+IsForeign CSSFontFaceLoadEvent
 ```
 
 #### `cssFontFaceLoadEventToEvent`
@@ -257,7 +257,7 @@ data CustomEvent :: *
 
 ##### Instances
 ``` purescript
-instance isForeignCustomEvent :: IsForeign CustomEvent
+IsForeign CustomEvent
 ```
 
 #### `customEventToEvent`
@@ -280,7 +280,7 @@ data DeviceLightEvent :: *
 
 ##### Instances
 ``` purescript
-instance isForeignDeviceLightEvent :: IsForeign DeviceLightEvent
+IsForeign DeviceLightEvent
 ```
 
 #### `deviceLightEventToEvent`
@@ -303,7 +303,7 @@ data DeviceMotionEvent :: *
 
 ##### Instances
 ``` purescript
-instance isForeignDeviceMotionEvent :: IsForeign DeviceMotionEvent
+IsForeign DeviceMotionEvent
 ```
 
 #### `deviceMotionEventToEvent`
@@ -326,7 +326,7 @@ data DeviceOrientationEvent :: *
 
 ##### Instances
 ``` purescript
-instance isForeignDeviceOrientationEvent :: IsForeign DeviceOrientationEvent
+IsForeign DeviceOrientationEvent
 ```
 
 #### `deviceOrientationEventToEvent`
@@ -349,7 +349,7 @@ data DeviceProximityEvent :: *
 
 ##### Instances
 ``` purescript
-instance isForeignDeviceProximityEvent :: IsForeign DeviceProximityEvent
+IsForeign DeviceProximityEvent
 ```
 
 #### `deviceProximityEventToEvent`
@@ -372,7 +372,7 @@ data DOMTransactionEvent :: *
 
 ##### Instances
 ``` purescript
-instance isForeignDOMTransactionEvent :: IsForeign DOMTransactionEvent
+IsForeign DOMTransactionEvent
 ```
 
 #### `domTransactionEventToEvent`
@@ -395,7 +395,7 @@ data DragEvent :: *
 
 ##### Instances
 ``` purescript
-instance isForeignDragEvent :: IsForeign DragEvent
+IsForeign DragEvent
 ```
 
 #### `dragEventToEvent`
@@ -418,7 +418,7 @@ data EditingBeforeInputEvent :: *
 
 ##### Instances
 ``` purescript
-instance isForeignEditingBeforeInputEvent :: IsForeign EditingBeforeInputEvent
+IsForeign EditingBeforeInputEvent
 ```
 
 #### `editingBeforeInputEventToEvent`
@@ -441,7 +441,7 @@ data ErrorEvent :: *
 
 ##### Instances
 ``` purescript
-instance isForeignErrorEvent :: IsForeign ErrorEvent
+IsForeign ErrorEvent
 ```
 
 #### `errorEventToEvent`
@@ -464,7 +464,7 @@ data FetchEvent :: *
 
 ##### Instances
 ``` purescript
-instance isForeignFetchEvent :: IsForeign FetchEvent
+IsForeign FetchEvent
 ```
 
 #### `fetchEventToEvent`
@@ -487,7 +487,7 @@ data FocusEvent :: *
 
 ##### Instances
 ``` purescript
-instance isForeignFocusEvent :: IsForeign FocusEvent
+IsForeign FocusEvent
 ```
 
 #### `focusEventToEvent`
@@ -510,7 +510,7 @@ data GamepadEvent :: *
 
 ##### Instances
 ``` purescript
-instance isForeignGamepadEvent :: IsForeign GamepadEvent
+IsForeign GamepadEvent
 ```
 
 #### `gamepadEventToEvent`
@@ -533,7 +533,7 @@ data HashChangeEvent :: *
 
 ##### Instances
 ``` purescript
-instance isForeignHashChangeEvent :: IsForeign HashChangeEvent
+IsForeign HashChangeEvent
 ```
 
 #### `hashChangeEventToEvent`
@@ -556,7 +556,7 @@ data IDBVersionChangeEvent :: *
 
 ##### Instances
 ``` purescript
-instance isForeignIDBVersionChangeEvent :: IsForeign IDBVersionChangeEvent
+IsForeign IDBVersionChangeEvent
 ```
 
 #### `idbVersionChangeEventToEvent`
@@ -579,7 +579,7 @@ data InputEvent :: *
 
 ##### Instances
 ``` purescript
-instance isForeignInputEvent :: IsForeign InputEvent
+IsForeign InputEvent
 ```
 
 #### `inputEventToEvent`
@@ -602,7 +602,7 @@ data KeyboardEvent :: *
 
 ##### Instances
 ``` purescript
-instance isForeignKeyboardEvent :: IsForeign KeyboardEvent
+IsForeign KeyboardEvent
 ```
 
 #### `keyboardEventToEvent`
@@ -625,7 +625,7 @@ data MediaStreamEvent :: *
 
 ##### Instances
 ``` purescript
-instance isForeignMediaStreamEvent :: IsForeign MediaStreamEvent
+IsForeign MediaStreamEvent
 ```
 
 #### `mediaStreamEventToEvent`
@@ -648,7 +648,7 @@ data MessageEvent :: *
 
 ##### Instances
 ``` purescript
-instance isForeignMessageEvent :: IsForeign MessageEvent
+IsForeign MessageEvent
 ```
 
 #### `messageEventToEvent`
@@ -671,7 +671,7 @@ data MouseEvent :: *
 
 ##### Instances
 ``` purescript
-instance isForeignMouseEvent :: IsForeign MouseEvent
+IsForeign MouseEvent
 ```
 
 #### `mouseEventToEvent`
@@ -694,7 +694,7 @@ data MutationEvent :: *
 
 ##### Instances
 ``` purescript
-instance isForeignMutationEvent :: IsForeign MutationEvent
+IsForeign MutationEvent
 ```
 
 #### `mutationEventToEvent`
@@ -717,7 +717,7 @@ data OfflineAudioCompletionEvent :: *
 
 ##### Instances
 ``` purescript
-instance isForeignOfflineAudioCompletionEvent :: IsForeign OfflineAudioCompletionEvent
+IsForeign OfflineAudioCompletionEvent
 ```
 
 #### `offlineAudioCompletionEventToEvent`
@@ -740,7 +740,7 @@ data PageTransitionEvent :: *
 
 ##### Instances
 ``` purescript
-instance isForeignPageTransitionEvent :: IsForeign PageTransitionEvent
+IsForeign PageTransitionEvent
 ```
 
 #### `pageTransitionEventToEvent`
@@ -763,7 +763,7 @@ data PointerEvent :: *
 
 ##### Instances
 ``` purescript
-instance isForeignPointerEvent :: IsForeign PointerEvent
+IsForeign PointerEvent
 ```
 
 #### `pointerEventToEvent`
@@ -786,7 +786,7 @@ data PopStateEvent :: *
 
 ##### Instances
 ``` purescript
-instance isForeignPopStateEvent :: IsForeign PopStateEvent
+IsForeign PopStateEvent
 ```
 
 #### `popStateEventToEvent`
@@ -809,7 +809,7 @@ data ProgressEvent :: *
 
 ##### Instances
 ``` purescript
-instance isForeignProgressEvent :: IsForeign ProgressEvent
+IsForeign ProgressEvent
 ```
 
 #### `progressEventToEvent`
@@ -832,7 +832,7 @@ data RelatedEvent :: *
 
 ##### Instances
 ``` purescript
-instance isForeignRelatedEvent :: IsForeign RelatedEvent
+IsForeign RelatedEvent
 ```
 
 #### `relatedEventToEvent`
@@ -855,7 +855,7 @@ data RTCDataChannelEvent :: *
 
 ##### Instances
 ``` purescript
-instance isForeignRTCDataChannelEvent :: IsForeign RTCDataChannelEvent
+IsForeign RTCDataChannelEvent
 ```
 
 #### `rtcDataChannelEventToEvent`
@@ -878,7 +878,7 @@ data RTCIdentityErrorEvent :: *
 
 ##### Instances
 ``` purescript
-instance isForeignRTCIdentityErrorEvent :: IsForeign RTCIdentityErrorEvent
+IsForeign RTCIdentityErrorEvent
 ```
 
 #### `rtcIdentityErrorEventToEvent`
@@ -901,7 +901,7 @@ data RTCIdentityEvent :: *
 
 ##### Instances
 ``` purescript
-instance isForeignRTCIdentityEvent :: IsForeign RTCIdentityEvent
+IsForeign RTCIdentityEvent
 ```
 
 #### `rtcIdentityEventToEvent`
@@ -924,7 +924,7 @@ data RTCPeerConnectionIceEvent :: *
 
 ##### Instances
 ``` purescript
-instance isForeignRTCPeerConnectionIceEvent :: IsForeign RTCPeerConnectionIceEvent
+IsForeign RTCPeerConnectionIceEvent
 ```
 
 #### `rtcPeerConnectionIceEventToEvent`
@@ -947,7 +947,7 @@ data SensorEvent :: *
 
 ##### Instances
 ``` purescript
-instance isForeignSensorEvent :: IsForeign SensorEvent
+IsForeign SensorEvent
 ```
 
 #### `sensorEventToEvent`
@@ -970,7 +970,7 @@ data StorageEvent :: *
 
 ##### Instances
 ``` purescript
-instance isForeignStorageEvent :: IsForeign StorageEvent
+IsForeign StorageEvent
 ```
 
 #### `storageEventToEvent`
@@ -993,7 +993,7 @@ data SVGEvent :: *
 
 ##### Instances
 ``` purescript
-instance isForeignSVGEvent :: IsForeign SVGEvent
+IsForeign SVGEvent
 ```
 
 #### `svgEventToEvent`
@@ -1016,7 +1016,7 @@ data SVGZoomEvent :: *
 
 ##### Instances
 ``` purescript
-instance isForeignSVGZoomEvent :: IsForeign SVGZoomEvent
+IsForeign SVGZoomEvent
 ```
 
 #### `svgZoomEventToEvent`
@@ -1039,7 +1039,7 @@ data TimeEvent :: *
 
 ##### Instances
 ``` purescript
-instance isForeignTimeEvent :: IsForeign TimeEvent
+IsForeign TimeEvent
 ```
 
 #### `timeEventToEvent`
@@ -1062,7 +1062,7 @@ data TouchEvent :: *
 
 ##### Instances
 ``` purescript
-instance isForeignTouchEvent :: IsForeign TouchEvent
+IsForeign TouchEvent
 ```
 
 #### `touchEventToEvent`
@@ -1085,7 +1085,7 @@ data TransitionEvent :: *
 
 ##### Instances
 ``` purescript
-instance isForeignTransitionEvent :: IsForeign TransitionEvent
+IsForeign TransitionEvent
 ```
 
 #### `transitionEventToEvent`
@@ -1108,7 +1108,7 @@ data UIEvent :: *
 
 ##### Instances
 ``` purescript
-instance isForeignUIEvent :: IsForeign UIEvent
+IsForeign UIEvent
 ```
 
 #### `uiEventToEvent`
@@ -1131,7 +1131,7 @@ data UserProximityEvent :: *
 
 ##### Instances
 ``` purescript
-instance isForeignUserProximityEvent :: IsForeign UserProximityEvent
+IsForeign UserProximityEvent
 ```
 
 #### `userProximityEventToEvent`
@@ -1154,7 +1154,7 @@ data WheelEvent :: *
 
 ##### Instances
 ``` purescript
-instance isForeignWheelEvent :: IsForeign WheelEvent
+IsForeign WheelEvent
 ```
 
 #### `wheelEventToEvent`

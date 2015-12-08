@@ -9,6 +9,7 @@ module DOM.HTML.Types
   , htmlDocumentToNode
   , htmlDocumentToEventTarget
   , readHTMLDocument
+  , Navigator()
   , HTMLElement()
   , htmlElementToElement
   , htmlElementToParentNode
@@ -56,6 +57,8 @@ readHTMLDocument = unsafeReadTagged "HTMLDocument"
 
 instance isForeignHTMLDocument :: IsForeign HTMLDocument where
   read = readHTMLDocument
+
+foreign import data Navigator :: *
 
 foreign import data HTMLElement :: *
 

@@ -12,11 +12,11 @@ data EventPhase
 
 ##### Instances
 ``` purescript
-instance eqEventPhase :: Eq EventPhase
-instance ordEventPhase :: Ord EventPhase
-instance boundedEventPhase :: Bounded EventPhase
-instance boundedOrdEventPhase :: BoundedOrd EventPhase
-instance enumEventPhase :: Enum EventPhase
+Eq EventPhase
+Ord EventPhase
+Bounded EventPhase
+BoundedOrd EventPhase
+Enum EventPhase
 ```
 
 

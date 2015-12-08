@@ -8,3 +8,9 @@ exports.document = function (window) {
     return window.document;
   };
 };
+
+exports.navigator = function (window) {
+  return function () {
+    return window.navigator;
+  };
+};

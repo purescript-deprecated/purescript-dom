@@ -6,3 +6,5 @@ import DOM
 import DOM.HTML.Types
 
 foreign import document :: forall eff. Window -> Eff (dom :: DOM | eff) HTMLDocument
+
+foreign import navigator :: forall eff. Window -> Eff (dom :: DOM | eff) Navigator
