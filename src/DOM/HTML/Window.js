@@ -14,3 +14,9 @@ exports.navigator = function (window) {
     return window.navigator;
   };
 };
+
+exports.location = function (window) {
+  return function () {
+    return window.location;
+  };
+};

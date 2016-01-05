@@ -17,6 +17,7 @@ module DOM.HTML.Types
   , htmlElementToNode
   , htmlElementToEventTarget
   , readHTMLElement
+  , Location()
   ) where
 
 import Prelude
@@ -84,3 +85,5 @@ readHTMLElement = _readHTMLElement (Left <<< TypeMismatch "HTMLElement") Right
 
 instance isForeignHTMLElement :: IsForeign HTMLElement where
   read = readHTMLElement
+
+foreign import data Location :: *
