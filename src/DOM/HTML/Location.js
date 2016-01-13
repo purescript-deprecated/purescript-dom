@@ -9,8 +9,8 @@ exports.hash = function (location) {
   };
 };
 
-exports.setHash = function (location) {
-  return function (hash) {
+exports.setHash = function (hash) {
+  return function (location) {
     return function () {
       location.hash = hash;
     };
@@ -23,8 +23,8 @@ exports.host = function (location) {
   };
 };
 
-exports.setHost = function (location) {
-  return function (host) {
+exports.setHost = function (host) {
+  return function (location) {
     return function () {
       location.host = host;
     };
@@ -37,8 +37,8 @@ exports.hostname = function (location) {
   };
 };
 
-exports.setHostname = function (location) {
-  return function (hostname) {
+exports.setHostname = function (hostname) {
+  return function (location) {
     return function () {
       location.hostname = hostname;
     };
@@ -51,8 +51,8 @@ exports.href = function (location) {
   };
 };
 
-exports.setHref = function (location) {
-  return function (href) {
+exports.setHref = function (href) {
+  return function (location) {
     return function () {
       location.href = href;
     };
@@ -65,8 +65,8 @@ exports.origin = function (location) {
   };
 };
 
-exports.setOrigin = function (location) {
-  return function (origin) {
+exports.setOrigin = function (origin) {
+  return function (location) {
     return function () {
       location.origin = origin;
     };
@@ -79,8 +79,8 @@ exports.pathname = function (location) {
   };
 };
 
-exports.setPathname = function (location) {
-  return function (pathname) {
+exports.setPathname = function (pathname) {
+  return function (location) {
     return function () {
       location.pathname = pathname;
     };
@@ -93,8 +93,8 @@ exports.port = function (location) {
   };
 };
 
-exports.setPort = function (location) {
-  return function (port) {
+exports.setPort = function (port) {
+  return function (location) {
     return function () {
       location.port = port;
     };
@@ -107,8 +107,8 @@ exports.protocol = function (location) {
   };
 };
 
-exports.setProtocol = function (location) {
-  return function (protocol) {
+exports.setProtocol = function (protocol) {
+  return function (location) {
     return function () {
       location.protocol = protocol;
     };
@@ -121,24 +121,24 @@ exports.search = function (location) {
   };
 };
 
-exports.setSearch = function (location) {
-  return function (search) {
+exports.setSearch = function (search) {
+  return function (location) {
     return function () {
       location.search = search;
     };
   };
 };
 
-exports.assign = function (location) {
-  return function (url) {
+exports.assign = function (url) {
+  return function (location) {
     return function () {
       location.assign(url);
     };
   };
 };
 
-exports.replace = function (location) {
-  return function (url) {
+exports.replace = function (url) {
+  return function (location) {
     return function () {
       location.replace(url);
     };
@@ -146,9 +146,7 @@ exports.replace = function (location) {
 };
 
 exports.reload = function (location) {
-  return function (args) {
-    return function() {
-      location.reload(args.forceGet);
-    };
+  return function() {
+    location.reload();
   };
 };
