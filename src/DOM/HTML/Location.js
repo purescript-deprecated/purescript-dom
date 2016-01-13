@@ -9,9 +9,25 @@ exports.hash = function (location) {
   };
 };
 
+exports.setHash = function (location) {
+  return function (hash) {
+    return function () {
+      location.hash = hash;
+    };
+  };
+};
+
 exports.host = function (location) {
   return function () {
     return location.host;
+  };
+};
+
+exports.setHost = function (location) {
+  return function (host) {
+    return function () {
+      location.host = host;
+    };
   };
 };
 
@@ -21,9 +37,25 @@ exports.hostname = function (location) {
   };
 };
 
+exports.setHostname = function (location) {
+  return function (hostname) {
+    return function () {
+      location.hostname = hostname;
+    };
+  };
+};
+
 exports.href = function (location) {
   return function () {
     return location.href;
+  };
+};
+
+exports.setHref = function (location) {
+  return function (href) {
+    return function () {
+      location.href = href;
+    };
   };
 };
 
@@ -33,9 +65,25 @@ exports.origin = function (location) {
   };
 };
 
+exports.setOrigin = function (location) {
+  return function (origin) {
+    return function () {
+      location.origin = origin;
+    };
+  };
+};
+
 exports.pathname = function (location) {
   return function () {
     return location.pathname;
+  };
+};
+
+exports.setPathname = function (location) {
+  return function (pathname) {
+    return function () {
+      location.pathname = pathname;
+    };
   };
 };
 
@@ -45,14 +93,62 @@ exports.port = function (location) {
   };
 };
 
+exports.setPort = function (location) {
+  return function (port) {
+    return function () {
+      location.port = port;
+    };
+  };
+};
+
 exports.protocol = function (location) {
   return function () {
     return location.protocol;
   };
 };
 
+exports.setProtocol = function (location) {
+  return function (protocol) {
+    return function () {
+      location.protocol = protocol;
+    };
+  };
+};
+
 exports.search = function (location) {
   return function () {
     return location.search;
+  };
+};
+
+exports.setSearch = function (location) {
+  return function (search) {
+    return function () {
+      location.search = search;
+    };
+  };
+};
+
+exports.assign = function (location) {
+  return function (url) {
+    return function () {
+      location.assign(url);
+    };
+  };
+};
+
+exports.replace = function (location) {
+  return function (url) {
+    return function () {
+      location.replace(url);
+    };
+  };
+};
+
+exports.reload = function (location) {
+  return function (args) {
+    return function() {
+      location.reload(args.forceGet);
+    };
   };
 };
