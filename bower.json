@@ -24,6 +24,8 @@
     "purescript-enums": "^0.7.0",
     "purescript-foreign": "^0.7.0",
     "purescript-exceptions": "~0.3.0",
-    "purescript-nullable": "~0.2.1"
+    "purescript-nullable": "~0.2.1",
+    "purescript-datetime": "~0.9.1",
+    "purescript-media-types": "~0.1.1"
   }
 }
