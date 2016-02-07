@@ -15,6 +15,7 @@ foreign import data NonDocumentTypeChildNode :: *
 foreign import data ChildNode :: *
 foreign import data NodeList :: *
 foreign import data HTMLCollection :: *
+foreign import data DOMTokenList :: *
 
 foreign import data Document :: *
 

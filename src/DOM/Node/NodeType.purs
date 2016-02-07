@@ -43,7 +43,7 @@ instance boundedNodeType :: Bounded NodeType where
 instance boundedOrdNodeType :: BoundedOrd NodeType
 
 instance enumNodeType :: Enum NodeType where
-  cardinality = Cardinality 4
+  cardinality = Cardinality 12
   succ = defaultSucc toEnumNodeType fromEnumNodeType
   pred = defaultPred toEnumNodeType fromEnumNodeType
   toEnum = toEnumNodeType
