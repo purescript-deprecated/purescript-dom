@@ -16,7 +16,7 @@ exports.appendString = function(form) {
 	};
 };
 
-exports.appendFile = function(form) {
+exports.appendWithName = function(form) {
 	return function( key) {
 		return function( val) {
 			return function( name) {
@@ -27,13 +27,3 @@ exports.appendFile = function(form) {
 	};
 };
 
-exports.appendBlob = function(form) {
-	return function( key) {
-		return function( val) {
-			return function( name) {
-				form.append( key, val, name);
-				return {};
-			};
-		};
-	};
-};
