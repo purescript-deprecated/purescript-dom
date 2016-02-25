@@ -4,8 +4,8 @@ import Control.Monad.Eff (Eff())
 
 import Data.Nullable (Nullable())
 
-import DOM
-import DOM.Node.Types
+import DOM (DOM())
+import DOM.Node.Types (NodeList(), ParentNode(), Element(), HTMLCollection())
 
 -- | The child elements for the node.
 foreign import children :: forall eff. ParentNode -> Eff (dom :: DOM | eff) HTMLCollection

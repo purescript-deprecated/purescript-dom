@@ -17,6 +17,8 @@ exports.setHash = function (hash) {
   };
 };
 
+// ----------------------------------------------------------------------------
+
 exports.host = function (location) {
   return function () {
     return location.host;
@@ -30,6 +32,8 @@ exports.setHost = function (host) {
     };
   };
 };
+
+// ----------------------------------------------------------------------------
 
 exports.hostname = function (location) {
   return function () {
@@ -45,6 +49,8 @@ exports.setHostname = function (hostname) {
   };
 };
 
+// ----------------------------------------------------------------------------
+
 exports.href = function (location) {
   return function () {
     return location.href;
@@ -58,6 +64,8 @@ exports.setHref = function (href) {
     };
   };
 };
+
+// ----------------------------------------------------------------------------
 
 exports.origin = function (location) {
   return function () {
@@ -73,6 +81,8 @@ exports.setOrigin = function (origin) {
   };
 };
 
+// ----------------------------------------------------------------------------
+
 exports.pathname = function (location) {
   return function () {
     return location.pathname;
@@ -86,6 +96,8 @@ exports.setPathname = function (pathname) {
     };
   };
 };
+
+// ----------------------------------------------------------------------------
 
 exports.port = function (location) {
   return function () {
@@ -101,6 +113,8 @@ exports.setPort = function (port) {
   };
 };
 
+// ----------------------------------------------------------------------------
+
 exports.protocol = function (location) {
   return function () {
     return location.protocol;
@@ -114,6 +128,8 @@ exports.setProtocol = function (protocol) {
     };
   };
 };
+
+// ----------------------------------------------------------------------------
 
 exports.search = function (location) {
   return function () {
@@ -129,6 +145,8 @@ exports.setSearch = function (search) {
   };
 };
 
+// ----------------------------------------------------------------------------
+
 exports.assign = function (url) {
   return function (location) {
     return function () {
@@ -137,6 +155,8 @@ exports.assign = function (url) {
   };
 };
 
+// ----------------------------------------------------------------------------
+
 exports.replace = function (url) {
   return function (location) {
     return function () {
@@ -144,6 +164,8 @@ exports.replace = function (url) {
     };
   };
 };
+
+// ----------------------------------------------------------------------------
 
 exports.reload = function (location) {
   return function() {
