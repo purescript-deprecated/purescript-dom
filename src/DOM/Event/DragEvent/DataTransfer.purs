@@ -1,6 +1,6 @@
 module DOM.Event.DragEvent.DataTransfer where
 
-import DOM.File.Types (FileList)
+import DOM.File.Types (FileList())
 
 foreign import data DataTransfer :: *
 

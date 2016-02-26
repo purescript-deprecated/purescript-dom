@@ -7,8 +7,6 @@ module DOM.HTML.HTMLMediaElement.CanPlayType
   ) where
 
 import Prelude
-import Data.Maybe (Maybe(..))
-import Data.Enum (Enum, Cardinality(..), defaultSucc, defaultPred)
 
 newtype CanPlayType = CanPlayType String
 
