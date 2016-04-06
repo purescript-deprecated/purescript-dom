@@ -124,7 +124,7 @@ exports.lookupNamespaceURI = function (ns) {
   };
 };
 
-exports.lookupNamespaceURI = function (ns) {
+exports.isDefaultNamespace = function (ns) {
   return function (node) {
     return function () {
       return node.isDefaultNamespace(ns);

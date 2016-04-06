@@ -131,9 +131,9 @@ exports.setDisabled = function (disabled) {
 
 // ----------------------------------------------------------------------------
 
-exports.input = function (input) {
+exports.form = function (input) {
   return function () {
-    return input.input;
+    return input.form;
   };
 };
 
@@ -585,46 +585,6 @@ exports["stepDown'"] = function (n) {
   return function (input) {
     return function () {
       input.stepDown(n);
-    };
-  };
-};
-
-// ----------------------------------------------------------------------------
-
-exports.length = function (input) {
-  return function () {
-    return input.length;
-  };
-};
-
-exports.setLength = function (length) {
-  return function (input) {
-    return function () {
-      input.length = length;
-    };
-  };
-};
-
-// ----------------------------------------------------------------------------
-
-exports.selectedOptions = function (input) {
-  return function () {
-    return input.selectedOptions;
-  };
-};
-
-// ----------------------------------------------------------------------------
-
-exports.selectedIndex = function (input) {
-  return function () {
-    return input.selectedIndex;
-  };
-};
-
-exports.setSelectedIndex = function (selectedIndex) {
-  return function (input) {
-    return function () {
-      input.selectedIndex = selectedIndex;
     };
   };
 };

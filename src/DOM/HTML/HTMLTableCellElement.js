@@ -9,7 +9,7 @@ exports.colSpan = function (cell) {
   };
 };
 
-exports.setSpan = function (colSpan) {
+exports.setColSpan = function (colSpan) {
   return function (cell) {
     return function () {
       cell.colSpan = colSpan;
