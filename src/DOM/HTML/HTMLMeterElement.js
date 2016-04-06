@@ -73,7 +73,7 @@ exports.high = function (meter) {
   };
 };
 
-exports.setLow = function (high) {
+exports.setHigh = function (high) {
   return function (meter) {
     return function () {
       meter.high = high;
@@ -89,7 +89,7 @@ exports.optimum = function (meter) {
   };
 };
 
-exports.setLow = function (optimum) {
+exports.setOptimum = function (optimum) {
   return function (meter) {
     return function () {
       meter.optimum = optimum;

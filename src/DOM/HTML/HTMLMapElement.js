@@ -9,7 +9,7 @@ exports.name = function (map) {
   };
 };
 
-exports.setDisabled = function (name) {
+exports.setName = function (name) {
   return function (map) {
     return function () {
       map.name = name;
