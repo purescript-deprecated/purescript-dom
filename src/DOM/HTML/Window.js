@@ -20,3 +20,15 @@ exports.location = function (window) {
     return window.location;
   };
 };
+
+exports.innerWidth = function (window) {
+  return function () {
+    return window.innerWidth;
+  };
+};
+
+exports.innerHeight = function (window) {
+  return function () {
+    return window.innerHeight;
+  };
+};
