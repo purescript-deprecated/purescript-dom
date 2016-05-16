@@ -88,3 +88,12 @@ exports.getAttribute = function (name) {
     };
   };
 };
+
+exports.removeAttribute = function (name) {
+  return function (element) {
+    return function () {
+      element.removeAttribute(name);
+      return {};
+    };
+  };
+};

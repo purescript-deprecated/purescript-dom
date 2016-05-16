@@ -25,3 +25,4 @@ foreign import getElementsByClassName :: forall eff. String -> Element -> Eff (d
 
 foreign import setAttribute :: forall eff. String -> String -> Element -> Eff (dom :: DOM | eff) Unit
 foreign import getAttribute :: forall eff. String -> Element -> Eff (dom :: DOM | eff) (Nullable String)
+foreign import removeAttribute :: forall eff. String -> Element -> Eff (dom :: DOM | eff) Unit
