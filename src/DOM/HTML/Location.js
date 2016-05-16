@@ -1,4 +1,3 @@
-/* global exports */
 "use strict";
 
 // module DOM.HTML.Location
@@ -168,7 +167,7 @@ exports.replace = function (url) {
 // ----------------------------------------------------------------------------
 
 exports.reload = function (location) {
-  return function() {
+  return function () {
     location.reload();
   };
 };

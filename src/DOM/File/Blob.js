@@ -1,5 +1,7 @@
+"use strict";
+
 // module DOM.File.Blob
 
-exports.typeImpl = function(blob) { return blob.type };
+exports.typeImpl = function (blob) { return blob.type; };
 
-exports.size = function(blob) { return blob.size };
+exports.size = function (blob) { return blob.size; };

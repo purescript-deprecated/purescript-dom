@@ -1,4 +1,3 @@
-/* global exports */
 "use strict";
 
 // module DOM.HTML.HTMLTextAreaElement
@@ -387,7 +386,7 @@ exports["setRangeText'"] = function (replacement) {
       return function (selectionMode) {
         return function (textarea) {
           return function () {
-            textarea.setRangeText(replacement);
+            textarea.setRangeText(replacement, start, end, selectionMode);
           };
         };
       };
@@ -402,7 +401,7 @@ exports.setSelectionRange = function (start) {
     return function (direction) {
       return function (textarea) {
         return function () {
-          textarea.setRangeText(replacement);
+          textarea.setSelectionRange(start, end, direction);
         };
       };
     };

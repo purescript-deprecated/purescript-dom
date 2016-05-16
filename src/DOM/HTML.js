@@ -1,4 +1,4 @@
-/* global exports, window */
+/* global window */
 "use strict";
 
 // module DOM.HTML
