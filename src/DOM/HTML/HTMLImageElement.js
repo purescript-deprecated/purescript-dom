@@ -1,4 +1,4 @@
-/* global exports, Image */
+/* global Image */
 "use strict";
 
 // module DOM.HTML.HTMLImageElement

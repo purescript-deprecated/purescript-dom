@@ -1,4 +1,3 @@
-/* global exports */
 "use strict";
 
 // module DOM.HTML.HTMLInputElement
@@ -727,7 +726,7 @@ exports["setRangeText'"] = function (replacement) {
       return function (selectionMode) {
         return function (input) {
           return function () {
-            input.setRangeText(replacement);
+            input.setRangeText(replacement, start, end, selectionMode, input);
           };
         };
       };
@@ -742,7 +741,7 @@ exports.setSelectionRange = function (start) {
     return function (direction) {
       return function (input) {
         return function () {
-          input.setRangeText(replacement);
+          input.setSelectionRange(start, end, direction, input);
         };
       };
     };

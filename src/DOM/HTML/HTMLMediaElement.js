@@ -1,4 +1,3 @@
-/* global exports */
 "use strict";
 
 // module DOM.HTML.HTMLMediaElement
@@ -218,7 +217,6 @@ exports.play = function (media) {
     media.play();
   };
 };
-
 
 // ----------------------------------------------------------------------------
 

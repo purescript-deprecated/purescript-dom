@@ -1,4 +1,4 @@
-/* global exports, EventTarget */
+/* global EventTarget */
 "use strict";
 
 // module DOM.Event.Types
