@@ -1,7 +1,5 @@
 "use strict";
 
-// module DOM.HTML.HTMLOutputElement
-
 exports.form = function (output) {
   return function () {
     return output.form;

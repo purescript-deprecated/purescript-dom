@@ -1,7 +1,5 @@
 "use strict";
 
-// module DOM.Node.NonDocumentTypeChildNode
-
 exports.previousElementSibling = function (node) {
   return function () {
     return node.previousElementSibling;

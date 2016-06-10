@@ -1,14 +1,14 @@
 module DOM.HTML.HTMLSelectElement where
 
-import Prelude (Unit())
+import Prelude (Unit)
 
-import Control.Monad.Eff (Eff())
+import Control.Monad.Eff (Eff)
 
-import Data.Nullable (Nullable())
+import Data.Nullable (Nullable)
 
-import DOM (DOM())
-import DOM.HTML.Types (HTMLSelectElement(), HTMLFormElement(), ValidityState())
-import DOM.Node.Types (NodeList(), HTMLCollection())
+import DOM (DOM)
+import DOM.HTML.Types (HTMLSelectElement, HTMLFormElement, ValidityState)
+import DOM.Node.Types (NodeList, HTMLCollection)
 
 foreign import autofocus :: forall eff. HTMLSelectElement -> Eff (dom :: DOM | eff) Boolean
 foreign import setAutofocus :: forall eff. Boolean -> HTMLSelectElement -> Eff (dom :: DOM | eff) Unit

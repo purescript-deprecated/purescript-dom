@@ -1,7 +1,5 @@
 "use strict";
 
-// module DOM.HTML.HTMLInputElement
-
 exports.accept = function (input) {
   return function () {
     return input.accept;

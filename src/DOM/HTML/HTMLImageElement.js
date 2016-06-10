@@ -1,8 +1,6 @@
 /* global Image */
 "use strict";
 
-// module DOM.HTML.HTMLImageElement
-
 exports.create = function () {
   return function () {
     return new Image();

@@ -2,7 +2,7 @@ module DOM.Node.NodeType (NodeType(..)) where
 
 import Prelude
 import Data.Maybe (Maybe(..))
-import Data.Enum (Enum, Cardinality(..), defaultSucc, defaultPred)
+import Data.Enum (class Enum, class BoundedEnum, Cardinality(..), defaultSucc, defaultPred)
 
 data NodeType
   = ElementNode
@@ -18,20 +18,7 @@ data NodeType
   | DocumentFragmentNode
   | NotationNode
 
-instance eqNodeType :: Eq NodeType where
-  eq ElementNode ElementNode = true
-  eq AttributeNode AttributeNode = true
-  eq TextNode TextNode = true
-  eq CDATASectionNode CDATASectionNode = true
-  eq EntityReferenceNode EntityReferenceNode = true
-  eq EntityNode EntityNode = true
-  eq ProcessingInstructionNode ProcessingInstructionNode = true
-  eq CommentNode CommentNode = true
-  eq DocumentNode DocumentNode = true
-  eq DocumentTypeNode DocumentTypeNode = true
-  eq DocumentFragmentNode DocumentFragmentNode = true
-  eq NotationNode NotationNode = true
-  eq _ _ = false
+derive instance eqNodeType :: Eq NodeType
 
 instance ordNodeType :: Ord NodeType where
   compare x y = compare (fromEnumNodeType x) (fromEnumNodeType y)
@@ -40,12 +27,12 @@ instance boundedNodeType :: Bounded NodeType where
   bottom = ElementNode
   top = NotationNode
 
-instance boundedOrdNodeType :: BoundedOrd NodeType
-
 instance enumNodeType :: Enum NodeType where
-  cardinality = Cardinality 12
   succ = defaultSucc toEnumNodeType fromEnumNodeType
   pred = defaultPred toEnumNodeType fromEnumNodeType
+
+instance boundedEnumNodeType :: BoundedEnum NodeType where
+  cardinality = Cardinality 12
   toEnum = toEnumNodeType
   fromEnum = fromEnumNodeType
 

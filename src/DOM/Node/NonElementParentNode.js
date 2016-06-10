@@ -1,7 +1,5 @@
 "use strict";
 
-// module DOM.Node.NonElementParentNode
-
 exports.getElementById = function (id) {
   return function (node) {
     return function () {

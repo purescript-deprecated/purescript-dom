@@ -1,7 +1,5 @@
 "use strict";
 
-// module DOM.HTML.HTMLObjectElement
-
 exports.data_ = function (object) {
   return function () {
     return object.data;

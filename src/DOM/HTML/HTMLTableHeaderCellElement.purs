@@ -1,11 +1,11 @@
 module DOM.HTML.HTMLTableHeaderCellElement where
 
-import Prelude (Unit())
+import Prelude (Unit)
 
-import Control.Monad.Eff (Eff())
+import Control.Monad.Eff (Eff)
 
-import DOM (DOM())
-import DOM.HTML.Types (HTMLTableHeaderCellElement())
+import DOM (DOM)
+import DOM.HTML.Types (HTMLTableHeaderCellElement)
 
 foreign import scope :: forall eff. HTMLTableHeaderCellElement -> Eff (dom :: DOM | eff) String
 foreign import setScope :: forall eff. String -> HTMLTableHeaderCellElement -> Eff (dom :: DOM | eff) Unit

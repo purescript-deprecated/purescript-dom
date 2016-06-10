@@ -1,11 +1,11 @@
 module DOM.HTML.HTMLVideoElement where
 
-import Prelude (Unit())
+import Prelude (Unit)
 
-import Control.Monad.Eff (Eff())
+import Control.Monad.Eff (Eff)
 
-import DOM (DOM())
-import DOM.HTML.Types (HTMLVideoElement())
+import DOM (DOM)
+import DOM.HTML.Types (HTMLVideoElement)
 
 foreign import width :: forall eff. HTMLVideoElement -> Eff (dom :: DOM | eff) Int
 foreign import setWidth :: forall eff. Int -> HTMLVideoElement -> Eff (dom :: DOM | eff) Unit

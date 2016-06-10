@@ -1,7 +1,5 @@
 "use strict";
 
-// module DOM.HTML.HTMLOListElement
-
 exports.reversed = function (ol) {
   return function () {
     return ol.reversed;

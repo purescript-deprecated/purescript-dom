@@ -14,16 +14,13 @@ module DOM.Event.Event
   ) where
 
 import Prelude
-
-import Control.Monad.Eff (Eff())
-
+import Control.Monad.Eff (Eff)
 import Data.Enum (toEnum)
-import qualified Data.Maybe.Unsafe as U
-
-import DOM
-import DOM.Event.EventPhase
-import DOM.Event.Types
-import DOM.Node.Types
+import Data.Maybe (fromJust)
+import DOM (DOM)
+import DOM.Event.EventPhase (EventPhase)
+import DOM.Event.Types (Event, EventType)
+import DOM.Node.Types (Node)
 
 -- | The event type.
 foreign import type_ :: Event -> EventType
@@ -36,8 +33,8 @@ foreign import currentTarget :: Event -> Node
 
 -- | Indicates which phase of the event flow that is currently being processed
 -- | for the event.
-eventPhase :: Event -> EventPhase
-eventPhase = U.fromJust <<< toEnum <<< eventPhaseIndex
+eventPhase :: Partial => Event -> EventPhase
+eventPhase = fromJust <<< toEnum <<< eventPhaseIndex
 
 -- | The integer value for the current event phase.
 foreign import eventPhaseIndex :: Event -> Int

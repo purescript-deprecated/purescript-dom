@@ -1,7 +1,5 @@
 "use strict";
 
-// module DOM.HTML.HTMLOptGroupElement
-
 exports.disabled = function (optgroup) {
   return function () {
     return optgroup.disabled;

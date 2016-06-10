@@ -1,7 +1,5 @@
 "use strict";
 
-// module DOM.HTML.HTMLTableRowElement
-
 exports.rowIndex = function (row) {
   return function () {
     return row.rowIndex;

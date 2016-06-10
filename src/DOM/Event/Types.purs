@@ -1,164 +1,162 @@
 module DOM.Event.Types
-  ( Event()
+  ( Event
   , EventType(..)
-  , EventTarget()
+  , EventTarget
   , readEventTarget
-  , AnimationEvent()
+  , AnimationEvent
   , animationEventToEvent
   , readAnimationEvent
-  , AudioProcessingEvent()
+  , AudioProcessingEvent
   , audioProcessingEventToEvent
   , readAudioProcessingEvent
-  , BeforeInputEvent()
+  , BeforeInputEvent
   , beforeInputEventToEvent
   , readBeforeInputEvent
-  , BeforeUnloadEvent()
+  , BeforeUnloadEvent
   , beforeUnloadEventToEvent
   , readBeforeUnloadEvent
-  , BlobEvent()
+  , BlobEvent
   , blobEventToEvent
   , readBlobEvent
-  , ClipboardEvent()
+  , ClipboardEvent
   , clipboardEventToEvent
   , readClipboardEvent
-  , CloseEvent()
+  , CloseEvent
   , closeEventToEvent
   , readCloseEvent
-  , CompositionEvent()
+  , CompositionEvent
   , compositionEventToEvent
   , readCompositionEvent
-  , CSSFontFaceLoadEvent()
+  , CSSFontFaceLoadEvent
   , cssFontFaceLoadEventToEvent
   , readCSSFontFaceLoadEvent
-  , CustomEvent()
+  , CustomEvent
   , customEventToEvent
   , readCustomEvent
-  , DeviceLightEvent()
+  , DeviceLightEvent
   , deviceLightEventToEvent
   , readDeviceLightEvent
-  , DeviceMotionEvent()
+  , DeviceMotionEvent
   , deviceMotionEventToEvent
   , readDeviceMotionEvent
-  , DeviceOrientationEvent()
+  , DeviceOrientationEvent
   , deviceOrientationEventToEvent
   , readDeviceOrientationEvent
-  , DeviceProximityEvent()
+  , DeviceProximityEvent
   , deviceProximityEventToEvent
   , readDeviceProximityEvent
-  , DOMTransactionEvent()
+  , DOMTransactionEvent
   , domTransactionEventToEvent
   , readDOMTransactionEvent
-  , DragEvent()
+  , DragEvent
   , dragEventToEvent
   , readDragEvent
-  , EditingBeforeInputEvent()
+  , EditingBeforeInputEvent
   , editingBeforeInputEventToEvent
   , readEditingBeforeInputEvent
-  , ErrorEvent()
+  , ErrorEvent
   , errorEventToEvent
   , readErrorEvent
-  , FetchEvent()
+  , FetchEvent
   , fetchEventToEvent
   , readFetchEvent
-  , FocusEvent()
+  , FocusEvent
   , focusEventToEvent
   , readFocusEvent
-  , GamepadEvent()
+  , GamepadEvent
   , gamepadEventToEvent
   , readGamepadEvent
-  , HashChangeEvent()
+  , HashChangeEvent
   , hashChangeEventToEvent
   , readHashChangeEvent
-  , IDBVersionChangeEvent()
+  , IDBVersionChangeEvent
   , idbVersionChangeEventToEvent
   , readIDBVersionChangeEvent
-  , InputEvent()
+  , InputEvent
   , inputEventToEvent
   , readInputEvent
-  , KeyboardEvent()
+  , KeyboardEvent
   , keyboardEventToEvent
   , readKeyboardEvent
-  , MediaStreamEvent()
+  , MediaStreamEvent
   , mediaStreamEventToEvent
   , readMediaStreamEvent
-  , MessageEvent()
+  , MessageEvent
   , messageEventToEvent
   , readMessageEvent
-  , MouseEvent()
+  , MouseEvent
   , mouseEventToEvent
   , readMouseEvent
-  , MutationEvent()
+  , MutationEvent
   , mutationEventToEvent
   , readMutationEvent
-  , OfflineAudioCompletionEvent()
+  , OfflineAudioCompletionEvent
   , offlineAudioCompletionEventToEvent
   , readOfflineAudioCompletionEvent
-  , PageTransitionEvent()
+  , PageTransitionEvent
   , pageTransitionEventToEvent
   , readPageTransitionEvent
-  , PointerEvent()
+  , PointerEvent
   , pointerEventToEvent
   , readPointerEvent
-  , PopStateEvent()
+  , PopStateEvent
   , popStateEventToEvent
   , readPopStateEvent
-  , ProgressEvent()
+  , ProgressEvent
   , progressEventToEvent
   , readProgressEvent
-  , RelatedEvent()
+  , RelatedEvent
   , relatedEventToEvent
   , readRelatedEvent
-  , RTCDataChannelEvent()
+  , RTCDataChannelEvent
   , rtcDataChannelEventToEvent
   , readRTCDataChannelEvent
-  , RTCIdentityErrorEvent()
+  , RTCIdentityErrorEvent
   , rtcIdentityErrorEventToEvent
   , readRTCIdentityErrorEvent
-  , RTCIdentityEvent()
+  , RTCIdentityEvent
   , rtcIdentityEventToEvent
   , readRTCIdentityEvent
-  , RTCPeerConnectionIceEvent()
+  , RTCPeerConnectionIceEvent
   , rtcPeerConnectionIceEventToEvent
   , readRTCPeerConnectionIceEvent
-  , SensorEvent()
+  , SensorEvent
   , sensorEventToEvent
   , readSensorEvent
-  , StorageEvent()
+  , StorageEvent
   , storageEventToEvent
   , readStorageEvent
-  , SVGEvent()
+  , SVGEvent
   , svgEventToEvent
   , readSVGEvent
-  , SVGZoomEvent()
+  , SVGZoomEvent
   , svgZoomEventToEvent
   , readSVGZoomEvent
-  , TimeEvent()
+  , TimeEvent
   , timeEventToEvent
   , readTimeEvent
-  , TouchEvent()
+  , TouchEvent
   , touchEventToEvent
   , readTouchEvent
-  , TransitionEvent()
+  , TransitionEvent
   , transitionEventToEvent
   , readTransitionEvent
-  , UIEvent()
+  , UIEvent
   , uiEventToEvent
   , readUIEvent
-  , UserProximityEvent()
+  , UserProximityEvent
   , userProximityEventToEvent
   , readUserProximityEvent
-  , WheelEvent()
+  , WheelEvent
   , wheelEventToEvent
   , readWheelEvent
   ) where
 
 import Prelude
-
 import Data.Either (Either(..))
-import Data.Foreign (Foreign(), F(), unsafeReadTagged)
-import Data.Foreign.Class (IsForeign)
-
-import qualified Unsafe.Coerce as U
+import Data.Foreign (Foreign, F, unsafeReadTagged)
+import Data.Foreign.Class (class IsForeign)
+import Unsafe.Coerce as U
 
 -- | Basic type for all DOM events.
 foreign import data Event :: *
@@ -166,11 +164,9 @@ foreign import data Event :: *
 -- | The type of strings used for event types.
 newtype EventType = EventType String
 
-instance eqEventType :: Eq EventType where
-  eq (EventType x) (EventType y) = x == y
+derive instance eqEventType :: Eq EventType
 
-instance ordEventType :: Ord EventType where
-  compare (EventType x) (EventType y) = compare x y
+derive instance ordEventType :: Ord EventType
 
 -- | A DOM item that can emit events.
 foreign import data EventTarget :: *
@@ -178,7 +174,11 @@ foreign import data EventTarget :: *
 readEventTarget :: Foreign -> F EventTarget
 readEventTarget = _readEventTarget Left Right
 
-foreign import _readEventTarget :: (forall a b. a -> Either a b) -> (forall a b. b -> Either a b) -> Foreign -> F EventTarget
+foreign import _readEventTarget ::
+  (forall a b. a -> Either a b) ->
+  (forall a b. b -> Either a b) ->
+  Foreign ->
+  F EventTarget
 
 instance isForeignEventTarget :: IsForeign EventTarget where
   read = readEventTarget

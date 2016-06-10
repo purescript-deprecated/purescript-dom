@@ -1,7 +1,5 @@
 "use strict";
 
-// module DOM.HTML.HTMLMapElement
-
 exports.name = function (map) {
   return function () {
     return map.name;

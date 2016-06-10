@@ -1,7 +1,5 @@
 "use strict";
 
-// module DOM.HTML.HTMLEmbedElement
-
 exports.src = function (embed) {
   return function () {
     return embed.src;

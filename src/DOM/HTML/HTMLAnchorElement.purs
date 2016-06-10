@@ -1,12 +1,12 @@
 module DOM.HTML.HTMLAnchorElement where
 
-import Prelude (Unit())
+import Prelude (Unit)
 
-import Control.Monad.Eff (Eff())
+import Control.Monad.Eff (Eff)
 
-import DOM (DOM())
-import DOM.HTML.Types (HTMLAnchorElement())
-import DOM.Node.Types (DOMTokenList())
+import DOM (DOM)
+import DOM.HTML.Types (HTMLAnchorElement)
+import DOM.Node.Types (DOMTokenList)
 
 foreign import target :: forall eff. HTMLAnchorElement -> Eff (dom :: DOM | eff) String
 foreign import setTarget :: forall eff. String -> HTMLAnchorElement -> Eff (dom :: DOM | eff) Unit

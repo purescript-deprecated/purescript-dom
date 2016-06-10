@@ -1,7 +1,5 @@
 "use strict";
 
-// module DOM.Node.ParentNode
-
 var getEffProp = function (name) {
   return function (node) {
     return function () {

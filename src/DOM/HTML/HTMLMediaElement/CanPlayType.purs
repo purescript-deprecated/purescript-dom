@@ -1,5 +1,5 @@
 module DOM.HTML.HTMLMediaElement.CanPlayType
-  ( CanPlayType()
+  ( CanPlayType
   , runCanPlayType
   , unspecified
   , maybe

@@ -1,12 +1,12 @@
 module DOM.HTML.HTMLProgressElement where
 
-import Prelude (Unit())
+import Prelude (Unit)
 
-import Control.Monad.Eff (Eff())
+import Control.Monad.Eff (Eff)
 
-import DOM (DOM())
-import DOM.HTML.Types (HTMLProgressElement())
-import DOM.Node.Types (NodeList())
+import DOM (DOM)
+import DOM.HTML.Types (HTMLProgressElement)
+import DOM.Node.Types (NodeList)
 
 foreign import value :: forall eff. HTMLProgressElement -> Eff (dom :: DOM | eff) Number
 foreign import setValue :: forall eff. Number -> HTMLProgressElement -> Eff (dom :: DOM | eff) Unit

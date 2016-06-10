@@ -1,13 +1,9 @@
 module DOM.Node.HTMLCollection where
 
-import Prelude
-
-import Control.Monad.Eff (Eff())
-
-import Data.Nullable (Nullable())
-
-import DOM
-import DOM.Node.Types
+import Control.Monad.Eff (Eff)
+import Data.Nullable (Nullable)
+import DOM (DOM)
+import DOM.Node.Types (Element, HTMLCollection, ElementId)
 
 -- | The number of elements in a HTMLCollection.
 foreign import length :: forall eff. HTMLCollection -> Eff (dom :: DOM | eff) Int

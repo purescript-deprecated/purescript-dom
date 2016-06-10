@@ -1,7 +1,5 @@
 "use strict";
 
-// module DOM.HTML.HTMLTableHeaderCellElement
-
 exports.scope = function (cell) {
   return function () {
     return cell.scope;

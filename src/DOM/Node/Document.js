@@ -1,7 +1,5 @@
 "use strict";
 
-// module DOM.Node.Document
-
 var getEffProp = function (name) {
   return function (doc) {
     return function () {

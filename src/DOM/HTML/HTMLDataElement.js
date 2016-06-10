@@ -1,7 +1,5 @@
 "use strict";
 
-// module DOM.HTML.HTMLDataElement
-
 exports.value = function (data) {
   return function () {
     return data.value;

@@ -23,12 +23,10 @@ module DOM.HTML.Location
   , reload
   ) where
 
-import Control.Monad.Eff (Eff())
-
 import Prelude
-
-import DOM
-import DOM.HTML.Types
+import Control.Monad.Eff (Eff)
+import DOM (DOM)
+import DOM.HTML.Types (Location)
 
 foreign import hash :: forall eff. Location -> Eff (dom :: DOM | eff) String
 foreign import setHash :: forall eff. String -> Location -> Eff (dom :: DOM | eff) Unit

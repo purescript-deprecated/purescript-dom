@@ -1,7 +1,5 @@
 "use strict";
 
-// module DOM.HTML.HTMLStyleElement
-
 exports.disabled = function (style) {
   return function () {
     return style.disabled;

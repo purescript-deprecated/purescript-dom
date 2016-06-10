@@ -1,11 +1,11 @@
 module DOM.HTML.HTMLScriptElement where
 
-import Prelude (Unit())
+import Prelude (Unit)
 
-import Control.Monad.Eff (Eff())
+import Control.Monad.Eff (Eff)
 
-import DOM (DOM())
-import DOM.HTML.Types (HTMLScriptElement())
+import DOM (DOM)
+import DOM.HTML.Types (HTMLScriptElement)
 
 foreign import src :: forall eff. HTMLScriptElement -> Eff (dom :: DOM | eff) String
 foreign import setSrc :: forall eff. String -> HTMLScriptElement -> Eff (dom :: DOM | eff) Unit

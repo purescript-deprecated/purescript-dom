@@ -1,7 +1,5 @@
 "use strict";
 
-// module DOM.Event.EventTarget
-
 exports.eventListener = function (fn) {
   return function (event) {
     return fn(event)();

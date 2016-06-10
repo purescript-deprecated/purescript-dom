@@ -3,8 +3,8 @@ module DOM.File.FileList
   , length
   ) where
 
-import Data.Nullable (Nullable())
-import DOM.File.Types (FileList(), File())
+import Data.Nullable (Nullable)
+import DOM.File.Types (FileList, File)
 
 -- | Number of files in the `FileList` object.
 foreign import length :: FileList -> Int

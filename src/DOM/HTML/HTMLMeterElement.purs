@@ -1,12 +1,12 @@
 module DOM.HTML.HTMLMeterElement where
 
-import Prelude (Unit())
+import Prelude (Unit)
 
-import Control.Monad.Eff (Eff())
+import Control.Monad.Eff (Eff)
 
-import DOM (DOM())
-import DOM.HTML.Types (HTMLMeterElement())
-import DOM.Node.Types (NodeList())
+import DOM (DOM)
+import DOM.HTML.Types (HTMLMeterElement)
+import DOM.Node.Types (NodeList)
 
 foreign import value :: forall eff. HTMLMeterElement -> Eff (dom :: DOM | eff) Number
 foreign import setValue :: forall eff. Number -> HTMLMeterElement -> Eff (dom :: DOM | eff) Unit

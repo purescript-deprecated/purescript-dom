@@ -1,7 +1,5 @@
 "use strict";
 
-// module DOM.HTML.HTMLMetaElement
-
 exports.name = function (meta) {
   return function () {
     return meta.name;

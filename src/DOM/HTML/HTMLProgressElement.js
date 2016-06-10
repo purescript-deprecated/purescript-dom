@@ -1,7 +1,5 @@
 "use strict";
 
-// module DOM.HTML.HTMLProgressElement
-
 exports.value = function (progress) {
   return function () {
     return progress.value;

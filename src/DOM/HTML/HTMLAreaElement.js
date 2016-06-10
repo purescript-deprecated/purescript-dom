@@ -1,7 +1,5 @@
 "use strict";
 
-// module DOM.HTML.HTMLAreaElement
-
 exports.alt = function (area) {
   return function () {
     return area.alt;

@@ -1,11 +1,11 @@
 module DOM.HTML.HTMLMetaElement where
 
-import Prelude (Unit())
+import Prelude (Unit)
 
-import Control.Monad.Eff (Eff())
+import Control.Monad.Eff (Eff)
 
-import DOM (DOM())
-import DOM.HTML.Types (HTMLMetaElement())
+import DOM (DOM)
+import DOM.HTML.Types (HTMLMetaElement)
 
 foreign import name :: forall eff. HTMLMetaElement -> Eff (dom :: DOM | eff) String
 foreign import setName :: forall eff. String -> HTMLMetaElement -> Eff (dom :: DOM | eff) Unit

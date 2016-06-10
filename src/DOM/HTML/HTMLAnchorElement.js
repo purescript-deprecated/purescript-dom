@@ -1,7 +1,5 @@
 "use strict";
 
-// module DOM.HTML.HTMLAnchorElement
-
 exports.target = function (a) {
   return function () {
     return a.target;

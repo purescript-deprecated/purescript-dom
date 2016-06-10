@@ -1,10 +1,10 @@
 module DOM.XHR.FormData (FormDataValue(..), toFormData) where
 
-import Data.Foldable
-import Data.Tuple
-import DOM.File.Types
-import DOM.XHR.Types
 import Prelude
+import Data.Foldable (class Foldable, foldMap)
+import Data.Tuple (Tuple(..))
+import DOM.File.Types (Blob, File)
+import DOM.XHR.Types (FormData)
 
 -- | Possible values of a `FormData`.
 data FormDataValue = 

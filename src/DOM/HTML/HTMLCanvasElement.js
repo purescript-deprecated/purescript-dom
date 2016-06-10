@@ -1,7 +1,5 @@
 "use strict";
 
-// module DOM.HTML.HTMLCanvasElement
-
 exports.width = function (canvas) {
   return function () {
     return canvas.width;

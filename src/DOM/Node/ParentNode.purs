@@ -1,11 +1,11 @@
 module DOM.Node.ParentNode where
 
-import Control.Monad.Eff (Eff())
+import Control.Monad.Eff (Eff)
 
-import Data.Nullable (Nullable())
+import Data.Nullable (Nullable)
 
-import DOM (DOM())
-import DOM.Node.Types (NodeList(), ParentNode(), Element(), HTMLCollection())
+import DOM (DOM)
+import DOM.Node.Types (NodeList, ParentNode, Element, HTMLCollection)
 
 -- | The child elements for the node.
 foreign import children :: forall eff. ParentNode -> Eff (dom :: DOM | eff) HTMLCollection

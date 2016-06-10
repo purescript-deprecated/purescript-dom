@@ -1,11 +1,11 @@
 module DOM.HTML.HTMLEmbedElement where
 
-import Prelude (Unit())
+import Prelude (Unit)
 
-import Control.Monad.Eff (Eff())
+import Control.Monad.Eff (Eff)
 
-import DOM (DOM())
-import DOM.HTML.Types (HTMLEmbedElement())
+import DOM (DOM)
+import DOM.HTML.Types (HTMLEmbedElement)
 
 foreign import src :: forall eff. HTMLEmbedElement -> Eff (dom :: DOM | eff) String
 foreign import setSrc :: forall eff. String -> HTMLEmbedElement -> Eff (dom :: DOM | eff) Unit

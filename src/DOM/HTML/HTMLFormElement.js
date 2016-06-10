@@ -1,7 +1,5 @@
 "use strict";
 
-// module DOM.HTML.HTMLFormElement
-
 exports.acceptCharset = function (form) {
   return function () {
     return form.acceptCharset;

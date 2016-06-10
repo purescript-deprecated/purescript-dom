@@ -2,7 +2,7 @@ module DOM.HTML.HTMLTrackElement.ReadyState (ReadyState(..)) where
 
 import Prelude
 import Data.Maybe (Maybe(..))
-import Data.Enum (Enum, Cardinality(..), defaultSucc, defaultPred)
+import Data.Enum (class Enum, class BoundedEnum, Cardinality(..), defaultSucc, defaultPred)
 
 data ReadyState
   = NONE
@@ -10,12 +10,7 @@ data ReadyState
   | LOADED
   | ERROR
 
-instance eqReadyState :: Eq ReadyState where
-  eq NONE NONE = true
-  eq LOADING LOADING = true
-  eq LOADED LOADED = true
-  eq ERROR ERROR = true
-  eq _ _ = false
+derive instance eqReadyState :: Eq ReadyState
 
 instance ordReadyState :: Ord ReadyState where
   compare x y = compare (fromEnumReadyState x) (fromEnumReadyState y)
@@ -24,12 +19,12 @@ instance boundedReadyState :: Bounded ReadyState where
   bottom = NONE
   top = ERROR
 
-instance boundedOrdReadyState :: BoundedOrd ReadyState
-
 instance enumReadyState :: Enum ReadyState where
-  cardinality = Cardinality 4
   succ = defaultSucc toEnumReadyState fromEnumReadyState
   pred = defaultPred toEnumReadyState fromEnumReadyState
+
+instance boundedEnumReadyState :: BoundedEnum ReadyState where
+  cardinality = Cardinality 4
   toEnum = toEnumReadyState
   fromEnum = fromEnumReadyState
 
