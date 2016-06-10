@@ -1,11 +1,11 @@
 module DOM.HTML.HTMLCanvasElement where
 
-import Prelude (Unit())
+import Prelude (Unit)
 
-import Control.Monad.Eff (Eff())
+import Control.Monad.Eff (Eff)
 
-import DOM (DOM())
-import DOM.HTML.Types (HTMLCanvasElement())
+import DOM (DOM)
+import DOM.HTML.Types (HTMLCanvasElement)
 
 -- typedef (CanvasRenderingContext2D or WebGLRenderingContext) RenderingContext;
 

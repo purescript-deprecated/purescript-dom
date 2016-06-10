@@ -1,11 +1,8 @@
 -- http://www.w3.org/TR/dom
 module DOM.Node.Types where
 
-import Prelude
-
-import DOM.Event.Types
-
-import qualified Unsafe.Coerce as U
+import DOM.Event.Types (EventTarget)
+import Unsafe.Coerce (unsafeCoerce)
 
 foreign import data Node :: *
 
@@ -20,65 +17,67 @@ foreign import data DOMTokenList :: *
 foreign import data Document :: *
 
 documentToNonElementParentNode :: Document -> NonElementParentNode
-documentToNonElementParentNode = U.unsafeCoerce
+documentToNonElementParentNode = unsafeCoerce
 
 documentToParentNode :: Document -> ParentNode
-documentToParentNode = U.unsafeCoerce
+documentToParentNode = unsafeCoerce
 
 documentToNode :: Document -> Node
-documentToNode = U.unsafeCoerce
+documentToNode = unsafeCoerce
 
 documentToEventTarget :: Document -> EventTarget
-documentToEventTarget = U.unsafeCoerce
+documentToEventTarget = unsafeCoerce
 
 foreign import data Element :: *
 
 newtype ElementId = ElementId String
 
 elementToParentNode :: Element -> ParentNode
-elementToParentNode = U.unsafeCoerce
+elementToParentNode = unsafeCoerce
 
 elementToNonDocumentTypeChildNode :: Element -> NonDocumentTypeChildNode
-elementToNonDocumentTypeChildNode = U.unsafeCoerce
+elementToNonDocumentTypeChildNode = unsafeCoerce
 
 elementToNode :: Element -> Node
-elementToNode = U.unsafeCoerce
+elementToNode = unsafeCoerce
 
 elementToEventTarget :: Element -> EventTarget
-elementToEventTarget = U.unsafeCoerce
+elementToEventTarget = unsafeCoerce
 
 foreign import data CharacterData :: *
 
-characterDataToNonDocumentTypeChildNode :: CharacterData -> NonDocumentTypeChildNode
-characterDataToNonDocumentTypeChildNode = U.unsafeCoerce
+characterDataToNonDocumentTypeChildNode ::
+  CharacterData -> NonDocumentTypeChildNode
+characterDataToNonDocumentTypeChildNode = unsafeCoerce
 
 foreign import data Text :: *
 
 textToNode :: Text -> Node
-textToNode = U.unsafeCoerce
+textToNode = unsafeCoerce
 
 foreign import data Comment :: *
 
 commentToNode :: Comment -> Node
-commentToNode = U.unsafeCoerce
+commentToNode = unsafeCoerce
 
 foreign import data ProcessingInstruction :: *
 
 processingInstructionToNode :: ProcessingInstruction -> Node
-processingInstructionToNode = U.unsafeCoerce
+processingInstructionToNode = unsafeCoerce
 
 foreign import data DocumentFragment :: *
 
-documentFragmentToNonElementParentNode :: DocumentFragment -> NonElementParentNode
-documentFragmentToNonElementParentNode = U.unsafeCoerce
+documentFragmentToNonElementParentNode ::
+  DocumentFragment -> NonElementParentNode
+documentFragmentToNonElementParentNode = unsafeCoerce
 
 documentFragmentToParentNode :: DocumentFragment -> ParentNode
-documentFragmentToParentNode = U.unsafeCoerce
+documentFragmentToParentNode = unsafeCoerce
 
 documentFragmentToNode :: DocumentFragment -> Node
-documentFragmentToNode = U.unsafeCoerce
+documentFragmentToNode = unsafeCoerce
 
 foreign import data DocumentType :: *
 
 documentTypeToNode :: DocumentType -> Node
-documentTypeToNode = U.unsafeCoerce
+documentTypeToNode = unsafeCoerce

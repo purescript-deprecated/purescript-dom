@@ -1,14 +1,14 @@
 module DOM.HTML.HTMLKeygenElement where
 
-import Prelude (Unit())
+import Prelude (Unit)
 
-import Control.Monad.Eff (Eff())
+import Control.Monad.Eff (Eff)
 
-import Data.Nullable (Nullable())
+import Data.Nullable (Nullable)
 
-import DOM (DOM())
-import DOM.Node.Types (NodeList())
-import DOM.HTML.Types (HTMLKeygenElement(), HTMLFormElement(), ValidityState())
+import DOM (DOM)
+import DOM.Node.Types (NodeList)
+import DOM.HTML.Types (HTMLKeygenElement, HTMLFormElement, ValidityState)
 
 foreign import autofocus :: forall eff. HTMLKeygenElement -> Eff (dom :: DOM | eff) Boolean
 foreign import setAutofocus :: forall eff. Boolean -> HTMLKeygenElement -> Eff (dom :: DOM | eff) Unit

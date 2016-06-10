@@ -1,7 +1,5 @@
 "use strict";
 
-// module DOM.HTML.Types
-
 exports._readHTMLElement = function (failure) {
   return function (success) {
     return function (value) {

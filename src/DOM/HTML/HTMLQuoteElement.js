@@ -1,7 +1,5 @@
 "use strict";
 
-// module DOM.HTML.HTMLQuoteElement
-
 exports.cite = function (quote) {
   return function () {
     return quote.cite;

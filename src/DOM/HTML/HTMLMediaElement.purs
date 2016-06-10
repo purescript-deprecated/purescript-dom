@@ -1,18 +1,18 @@
 module DOM.HTML.HTMLMediaElement where
 
-import Prelude (Unit(), map, (<<<))
+import Prelude (Unit, map, (<<<))
 
-import Control.Monad.Eff (Eff())
+import Control.Monad.Eff (Eff)
 
-import Data.Date (JSDate())
+import Data.JSDate (JSDate)
 import Data.Enum (toEnum)
-import Data.Maybe.Unsafe as U
+import Data.Maybe (fromJust)
 
-import DOM (DOM())
-import DOM.HTML.HTMLMediaElement.CanPlayType (CanPlayType())
-import DOM.HTML.HTMLMediaElement.NetworkState (NetworkState())
-import DOM.HTML.HTMLMediaElement.ReadyState (ReadyState())
-import DOM.HTML.Types (HTMLMediaElement())
+import DOM (DOM)
+import DOM.HTML.HTMLMediaElement.CanPlayType (CanPlayType)
+import DOM.HTML.HTMLMediaElement.NetworkState (NetworkState)
+import DOM.HTML.HTMLMediaElement.ReadyState (ReadyState)
+import DOM.HTML.Types (HTMLMediaElement)
 
 --   readonly attribute MediaError? error;
 
@@ -24,8 +24,8 @@ foreign import currentSrc :: forall eff. HTMLMediaElement -> Eff (dom :: DOM | e
 foreign import crossOrigin :: forall eff. HTMLMediaElement -> Eff (dom :: DOM | eff) String
 foreign import setCrossOrigin :: forall eff. String -> HTMLMediaElement -> Eff (dom :: DOM | eff) Unit
 
-networkState :: forall eff. HTMLMediaElement -> Eff (dom :: DOM | eff) NetworkState
-networkState = map (U.fromJust <<< toEnum) <<< readyStateIndex
+networkState :: forall eff. Partial => HTMLMediaElement -> Eff (dom :: DOM | eff) NetworkState
+networkState = map (fromJust <<< toEnum) <<< readyStateIndex
 
 foreign import networkStateIndex :: forall eff. HTMLMediaElement -> Eff (dom :: DOM | eff) Int
 
@@ -38,8 +38,8 @@ foreign import load :: forall eff. HTMLMediaElement -> Eff (dom :: DOM | eff) Un
 
 foreign import canPlayType :: forall eff. String -> HTMLMediaElement -> Eff (dom :: DOM | eff) CanPlayType
 
-readyState :: forall eff. HTMLMediaElement -> Eff (dom :: DOM | eff) ReadyState
-readyState = map (U.fromJust <<< toEnum) <<< readyStateIndex
+readyState :: forall eff. Partial => HTMLMediaElement -> Eff (dom :: DOM | eff) ReadyState
+readyState = map (fromJust <<< toEnum) <<< readyStateIndex
 
 foreign import readyStateIndex :: forall eff. HTMLMediaElement -> Eff (dom :: DOM | eff) Int
 

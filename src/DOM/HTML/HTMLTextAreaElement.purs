@@ -1,15 +1,15 @@
 module DOM.HTML.HTMLTextAreaElement where
 
-import Prelude (Unit())
+import Prelude (Unit)
 
-import Control.Monad.Eff (Eff())
+import Control.Monad.Eff (Eff)
 
-import Data.Nullable (Nullable())
+import Data.Nullable (Nullable)
 
-import DOM (DOM())
-import DOM.HTML.SelectionMode (SelectionMode())
-import DOM.HTML.Types (HTMLTextAreaElement(), HTMLFormElement(), ValidityState())
-import DOM.Node.Types (NodeList())
+import DOM (DOM)
+import DOM.HTML.SelectionMode (SelectionMode)
+import DOM.HTML.Types (HTMLTextAreaElement, HTMLFormElement, ValidityState)
+import DOM.Node.Types (NodeList)
 
 foreign import autocomplete :: forall eff. HTMLTextAreaElement -> Eff (dom :: DOM | eff) String
 foreign import setAutocomplete :: forall eff. String -> HTMLTextAreaElement -> Eff (dom :: DOM | eff) Unit

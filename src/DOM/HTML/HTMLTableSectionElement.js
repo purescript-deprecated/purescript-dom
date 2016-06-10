@@ -1,7 +1,5 @@
 "use strict";
 
-// module DOM.HTML.HTMLTableSectionElement
-
 exports.rows = function (section) {
   return function () {
     return section.rows;

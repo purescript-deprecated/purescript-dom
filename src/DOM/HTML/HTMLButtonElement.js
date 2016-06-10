@@ -1,7 +1,5 @@
 "use strict";
 
-// module DOM.HTML.HTMLButtonElement
-
 exports.autofocus = function (button) {
   return function () {
     return button.autofocus;

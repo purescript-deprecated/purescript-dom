@@ -1,14 +1,14 @@
 module DOM.HTML.HTMLOutputElement where
 
-import Prelude (Unit())
+import Prelude (Unit)
 
-import Control.Monad.Eff (Eff())
+import Control.Monad.Eff (Eff)
 
-import Data.Nullable (Nullable())
+import Data.Nullable (Nullable)
 
-import DOM (DOM())
-import DOM.Node.Types (NodeList())
-import DOM.HTML.Types (HTMLOutputElement(), HTMLFormElement(), ValidityState())
+import DOM (DOM)
+import DOM.Node.Types (NodeList)
+import DOM.HTML.Types (HTMLOutputElement, HTMLFormElement, ValidityState)
 
 --   [PutForwards=value] readonly attribute DOMSettableTokenList htmlFor;
 

@@ -1,13 +1,13 @@
 module DOM.HTML.HTMLOptionElement where
 
-import Prelude (Unit())
+import Prelude (Unit)
 
-import Control.Monad.Eff (Eff())
+import Control.Monad.Eff (Eff)
 
-import Data.Nullable (Nullable())
+import Data.Nullable (Nullable)
 
-import DOM (DOM())
-import DOM.HTML.Types (HTMLOptionElement(), HTMLFormElement())
+import DOM (DOM)
+import DOM.HTML.Types (HTMLOptionElement, HTMLFormElement)
 
 -- [NamedConstructor=Option(optional DOMString text = "", optional DOMString value, optional boolean defaultSelected = false, optional boolean selected = false)]
 

@@ -1,7 +1,5 @@
 "use strict";
 
-// module DOM.HTML.HTMLLIElement
-
 exports.value = function (li) {
   return function () {
     return li.value;

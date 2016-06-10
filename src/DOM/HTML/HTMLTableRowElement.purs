@@ -1,12 +1,12 @@
 module DOM.HTML.HTMLTableRowElement where
 
-import Prelude (Unit(), negate)
+import Prelude (Unit, negate)
 
-import Control.Monad.Eff (Eff())
+import Control.Monad.Eff (Eff)
 
-import DOM (DOM())
-import DOM.HTML.Types (HTMLTableRowElement(), HTMLElement())
-import DOM.Node.Types (HTMLCollection())
+import DOM (DOM)
+import DOM.HTML.Types (HTMLTableRowElement, HTMLElement)
+import DOM.Node.Types (HTMLCollection)
 
 foreign import rowIndex :: forall eff. HTMLTableRowElement -> Eff (dom :: DOM | eff) Int
 

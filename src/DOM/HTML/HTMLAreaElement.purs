@@ -1,12 +1,12 @@
 module DOM.HTML.HTMLAreaElement where
 
-import Prelude (Unit())
+import Prelude (Unit)
 
-import Control.Monad.Eff (Eff())
+import Control.Monad.Eff (Eff)
 
-import DOM (DOM())
-import DOM.HTML.Types (HTMLAreaElement())
-import DOM.Node.Types (DOMTokenList())
+import DOM (DOM)
+import DOM.HTML.Types (HTMLAreaElement)
+import DOM.Node.Types (DOMTokenList)
 
 foreign import alt :: forall eff. HTMLAreaElement -> Eff (dom :: DOM | eff) String
 foreign import setAlt :: forall eff. String -> HTMLAreaElement -> Eff (dom :: DOM | eff) Unit

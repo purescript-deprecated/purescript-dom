@@ -1,14 +1,14 @@
 module DOM.HTML.HTMLIFrameElement where
 
-import Prelude (Unit())
+import Prelude (Unit)
 
-import Control.Monad.Eff (Eff())
+import Control.Monad.Eff (Eff)
 
-import Data.Nullable (Nullable())
+import Data.Nullable (Nullable)
 
-import DOM (DOM())
-import DOM.HTML.Types (HTMLIFrameElement())
-import DOM.Node.Types (Document())
+import DOM (DOM)
+import DOM.HTML.Types (HTMLIFrameElement)
+import DOM.Node.Types (Document)
 
 foreign import src :: forall eff. HTMLIFrameElement -> Eff (dom :: DOM | eff) String
 foreign import setSrc :: forall eff. String -> HTMLIFrameElement -> Eff (dom :: DOM | eff) Unit

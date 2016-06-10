@@ -1,7 +1,5 @@
 "use strict";
 
-// module DOM.HTML.HTMLKeygenElement
-
 exports.autofocus = function (keygen) {
   return function () {
     return keygen.autofocus;

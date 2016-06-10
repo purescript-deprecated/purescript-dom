@@ -1,11 +1,11 @@
 module DOM.HTML.HTMLImageElement where
 
-import Prelude (Unit())
+import Prelude (Unit)
 
-import Control.Monad.Eff (Eff())
+import Control.Monad.Eff (Eff)
 
-import DOM (DOM())
-import DOM.HTML.Types (HTMLImageElement())
+import DOM (DOM)
+import DOM.HTML.Types (HTMLImageElement)
 
 foreign import create :: forall eff. Unit -> Eff (dom :: DOM | eff) HTMLImageElement
 foreign import create' :: forall eff. Int -> Int -> Eff (dom :: DOM | eff) HTMLImageElement

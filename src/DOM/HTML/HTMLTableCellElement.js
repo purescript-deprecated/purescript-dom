@@ -1,7 +1,5 @@
 "use strict";
 
-// module DOM.HTML.HTMLTableCellElement
-
 exports.colSpan = function (cell) {
   return function () {
     return cell.colSpan;

@@ -1,17 +1,14 @@
 module DOM.HTML.HTMLInputElement where
 
-import Prelude (Unit())
-
-import Control.Monad.Eff (Eff())
-
-import Data.Date (JSDate())
-import Data.Nullable (Nullable())
-
-import DOM (DOM())
-import DOM.File.Types (FileList())
-import DOM.HTML.SelectionMode (SelectionMode())
-import DOM.HTML.Types (HTMLElement(), HTMLInputElement(), HTMLFormElement(), ValidityState())
-import DOM.Node.Types (NodeList())
+import Prelude (Unit)
+import Control.Monad.Eff (Eff)
+import Data.JSDate (JSDate)
+import Data.Nullable (Nullable)
+import DOM (DOM)
+import DOM.File.Types (FileList)
+import DOM.HTML.SelectionMode (SelectionMode)
+import DOM.HTML.Types (HTMLElement, HTMLInputElement, HTMLFormElement, ValidityState)
+import DOM.Node.Types (NodeList)
 
 foreign import accept :: forall eff. HTMLInputElement -> Eff (dom :: DOM | eff) Boolean
 foreign import setAccept :: forall eff. Boolean -> HTMLInputElement -> Eff (dom :: DOM | eff) Unit

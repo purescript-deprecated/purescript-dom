@@ -1,13 +1,9 @@
 module DOM.Node.NodeList where
 
-import Prelude
-
-import Control.Monad.Eff (Eff())
-
-import Data.Nullable (Nullable())
-
-import DOM
-import DOM.Node.Types
+import Control.Monad.Eff (Eff)
+import Data.Nullable (Nullable)
+import DOM (DOM)
+import DOM.Node.Types (Node, NodeList)
 
 -- | The number of items in a NodeList.
 foreign import length :: forall eff. NodeList -> Eff (dom :: DOM | eff) Int

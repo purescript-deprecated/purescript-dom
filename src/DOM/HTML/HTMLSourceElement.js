@@ -1,7 +1,5 @@
 "use strict";
 
-// module DOM.HTML.HTMLSourceElement
-
 exports.src = function (source) {
   return function () {
     return source.src;

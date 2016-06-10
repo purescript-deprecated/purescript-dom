@@ -1,7 +1,5 @@
 "use strict";
 
-// module DOM.HTML.HTMLBaseElement
-
 exports.href = function (base) {
   return function () {
     return base.href;

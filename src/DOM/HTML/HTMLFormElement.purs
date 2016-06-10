@@ -1,11 +1,11 @@
 module DOM.HTML.HTMLFormElement where
 
-import Prelude (Unit())
+import Prelude (Unit)
 
-import Control.Monad.Eff (Eff())
+import Control.Monad.Eff (Eff)
 
-import DOM (DOM())
-import DOM.HTML.Types (HTMLFormElement())
+import DOM (DOM)
+import DOM.HTML.Types (HTMLFormElement)
 
 foreign import acceptCharset :: forall eff. HTMLFormElement -> Eff (dom :: DOM | eff) String
 foreign import setAcceptCharset :: forall eff. String -> HTMLFormElement -> Eff (dom :: DOM | eff) Unit

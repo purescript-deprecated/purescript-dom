@@ -1,7 +1,5 @@
 "use strict";
 
-// module DOM.Node.HTMLCollection
-
 exports.length = function (list) {
   return function () {
     return list.length;

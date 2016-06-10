@@ -1,8 +1,7 @@
 module DOM.Event.EventPhase (EventPhase(..)) where
 
 import Prelude
-
-import Data.Enum (Enum, Cardinality(..), defaultSucc, defaultPred)
+import Data.Enum (class Enum, class BoundedEnum, Cardinality(..), defaultSucc, defaultPred)
 import Data.Maybe (Maybe(..))
 
 data EventPhase
@@ -11,12 +10,7 @@ data EventPhase
   | AtTarget
   | Bubbling
 
-instance eqEventPhase :: Eq EventPhase where
-  eq None None = true
-  eq Capturing Capturing = true
-  eq AtTarget AtTarget = true
-  eq Bubbling Bubbling = true
-  eq _ _ = false
+derive instance eqEventPhase :: Eq EventPhase
 
 instance ordEventPhase :: Ord EventPhase where
   compare x y = compare (fromEnumEventPhase x) (fromEnumEventPhase y)
@@ -25,12 +19,12 @@ instance boundedEventPhase :: Bounded EventPhase where
   bottom = None
   top = Bubbling
 
-instance boundedOrdEventPhase :: BoundedOrd EventPhase
-
 instance enumEventPhase :: Enum EventPhase where
-  cardinality = Cardinality 4
   succ = defaultSucc toEnumEventPhase fromEnumEventPhase
   pred = defaultPred toEnumEventPhase fromEnumEventPhase
+
+instance boundedEnumEventPhase :: BoundedEnum EventPhase where
+  cardinality = Cardinality 4
   toEnum = toEnumEventPhase
   fromEnum = fromEnumEventPhase
 

@@ -1,7 +1,5 @@
 "use strict";
 
-// module DOM.HTML.HTMLFieldSetElement
-
 exports.disabled = function (fieldset) {
   return function () {
     return fieldset.disabled;

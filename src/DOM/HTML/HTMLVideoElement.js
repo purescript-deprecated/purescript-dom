@@ -1,7 +1,5 @@
 "use strict";
 
-// module DOM.HTML.HTMLVideoElement
-
 // ----------------------------------------------------------------------------
 
 exports.width = function (video) {

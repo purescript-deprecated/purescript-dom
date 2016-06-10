@@ -1,7 +1,5 @@
 "use strict";
 
-// module DOM.HTML.Location
-
 exports.hash = function (location) {
   return function () {
     return location.hash;

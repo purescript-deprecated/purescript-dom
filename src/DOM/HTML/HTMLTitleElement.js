@@ -1,7 +1,5 @@
 "use strict";
 
-// module DOM.HTML.HTMLTitleElement
-
 exports.text = function (title) {
   return function () {
     return title.text;

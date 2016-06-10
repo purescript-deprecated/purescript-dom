@@ -1,13 +1,13 @@
 module DOM.HTML.HTMLFieldSetElement where
 
-import Prelude (Unit())
+import Prelude (Unit)
 
-import Control.Monad.Eff (Eff())
+import Control.Monad.Eff (Eff)
 
-import Data.Nullable (Nullable())
+import Data.Nullable (Nullable)
 
-import DOM (DOM())
-import DOM.HTML.Types (HTMLFieldSetElement(), HTMLFormElement(), ValidityState())
+import DOM (DOM)
+import DOM.HTML.Types (HTMLFieldSetElement, HTMLFormElement, ValidityState)
 
 foreign import disabled :: forall eff. HTMLFieldSetElement -> Eff (dom :: DOM | eff) Boolean
 foreign import setDisabled :: forall eff. Boolean -> HTMLFieldSetElement -> Eff (dom :: DOM | eff) Unit

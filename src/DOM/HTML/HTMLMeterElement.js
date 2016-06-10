@@ -1,7 +1,5 @@
 "use strict";
 
-// module DOM.HTML.HTMLMeterElement
-
 exports.value = function (meter) {
   return function () {
     return meter.value;

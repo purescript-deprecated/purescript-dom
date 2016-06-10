@@ -1,8 +1,6 @@
 /* global FormData */
 "use strict";
 
-// module DOM.XHR.FormData
-
 exports.newFormData = function () {
   return new FormData();
 };

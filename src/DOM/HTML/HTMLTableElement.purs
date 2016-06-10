@@ -1,14 +1,14 @@
 module DOM.HTML.HTMLTableElement where
 
-import Prelude (Unit(), negate)
+import Prelude (Unit, negate)
 
-import Control.Monad.Eff (Eff())
+import Control.Monad.Eff (Eff)
 
-import Data.Nullable (Nullable())
+import Data.Nullable (Nullable)
 
-import DOM (DOM())
-import DOM.HTML.Types (HTMLTableElement(), HTMLTableCaptionElement(), HTMLElement(), HTMLTableSectionElement())
-import DOM.Node.Types (HTMLCollection())
+import DOM (DOM)
+import DOM.HTML.Types (HTMLTableElement, HTMLTableCaptionElement, HTMLElement, HTMLTableSectionElement)
+import DOM.Node.Types (HTMLCollection)
 
 foreign import caption :: forall eff. HTMLTableElement -> Eff (dom :: DOM | eff) (Nullable HTMLTableCaptionElement)
 foreign import setCaption :: forall eff. Nullable HTMLTableCaptionElement -> HTMLTableElement -> Eff (dom :: DOM | eff) Unit

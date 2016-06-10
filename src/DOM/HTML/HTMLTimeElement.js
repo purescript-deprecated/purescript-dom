@@ -1,7 +1,5 @@
 "use strict";
 
-// module DOM.HTML.HTMLTimeElement
-
 exports.dateTime = function (time) {
   return function () {
     return time.dateTime;

@@ -1,7 +1,5 @@
 "use strict";
 
-// module DOM.HTML.HTMLTextAreaElement
-
 exports.autocomplete = function (textarea) {
   return function () {
     return textarea.autocomplete;

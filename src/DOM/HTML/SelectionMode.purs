@@ -1,5 +1,5 @@
 module DOM.HTML.SelectionMode
-  ( SelectionMode()
+  ( SelectionMode
   , runSelectionMode
   , select
   , start

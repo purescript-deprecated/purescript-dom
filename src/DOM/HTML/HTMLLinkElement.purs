@@ -1,12 +1,12 @@
 module DOM.HTML.HTMLLinkElement where
 
-import Prelude (Unit())
+import Prelude (Unit)
 
-import Control.Monad.Eff (Eff())
+import Control.Monad.Eff (Eff)
 
-import DOM (DOM())
-import DOM.HTML.Types (HTMLLinkElement())
-import DOM.Node.Types (DOMTokenList())
+import DOM (DOM)
+import DOM.HTML.Types (HTMLLinkElement)
+import DOM.Node.Types (DOMTokenList)
 
 foreign import disabled :: forall eff. HTMLLinkElement -> Eff (dom :: DOM | eff) Boolean
 foreign import setDisabled :: forall eff. Boolean -> HTMLLinkElement -> Eff (dom :: DOM | eff) Unit

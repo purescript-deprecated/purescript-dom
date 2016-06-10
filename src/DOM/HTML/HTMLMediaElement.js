@@ -1,7 +1,5 @@
 "use strict";
 
-// module DOM.HTML.HTMLMediaElement
-
 exports.src = function (media) {
   return function () {
     return media.src;

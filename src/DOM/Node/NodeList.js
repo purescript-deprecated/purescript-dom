@@ -1,7 +1,5 @@
 "use strict";
 
-// module DOM.Node.NodeList
-
 exports.length = function (list) {
   return function () {
     return list.length;

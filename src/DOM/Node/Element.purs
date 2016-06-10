@@ -1,13 +1,10 @@
 module DOM.Node.Element where
 
-import Prelude (Unit())
-
-import Control.Monad.Eff (Eff())
-
-import Data.Nullable (Nullable())
-
-import DOM
-import DOM.Node.Types
+import Prelude
+import Control.Monad.Eff (Eff)
+import Data.Nullable (Nullable)
+import DOM (DOM)
+import DOM.Node.Types (Element, HTMLCollection, ElementId)
 
 foreign import namespaceURI :: Element -> Nullable String
 foreign import prefix :: Element -> Nullable String

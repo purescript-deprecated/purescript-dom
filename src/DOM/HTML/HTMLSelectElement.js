@@ -1,7 +1,5 @@
 "use strict";
 
-// module DOM.HTML.HTMLSelectElement
-
 exports.autofocus = function (select) {
   return function () {
     return select.autofocus;

@@ -1,12 +1,12 @@
 module DOM.HTML.HTMLTableSectionElement where
 
-import Prelude (Unit(), negate)
+import Prelude (Unit, negate)
 
-import Control.Monad.Eff (Eff())
+import Control.Monad.Eff (Eff)
 
-import DOM (DOM())
-import DOM.HTML.Types (HTMLTableSectionElement(), HTMLElement())
-import DOM.Node.Types (HTMLCollection())
+import DOM (DOM)
+import DOM.HTML.Types (HTMLTableSectionElement, HTMLElement)
+import DOM.Node.Types (HTMLCollection)
 
 foreign import rows :: forall eff. HTMLTableSectionElement -> Eff (dom :: DOM | eff) HTMLCollection
 

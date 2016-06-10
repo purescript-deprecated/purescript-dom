@@ -1,7 +1,5 @@
 "use strict";
 
-// module DOM.Node.Element
-
 var getProp = function (name) {
   return function (doctype) {
     return doctype[name];

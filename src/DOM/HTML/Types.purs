@@ -1,220 +1,218 @@
 -- http://www.w3.org/TR/html5
 module DOM.HTML.Types
-  ( Navigator()
-  , Location()
-  , Window()
+  ( Navigator
+  , Location
+  , Window
   , windowToEventTarget
-  , HTMLDocument()
+  , HTMLDocument
   , htmlDocumentToDocument
   , htmlDocumentToNonElementParentNode
   , htmlDocumentToParentNode
   , htmlDocumentToNode
   , htmlDocumentToEventTarget
   , readHTMLDocument
-  , HTMLElement()
+  , HTMLElement
   , htmlElementToElement
   , htmlElementToParentNode
   , htmlElementToNonDocumentTypeChildNode
   , htmlElementToNode
   , htmlElementToEventTarget
   , readHTMLElement
-  , HTMLHtmlElement()
+  , HTMLHtmlElement
   , htmlHtmlElementToHTMLElement
   , readHTMLHtmlElement
-  , HTMLHeadElement()
+  , HTMLHeadElement
   , htmlHeadElementToHTMLElement
   , readHTMLHeadElement
-  , HTMLTitleElement()
+  , HTMLTitleElement
   , htmlTitleElementToHTMLElement
   , readHTMLTitleElement
-  , HTMLBaseElement()
+  , HTMLBaseElement
   , htmlBaseElementToHTMLElement
   , readHTMLBaseElement
-  , HTMLLinkElement()
+  , HTMLLinkElement
   , htmlLinkElementToHTMLElement
   , readHTMLLinkElement
-  , HTMLMetaElement()
+  , HTMLMetaElement
   , htmlMetaElementToHTMLElement
   , readHTMLMetaElement
-  , HTMLStyleElement()
+  , HTMLStyleElement
   , htmlStyleElementToHTMLElement
   , readHTMLStyleElement
-  , HTMLBodyElement()
+  , HTMLBodyElement
   , htmlBodyElementToHTMLElement
   , readHTMLBodyElement
-  , HTMLHeadingElement()
+  , HTMLHeadingElement
   , htmlHeadingElementToHTMLElement
   , readHTMLHeadingElement
-  , HTMLParagraphElement()
+  , HTMLParagraphElement
   , htmlParagraphElementToHTMLElement
   , readHTMLParagraphElement
-  , HTMLHRElement()
+  , HTMLHRElement
   , htmlHRElementToHTMLElement
   , readHTMLHRElement
-  , HTMLPreElement()
+  , HTMLPreElement
   , htmlPreElementToHTMLElement
   , readHTMLPreElement
-  , HTMLQuoteElement()
+  , HTMLQuoteElement
   , htmlQuoteElementToHTMLElement
   , readHTMLQuoteElement
-  , HTMLOListElement()
+  , HTMLOListElement
   , htmlOListElementToHTMLElement
   , readHTMLOListElement
-  , HTMLUListElement()
+  , HTMLUListElement
   , htmlUListElementToHTMLElement
   , readHTMLUListElement
-  , HTMLLIElement()
+  , HTMLLIElement
   , htmlLIElementToHTMLElement
   , readHTMLLIElement
-  , HTMLDListElement()
+  , HTMLDListElement
   , htmlDListElementToHTMLElement
   , readHTMLDListElement
-  , HTMLDivElement()
+  , HTMLDivElement
   , htmlDivElementToHTMLElement
   , readHTMLDivElement
-  , HTMLAnchorElement()
+  , HTMLAnchorElement
   , htmlAnchorElementToHTMLElement
   , readHTMLAnchorElement
-  , HTMLDataElement()
+  , HTMLDataElement
   , htmlDataElementToHTMLElement
   , readHTMLDataElement
-  , HTMLTimeElement()
+  , HTMLTimeElement
   , htmlTimeElementToHTMLElement
   , readHTMLTimeElement
-  , HTMLSpanElement()
+  , HTMLSpanElement
   , htmlSpanElementToHTMLElement
   , readHTMLSpanElement
-  , HTMLBRElement()
+  , HTMLBRElement
   , htmlBRElementToHTMLElement
   , readHTMLBRElement
-  , HTMLModElement()
+  , HTMLModElement
   , htmlModElementToHTMLElement
   , readHTMLModElement
-  , HTMLImageElement()
+  , HTMLImageElement
   , htmlImageElementToHTMLElement
   , readHTMLImageElement
-  , HTMLIFrameElement()
+  , HTMLIFrameElement
   , htmlIFrameElementToHTMLElement
   , readHTMLIFrameElement
-  , HTMLEmbedElement()
+  , HTMLEmbedElement
   , htmlEmbedElementToHTMLElement
   , readHTMLEmbedElement
-  , HTMLObjectElement()
+  , HTMLObjectElement
   , htmlObjectElementToHTMLElement
   , readHTMLObjectElement
-  , HTMLParamElement()
+  , HTMLParamElement
   , htmlParamElementToHTMLElement
   , readHTMLParamElement
-  , HTMLMediaElement()
+  , HTMLMediaElement
   , htmlMediaElementToHTMLElement
   , readHTMLMediaElement
-  , HTMLAudioElement()
+  , HTMLAudioElement
   , htmlAudioElementToHTMLMediaElement
   , readHTMLAudioElement
-  , HTMLVideoElement()
+  , HTMLVideoElement
   , htmlVideoElementToHTMLMediaElement
   , readHTMLVideoElement
-  , HTMLSourceElement()
+  , HTMLSourceElement
   , htmlSourceElementToHTMLElement
   , readHTMLSourceElement
-  , HTMLTrackElement()
+  , HTMLTrackElement
   , htmlTrackElementToHTMLElement
   , readHTMLTrackElement
-  , HTMLMapElement()
+  , HTMLMapElement
   , htmlMapElementToHTMLElement
   , readHTMLMapElement
-  , HTMLAreaElement()
+  , HTMLAreaElement
   , htmlAreaElementToHTMLElement
   , readHTMLAreaElement
-  , HTMLTableElement()
+  , HTMLTableElement
   , htmlTableElementToHTMLElement
   , readHTMLTableElement
-  , HTMLTableCaptionElement()
+  , HTMLTableCaptionElement
   , htmlTableCaptionElementToHTMLElement
   , readHTMLTableCaptionElement
-  , HTMLTableColElement()
+  , HTMLTableColElement
   , htmlTableColElementToHTMLElement
   , readHTMLTableColElement
-  , HTMLTableSectionElement()
+  , HTMLTableSectionElement
   , htmlTableSectionElementToHTMLElement
   , readHTMLTableSectionElement
-  , HTMLTableRowElement()
+  , HTMLTableRowElement
   , htmlTableRowElementToHTMLElement
   , readHTMLTableRowElement
-  , HTMLTableCellElement()
+  , HTMLTableCellElement
   , htmlTableCellElementToHTMLElement
   , readHTMLTableCellElement
-  , HTMLTableDataCellElement()
+  , HTMLTableDataCellElement
   , htmlTableDataCellElementToHTMLTableCellElement
   , readHTMLTableDataCellElement
-  , HTMLTableHeaderCellElement()
+  , HTMLTableHeaderCellElement
   , htmlTableHeaderCellElementToHTMLTableCellElement
   , readHTMLTableHeaderCellElement
-  , HTMLFormElement()
+  , HTMLFormElement
   , htmlFormElementToHTMLElement
   , readHTMLFormElement
-  , HTMLLabelElement()
+  , HTMLLabelElement
   , htmlLabelElementToHTMLElement
   , readHTMLLabelElement
-  , HTMLInputElement()
+  , HTMLInputElement
   , htmlInputElementToHTMLElement
   , readHTMLInputElement
-  , HTMLButtonElement()
+  , HTMLButtonElement
   , htmlButtonElementToHTMLElement
   , readHTMLButtonElement
-  , HTMLSelectElement()
+  , HTMLSelectElement
   , htmlSelectElementToHTMLElement
   , readHTMLSelectElement
-  , HTMLDataListElement()
+  , HTMLDataListElement
   , htmlDataListElementToHTMLElement
   , readHTMLDataListElement
-  , HTMLOptGroupElement()
+  , HTMLOptGroupElement
   , htmlOptGroupElementToHTMLElement
   , readHTMLOptGroupElement
-  , HTMLOptionElement()
+  , HTMLOptionElement
   , htmlOptionElementToHTMLElement
   , readHTMLOptionElement
-  , HTMLTextAreaElement()
+  , HTMLTextAreaElement
   , htmlTextAreaElementToHTMLElement
   , readHTMLTextAreaElement
-  , HTMLKeygenElement()
+  , HTMLKeygenElement
   , htmlKeygenElementToHTMLElement
   , readHTMLKeygenElement
-  , HTMLOutputElement()
+  , HTMLOutputElement
   , htmlOutputElementToHTMLElement
   , readHTMLOutputElement
-  , HTMLProgressElement()
+  , HTMLProgressElement
   , htmlProgressElementToHTMLElement
   , readHTMLProgressElement
-  , HTMLMeterElement()
+  , HTMLMeterElement
   , htmlMeterElementToHTMLElement
   , readHTMLMeterElement
-  , HTMLFieldSetElement()
+  , HTMLFieldSetElement
   , htmlFieldSetElementToHTMLElement
   , readHTMLFieldSetElement
-  , HTMLLegendElement()
+  , HTMLLegendElement
   , htmlLegendElementToHTMLElement
   , readHTMLLegendElement
-  , HTMLScriptElement()
+  , HTMLScriptElement
   , htmlScriptElementToHTMLElement
   , readHTMLScriptElement
-  , HTMLTemplateElement()
+  , HTMLTemplateElement
   , htmlTemplateElementToHTMLElement
   , readHTMLTemplateElement
-  , HTMLCanvasElement()
+  , HTMLCanvasElement
   , htmlCanvasElementToHTMLElement
   , readHTMLCanvasElement
-  , ValidityState()
+  , ValidityState
   ) where
 
-import Prelude ((<<<))
-
+import Prelude
 import Data.Either (Either(..))
-import Data.Foreign (Foreign(), F(), ForeignError(..), unsafeReadTagged)
-import Data.Foreign.Class (IsForeign)
-
-import DOM.Event.Types
-import DOM.Node.Types
+import Data.Foreign (Foreign, F, ForeignError(..), unsafeReadTagged)
+import Data.Foreign.Class (class IsForeign)
+import DOM.Event.Types (EventTarget)
+import DOM.Node.Types (Node, NonDocumentTypeChildNode, ParentNode, Element, NonElementParentNode, Document)
 
 import Unsafe.Coerce as U
 

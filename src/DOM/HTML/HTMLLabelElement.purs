@@ -1,13 +1,13 @@
 module DOM.HTML.HTMLLabelElement where
 
-import Prelude (Unit())
+import Prelude (Unit)
 
-import Control.Monad.Eff (Eff())
+import Control.Monad.Eff (Eff)
 
-import Data.Nullable (Nullable())
+import Data.Nullable (Nullable)
 
-import DOM (DOM())
-import DOM.HTML.Types (HTMLLabelElement(), HTMLFormElement(), HTMLElement())
+import DOM (DOM)
+import DOM.HTML.Types (HTMLLabelElement, HTMLFormElement, HTMLElement)
 
 foreign import form :: forall eff. HTMLLabelElement -> Eff (dom :: DOM | eff) (Nullable HTMLFormElement)
 

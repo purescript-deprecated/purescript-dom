@@ -1,14 +1,14 @@
 module DOM.HTML.HTMLButtonElement where
 
-import Prelude (Unit())
+import Prelude (Unit)
 
-import Control.Monad.Eff (Eff())
+import Control.Monad.Eff (Eff)
 
-import Data.Nullable (Nullable())
+import Data.Nullable (Nullable)
 
-import DOM (DOM())
-import DOM.Node.Types (NodeList())
-import DOM.HTML.Types (HTMLButtonElement(), HTMLFormElement(), ValidityState())
+import DOM (DOM)
+import DOM.Node.Types (NodeList)
+import DOM.HTML.Types (HTMLButtonElement, HTMLFormElement, ValidityState)
 
 foreign import autofocus :: forall eff. HTMLButtonElement -> Eff (dom :: DOM | eff) Boolean
 foreign import setAutofocus :: forall eff. Boolean -> HTMLButtonElement -> Eff (dom :: DOM | eff) Unit

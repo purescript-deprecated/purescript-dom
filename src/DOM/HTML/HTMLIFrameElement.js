@@ -1,7 +1,5 @@
 "use strict";
 
-// module DOM.HTML.HTMLIFrameElement
-
 exports.src = function (iframe) {
   return function () {
     return iframe.src;

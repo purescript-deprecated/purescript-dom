@@ -1,7 +1,5 @@
 "use strict";
 
-// module DOM.HTML.HTMLTrackElement
-
 exports.kind = function (track) {
   return function () {
     return track.kind;

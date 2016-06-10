@@ -1,14 +1,14 @@
 module DOM.HTML.HTMLObjectElement where
 
-import Prelude (Unit())
+import Prelude (Unit)
 
-import Control.Monad.Eff (Eff())
+import Control.Monad.Eff (Eff)
 
-import Data.Nullable (Nullable())
+import Data.Nullable (Nullable)
 
-import DOM (DOM())
-import DOM.HTML.Types (HTMLObjectElement(), HTMLFormElement(), ValidityState())
-import DOM.Node.Types (Document())
+import DOM (DOM)
+import DOM.HTML.Types (HTMLObjectElement, HTMLFormElement, ValidityState)
+import DOM.Node.Types (Document)
 
 foreign import data_ :: forall eff. HTMLObjectElement -> Eff (dom :: DOM | eff) String
 foreign import setData :: forall eff. String -> HTMLObjectElement -> Eff (dom :: DOM | eff) Unit

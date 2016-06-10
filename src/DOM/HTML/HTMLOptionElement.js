@@ -1,7 +1,5 @@
 "use strict";
 
-// module DOM.HTML.HTMLOptionElement
-
 exports.disabled = function (option) {
   return function () {
     return option.disabled;

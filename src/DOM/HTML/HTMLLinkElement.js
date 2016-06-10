@@ -1,7 +1,5 @@
 "use strict";
 
-// module DOM.HTML.HTMLLinkElement
-
 exports.disabled = function (link) {
   return function () {
     return link.disabled;

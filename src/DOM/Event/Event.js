@@ -1,7 +1,5 @@
 "use strict";
 
-// module DOM.Event.Event
-
 exports.bubbles = function (e) {
   return e.bubbles;
 };

@@ -1,7 +1,5 @@
 "use strict";
 
-// module DOM.HTML.HTMLTableElement
-
 exports.caption = function (table) {
   return function () {
     return table.caption;
