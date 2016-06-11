@@ -1,4 +1,4 @@
-module DOM.Event.EventPhase (EventPhase(..)) where
+module DOM.Event.EventPhase where
 
 import Prelude
 import Data.Enum (class Enum, class BoundedEnum, Cardinality(..), defaultSucc, defaultPred)
@@ -11,9 +11,7 @@ data EventPhase
   | Bubbling
 
 derive instance eqEventPhase :: Eq EventPhase
-
-instance ordEventPhase :: Ord EventPhase where
-  compare x y = compare (fromEnumEventPhase x) (fromEnumEventPhase y)
+derive instance ordEventPhase :: Ord EventPhase
 
 instance boundedEventPhase :: Bounded EventPhase where
   bottom = None
@@ -29,14 +27,18 @@ instance boundedEnumEventPhase :: BoundedEnum EventPhase where
   fromEnum = fromEnumEventPhase
 
 toEnumEventPhase :: Int -> Maybe EventPhase
-toEnumEventPhase 0 = Just None
-toEnumEventPhase 1 = Just Capturing
-toEnumEventPhase 2 = Just AtTarget
-toEnumEventPhase 3 = Just Bubbling
-toEnumEventPhase _ = Nothing
+toEnumEventPhase =
+  case _ of
+    0 -> Just None
+    1 -> Just Capturing
+    2 -> Just AtTarget
+    3 -> Just Bubbling
+    _ -> Nothing
 
 fromEnumEventPhase :: EventPhase -> Int
-fromEnumEventPhase None = 0
-fromEnumEventPhase Capturing = 1
-fromEnumEventPhase AtTarget = 2
-fromEnumEventPhase Bubbling = 3
+fromEnumEventPhase =
+  case _ of
+    None -> 0
+    Capturing -> 1
+    AtTarget -> 2
+    Bubbling -> 3

@@ -1,15 +1,13 @@
 "use strict";
 
-// module DOM.Event.CloseEvent
-
 exports.code = function (e) {
-  e.code;
+  return e.code;
 };
 
 exports.reason = function (e) {
-  e.reason;
+  return e.reason;
 };
 
 exports.wasClean = function (e) {
-  e.wasClean;
+  return e.wasClean;
 };

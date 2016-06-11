@@ -11,9 +11,7 @@ data NetworkState
   | NETWORK_NO_SOURCE
 
 derive instance eqNetworkState :: Eq NetworkState
-
-instance ordNetworkState :: Ord NetworkState where
-  compare x y = compare (fromEnumNetworkState x) (fromEnumNetworkState y)
+derive instance ordNetworkState :: Ord NetworkState
 
 instance boundedNetworkState :: Bounded NetworkState where
   bottom = NETWORK_EMPTY
@@ -35,14 +33,18 @@ instance showNetworkState :: Show NetworkState where
   show NETWORK_NO_SOURCE = "NETWORK_NO_SOURCE"
 
 toEnumNetworkState :: Int -> Maybe NetworkState
-toEnumNetworkState 0 = Just NETWORK_EMPTY
-toEnumNetworkState 1 = Just NETWORK_IDLE
-toEnumNetworkState 2 = Just NETWORK_LOADING
-toEnumNetworkState 3 = Just NETWORK_NO_SOURCE
-toEnumNetworkState _ = Nothing
+toEnumNetworkState =
+  case _ of
+    0 -> Just NETWORK_EMPTY
+    1 -> Just NETWORK_IDLE
+    2 -> Just NETWORK_LOADING
+    3 -> Just NETWORK_NO_SOURCE
+    _ -> Nothing
 
 fromEnumNetworkState :: NetworkState -> Int
-fromEnumNetworkState NETWORK_EMPTY = 0
-fromEnumNetworkState NETWORK_IDLE = 1
-fromEnumNetworkState NETWORK_LOADING = 2
-fromEnumNetworkState NETWORK_NO_SOURCE = 3
+fromEnumNetworkState =
+  case _ of
+    NETWORK_EMPTY -> 0
+    NETWORK_IDLE -> 1
+    NETWORK_LOADING -> 2
+    NETWORK_NO_SOURCE -> 3

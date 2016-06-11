@@ -12,9 +12,7 @@ data ReadyState
   | HAVE_ENOUGH_DATA
 
 derive instance eqReadyState :: Eq ReadyState
-
-instance ordReadyState :: Ord ReadyState where
-  compare x y = compare (fromEnumReadyState x) (fromEnumReadyState y)
+derive instance ordReadyState :: Ord ReadyState
 
 instance boundedReadyState :: Bounded ReadyState where
   bottom = HAVE_NOTHING
@@ -37,16 +35,20 @@ instance showReadyState :: Show ReadyState where
   show HAVE_ENOUGH_DATA = "HAVE_ENOUGH_DATA"
 
 toEnumReadyState :: Int -> Maybe ReadyState
-toEnumReadyState 0 = Just HAVE_NOTHING
-toEnumReadyState 1 = Just HAVE_METADATA
-toEnumReadyState 2 = Just HAVE_CURRENT_DATA
-toEnumReadyState 3 = Just HAVE_FUTURE_DATA
-toEnumReadyState 4 = Just HAVE_ENOUGH_DATA
-toEnumReadyState _ = Nothing
+toEnumReadyState =
+  case _ of
+    0 -> Just HAVE_NOTHING
+    1 -> Just HAVE_METADATA
+    2 -> Just HAVE_CURRENT_DATA
+    3 -> Just HAVE_FUTURE_DATA
+    4 -> Just HAVE_ENOUGH_DATA
+    _ -> Nothing
 
 fromEnumReadyState :: ReadyState -> Int
-fromEnumReadyState HAVE_NOTHING = 0
-fromEnumReadyState HAVE_METADATA = 1
-fromEnumReadyState HAVE_CURRENT_DATA = 2
-fromEnumReadyState HAVE_FUTURE_DATA = 3
-fromEnumReadyState HAVE_ENOUGH_DATA = 4
+fromEnumReadyState =
+  case _ of
+    HAVE_NOTHING -> 0
+    HAVE_METADATA -> 1
+    HAVE_CURRENT_DATA -> 2
+    HAVE_FUTURE_DATA -> 3
+    HAVE_ENOUGH_DATA -> 4

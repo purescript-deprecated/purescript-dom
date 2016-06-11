@@ -1,4 +1,4 @@
-module DOM.Event.EventTypes where
+module DOM.HTML.Event.EventTypes where
 
 import DOM.Event.Types (EventType(..))
 
@@ -14,23 +14,11 @@ animationiteration = EventType "animationiteration"
 animationstart :: EventType
 animationstart = EventType "animationstart"
 
-audioprocess :: EventType
-audioprocess = EventType "audioprocess"
-
-beforeprint :: EventType
-beforeprint = EventType "beforeprint"
-
 beforeunload :: EventType
 beforeunload = EventType "beforeunload"
 
 blur :: EventType
 blur = EventType "blur"
-
-canplay :: EventType
-canplay = EventType "canplay"
-
-canplaythrough :: EventType
-canplaythrough = EventType "canplaythrough"
 
 change :: EventType
 change = EventType "change"
@@ -52,12 +40,6 @@ compositionupdate = EventType "compositionupdate"
 
 contextmenu :: EventType
 contextmenu = EventType "contextmenu"
-
-copy :: EventType
-copy = EventType "copy"
-
-cut :: EventType
-cut = EventType "cut"
 
 dblclick :: EventType
 dblclick = EventType "dblclick"
@@ -83,35 +65,17 @@ dragstart = EventType "dragstart"
 drop :: EventType
 drop = EventType "drop"
 
-durationchange :: EventType
-durationchange = EventType "durationchange"
-
-emptied :: EventType
-emptied = EventType "emptied"
-
-ended :: EventType
-ended = EventType "ended"
-
 error :: EventType
 error = EventType "error"
 
 focus :: EventType
 focus = EventType "focus"
 
-fullscreenchange :: EventType
-fullscreenchange = EventType "fullscreenchange"
-
-fullscreenerror :: EventType
-fullscreenerror = EventType "fullscreenerror"
-
 hashchange :: EventType
 hashchange = EventType "hashchange"
 
 input :: EventType
 input = EventType "input"
-
-invalid :: EventType
-invalid = EventType "invalid"
 
 keydown :: EventType
 keydown = EventType "keydown"
@@ -169,9 +133,6 @@ pagehide = EventType "pagehide"
 
 pageshow :: EventType
 pageshow = EventType "pageshow"
-
-paste :: EventType
-paste = EventType "paste"
 
 pause :: EventType
 pause = EventType "pause"
@@ -256,12 +217,6 @@ unload = EventType "unload"
 
 visibilitychange :: EventType
 visibilitychange = EventType "visibilitychange"
-
-volumechange :: EventType
-volumechange = EventType "volumechange"
-
-waiting :: EventType
-waiting = EventType "waiting"
 
 wheel :: EventType
 wheel = EventType "wheel"

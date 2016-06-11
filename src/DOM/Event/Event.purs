@@ -1,16 +1,6 @@
 module DOM.Event.Event
-  ( bubbles
-  , cancelable
-  , currentTarget
-  , defaultPrevented
-  , eventPhase
-  , eventPhaseIndex
-  , target
-  , timeStamp
-  , type_
-  , preventDefault
-  , stopImmediatePropagation
-  , stopPropagation
+  ( module DOM.Event.Event
+  , module T
   ) where
 
 import Prelude
@@ -20,6 +10,7 @@ import Data.Maybe (fromJust)
 import DOM (DOM)
 import DOM.Event.EventPhase (EventPhase)
 import DOM.Event.Types (Event, EventType)
+import DOM.Event.Types (Event) as T
 import DOM.Node.Types (Node)
 
 -- | The event type.
@@ -41,11 +32,17 @@ foreign import eventPhaseIndex :: Event -> Int
 
 -- | Prevents the event from bubbling up to futher event listeners. Other event
 -- | listeners on the current target will still fire.
-foreign import stopPropagation :: forall eff. Event -> Eff (dom :: DOM | eff) Unit
+foreign import stopPropagation
+  :: forall eff
+   . Event
+  -> Eff (dom :: DOM | eff) Unit
 
 -- | Prevents all other listeners for the event from being called. This includes
 -- | event listeners added to the current target after the current listener.
-foreign import stopImmediatePropagation :: forall eff. Event -> Eff (dom :: DOM | eff) Unit
+foreign import stopImmediatePropagation
+  :: forall eff
+   . Event
+  -> Eff (dom :: DOM | eff) Unit
 
 -- | Indicates whether the event will bubble up through the DOM or not.
 foreign import bubbles :: Event -> Boolean
@@ -54,7 +51,10 @@ foreign import bubbles :: Event -> Boolean
 foreign import cancelable :: Event -> Boolean
 
 -- | Cancels the event if it can be cancelled.
-foreign import preventDefault :: forall eff. Event -> Eff (dom :: DOM | eff) Unit
+foreign import preventDefault
+  :: forall eff
+   . Event
+  -> Eff (dom :: DOM | eff) Unit
 
 -- | Indicates whether `preventDefault` was called on the event.
 foreign import defaultPrevented :: Event -> Boolean

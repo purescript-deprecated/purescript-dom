@@ -1,4 +1,4 @@
-module DOM.HTML.HTMLTrackElement.ReadyState (ReadyState(..)) where
+module DOM.HTML.HTMLTrackElement.ReadyState where
 
 import Prelude
 import Data.Maybe (Maybe(..))
@@ -11,9 +11,7 @@ data ReadyState
   | ERROR
 
 derive instance eqReadyState :: Eq ReadyState
-
-instance ordReadyState :: Ord ReadyState where
-  compare x y = compare (fromEnumReadyState x) (fromEnumReadyState y)
+derive instance ordReadyState :: Ord ReadyState
 
 instance boundedReadyState :: Bounded ReadyState where
   bottom = NONE
@@ -35,14 +33,18 @@ instance showReadyState :: Show ReadyState where
   show ERROR = "ERROR"
 
 toEnumReadyState :: Int -> Maybe ReadyState
-toEnumReadyState 0 = Just NONE
-toEnumReadyState 1 = Just LOADING
-toEnumReadyState 2 = Just LOADED
-toEnumReadyState 3 = Just ERROR
-toEnumReadyState _ = Nothing
+toEnumReadyState =
+  case _ of
+    0 -> Just NONE
+    1 -> Just LOADING
+    2 -> Just LOADED
+    3 -> Just ERROR
+    _ -> Nothing
 
 fromEnumReadyState :: ReadyState -> Int
-fromEnumReadyState NONE = 0
-fromEnumReadyState LOADING = 1
-fromEnumReadyState LOADED = 2
-fromEnumReadyState ERROR = 3
+fromEnumReadyState =
+  case _ of
+    NONE -> 0
+    LOADING -> 1
+    LOADED -> 2
+    ERROR -> 3

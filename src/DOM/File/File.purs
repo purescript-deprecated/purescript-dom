@@ -1,6 +1,4 @@
-module DOM.File.File
-  ( name
-  ) where
+module DOM.File.File where
 
 import Prelude
 import DOM.File.Blob as Blob

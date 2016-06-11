@@ -3,17 +3,17 @@
 // module DOM.Event.ErrorEvent
 
 exports.message = function (e) {
-  e.message;
+  return e.message;
 };
 
 exports.fileName = function (e) {
-  e.filename;
+  return e.filename;
 };
 
 exports.lineNo = function (e) {
-  e.lineno;
+  return e.lineno;
 };
 
 exports.colNo = function (e) {
-  e.colno;
+  return e.colno;
 };

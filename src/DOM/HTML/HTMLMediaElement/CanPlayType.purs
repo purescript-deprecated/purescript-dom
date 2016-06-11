@@ -13,11 +13,8 @@ newtype CanPlayType = CanPlayType String
 runCanPlayType :: CanPlayType -> String
 runCanPlayType (CanPlayType t) = t
 
-instance eqCanPlayType :: Eq CanPlayType where
-  eq (CanPlayType x) (CanPlayType y) = x == y
-
-instance ordCanPlayType :: Ord CanPlayType where
-  compare (CanPlayType x) (CanPlayType y) = compare x y
+derive instance eqCanPlayType :: Eq CanPlayType
+derive instance ordCanPlayType :: Ord CanPlayType
 
 instance showCanPlayType :: Show CanPlayType where
   show (CanPlayType t) = "(CanPlayType " <> show t <> ")"

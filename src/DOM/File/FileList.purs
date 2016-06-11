@@ -1,7 +1,4 @@
-module DOM.File.FileList
-  ( item
-  , length
-  ) where
+module DOM.File.FileList where
 
 import Data.Nullable (Nullable)
 import DOM.File.Types (FileList, File)

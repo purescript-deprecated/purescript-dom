@@ -1,11 +1,6 @@
-module DOM.Event.ErrorEvent
-  ( message
-  , fileName
-  , lineNo
-  , colNo
-  ) where
+module DOM.HTML.Event.ErrorEvent where
 
-import DOM.Event.Types (ErrorEvent)
+import DOM.HTML.Event.Types (ErrorEvent)
 
 foreign import message :: ErrorEvent -> String
 foreign import fileName :: ErrorEvent -> String
