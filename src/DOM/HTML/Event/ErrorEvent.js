@@ -1,7 +1,5 @@
 "use strict";
 
-// module DOM.Event.ErrorEvent
-
 exports.message = function (e) {
   return e.message;
 };
