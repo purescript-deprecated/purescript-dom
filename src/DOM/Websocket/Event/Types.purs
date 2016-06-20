@@ -15,3 +15,14 @@ readCloseEvent = unsafeReadTagged "CloseEvent"
 
 instance isForeignCloseEvent :: IsForeign CloseEvent where
   read = readCloseEvent
+
+foreign import data MessageEvent :: *
+
+messageEventToEvent :: MessageEvent -> Event
+messageEventToEvent = U.unsafeCoerce
+
+readMessageEvent :: Foreign -> F MessageEvent
+readMessageEvent = unsafeReadTagged "MessageEvent"
+
+instance isForeignMessageEvent :: IsForeign MessageEvent where
+  read = readMessageEvent
