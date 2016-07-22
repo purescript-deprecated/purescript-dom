@@ -13,19 +13,13 @@ module DOM.Event.WheelEvent
 
 import Prelude
 import Data.Enum (class BoundedEnum, class Enum, Cardinality(..), defaultPred, defaultSucc, toEnum)
+import Data.Foreign (F, toForeign)
 import Data.Maybe (Maybe(..), fromJust)
-import DOM.Event.Types (Event, WheelEvent)
+import DOM.Event.Types (Event, WheelEvent, readWheelEvent)
 import DOM.Event.Types (WheelEvent, readWheelEvent, wheelEventToEvent) as T
 
-eventToWheelEvent :: Event -> Maybe WheelEvent
-eventToWheelEvent = _eventToWheelEvent Just Nothing
-
-foreign import _eventToWheelEvent
-  :: forall a
-   . (a -> Maybe a)
-  -> Maybe a
-  -> Event
-  -> Maybe WheelEvent
+eventToWheelEvent :: Event -> F WheelEvent
+eventToWheelEvent = readWheelEvent <<< toForeign
 
 foreign import deltaX :: WheelEvent -> Number
 

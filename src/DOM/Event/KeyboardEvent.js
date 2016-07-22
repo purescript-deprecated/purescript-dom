@@ -1,13 +1,4 @@
-/* global KeyboardEvent */
 "use strict";
-
-exports._eventToKeyboardEvent = function (just) {
-  return function (nothing) {
-    return function (e) {
-      return e instanceof KeyboardEvent ? just(e) : nothing;
-    };
-  };
-};
 
 exports.key = function (e) {
   return e.key;

@@ -1,13 +1,4 @@
-/* global MouseEvent */
 "use strict";
-
-exports._eventToMouseEvent = function (just) {
-  return function (nothing) {
-    return function (e) {
-      return e instanceof MouseEvent ? just(e) : nothing;
-    };
-  };
-};
 
 exports.screenX = function (e) {
   return e.screenX;

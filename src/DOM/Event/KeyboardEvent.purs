@@ -20,20 +20,14 @@ module DOM.Event.KeyboardEvent
 import Prelude
 import Control.Monad.Eff (Eff)
 import Data.Enum (class BoundedEnum, class Enum, Cardinality(..), defaultPred, defaultSucc, toEnum)
+import Data.Foreign (F, toForeign)
 import Data.Maybe (Maybe(..), fromJust)
 import DOM (DOM)
-import DOM.Event.Types (Event, KeyboardEvent)
+import DOM.Event.Types (Event, KeyboardEvent, readKeyboardEvent)
 import DOM.Event.Types (KeyboardEvent, keyboardEventToEvent, readKeyboardEvent) as T
 
-eventToKeyboardEvent :: Event -> Maybe KeyboardEvent
-eventToKeyboardEvent = _eventToKeyboardEvent Just Nothing
-
-foreign import _eventToKeyboardEvent
-  :: forall a
-   . (a -> Maybe a)
-  -> Maybe a
-  -> Event
-  -> Maybe KeyboardEvent
+eventToKeyboardEvent :: Event -> F KeyboardEvent
+eventToKeyboardEvent = readKeyboardEvent <<< toForeign
 
 foreign import key :: KeyboardEvent -> String
 

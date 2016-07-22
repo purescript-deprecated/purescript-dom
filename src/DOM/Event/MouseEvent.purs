@@ -17,21 +17,15 @@ module DOM.Event.MouseEvent
 
 import Prelude
 import Control.Monad.Eff (Eff)
-import Data.Maybe (Maybe(..))
+import Data.Foreign (F, toForeign)
+import Data.Maybe (Maybe)
 import Data.Nullable (Nullable, toMaybe)
 import DOM (DOM)
-import DOM.Event.Types (Event, EventTarget, MouseEvent)
+import DOM.Event.Types (Event, EventTarget, MouseEvent, readMouseEvent)
 import DOM.Event.Types (MouseEvent, mouseEventToEvent, readMouseEvent) as T
 
-eventToMouseEvent :: Event -> Maybe MouseEvent
-eventToMouseEvent = _eventToMouseEvent Just Nothing
-
-foreign import _eventToMouseEvent
-  :: forall a
-   . (a -> Maybe a)
-  -> Maybe a
-  -> Event
-  -> Maybe MouseEvent
+eventToMouseEvent :: Event -> F MouseEvent
+eventToMouseEvent = readMouseEvent <<< toForeign
 
 foreign import screenX :: MouseEvent -> Int
 
