@@ -25,7 +25,7 @@
     "purescript-exceptions": "^1.0.0",
     "purescript-foldable-traversable": "^1.0.0",
     "purescript-foreign": "^1.0.0",
-    "purescript-js-date": "^1.0.0",
+    "purescript-js-date": "^2.0.0",
     "purescript-media-types": "^1.0.0",
     "purescript-nullable": "^1.0.0",
     "purescript-prelude": "^1.0.0",
