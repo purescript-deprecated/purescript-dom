@@ -8,8 +8,8 @@ exports.rows = function (section) {
 
 // ----------------------------------------------------------------------------
 
-exports["insertRow'"] = function (section) {
-  return function (index) {
+exports["insertRow'"] = function (index) {
+  return function (section) {
     return function () {
       return section.insertRow(index);
     };
@@ -18,8 +18,8 @@ exports["insertRow'"] = function (section) {
 
 // ----------------------------------------------------------------------------
 
-exports.deleteRow = function (section) {
-  return function (index) {
+exports.deleteRow = function (index) {
+  return function (section) {
     return function () {
       section.deleteRow(index);
     };
