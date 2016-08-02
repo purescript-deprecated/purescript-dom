@@ -120,8 +120,8 @@ exports.rows = function (table) {
 
 // ----------------------------------------------------------------------------
 
-exports["insertRow'"] = function (table) {
-  return function (index) {
+exports["insertRow'"] = function (index) {
+  return function (table) {
     return function () {
       return table.insertRow(index);
     };
@@ -130,8 +130,8 @@ exports["insertRow'"] = function (table) {
 
 // ----------------------------------------------------------------------------
 
-exports.deleteRow = function (table) {
-  return function (index) {
+exports.deleteRow = function (index) {
+  return function (table) {
     return function () {
       table.deleteRow(index);
     };
