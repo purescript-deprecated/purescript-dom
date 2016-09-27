@@ -1,0 +1,38 @@
+module DOM.HTML.HTMLElement where
+
+import Prelude
+import Control.Monad.Eff (Eff)
+import DOM (DOM)
+import DOM.HTML.Types (HTMLElement)
+
+foreign import title :: forall eff. HTMLElement -> Eff (dom :: DOM | eff) String
+foreign import setTitle :: forall eff. String -> HTMLElement -> Eff (dom :: DOM | eff) Unit
+
+foreign import lang :: forall eff. HTMLElement -> Eff (dom :: DOM | eff) String
+foreign import setLang :: forall eff. String -> HTMLElement -> Eff (dom :: DOM | eff) Unit
+
+foreign import dir :: forall eff. HTMLElement -> Eff (dom :: DOM | eff) String
+foreign import setDir :: forall eff. String -> HTMLElement -> Eff (dom :: DOM | eff) Unit
+
+foreign import className :: forall eff. HTMLElement -> Eff (dom :: DOM | eff) String
+foreign import setClassName :: forall eff. String -> HTMLElement -> Eff (dom :: DOM | eff) Unit
+
+foreign import hidden :: forall eff. HTMLElement -> Eff (dom :: DOM | eff) Boolean
+foreign import setHidden :: forall eff. Boolean -> HTMLElement -> Eff (dom :: DOM | eff) Unit
+
+foreign import tabIndex :: forall eff. HTMLElement -> Eff (dom :: DOM | eff) Int
+foreign import setTabIndex :: forall eff. Int -> HTMLElement -> Eff (dom :: DOM | eff) Unit
+
+foreign import draggable :: forall eff. HTMLElement -> Eff (dom :: DOM | eff) Boolean
+foreign import setDraggable :: forall eff. Boolean -> HTMLElement -> Eff (dom :: DOM | eff) Unit
+
+foreign import contentEditable :: forall eff. HTMLElement -> Eff (dom :: DOM | eff) String
+foreign import setContentEditable :: forall eff. String -> HTMLElement -> Eff (dom :: DOM | eff) Unit
+foreign import isContentEditable :: forall eff. HTMLElement -> Eff (dom :: DOM | eff) Boolean
+
+foreign import spellcheck :: forall eff. HTMLElement -> Eff (dom :: DOM | eff) Boolean
+foreign import setSpellcheck :: forall eff. Boolean -> HTMLElement -> Eff (dom :: DOM | eff) Unit
+
+foreign import click :: forall eff. HTMLElement -> Eff (dom :: DOM | eff) Unit
+foreign import focus :: forall eff. HTMLElement -> Eff (dom :: DOM | eff) Unit
+foreign import blur :: forall eff. HTMLElement -> Eff (dom :: DOM | eff) Unit
