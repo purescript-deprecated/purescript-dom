@@ -94,3 +94,71 @@ exports.removeAttribute = function (name) {
     };
   };
 };
+
+// - CSSOM ---------------------------------------------------------------------
+
+exports.scrollTop = function (node) {
+  return function () {
+    return node.scrollTop;
+  };
+};
+
+exports.setScrollTop = function (scrollTop) {
+  return function (node) {
+    return function () {
+      node.scrollTop = scrollTop;
+      return {};
+    };
+  };
+};
+
+exports.scrollLeft = function (node) {
+  return function () {
+    return node.scrollLeft;
+  };
+};
+
+exports.setScrollLeft = function (scrollLeft) {
+  return function (node) {
+    return function () {
+      node.scrollLeft = scrollLeft;
+      return {};
+    };
+  };
+};
+
+exports.scrollWidth = function (el) {
+  return function () {
+    return el.scrollWidth;
+  };
+};
+
+exports.scrollHeight = function (el) {
+  return function () {
+    return el.scrollHeight;
+  };
+};
+
+exports.clientTop = function (el) {
+  return function () {
+    return el.clientTop;
+  };
+};
+
+exports.clientLeft = function (el) {
+  return function () {
+    return el.clientLeft;
+  };
+};
+
+exports.clientWidth = function (el) {
+  return function () {
+    return el.clientWidth;
+  };
+};
+
+exports.clientHeight = function (el) {
+  return function () {
+    return el.clientHeigh;
+  };
+};
