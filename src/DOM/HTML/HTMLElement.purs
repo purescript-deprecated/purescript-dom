@@ -39,6 +39,19 @@ foreign import click :: forall eff. HTMLElement -> Eff (dom :: DOM | eff) Unit
 foreign import focus :: forall eff. HTMLElement -> Eff (dom :: DOM | eff) Unit
 foreign import blur :: forall eff. HTMLElement -> Eff (dom :: DOM | eff) Unit
 
+foreign import getBoundingClientRect
+  :: forall eff
+   . HTMLElement
+  -> Eff
+      (dom :: DOM | eff)
+      { left :: Number
+      , top :: Number
+      , right :: Number
+      , bottom :: Number
+      , width :: Number
+      , height :: Number
+      }
+
 foreign import offsetParent :: forall eff. HTMLElement -> Eff (dom :: DOM | eff) (Nullable Element)
 foreign import offsetTop :: forall eff. HTMLElement -> Eff (dom :: DOM | eff) Number
 foreign import offsetLeft :: forall eff. HTMLElement -> Eff (dom :: DOM | eff) Number

@@ -202,6 +202,12 @@ exports.setSpellcheck = function (spellcheck) {
 
 // - CSSOM ---------------------------------------------------------------------
 
+exports.getBoundingClientRect = function (el) {
+  return function () {
+    return el.getBoundingClientRect();
+  };
+};
+
 exports.offsetParent = function (el) {
   return function () {
     return el.offsetParent;
