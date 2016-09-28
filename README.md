@@ -17,7 +17,7 @@ bower install purescript-dom
 
 `purescript-dom` is intended to provide a common base for projects that need to talk to or about the DOM.
 
-The API isn't primarily intended for "human consumption", but instead aims to provide functions and types that match up with the interfaces described in the [DOM4](http://www.w3.org/TR/dom/) and [HTML5](http://www.w3.org/TR/html5/) specifications, with a minimal amount of additional opinion as to how they should be implemented in PureScript.
+The API isn't primarily intended for "human consumption", but instead aims to provide functions and types that match up with the interfaces described in the [DOM4](http://www.w3.org/TR/dom/), [HTML5](http://www.w3.org/TR/html5/), and [CSSOM](https://www.w3.org/TR/cssom-view-1/) specifications, with a minimal amount of additional opinion as to how they should be implemented in PureScript.
 
 This consists of:
 - `foreign data` types for the various interfaces described.

@@ -199,3 +199,41 @@ exports.setSpellcheck = function (spellcheck) {
     };
   };
 };
+
+// - CSSOM ---------------------------------------------------------------------
+
+exports.getBoundingClientRect = function (el) {
+  return function () {
+    return el.getBoundingClientRect();
+  };
+};
+
+exports.offsetParent = function (el) {
+  return function () {
+    return el.offsetParent;
+  };
+};
+
+exports.offsetTop = function (el) {
+  return function () {
+    return el.offsetTop;
+  };
+};
+
+exports.offsetLeft = function (el) {
+  return function () {
+    return el.offsetLeft;
+  };
+};
+
+exports.offsetWidth = function (el) {
+  return function () {
+    return el.offsetWidth;
+  };
+};
+
+exports.offsetHeight = function (el) {
+  return function () {
+    return el.offsetHeight;
+  };
+};

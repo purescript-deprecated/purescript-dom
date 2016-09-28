@@ -2,8 +2,10 @@ module DOM.HTML.HTMLElement where
 
 import Prelude
 import Control.Monad.Eff (Eff)
+import Data.Nullable (Nullable)
 import DOM (DOM)
 import DOM.HTML.Types (HTMLElement)
+import DOM.Node.Types (Element)
 
 foreign import title :: forall eff. HTMLElement -> Eff (dom :: DOM | eff) String
 foreign import setTitle :: forall eff. String -> HTMLElement -> Eff (dom :: DOM | eff) Unit
@@ -36,3 +38,22 @@ foreign import setSpellcheck :: forall eff. Boolean -> HTMLElement -> Eff (dom :
 foreign import click :: forall eff. HTMLElement -> Eff (dom :: DOM | eff) Unit
 foreign import focus :: forall eff. HTMLElement -> Eff (dom :: DOM | eff) Unit
 foreign import blur :: forall eff. HTMLElement -> Eff (dom :: DOM | eff) Unit
+
+foreign import getBoundingClientRect
+  :: forall eff
+   . HTMLElement
+  -> Eff
+      (dom :: DOM | eff)
+      { left :: Number
+      , top :: Number
+      , right :: Number
+      , bottom :: Number
+      , width :: Number
+      , height :: Number
+      }
+
+foreign import offsetParent :: forall eff. HTMLElement -> Eff (dom :: DOM | eff) (Nullable Element)
+foreign import offsetTop :: forall eff. HTMLElement -> Eff (dom :: DOM | eff) Number
+foreign import offsetLeft :: forall eff. HTMLElement -> Eff (dom :: DOM | eff) Number
+foreign import offsetWidth :: forall eff. HTMLElement -> Eff (dom :: DOM | eff) Number
+foreign import offsetHeight :: forall eff. HTMLElement -> Eff (dom :: DOM | eff) Number

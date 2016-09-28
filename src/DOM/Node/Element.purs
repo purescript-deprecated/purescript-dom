@@ -23,3 +23,16 @@ foreign import getElementsByClassName :: forall eff. String -> Element -> Eff (d
 foreign import setAttribute :: forall eff. String -> String -> Element -> Eff (dom :: DOM | eff) Unit
 foreign import getAttribute :: forall eff. String -> Element -> Eff (dom :: DOM | eff) (Nullable String)
 foreign import removeAttribute :: forall eff. String -> Element -> Eff (dom :: DOM | eff) Unit
+
+foreign import scrollTop :: forall eff. Element -> Eff (dom :: DOM | eff) Number
+foreign import setScrollTop :: forall eff. Element -> Number -> Eff (dom :: DOM | eff) Unit
+
+foreign import scrollLeft :: forall eff. Element -> Eff (dom :: DOM | eff) Number
+foreign import setScrollLeft :: forall eff. Element -> Number -> Eff (dom :: DOM | eff) Unit
+
+foreign import scrollWidth :: forall eff. Element -> Eff (dom :: DOM | eff) Number
+foreign import scrollHeight :: forall eff. Element -> Eff (dom :: DOM | eff) Number
+foreign import clientTop :: forall eff. Element -> Eff (dom :: DOM | eff) Number
+foreign import clientLeft :: forall eff. Element -> Eff (dom :: DOM | eff) Number
+foreign import clientWidth :: forall eff. Element -> Eff (dom :: DOM | eff) Number
+foreign import clientHeight :: forall eff. Element -> Eff (dom :: DOM | eff) Number
