@@ -25,10 +25,10 @@ foreign import getAttribute :: forall eff. String -> Element -> Eff (dom :: DOM 
 foreign import removeAttribute :: forall eff. String -> Element -> Eff (dom :: DOM | eff) Unit
 
 foreign import scrollTop :: forall eff. Element -> Eff (dom :: DOM | eff) Number
-foreign import setScrollTop :: forall eff. Element -> Number -> Eff (dom :: DOM | eff) Unit
+foreign import setScrollTop :: forall eff. Number -> Element -> Eff (dom :: DOM | eff) Unit
 
 foreign import scrollLeft :: forall eff. Element -> Eff (dom :: DOM | eff) Number
-foreign import setScrollLeft :: forall eff. Element -> Number -> Eff (dom :: DOM | eff) Unit
+foreign import setScrollLeft :: forall eff. Number -> Element -> Eff (dom :: DOM | eff) Unit
 
 foreign import scrollWidth :: forall eff. Element -> Eff (dom :: DOM | eff) Number
 foreign import scrollHeight :: forall eff. Element -> Eff (dom :: DOM | eff) Number
