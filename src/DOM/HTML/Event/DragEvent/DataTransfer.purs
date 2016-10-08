@@ -1,4 +1,8 @@
-module DOM.HTML.Event.DragEvent.DataTransfer where
+module DOM.HTML.Event.DragEvent.DataTransfer
+  ( DataTransfer
+  , files
+  , types
+  ) where
 
 import DOM.File.Types (FileList)
 
