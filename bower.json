@@ -20,15 +20,15 @@
     "package.json"
   ],
   "dependencies": {
-    "purescript-datetime": "^1.0.0",
-    "purescript-enums": "^1.0.0",
-    "purescript-exceptions": "^1.0.0",
-    "purescript-foldable-traversable": "^1.0.0",
-    "purescript-foreign": "^1.0.0",
-    "purescript-js-date": "^2.0.0",
-    "purescript-media-types": "^1.0.0",
-    "purescript-nullable": "^1.0.0",
-    "purescript-prelude": "^1.0.0",
-    "purescript-unsafe-coerce": "^1.0.0"
+    "purescript-datetime": "^2.0.0",
+    "purescript-enums": "^2.0.0",
+    "purescript-exceptions": "^2.0.0",
+    "purescript-foldable-traversable": "^2.0.0",
+    "purescript-foreign": "^3.0.0",
+    "purescript-js-date": "^3.0.0",
+    "purescript-media-types": "^2.0.0",
+    "purescript-nullable": "^2.0.0",
+    "purescript-prelude": "^2.1.0",
+    "purescript-unsafe-coerce": "^2.0.0"
   }
 }

@@ -208,6 +208,7 @@ module DOM.HTML.Types
   ) where
 
 import Prelude
+import Control.Monad.Except.Trans (except)
 import Data.Either (Either(..))
 import Data.Foreign (Foreign, F, ForeignError(..), unsafeReadTagged)
 import Data.Foreign.Class (class IsForeign)
@@ -274,7 +275,7 @@ foreign import _readHTMLElement
   -> F HTMLElement
 
 readHTMLElement :: Foreign -> F HTMLElement
-readHTMLElement = _readHTMLElement (Left <<< TypeMismatch "HTMLElement") Right
+readHTMLElement = _readHTMLElement (except <<< Left <<< pure <<< TypeMismatch "HTMLElement") (except <<< Right)
 
 instance isForeignHTMLElement :: IsForeign HTMLElement where
   read = readHTMLElement
