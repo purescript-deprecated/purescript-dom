@@ -1,5 +1,6 @@
 module DOM.File.Types where
 
+import DOM.Event.Types (EventTarget)
 import Unsafe.Coerce (unsafeCoerce)
 
 foreign import data Blob :: *
@@ -11,3 +12,6 @@ foreign import data FileReaderSync :: *
 
 fileToBlob :: File -> Blob
 fileToBlob = unsafeCoerce
+
+fileReaderToEventTarget :: FileReader -> EventTarget
+fileReaderToEventTarget = unsafeCoerce
