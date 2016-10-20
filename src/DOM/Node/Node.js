@@ -147,11 +147,11 @@ exports.appendChild = function (node) {
   };
 };
 
-exports.replaceChild = function (oldChild) {
-  return function (newChild) {
+exports.replaceChild = function (newChild) {
+  return function (oldChild) {
     return function (parent) {
       return function () {
-        return parent.replaceChild(oldChild, newChild);
+        return parent.replaceChild(newChild, oldChild);
       };
     };
   };
