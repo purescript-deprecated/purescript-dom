@@ -1,8 +1,7 @@
 # purescript-dom
 
-[![Latest release](http://img.shields.io/bower/v/purescript-dom.svg)](https://github.com/purescript-contrib/purescript-dom/releases)
-[![Build Status](https://travis-ci.org/purescript-contrib/purescript-dom.svg?branch=master)](https://travis-ci.org/purescript-contrib/purescript-dom)
-[![Dependency Status](https://www.versioneye.com/user/projects/575b690c7757a0004a1decd6/badge.svg?style=flat)](https://www.versioneye.com/user/projects/575b690c7757a0004a1decd6)
+[![Latest release](http://img.shields.io/github/release/purescript-contrib/purescript-dom.svg)](https://github.com/purescript-contrib/purescript-dom/releases)
+[![Build status](https://travis-ci.org/purescript-contrib/purescript-dom.svg?branch=master)](https://travis-ci.org/purescript-contrib/purescript-dom)
 [![Maintainer: garyb](https://img.shields.io/badge/maintainer-garyb-lightgrey.svg)](http://github.com/garyb)
 
 Type definitions, low level interface implementations, and standard effect type for use while interacting with the DOM.
