@@ -39,6 +39,7 @@ import Prelude
 import Data.Either (Either(..))
 import Data.Foreign (F, Foreign, unsafeReadTagged)
 import Data.Foreign.Class (class IsForeign)
+import Data.Newtype (class Newtype)
 import Unsafe.Coerce as U
 
 -- | Basic type for all DOM events.
@@ -47,8 +48,9 @@ foreign import data Event :: *
 -- | The type of strings used for event types.
 newtype EventType = EventType String
 
-derive instance eqEventType :: Eq EventType
-derive instance ordEventType :: Ord EventType
+derive instance newtypeEventType :: Newtype EventType _
+derive newtype instance eqEventType :: Eq EventType
+derive newtype instance ordEventType :: Ord EventType
 
 -- | A DOM item that can emit events.
 foreign import data EventTarget :: *

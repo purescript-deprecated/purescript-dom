@@ -1,6 +1,8 @@
 -- http://www.w3.org/TR/dom
 module DOM.Node.Types where
 
+import Prelude
+import Data.Newtype (class Newtype)
 import DOM.Event.Types (EventTarget)
 import Unsafe.Coerce (unsafeCoerce)
 
@@ -31,6 +33,10 @@ documentToEventTarget = unsafeCoerce
 foreign import data Element :: *
 
 newtype ElementId = ElementId String
+
+derive instance newtypeElementId :: Newtype ElementId _
+derive newtype instance eqElementId :: Eq ElementId
+derive newtype instance oOrdElementId :: Ord ElementId
 
 elementToParentNode :: Element -> ParentNode
 elementToParentNode = unsafeCoerce
