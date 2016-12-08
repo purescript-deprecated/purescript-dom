@@ -159,6 +159,6 @@ exports.clientWidth = function (el) {
 
 exports.clientHeight = function (el) {
   return function () {
-    return el.clientHeigh;
+    return el.clientHeight;
   };
 };
