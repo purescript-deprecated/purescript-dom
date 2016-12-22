@@ -71,13 +71,13 @@ exports.normalize = function (node) {
 
 exports.clone = function (node) {
   return function () {
-    return node.clone(false);
+    return node.cloneNode(false);
   };
 };
 
 exports.deepClone = function (node) {
   return function () {
-    return node.clone(false);
+    return node.cloneNode(true);
   };
 };
 
