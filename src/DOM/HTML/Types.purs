@@ -2,10 +2,12 @@
 module DOM.HTML.Types
   ( Navigator
   , Location
+  , History
   , Window
   , ALERT
-  , PROMPT
   , CONFIRM
+  , HISTORY
+  , PROMPT
   , WINDOW
   , windowToEventTarget
   , HTMLDocument
@@ -227,7 +229,11 @@ foreign import data Location :: *
 
 foreign import data Window :: *
 
+foreign import data History :: *
+
 foreign import data ALERT :: !
+
+foreign import data HISTORY :: !
 
 foreign import data PROMPT :: !
 

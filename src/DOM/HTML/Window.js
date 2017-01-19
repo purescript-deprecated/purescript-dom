@@ -18,6 +18,12 @@ exports.location = function (window) {
   };
 };
 
+exports.history = function(window) {
+  return function() {
+    return window.history;
+  };
+}
+
 exports.innerWidth = function (window) {
   return function () {
     return window.innerWidth;

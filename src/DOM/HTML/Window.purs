@@ -2,6 +2,7 @@ module DOM.HTML.Window
   ( document
   , navigator
   , location
+  , history
   , innerWidth
   , innerHeight
   , alert
@@ -23,18 +24,20 @@ module DOM.HTML.Window
   , scrollY
   ) where
 
-import Prelude (Unit, (<$>))
-import Data.Maybe (Maybe)
-import Data.Nullable (Nullable, toMaybe)
 import Control.Monad.Eff (Eff)
 import DOM (DOM)
-import DOM.HTML.Types (Window, Location, Navigator, HTMLDocument, ALERT, CONFIRM, PROMPT, WINDOW)
+import DOM.HTML.Types (ALERT, CONFIRM, HISTORY, HTMLDocument, History, Location, Navigator, PROMPT, WINDOW, Window)
+import Data.Maybe (Maybe)
+import Data.Nullable (Nullable, toMaybe)
+import Prelude (Unit, (<$>))
 
 foreign import document :: forall eff. Window -> Eff (dom :: DOM | eff) HTMLDocument
 
 foreign import navigator :: forall eff. Window -> Eff (dom :: DOM | eff) Navigator
 
 foreign import location :: forall eff. Window -> Eff (dom :: DOM | eff) Location
+
+foreign import history :: forall e. Window -> Eff (history :: HISTORY | e) History
 
 foreign import innerWidth :: forall eff. Window -> Eff (dom :: DOM | eff) Int
 
