@@ -1,10 +1,6 @@
 // module DOM.HTML.History
+"use strict";
 
-exports.history = function(window) {
-  return function() {
-    return window.history;
-  };
-}
 exports.back = function(history) {
   return function() {
     return history.back();
