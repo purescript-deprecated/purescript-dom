@@ -1,4 +1,3 @@
-// module DOM.HTML.History
 "use strict";
 
 exports.back = function(history) {
