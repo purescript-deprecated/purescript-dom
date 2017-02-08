@@ -2,11 +2,19 @@
 module DOM.Node.Types where
 
 import Prelude
+
+import Data.Foreign (F, Foreign)
 import Data.Newtype (class Newtype)
+
 import DOM.Event.Types (EventTarget)
+
 import Unsafe.Coerce (unsafeCoerce)
+import DOM.Util.FFI (unsafeReadProtoTagged)
 
 foreign import data Node :: *
+
+readNode :: Foreign -> F Node
+readNode = unsafeReadProtoTagged "Node"
 
 foreign import data NonElementParentNode :: *
 foreign import data ParentNode :: *
@@ -17,6 +25,9 @@ foreign import data HTMLCollection :: *
 foreign import data DOMTokenList :: *
 
 foreign import data Document :: *
+
+readDocument :: Foreign -> F Document
+readDocument = unsafeReadProtoTagged "Document"
 
 documentToNonElementParentNode :: Document -> NonElementParentNode
 documentToNonElementParentNode = unsafeCoerce
@@ -37,6 +48,9 @@ newtype ElementId = ElementId String
 derive instance newtypeElementId :: Newtype ElementId _
 derive newtype instance eqElementId :: Eq ElementId
 derive newtype instance oOrdElementId :: Ord ElementId
+
+readElement :: Foreign -> F Element
+readElement = unsafeReadProtoTagged "Element"
 
 elementToParentNode :: Element -> ParentNode
 elementToParentNode = unsafeCoerce
