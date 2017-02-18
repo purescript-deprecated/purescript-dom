@@ -86,10 +86,10 @@ foreign import setTextContent :: forall eff.
 foreign import normalize :: forall eff. Node -> Eff (dom :: DOM | eff) Unit
 
 -- | Clones the node without cloning the node's descendants.
-foreign import clone :: forall eff. Node -> Eff (dom :: DOM | eff) Unit
+foreign import clone :: forall eff. Node -> Eff (dom :: DOM | eff) Node
 
 -- | Clones the node and its descendants.
-foreign import deepClone :: forall eff. Node -> Eff (dom :: DOM | eff) Unit
+foreign import deepClone :: forall eff. Node -> Eff (dom :: DOM | eff) Node
 
 -- | Checks whether two nodes are equivalent.
 foreign import isEqualNode :: forall eff.
