@@ -181,3 +181,9 @@ exports.scrollY = function (window) {
     return window.scrollY;
   };
 };
+
+exports.url = function (window) {
+  return function () {
+    return window.URL;
+  };
+};
