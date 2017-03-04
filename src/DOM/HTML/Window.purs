@@ -22,11 +22,12 @@ module DOM.HTML.Window
   , scrollBy
   , scrollX
   , scrollY
+  , url
   ) where
 
 import Control.Monad.Eff (Eff)
 import DOM (DOM)
-import DOM.HTML.Types (ALERT, CONFIRM, HISTORY, HTMLDocument, History, Location, Navigator, PROMPT, WINDOW, Window)
+import DOM.HTML.Types (ALERT, CONFIRM, HISTORY, HTMLDocument, History, Location, Navigator, PROMPT, WINDOW, Window, URL)
 import Data.Maybe (Maybe)
 import Data.Nullable (Nullable, toMaybe)
 import Prelude (Unit, (<$>))
@@ -38,6 +39,8 @@ foreign import navigator :: forall eff. Window -> Eff (dom :: DOM | eff) Navigat
 foreign import location :: forall eff. Window -> Eff (dom :: DOM | eff) Location
 
 foreign import history :: forall e. Window -> Eff (history :: HISTORY | e) History
+
+foreign import url :: forall eff. Window -> Eff (dom :: DOM | eff) URL
 
 foreign import innerWidth :: forall eff. Window -> Eff (dom :: DOM | eff) Int
 
@@ -52,7 +55,7 @@ foreign import moveBy :: forall eff. Int -> Int -> Window -> Eff (window :: WIND
 foreign import moveTo :: forall eff. Int -> Int -> Window -> Eff (window :: WINDOW | eff) Unit
 
 open :: forall eff. String -> String -> String -> Window -> Eff (window :: WINDOW | eff) (Maybe Window)
-open window url name features = toMaybe <$> _open window url name features
+open window url' name features = toMaybe <$> _open window url' name features
 
 foreign import _open
   :: forall eff

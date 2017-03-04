@@ -3,6 +3,7 @@ module DOM.HTML.Types
   ( Navigator
   , Location
   , History
+  , URL
   , Window
   , ALERT
   , CONFIRM
@@ -230,6 +231,8 @@ foreign import data Location :: *
 foreign import data Window :: *
 
 foreign import data History :: *
+
+foreign import data URL :: *
 
 foreign import data ALERT :: !
 
