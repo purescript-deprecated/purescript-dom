@@ -107,9 +107,11 @@ exports.print = function (window) {
 };
 
 exports._prompt = function (str) {
-  return function (window) {
-    return function () {
-      return window.prompt(str);
+  return function (defaultText) {
+    return function (window) {
+      return function () {
+        return window.prompt(str, defaultText);
+      };
     };
   };
 };
