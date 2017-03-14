@@ -3,9 +3,13 @@ module DOM.HTML.Event.DragEvent.DataTransfer
   , files
   , filesNullable
   , types
+  , getData
+  , setData
   ) where
 
 import Prelude
+import Control.Monad.Eff (Eff)
+import DOM (DOM)
 import DOM.File.Types (FileList)
 import Data.Maybe (Maybe)
 import Data.Nullable (Nullable, toMaybe)
@@ -25,3 +29,23 @@ foreign import filesNullable :: DataTransfer -> Nullable FileList
 -- | Returns an array of data formats used in the drag operation.
 -- | If the drag operation included no data, then the array is empty.
 foreign import types :: DataTransfer -> Array String
+
+-- | Retrieves the data for a given format, or an empty string if data for that
+-- | format does not exist or the data transfer object contains no data.
+foreign import getData
+  :: forall eff
+   . String
+  -> DataTransfer
+  -> Eff (dom :: DOM | eff) String
+
+-- | Sets the drag operation's drag data for a given format.
+-- |
+-- | Example:
+-- |
+-- |     setData "text/plain" "Foo" dataTransfer
+foreign import setData
+  :: forall eff
+   . String
+  -> String
+  -> DataTransfer
+  -> Eff (dom :: DOM | eff) Unit

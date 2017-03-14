@@ -41,6 +41,12 @@ compositionupdate = EventType "compositionupdate"
 contextmenu :: EventType
 contextmenu = EventType "contextmenu"
 
+copy :: EventType
+copy = EventType "copy"
+
+cut :: EventType
+cut = EventType "cut"
+
 dblclick :: EventType
 dblclick = EventType "dblclick"
 
@@ -133,6 +139,9 @@ pagehide = EventType "pagehide"
 
 pageshow :: EventType
 pageshow = EventType "pageshow"
+
+paste :: EventType
+paste = EventType "paste"
 
 pause :: EventType
 pause = EventType "pause"

@@ -33,6 +33,9 @@ module DOM.Event.Types
   , ProgressEvent
   , progressEventToEvent
   , readProgressEvent
+  , ClipboardEvent
+  , clipboardEventToEvent
+  , readClipboardEvent
   ) where
 
 import Prelude
@@ -176,3 +179,14 @@ readProgressEvent = unsafeReadTagged "ProgressEvent"
 
 instance isForeignProgressEvent :: IsForeign ProgressEvent where
   read = readProgressEvent
+
+foreign import data ClipboardEvent :: *
+
+clipboardEventToEvent :: ClipboardEvent -> Event
+clipboardEventToEvent = U.unsafeCoerce
+
+readClipboardEvent :: Foreign -> F ClipboardEvent
+readClipboardEvent = unsafeReadTagged "ClipboardEvent"
+
+instance isForeignClipboardEvent :: IsForeign ClipboardEvent where
+  read = readClipboardEvent
