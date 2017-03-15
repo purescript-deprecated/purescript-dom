@@ -8,7 +8,7 @@ exports.types = function (dataTransfer) {
   return dataTransfer.types;
 };
 
-exports.getData = function (format) {
+exports.getDataImpl = function (format) {
   return function (dataTransfer) {
     return function () {
       return dataTransfer.getData(format);
@@ -16,7 +16,7 @@ exports.getData = function (format) {
   };
 };
 
-exports.setData = function (format) {
+exports.setDataImpl = function (format) {
   return function (data) {
     return function (dataTransfer) {
       return function () {
