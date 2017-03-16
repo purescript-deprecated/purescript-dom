@@ -14,6 +14,7 @@ module DOM.HTML.Window
   , outerWidth
   , print
   , prompt
+  , promptDefault
   , resizeBy
   , resizeTo
   , screenX
@@ -72,9 +73,12 @@ foreign import outerWidth :: forall eff. Window -> Eff (dom :: DOM | eff) Int
 foreign import print :: forall eff. Window -> Eff (window :: WINDOW | eff) Unit
 
 prompt :: forall eff. String -> Window -> Eff (prompt :: PROMPT | eff) (Maybe String)
-prompt window msg = toMaybe <$> _prompt window msg
+prompt msg window = toMaybe <$> _prompt msg "" window
 
-foreign import _prompt :: forall eff. String -> Window -> Eff (prompt :: PROMPT | eff) (Nullable String)
+promptDefault :: forall eff. String -> String -> Window -> Eff (prompt :: PROMPT | eff) (Maybe String)
+promptDefault msg defaultText window = toMaybe <$> _prompt msg defaultText window
+
+foreign import _prompt :: forall eff. String -> String -> Window -> Eff (prompt :: PROMPT | eff) (Nullable String)
 
 foreign import resizeBy :: forall eff. Int -> Int -> Window -> Eff (window :: WINDOW | eff) Unit
 
