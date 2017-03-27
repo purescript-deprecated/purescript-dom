@@ -24,11 +24,14 @@ module DOM.HTML.Window
   , scrollX
   , scrollY
   , url
+  , localStorage
+  , sessionStorage
   ) where
 
 import Control.Monad.Eff (Eff)
 import DOM (DOM)
 import DOM.HTML.Types (ALERT, CONFIRM, HISTORY, HTMLDocument, History, Location, Navigator, PROMPT, WINDOW, Window, URL)
+import DOM.WebStorage.Types (Storage)
 import Data.Maybe (Maybe)
 import Data.Nullable (Nullable, toMaybe)
 import Prelude (Unit, (<$>))
@@ -95,3 +98,7 @@ foreign import scrollBy :: forall eff. Int -> Int -> Window -> Eff (window :: WI
 foreign import scrollX :: forall eff. Window -> Eff (dom :: DOM | eff) Int
 
 foreign import scrollY :: forall eff. Window -> Eff (dom :: DOM | eff) Int
+
+foreign import localStorage :: forall eff. Window -> Eff (dom :: DOM | eff) Storage
+
+foreign import sessionStorage :: forall eff. Window -> Eff (dom :: DOM | eff) Storage

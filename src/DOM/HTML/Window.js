@@ -189,3 +189,15 @@ exports.url = function (window) {
     return window.URL;
   };
 };
+
+exports.localStorage = function (window) {
+  return function () {
+    return window.localStorage;
+  };
+};
+
+exports.sessionStorage = function (window) {
+  return function () {
+    return window.sessionStorage;
+  };
+};

@@ -5,10 +5,11 @@
     "build": "eslint src && pulp build --censor-lib --strict"
   },
   "devDependencies": {
-    "phantomjs-prebuilt": "^2.1.13",
     "eslint": "^3.8.1",
+    "phantomjs-prebuilt": "^2.1.13",
     "pulp": "^9.0.1",
     "purescript-psa": "^0.3.9",
+    "purescript": "^0.10.6",
     "rimraf": "^2.5.4"
   }
 }
