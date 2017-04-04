@@ -215,39 +215,39 @@ module DOM.HTML.Types
   ) where
 
 import Prelude
+import Control.Monad.Eff (kind Effect)
 import Control.Monad.Except.Trans (except)
 import Data.Either (Either(..))
 import Data.Foreign (Foreign, F, ForeignError(..), unsafeReadTagged)
-import Data.Foreign.Class (class IsForeign)
 import DOM.Event.Types (EventTarget)
 import DOM.Node.Types (Node, NonDocumentTypeChildNode, ParentNode, Element, NonElementParentNode, Document)
 
 import Unsafe.Coerce as U
 
-foreign import data Navigator :: *
+foreign import data Navigator :: Type
 
-foreign import data Location :: *
+foreign import data Location :: Type
 
-foreign import data Window :: *
+foreign import data Window :: Type
 
-foreign import data History :: *
+foreign import data History :: Type
 
-foreign import data URL :: *
+foreign import data URL :: Type
 
-foreign import data ALERT :: !
+foreign import data ALERT :: Effect
 
-foreign import data HISTORY :: !
+foreign import data HISTORY :: Effect
 
-foreign import data PROMPT :: !
+foreign import data PROMPT :: Effect
 
-foreign import data CONFIRM :: !
+foreign import data CONFIRM :: Effect
 
-foreign import data WINDOW :: !
+foreign import data WINDOW :: Effect
 
 windowToEventTarget :: Window -> EventTarget
 windowToEventTarget = U.unsafeCoerce
 
-foreign import data HTMLDocument :: *
+foreign import data HTMLDocument :: Type
 
 htmlDocumentToDocument :: HTMLDocument -> Document
 htmlDocumentToDocument = U.unsafeCoerce
@@ -267,12 +267,9 @@ htmlDocumentToEventTarget = U.unsafeCoerce
 readHTMLDocument :: Foreign -> F HTMLDocument
 readHTMLDocument = unsafeReadTagged "HTMLDocument"
 
-instance isForeignHTMLDocument :: IsForeign HTMLDocument where
-  read = readHTMLDocument
-
 -- The generic HTML element
 
-foreign import data HTMLElement :: *
+foreign import data HTMLElement :: Type
 
 htmlElementToElement :: HTMLElement -> Element
 htmlElementToElement = U.unsafeCoerce
@@ -298,12 +295,9 @@ foreign import _readHTMLElement
 readHTMLElement :: Foreign -> F HTMLElement
 readHTMLElement = _readHTMLElement (except <<< Left <<< pure <<< TypeMismatch "HTMLElement") (except <<< Right)
 
-instance isForeignHTMLElement :: IsForeign HTMLElement where
-  read = readHTMLElement
-
 -- The root element
 
-foreign import data HTMLHtmlElement :: *
+foreign import data HTMLHtmlElement :: Type
 
 htmlHtmlElementToHTMLElement :: HTMLHtmlElement -> HTMLElement
 htmlHtmlElementToHTMLElement = U.unsafeCoerce
@@ -311,12 +305,9 @@ htmlHtmlElementToHTMLElement = U.unsafeCoerce
 readHTMLHtmlElement :: Foreign -> F HTMLHtmlElement
 readHTMLHtmlElement = unsafeReadTagged "HTMLHtmlElement"
 
-instance isForeignHTMLHtmlElement :: IsForeign HTMLHtmlElement where
-  read = readHTMLHtmlElement
-
 -- Document metadata
 
-foreign import data HTMLHeadElement :: *
+foreign import data HTMLHeadElement :: Type
 
 htmlHeadElementToHTMLElement :: HTMLHeadElement -> HTMLElement
 htmlHeadElementToHTMLElement = U.unsafeCoerce
@@ -324,10 +315,7 @@ htmlHeadElementToHTMLElement = U.unsafeCoerce
 readHTMLHeadElement :: Foreign -> F HTMLHeadElement
 readHTMLHeadElement = unsafeReadTagged "HTMLHeadElement"
 
-instance isForeignHTMLHeadElement :: IsForeign HTMLHeadElement where
-  read = readHTMLHeadElement
-
-foreign import data HTMLTitleElement :: *
+foreign import data HTMLTitleElement :: Type
 
 htmlTitleElementToHTMLElement :: HTMLTitleElement -> HTMLElement
 htmlTitleElementToHTMLElement = U.unsafeCoerce
@@ -335,10 +323,7 @@ htmlTitleElementToHTMLElement = U.unsafeCoerce
 readHTMLTitleElement :: Foreign -> F HTMLTitleElement
 readHTMLTitleElement = unsafeReadTagged "HTMLTitleElement"
 
-instance isForeignHTMLTitleElement :: IsForeign HTMLTitleElement where
-  read = readHTMLTitleElement
-
-foreign import data HTMLBaseElement :: *
+foreign import data HTMLBaseElement :: Type
 
 htmlBaseElementToHTMLElement :: HTMLBaseElement -> HTMLElement
 htmlBaseElementToHTMLElement = U.unsafeCoerce
@@ -346,10 +331,7 @@ htmlBaseElementToHTMLElement = U.unsafeCoerce
 readHTMLBaseElement :: Foreign -> F HTMLBaseElement
 readHTMLBaseElement = unsafeReadTagged "HTMLBaseElement"
 
-instance isForeignHTMLBaseElement :: IsForeign HTMLBaseElement where
-  read = readHTMLBaseElement
-
-foreign import data HTMLLinkElement :: *
+foreign import data HTMLLinkElement :: Type
 
 htmlLinkElementToHTMLElement :: HTMLLinkElement -> HTMLElement
 htmlLinkElementToHTMLElement = U.unsafeCoerce
@@ -357,10 +339,7 @@ htmlLinkElementToHTMLElement = U.unsafeCoerce
 readHTMLLinkElement :: Foreign -> F HTMLLinkElement
 readHTMLLinkElement = unsafeReadTagged "HTMLLinkElement"
 
-instance isForeignHTMLLinkElement :: IsForeign HTMLLinkElement where
-  read = readHTMLLinkElement
-
-foreign import data HTMLMetaElement :: *
+foreign import data HTMLMetaElement :: Type
 
 htmlMetaElementToHTMLElement :: HTMLMetaElement -> HTMLElement
 htmlMetaElementToHTMLElement = U.unsafeCoerce
@@ -368,10 +347,7 @@ htmlMetaElementToHTMLElement = U.unsafeCoerce
 readHTMLMetaElement :: Foreign -> F HTMLMetaElement
 readHTMLMetaElement = unsafeReadTagged "HTMLMetaElement"
 
-instance isForeignHTMLMetaElement :: IsForeign HTMLMetaElement where
-  read = readHTMLMetaElement
-
-foreign import data HTMLStyleElement :: *
+foreign import data HTMLStyleElement :: Type
 
 htmlStyleElementToHTMLElement :: HTMLStyleElement -> HTMLElement
 htmlStyleElementToHTMLElement = U.unsafeCoerce
@@ -379,12 +355,9 @@ htmlStyleElementToHTMLElement = U.unsafeCoerce
 readHTMLStyleElement :: Foreign -> F HTMLStyleElement
 readHTMLStyleElement = unsafeReadTagged "HTMLStyleElement"
 
-instance isForeignHTMLStyleElement :: IsForeign HTMLStyleElement where
-  read = readHTMLStyleElement
-
 -- Sections
 
-foreign import data HTMLBodyElement :: *
+foreign import data HTMLBodyElement :: Type
 
 htmlBodyElementToHTMLElement :: HTMLBodyElement -> HTMLElement
 htmlBodyElementToHTMLElement = U.unsafeCoerce
@@ -392,10 +365,7 @@ htmlBodyElementToHTMLElement = U.unsafeCoerce
 readHTMLBodyElement :: Foreign -> F HTMLBodyElement
 readHTMLBodyElement = unsafeReadTagged "HTMLBodyElement"
 
-instance isForeignHTMLBodyElement :: IsForeign HTMLBodyElement where
-  read = readHTMLBodyElement
-
-foreign import data HTMLHeadingElement :: *
+foreign import data HTMLHeadingElement :: Type
 
 htmlHeadingElementToHTMLElement :: HTMLHeadingElement -> HTMLElement
 htmlHeadingElementToHTMLElement = U.unsafeCoerce
@@ -403,12 +373,9 @@ htmlHeadingElementToHTMLElement = U.unsafeCoerce
 readHTMLHeadingElement :: Foreign -> F HTMLHeadingElement
 readHTMLHeadingElement = unsafeReadTagged "HTMLHeadingElement"
 
-instance isForeignHTMLHeadingElement :: IsForeign HTMLHeadingElement where
-  read = readHTMLHeadingElement
-
 -- Grouping content
 
-foreign import data HTMLParagraphElement :: *
+foreign import data HTMLParagraphElement :: Type
 
 htmlParagraphElementToHTMLElement :: HTMLParagraphElement -> HTMLElement
 htmlParagraphElementToHTMLElement = U.unsafeCoerce
@@ -416,10 +383,7 @@ htmlParagraphElementToHTMLElement = U.unsafeCoerce
 readHTMLParagraphElement :: Foreign -> F HTMLParagraphElement
 readHTMLParagraphElement = unsafeReadTagged "HTMLParagraphElement"
 
-instance isForeignHTMLParagraphElement :: IsForeign HTMLParagraphElement where
-  read = readHTMLParagraphElement
-
-foreign import data HTMLHRElement :: *
+foreign import data HTMLHRElement :: Type
 
 htmlHRElementToHTMLElement :: HTMLHRElement -> HTMLElement
 htmlHRElementToHTMLElement = U.unsafeCoerce
@@ -427,10 +391,7 @@ htmlHRElementToHTMLElement = U.unsafeCoerce
 readHTMLHRElement :: Foreign -> F HTMLHRElement
 readHTMLHRElement = unsafeReadTagged "HTMLHRElement"
 
-instance isForeignHTMLHRElement :: IsForeign HTMLHRElement where
-  read = readHTMLHRElement
-
-foreign import data HTMLPreElement :: *
+foreign import data HTMLPreElement :: Type
 
 htmlPreElementToHTMLElement :: HTMLPreElement -> HTMLElement
 htmlPreElementToHTMLElement = U.unsafeCoerce
@@ -438,10 +399,7 @@ htmlPreElementToHTMLElement = U.unsafeCoerce
 readHTMLPreElement :: Foreign -> F HTMLPreElement
 readHTMLPreElement = unsafeReadTagged "HTMLPreElement"
 
-instance isForeignHTMLPreElement :: IsForeign HTMLPreElement where
-  read = readHTMLPreElement
-
-foreign import data HTMLQuoteElement :: *
+foreign import data HTMLQuoteElement :: Type
 
 htmlQuoteElementToHTMLElement :: HTMLQuoteElement -> HTMLElement
 htmlQuoteElementToHTMLElement = U.unsafeCoerce
@@ -449,10 +407,7 @@ htmlQuoteElementToHTMLElement = U.unsafeCoerce
 readHTMLQuoteElement :: Foreign -> F HTMLQuoteElement
 readHTMLQuoteElement = unsafeReadTagged "HTMLQuoteElement"
 
-instance isForeignHTMLQuoteElement :: IsForeign HTMLQuoteElement where
-  read = readHTMLQuoteElement
-
-foreign import data HTMLOListElement :: *
+foreign import data HTMLOListElement :: Type
 
 htmlOListElementToHTMLElement :: HTMLOListElement -> HTMLElement
 htmlOListElementToHTMLElement = U.unsafeCoerce
@@ -460,10 +415,7 @@ htmlOListElementToHTMLElement = U.unsafeCoerce
 readHTMLOListElement :: Foreign -> F HTMLOListElement
 readHTMLOListElement = unsafeReadTagged "HTMLOListElement"
 
-instance isForeignHTMLOListElement :: IsForeign HTMLOListElement where
-  read = readHTMLOListElement
-
-foreign import data HTMLUListElement :: *
+foreign import data HTMLUListElement :: Type
 
 htmlUListElementToHTMLElement :: HTMLUListElement -> HTMLElement
 htmlUListElementToHTMLElement = U.unsafeCoerce
@@ -471,10 +423,7 @@ htmlUListElementToHTMLElement = U.unsafeCoerce
 readHTMLUListElement :: Foreign -> F HTMLUListElement
 readHTMLUListElement = unsafeReadTagged "HTMLUListElement"
 
-instance isForeignHTMLUListElement :: IsForeign HTMLUListElement where
-  read = readHTMLUListElement
-
-foreign import data HTMLLIElement :: *
+foreign import data HTMLLIElement :: Type
 
 htmlLIElementToHTMLElement :: HTMLLIElement -> HTMLElement
 htmlLIElementToHTMLElement = U.unsafeCoerce
@@ -482,10 +431,7 @@ htmlLIElementToHTMLElement = U.unsafeCoerce
 readHTMLLIElement :: Foreign -> F HTMLLIElement
 readHTMLLIElement = unsafeReadTagged "HTMLLIElement"
 
-instance isForeignHTMLLIElement :: IsForeign HTMLLIElement where
-  read = readHTMLLIElement
-
-foreign import data HTMLDListElement :: *
+foreign import data HTMLDListElement :: Type
 
 htmlDListElementToHTMLElement :: HTMLDListElement -> HTMLElement
 htmlDListElementToHTMLElement = U.unsafeCoerce
@@ -493,10 +439,7 @@ htmlDListElementToHTMLElement = U.unsafeCoerce
 readHTMLDListElement :: Foreign -> F HTMLDListElement
 readHTMLDListElement = unsafeReadTagged "HTMLDListElement"
 
-instance isForeignHTMLDListElement :: IsForeign HTMLDListElement where
-  read = readHTMLDListElement
-
-foreign import data HTMLDivElement :: *
+foreign import data HTMLDivElement :: Type
 
 htmlDivElementToHTMLElement :: HTMLDivElement -> HTMLElement
 htmlDivElementToHTMLElement = U.unsafeCoerce
@@ -504,12 +447,9 @@ htmlDivElementToHTMLElement = U.unsafeCoerce
 readHTMLDivElement :: Foreign -> F HTMLDivElement
 readHTMLDivElement = unsafeReadTagged "HTMLDivElement"
 
-instance isForeignHTMLDivElement :: IsForeign HTMLDivElement where
-  read = readHTMLDivElement
-
 -- Text
 
-foreign import data HTMLAnchorElement :: *
+foreign import data HTMLAnchorElement :: Type
 
 htmlAnchorElementToHTMLElement :: HTMLAnchorElement -> HTMLElement
 htmlAnchorElementToHTMLElement = U.unsafeCoerce
@@ -517,10 +457,7 @@ htmlAnchorElementToHTMLElement = U.unsafeCoerce
 readHTMLAnchorElement :: Foreign -> F HTMLAnchorElement
 readHTMLAnchorElement = unsafeReadTagged "HTMLAnchorElement"
 
-instance isForeignHTMLAnchorElement :: IsForeign HTMLAnchorElement where
-  read = readHTMLAnchorElement
-
-foreign import data HTMLDataElement :: *
+foreign import data HTMLDataElement :: Type
 
 htmlDataElementToHTMLElement :: HTMLDataElement -> HTMLElement
 htmlDataElementToHTMLElement = U.unsafeCoerce
@@ -528,10 +465,7 @@ htmlDataElementToHTMLElement = U.unsafeCoerce
 readHTMLDataElement :: Foreign -> F HTMLDataElement
 readHTMLDataElement = unsafeReadTagged "HTMLDataElement"
 
-instance isForeignHTMLDataElement :: IsForeign HTMLDataElement where
-  read = readHTMLDataElement
-
-foreign import data HTMLTimeElement :: *
+foreign import data HTMLTimeElement :: Type
 
 htmlTimeElementToHTMLElement :: HTMLTimeElement -> HTMLElement
 htmlTimeElementToHTMLElement = U.unsafeCoerce
@@ -539,10 +473,7 @@ htmlTimeElementToHTMLElement = U.unsafeCoerce
 readHTMLTimeElement :: Foreign -> F HTMLTimeElement
 readHTMLTimeElement = unsafeReadTagged "HTMLTimeElement"
 
-instance isForeignHTMLTimeElement :: IsForeign HTMLTimeElement where
-  read = readHTMLTimeElement
-
-foreign import data HTMLSpanElement :: *
+foreign import data HTMLSpanElement :: Type
 
 htmlSpanElementToHTMLElement :: HTMLSpanElement -> HTMLElement
 htmlSpanElementToHTMLElement = U.unsafeCoerce
@@ -550,10 +481,7 @@ htmlSpanElementToHTMLElement = U.unsafeCoerce
 readHTMLSpanElement :: Foreign -> F HTMLSpanElement
 readHTMLSpanElement = unsafeReadTagged "HTMLSpanElement"
 
-instance isForeignHTMLSpanElement :: IsForeign HTMLSpanElement where
-  read = readHTMLSpanElement
-
-foreign import data HTMLBRElement :: *
+foreign import data HTMLBRElement :: Type
 
 htmlBRElementToHTMLElement :: HTMLBRElement -> HTMLElement
 htmlBRElementToHTMLElement = U.unsafeCoerce
@@ -561,10 +489,7 @@ htmlBRElementToHTMLElement = U.unsafeCoerce
 readHTMLBRElement :: Foreign -> F HTMLBRElement
 readHTMLBRElement = unsafeReadTagged "HTMLBRElement"
 
-instance isForeignHTMLBRElement :: IsForeign HTMLBRElement where
-  read = readHTMLBRElement
-
-foreign import data HTMLModElement :: *
+foreign import data HTMLModElement :: Type
 
 htmlModElementToHTMLElement :: HTMLModElement -> HTMLElement
 htmlModElementToHTMLElement = U.unsafeCoerce
@@ -572,12 +497,9 @@ htmlModElementToHTMLElement = U.unsafeCoerce
 readHTMLModElement :: Foreign -> F HTMLModElement
 readHTMLModElement = unsafeReadTagged "HTMLModElement"
 
-instance isForeignHTMLModElement :: IsForeign HTMLModElement where
-  read = readHTMLModElement
-
 -- Embedded content
 
-foreign import data HTMLImageElement :: *
+foreign import data HTMLImageElement :: Type
 
 htmlImageElementToHTMLElement :: HTMLImageElement -> HTMLElement
 htmlImageElementToHTMLElement = U.unsafeCoerce
@@ -585,10 +507,7 @@ htmlImageElementToHTMLElement = U.unsafeCoerce
 readHTMLImageElement :: Foreign -> F HTMLImageElement
 readHTMLImageElement = unsafeReadTagged "HTMLImageElement"
 
-instance isForeignHTMLImageElement :: IsForeign HTMLImageElement where
-  read = readHTMLImageElement
-
-foreign import data HTMLIFrameElement :: *
+foreign import data HTMLIFrameElement :: Type
 
 htmlIFrameElementToHTMLElement :: HTMLIFrameElement -> HTMLElement
 htmlIFrameElementToHTMLElement = U.unsafeCoerce
@@ -596,10 +515,7 @@ htmlIFrameElementToHTMLElement = U.unsafeCoerce
 readHTMLIFrameElement :: Foreign -> F HTMLIFrameElement
 readHTMLIFrameElement = unsafeReadTagged "HTMLIFrameElement"
 
-instance isForeignHTMLIFrameElement :: IsForeign HTMLIFrameElement where
-  read = readHTMLIFrameElement
-
-foreign import data HTMLEmbedElement :: *
+foreign import data HTMLEmbedElement :: Type
 
 htmlEmbedElementToHTMLElement :: HTMLEmbedElement -> HTMLElement
 htmlEmbedElementToHTMLElement = U.unsafeCoerce
@@ -607,10 +523,7 @@ htmlEmbedElementToHTMLElement = U.unsafeCoerce
 readHTMLEmbedElement :: Foreign -> F HTMLEmbedElement
 readHTMLEmbedElement = unsafeReadTagged "HTMLEmbedElement"
 
-instance isForeignHTMLEmbedElement :: IsForeign HTMLEmbedElement where
-  read = readHTMLEmbedElement
-
-foreign import data HTMLObjectElement :: *
+foreign import data HTMLObjectElement :: Type
 
 htmlObjectElementToHTMLElement :: HTMLObjectElement -> HTMLElement
 htmlObjectElementToHTMLElement = U.unsafeCoerce
@@ -618,10 +531,7 @@ htmlObjectElementToHTMLElement = U.unsafeCoerce
 readHTMLObjectElement :: Foreign -> F HTMLObjectElement
 readHTMLObjectElement = unsafeReadTagged "HTMLObjectElement"
 
-instance isForeignHTMLObjectElement :: IsForeign HTMLObjectElement where
-  read = readHTMLObjectElement
-
-foreign import data HTMLParamElement :: *
+foreign import data HTMLParamElement :: Type
 
 htmlParamElementToHTMLElement :: HTMLParamElement -> HTMLElement
 htmlParamElementToHTMLElement = U.unsafeCoerce
@@ -629,10 +539,7 @@ htmlParamElementToHTMLElement = U.unsafeCoerce
 readHTMLParamElement :: Foreign -> F HTMLParamElement
 readHTMLParamElement = unsafeReadTagged "HTMLParamElement"
 
-instance isForeignHTMLParamElement :: IsForeign HTMLParamElement where
-  read = readHTMLParamElement
-
-foreign import data HTMLMediaElement :: *
+foreign import data HTMLMediaElement :: Type
 
 htmlMediaElementToHTMLElement :: HTMLMediaElement -> HTMLElement
 htmlMediaElementToHTMLElement = U.unsafeCoerce
@@ -640,7 +547,7 @@ htmlMediaElementToHTMLElement = U.unsafeCoerce
 readHTMLMediaElement :: Foreign -> F HTMLMediaElement
 readHTMLMediaElement = unsafeReadTagged "HTMLMediaElement"
 
-foreign import data HTMLAudioElement :: *
+foreign import data HTMLAudioElement :: Type
 
 htmlAudioElementToHTMLMediaElement :: HTMLAudioElement -> HTMLMediaElement
 htmlAudioElementToHTMLMediaElement = U.unsafeCoerce
@@ -648,7 +555,7 @@ htmlAudioElementToHTMLMediaElement = U.unsafeCoerce
 readHTMLAudioElement :: Foreign -> F HTMLAudioElement
 readHTMLAudioElement = unsafeReadTagged "HTMLAudioElement"
 
-foreign import data HTMLVideoElement :: *
+foreign import data HTMLVideoElement :: Type
 
 htmlVideoElementToHTMLMediaElement :: HTMLVideoElement -> HTMLMediaElement
 htmlVideoElementToHTMLMediaElement = U.unsafeCoerce
@@ -656,7 +563,7 @@ htmlVideoElementToHTMLMediaElement = U.unsafeCoerce
 readHTMLVideoElement :: Foreign -> F HTMLVideoElement
 readHTMLVideoElement = unsafeReadTagged "HTMLVideoElement"
 
-foreign import data HTMLSourceElement :: *
+foreign import data HTMLSourceElement :: Type
 
 htmlSourceElementToHTMLElement :: HTMLSourceElement -> HTMLElement
 htmlSourceElementToHTMLElement = U.unsafeCoerce
@@ -664,10 +571,7 @@ htmlSourceElementToHTMLElement = U.unsafeCoerce
 readHTMLSourceElement :: Foreign -> F HTMLSourceElement
 readHTMLSourceElement = unsafeReadTagged "HTMLSourceElement"
 
-instance isForeignHTMLSourceElement :: IsForeign HTMLSourceElement where
-  read = readHTMLSourceElement
-
-foreign import data HTMLTrackElement :: *
+foreign import data HTMLTrackElement :: Type
 
 htmlTrackElementToHTMLElement :: HTMLTrackElement -> HTMLElement
 htmlTrackElementToHTMLElement = U.unsafeCoerce
@@ -675,10 +579,7 @@ htmlTrackElementToHTMLElement = U.unsafeCoerce
 readHTMLTrackElement :: Foreign -> F HTMLTrackElement
 readHTMLTrackElement = unsafeReadTagged "HTMLTrackElement"
 
-instance isForeignHTMLTrackElement :: IsForeign HTMLTrackElement where
-  read = readHTMLTrackElement
-
-foreign import data HTMLMapElement :: *
+foreign import data HTMLMapElement :: Type
 
 htmlMapElementToHTMLElement :: HTMLMapElement -> HTMLElement
 htmlMapElementToHTMLElement = U.unsafeCoerce
@@ -686,10 +587,7 @@ htmlMapElementToHTMLElement = U.unsafeCoerce
 readHTMLMapElement :: Foreign -> F HTMLMapElement
 readHTMLMapElement = unsafeReadTagged "HTMLMapElement"
 
-instance isForeignHTMLMapElement :: IsForeign HTMLMapElement where
-  read = readHTMLMapElement
-
-foreign import data HTMLAreaElement :: *
+foreign import data HTMLAreaElement :: Type
 
 htmlAreaElementToHTMLElement :: HTMLAreaElement -> HTMLElement
 htmlAreaElementToHTMLElement = U.unsafeCoerce
@@ -697,12 +595,9 @@ htmlAreaElementToHTMLElement = U.unsafeCoerce
 readHTMLAreaElement :: Foreign -> F HTMLAreaElement
 readHTMLAreaElement = unsafeReadTagged "HTMLAreaElement"
 
-instance isForeignHTMLAreaElement :: IsForeign HTMLAreaElement where
-  read = readHTMLAreaElement
-
 -- Tabular data
 
-foreign import data HTMLTableElement :: *
+foreign import data HTMLTableElement :: Type
 
 htmlTableElementToHTMLElement :: HTMLTableElement -> HTMLElement
 htmlTableElementToHTMLElement = U.unsafeCoerce
@@ -710,10 +605,7 @@ htmlTableElementToHTMLElement = U.unsafeCoerce
 readHTMLTableElement :: Foreign -> F HTMLTableElement
 readHTMLTableElement = unsafeReadTagged "HTMLTableElement"
 
-instance isForeignHTMLTableElement :: IsForeign HTMLTableElement where
-  read = readHTMLTableElement
-
-foreign import data HTMLTableCaptionElement :: *
+foreign import data HTMLTableCaptionElement :: Type
 
 htmlTableCaptionElementToHTMLElement :: HTMLTableCaptionElement -> HTMLElement
 htmlTableCaptionElementToHTMLElement = U.unsafeCoerce
@@ -721,10 +613,7 @@ htmlTableCaptionElementToHTMLElement = U.unsafeCoerce
 readHTMLTableCaptionElement :: Foreign -> F HTMLTableCaptionElement
 readHTMLTableCaptionElement = unsafeReadTagged "HTMLTableCaptionElement"
 
-instance isForeignHTMLTableCaptionElement :: IsForeign HTMLTableCaptionElement where
-  read = readHTMLTableCaptionElement
-
-foreign import data HTMLTableColElement :: *
+foreign import data HTMLTableColElement :: Type
 
 htmlTableColElementToHTMLElement :: HTMLTableColElement -> HTMLElement
 htmlTableColElementToHTMLElement = U.unsafeCoerce
@@ -732,10 +621,7 @@ htmlTableColElementToHTMLElement = U.unsafeCoerce
 readHTMLTableColElement :: Foreign -> F HTMLTableColElement
 readHTMLTableColElement = unsafeReadTagged "HTMLTableColElement"
 
-instance isForeignHTMLTableColElement :: IsForeign HTMLTableColElement where
-  read = readHTMLTableColElement
-
-foreign import data HTMLTableSectionElement :: *
+foreign import data HTMLTableSectionElement :: Type
 
 htmlTableSectionElementToHTMLElement :: HTMLTableSectionElement -> HTMLElement
 htmlTableSectionElementToHTMLElement = U.unsafeCoerce
@@ -743,10 +629,7 @@ htmlTableSectionElementToHTMLElement = U.unsafeCoerce
 readHTMLTableSectionElement :: Foreign -> F HTMLTableSectionElement
 readHTMLTableSectionElement = unsafeReadTagged "HTMLTableSectionElement"
 
-instance isForeignHTMLTableSectionElement :: IsForeign HTMLTableSectionElement where
-  read = readHTMLTableSectionElement
-
-foreign import data HTMLTableRowElement :: *
+foreign import data HTMLTableRowElement :: Type
 
 htmlTableRowElementToHTMLElement :: HTMLTableRowElement -> HTMLElement
 htmlTableRowElementToHTMLElement = U.unsafeCoerce
@@ -754,10 +637,7 @@ htmlTableRowElementToHTMLElement = U.unsafeCoerce
 readHTMLTableRowElement :: Foreign -> F HTMLTableRowElement
 readHTMLTableRowElement = unsafeReadTagged "HTMLTableRowElement"
 
-instance isForeignHTMLTableRowElement :: IsForeign HTMLTableRowElement where
-  read = readHTMLTableRowElement
-
-foreign import data HTMLTableCellElement :: *
+foreign import data HTMLTableCellElement :: Type
 
 htmlTableCellElementToHTMLElement :: HTMLTableCellElement -> HTMLElement
 htmlTableCellElementToHTMLElement = U.unsafeCoerce
@@ -765,7 +645,7 @@ htmlTableCellElementToHTMLElement = U.unsafeCoerce
 readHTMLTableCellElement :: Foreign -> F HTMLTableCellElement
 readHTMLTableCellElement = unsafeReadTagged "HTMLTableCellElement"
 
-foreign import data HTMLTableDataCellElement :: *
+foreign import data HTMLTableDataCellElement :: Type
 
 htmlTableDataCellElementToHTMLTableCellElement :: HTMLTableDataCellElement -> HTMLTableCellElement
 htmlTableDataCellElementToHTMLTableCellElement = U.unsafeCoerce
@@ -773,7 +653,7 @@ htmlTableDataCellElementToHTMLTableCellElement = U.unsafeCoerce
 readHTMLTableDataCellElement :: Foreign -> F HTMLTableDataCellElement
 readHTMLTableDataCellElement = unsafeReadTagged "HTMLTableDataCellElement"
 
-foreign import data HTMLTableHeaderCellElement :: *
+foreign import data HTMLTableHeaderCellElement :: Type
 
 htmlTableHeaderCellElementToHTMLTableCellElement :: HTMLTableHeaderCellElement -> HTMLTableCellElement
 htmlTableHeaderCellElementToHTMLTableCellElement = U.unsafeCoerce
@@ -783,7 +663,7 @@ readHTMLTableHeaderCellElement = unsafeReadTagged "HTMLTableHeaderCellElement"
 
 -- Forms
 
-foreign import data HTMLFormElement :: *
+foreign import data HTMLFormElement :: Type
 
 htmlFormElementToHTMLElement :: HTMLFormElement -> HTMLElement
 htmlFormElementToHTMLElement = U.unsafeCoerce
@@ -791,10 +671,7 @@ htmlFormElementToHTMLElement = U.unsafeCoerce
 readHTMLFormElement :: Foreign -> F HTMLFormElement
 readHTMLFormElement = unsafeReadTagged "HTMLFormElement"
 
-instance isForeignHTMLFormElement :: IsForeign HTMLFormElement where
-  read = readHTMLFormElement
-
-foreign import data HTMLLabelElement :: *
+foreign import data HTMLLabelElement :: Type
 
 htmlLabelElementToHTMLElement :: HTMLLabelElement -> HTMLElement
 htmlLabelElementToHTMLElement = U.unsafeCoerce
@@ -802,10 +679,7 @@ htmlLabelElementToHTMLElement = U.unsafeCoerce
 readHTMLLabelElement :: Foreign -> F HTMLLabelElement
 readHTMLLabelElement = unsafeReadTagged "HTMLLabelElement"
 
-instance isForeignHTMLLabelElement :: IsForeign HTMLLabelElement where
-  read = readHTMLLabelElement
-
-foreign import data HTMLInputElement :: *
+foreign import data HTMLInputElement :: Type
 
 htmlInputElementToHTMLElement :: HTMLInputElement -> HTMLElement
 htmlInputElementToHTMLElement = U.unsafeCoerce
@@ -813,10 +687,7 @@ htmlInputElementToHTMLElement = U.unsafeCoerce
 readHTMLInputElement :: Foreign -> F HTMLInputElement
 readHTMLInputElement = unsafeReadTagged "HTMLInputElement"
 
-instance isForeignHTMLInputElement :: IsForeign HTMLInputElement where
-  read = readHTMLInputElement
-
-foreign import data HTMLButtonElement :: *
+foreign import data HTMLButtonElement :: Type
 
 htmlButtonElementToHTMLElement :: HTMLButtonElement -> HTMLElement
 htmlButtonElementToHTMLElement = U.unsafeCoerce
@@ -824,10 +695,7 @@ htmlButtonElementToHTMLElement = U.unsafeCoerce
 readHTMLButtonElement :: Foreign -> F HTMLButtonElement
 readHTMLButtonElement = unsafeReadTagged "HTMLButtonElement"
 
-instance isForeignHTMLButtonElement :: IsForeign HTMLButtonElement where
-  read = readHTMLButtonElement
-
-foreign import data HTMLSelectElement :: *
+foreign import data HTMLSelectElement :: Type
 
 htmlSelectElementToHTMLElement :: HTMLSelectElement -> HTMLElement
 htmlSelectElementToHTMLElement = U.unsafeCoerce
@@ -835,10 +703,7 @@ htmlSelectElementToHTMLElement = U.unsafeCoerce
 readHTMLSelectElement :: Foreign -> F HTMLSelectElement
 readHTMLSelectElement = unsafeReadTagged "HTMLSelectElement"
 
-instance isForeignHTMLSelectElement :: IsForeign HTMLSelectElement where
-  read = readHTMLSelectElement
-
-foreign import data HTMLDataListElement :: *
+foreign import data HTMLDataListElement :: Type
 
 htmlDataListElementToHTMLElement :: HTMLDataListElement -> HTMLElement
 htmlDataListElementToHTMLElement = U.unsafeCoerce
@@ -846,10 +711,7 @@ htmlDataListElementToHTMLElement = U.unsafeCoerce
 readHTMLDataListElement :: Foreign -> F HTMLDataListElement
 readHTMLDataListElement = unsafeReadTagged "HTMLDataListElement"
 
-instance isForeignHTMLDataListElement :: IsForeign HTMLDataListElement where
-  read = readHTMLDataListElement
-
-foreign import data HTMLOptGroupElement :: *
+foreign import data HTMLOptGroupElement :: Type
 
 htmlOptGroupElementToHTMLElement :: HTMLOptGroupElement -> HTMLElement
 htmlOptGroupElementToHTMLElement = U.unsafeCoerce
@@ -857,10 +719,7 @@ htmlOptGroupElementToHTMLElement = U.unsafeCoerce
 readHTMLOptGroupElement :: Foreign -> F HTMLOptGroupElement
 readHTMLOptGroupElement = unsafeReadTagged "HTMLOptGroupElement"
 
-instance isForeignHTMLOptGroupElement :: IsForeign HTMLOptGroupElement where
-  read = readHTMLOptGroupElement
-
-foreign import data HTMLOptionElement :: *
+foreign import data HTMLOptionElement :: Type
 
 htmlOptionElementToHTMLElement :: HTMLOptionElement -> HTMLElement
 htmlOptionElementToHTMLElement = U.unsafeCoerce
@@ -868,10 +727,7 @@ htmlOptionElementToHTMLElement = U.unsafeCoerce
 readHTMLOptionElement :: Foreign -> F HTMLOptionElement
 readHTMLOptionElement = unsafeReadTagged "HTMLOptionElement"
 
-instance isForeignHTMLOptionElement :: IsForeign HTMLOptionElement where
-  read = readHTMLOptionElement
-
-foreign import data HTMLTextAreaElement :: *
+foreign import data HTMLTextAreaElement :: Type
 
 htmlTextAreaElementToHTMLElement :: HTMLTextAreaElement -> HTMLElement
 htmlTextAreaElementToHTMLElement = U.unsafeCoerce
@@ -879,10 +735,7 @@ htmlTextAreaElementToHTMLElement = U.unsafeCoerce
 readHTMLTextAreaElement :: Foreign -> F HTMLTextAreaElement
 readHTMLTextAreaElement = unsafeReadTagged "HTMLTextAreaElement"
 
-instance isForeignHTMLTextAreaElement :: IsForeign HTMLTextAreaElement where
-  read = readHTMLTextAreaElement
-
-foreign import data HTMLKeygenElement :: *
+foreign import data HTMLKeygenElement :: Type
 
 htmlKeygenElementToHTMLElement :: HTMLKeygenElement -> HTMLElement
 htmlKeygenElementToHTMLElement = U.unsafeCoerce
@@ -890,10 +743,7 @@ htmlKeygenElementToHTMLElement = U.unsafeCoerce
 readHTMLKeygenElement :: Foreign -> F HTMLKeygenElement
 readHTMLKeygenElement = unsafeReadTagged "HTMLKeygenElement"
 
-instance isForeignHTMLKeygenElement :: IsForeign HTMLKeygenElement where
-  read = readHTMLKeygenElement
-
-foreign import data HTMLOutputElement :: *
+foreign import data HTMLOutputElement :: Type
 
 htmlOutputElementToHTMLElement :: HTMLOutputElement -> HTMLElement
 htmlOutputElementToHTMLElement = U.unsafeCoerce
@@ -901,10 +751,7 @@ htmlOutputElementToHTMLElement = U.unsafeCoerce
 readHTMLOutputElement :: Foreign -> F HTMLOutputElement
 readHTMLOutputElement = unsafeReadTagged "HTMLOutputElement"
 
-instance isForeignHTMLOutputElement :: IsForeign HTMLOutputElement where
-  read = readHTMLOutputElement
-
-foreign import data HTMLProgressElement :: *
+foreign import data HTMLProgressElement :: Type
 
 htmlProgressElementToHTMLElement :: HTMLProgressElement -> HTMLElement
 htmlProgressElementToHTMLElement = U.unsafeCoerce
@@ -912,10 +759,7 @@ htmlProgressElementToHTMLElement = U.unsafeCoerce
 readHTMLProgressElement :: Foreign -> F HTMLProgressElement
 readHTMLProgressElement = unsafeReadTagged "HTMLProgressElement"
 
-instance isForeignHTMLProgressElement :: IsForeign HTMLProgressElement where
-  read = readHTMLProgressElement
-
-foreign import data HTMLMeterElement :: *
+foreign import data HTMLMeterElement :: Type
 
 htmlMeterElementToHTMLElement :: HTMLMeterElement -> HTMLElement
 htmlMeterElementToHTMLElement = U.unsafeCoerce
@@ -923,10 +767,7 @@ htmlMeterElementToHTMLElement = U.unsafeCoerce
 readHTMLMeterElement :: Foreign -> F HTMLMeterElement
 readHTMLMeterElement = unsafeReadTagged "HTMLMeterElement"
 
-instance isForeignHTMLMeterElement :: IsForeign HTMLMeterElement where
-  read = readHTMLMeterElement
-
-foreign import data HTMLFieldSetElement :: *
+foreign import data HTMLFieldSetElement :: Type
 
 htmlFieldSetElementToHTMLElement :: HTMLFieldSetElement -> HTMLElement
 htmlFieldSetElementToHTMLElement = U.unsafeCoerce
@@ -934,10 +775,7 @@ htmlFieldSetElementToHTMLElement = U.unsafeCoerce
 readHTMLFieldSetElement :: Foreign -> F HTMLFieldSetElement
 readHTMLFieldSetElement = unsafeReadTagged "HTMLFieldSetElement"
 
-instance isForeignHTMLFieldSetElement :: IsForeign HTMLFieldSetElement where
-  read = readHTMLFieldSetElement
-
-foreign import data HTMLLegendElement :: *
+foreign import data HTMLLegendElement :: Type
 
 htmlLegendElementToHTMLElement :: HTMLLegendElement -> HTMLElement
 htmlLegendElementToHTMLElement = U.unsafeCoerce
@@ -945,12 +783,9 @@ htmlLegendElementToHTMLElement = U.unsafeCoerce
 readHTMLLegendElement :: Foreign -> F HTMLLegendElement
 readHTMLLegendElement = unsafeReadTagged "HTMLLegendElement"
 
-instance isForeignHTMLLegendElement :: IsForeign HTMLLegendElement where
-  read = readHTMLLegendElement
-
 -- Scripting
 
-foreign import data HTMLScriptElement :: *
+foreign import data HTMLScriptElement :: Type
 
 htmlScriptElementToHTMLElement :: HTMLScriptElement -> HTMLElement
 htmlScriptElementToHTMLElement = U.unsafeCoerce
@@ -958,10 +793,7 @@ htmlScriptElementToHTMLElement = U.unsafeCoerce
 readHTMLScriptElement :: Foreign -> F HTMLScriptElement
 readHTMLScriptElement = unsafeReadTagged "HTMLScriptElement"
 
-instance isForeignHTMLScriptElement :: IsForeign HTMLScriptElement where
-  read = readHTMLScriptElement
-
-foreign import data HTMLTemplateElement :: *
+foreign import data HTMLTemplateElement :: Type
 
 htmlTemplateElementToHTMLElement :: HTMLTemplateElement -> HTMLElement
 htmlTemplateElementToHTMLElement = U.unsafeCoerce
@@ -969,10 +801,7 @@ htmlTemplateElementToHTMLElement = U.unsafeCoerce
 readHTMLTemplateElement :: Foreign -> F HTMLTemplateElement
 readHTMLTemplateElement = unsafeReadTagged "HTMLTemplateElement"
 
-instance isForeignHTMLTemplateElement :: IsForeign HTMLTemplateElement where
-  read = readHTMLTemplateElement
-
-foreign import data HTMLCanvasElement :: *
+foreign import data HTMLCanvasElement :: Type
 
 htmlCanvasElementToHTMLElement :: HTMLCanvasElement -> HTMLElement
 htmlCanvasElementToHTMLElement = U.unsafeCoerce
@@ -980,7 +809,4 @@ htmlCanvasElementToHTMLElement = U.unsafeCoerce
 readHTMLCanvasElement :: Foreign -> F HTMLCanvasElement
 readHTMLCanvasElement = unsafeReadTagged "HTMLCanvasElement"
 
-instance isForeignHTMLCanvasElement :: IsForeign HTMLCanvasElement where
-  read = readHTMLCanvasElement
-
-foreign import data ValidityState :: *
+foreign import data ValidityState :: Type
