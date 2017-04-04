@@ -1,14 +1,14 @@
 module DOM.Event.EventTarget where
 
 import Prelude
-import Control.Monad.Eff (Eff)
+import Control.Monad.Eff (kind Effect, Eff)
 import Control.Monad.Eff.Exception (EXCEPTION)
 import DOM (DOM)
 import DOM.Event.Types (EventTarget, Event, EventType)
 
 -- | A boxed function that can be used as an event listener. This is necessary
 -- | due to the underling implementation of Eff functions.
-foreign import data EventListener :: # ! -> *
+foreign import data EventListener :: # Effect -> Type
 
 -- | Creates an EventListener from a normal PureScript Eff function.
 foreign import eventListener

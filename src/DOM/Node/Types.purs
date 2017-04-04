@@ -11,20 +11,20 @@ import DOM.Event.Types (EventTarget)
 import Unsafe.Coerce (unsafeCoerce)
 import DOM.Util.FFI (unsafeReadProtoTagged)
 
-foreign import data Node :: *
+foreign import data Node :: Type
 
 readNode :: Foreign -> F Node
 readNode = unsafeReadProtoTagged "Node"
 
-foreign import data NonElementParentNode :: *
-foreign import data ParentNode :: *
-foreign import data NonDocumentTypeChildNode :: *
-foreign import data ChildNode :: *
-foreign import data NodeList :: *
-foreign import data HTMLCollection :: *
-foreign import data DOMTokenList :: *
+foreign import data NonElementParentNode :: Type
+foreign import data ParentNode :: Type
+foreign import data NonDocumentTypeChildNode :: Type
+foreign import data ChildNode :: Type
+foreign import data NodeList :: Type
+foreign import data HTMLCollection :: Type
+foreign import data DOMTokenList :: Type
 
-foreign import data Document :: *
+foreign import data Document :: Type
 
 readDocument :: Foreign -> F Document
 readDocument = unsafeReadProtoTagged "Document"
@@ -41,7 +41,7 @@ documentToNode = unsafeCoerce
 documentToEventTarget :: Document -> EventTarget
 documentToEventTarget = unsafeCoerce
 
-foreign import data Element :: *
+foreign import data Element :: Type
 
 newtype ElementId = ElementId String
 
@@ -64,28 +64,28 @@ elementToNode = unsafeCoerce
 elementToEventTarget :: Element -> EventTarget
 elementToEventTarget = unsafeCoerce
 
-foreign import data CharacterData :: *
+foreign import data CharacterData :: Type
 
 characterDataToNonDocumentTypeChildNode ::
   CharacterData -> NonDocumentTypeChildNode
 characterDataToNonDocumentTypeChildNode = unsafeCoerce
 
-foreign import data Text :: *
+foreign import data Text :: Type
 
 textToNode :: Text -> Node
 textToNode = unsafeCoerce
 
-foreign import data Comment :: *
+foreign import data Comment :: Type
 
 commentToNode :: Comment -> Node
 commentToNode = unsafeCoerce
 
-foreign import data ProcessingInstruction :: *
+foreign import data ProcessingInstruction :: Type
 
 processingInstructionToNode :: ProcessingInstruction -> Node
 processingInstructionToNode = unsafeCoerce
 
-foreign import data DocumentFragment :: *
+foreign import data DocumentFragment :: Type
 
 documentFragmentToNonElementParentNode ::
   DocumentFragment -> NonElementParentNode
@@ -97,7 +97,7 @@ documentFragmentToParentNode = unsafeCoerce
 documentFragmentToNode :: DocumentFragment -> Node
 documentFragmentToNode = unsafeCoerce
 
-foreign import data DocumentType :: *
+foreign import data DocumentType :: Type
 
 documentTypeToNode :: DocumentType -> Node
 documentTypeToNode = unsafeCoerce

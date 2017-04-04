@@ -15,7 +15,7 @@ import Data.Maybe (Maybe)
 import Data.MediaType (MediaType(..))
 import Data.Nullable (Nullable, toMaybe)
 
-foreign import data DataTransfer :: *
+foreign import data DataTransfer :: Type
 
 -- | Contains a list of all the local files available on the data transfer.
 -- | Empty if the drag operation doesn't involve dragging files.

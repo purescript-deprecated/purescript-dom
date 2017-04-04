@@ -1,6 +1,6 @@
 module DOM.XHR.Types where
 
-foreign import data XMLHttpRequestEventTarget :: *
-foreign import data XMLHttpRequestUpload :: *
-foreign import data XMLHttpRequest :: *
-foreign import data FormData :: *
+foreign import data XMLHttpRequestEventTarget :: Type
+foreign import data XMLHttpRequestUpload :: Type
+foreign import data XMLHttpRequest :: Type
+foreign import data FormData :: Type

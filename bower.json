@@ -20,19 +20,19 @@
     "package.json"
   ],
   "dependencies": {
-    "purescript-datetime": "^2.0.0",
-    "purescript-enums": "^2.0.0",
-    "purescript-exceptions": "^2.0.0",
-    "purescript-foldable-traversable": "^2.0.0",
-    "purescript-foreign": "^3.0.0",
-    "purescript-js-date": "^3.0.0",
-    "purescript-media-types": "^2.0.0",
-    "purescript-nullable": "^2.0.0",
-    "purescript-prelude": "^2.1.0",
-    "purescript-unsafe-coerce": "^2.0.0"
+    "purescript-datetime": "^3.0.0",
+    "purescript-enums": "^3.0.0",
+    "purescript-exceptions": "^3.0.0",
+    "purescript-foldable-traversable": "^3.0.0",
+    "purescript-foreign": "^4.0.0",
+    "purescript-js-date": "^4.0.0",
+    "purescript-media-types": "^3.0.0",
+    "purescript-nullable": "^3.0.0",
+    "purescript-prelude": "^3.0.0",
+    "purescript-unsafe-coerce": "^3.0.0"
   },
   "devDependencies": {
-    "purescript-aff": "^2.0.0",
+    "purescript-aff": "^3.0.0",
     "purescript-test-unit": "^10.0.0",
     "purescript-exitcodes": "^2.0.0",
     "purescript-phantom": "^1.0.1"

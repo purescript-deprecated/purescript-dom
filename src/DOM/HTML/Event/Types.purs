@@ -11,11 +11,10 @@ module DOM.HTML.Event.Types
   ) where
 
 import Data.Foreign (Foreign, F, unsafeReadTagged)
-import Data.Foreign.Class (class IsForeign)
 import DOM.Event.Types (Event)
 import Unsafe.Coerce as U
 
-foreign import data DragEvent :: *
+foreign import data DragEvent :: Type
 
 dragEventToEvent :: DragEvent -> Event
 dragEventToEvent = U.unsafeCoerce
@@ -23,10 +22,7 @@ dragEventToEvent = U.unsafeCoerce
 readDragEvent :: Foreign -> F DragEvent
 readDragEvent = unsafeReadTagged "DragEvent"
 
-instance isForeignDragEvent :: IsForeign DragEvent where
-  read = readDragEvent
-
-foreign import data ErrorEvent :: *
+foreign import data ErrorEvent :: Type
 
 errorEventToEvent :: ErrorEvent -> Event
 errorEventToEvent = U.unsafeCoerce
@@ -34,16 +30,10 @@ errorEventToEvent = U.unsafeCoerce
 readErrorEvent :: Foreign -> F ErrorEvent
 readErrorEvent = unsafeReadTagged "ErrorEvent"
 
-instance isForeignErrorEvent :: IsForeign ErrorEvent where
-  read = readErrorEvent
-
-foreign import data HashChangeEvent :: *
+foreign import data HashChangeEvent :: Type
 
 hashChangeEventToEvent :: HashChangeEvent -> Event
 hashChangeEventToEvent = U.unsafeCoerce
 
 readHashChangeEvent :: Foreign -> F HashChangeEvent
 readHashChangeEvent = unsafeReadTagged "HashChangeEvent"
-
-instance isForeignHashChangeEvent :: IsForeign HashChangeEvent where
-  read = readHashChangeEvent
