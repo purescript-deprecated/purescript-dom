@@ -14,7 +14,7 @@ import DOM.Event.Types (FocusEvent, focusEventToEvent, readFocusEvent) as T
 eventToFocusEvent :: Event -> F FocusEvent
 eventToFocusEvent = readFocusEvent <<< toForeign
 
-foreign import relatedTargetNullable :: FocusEvent -> Nullable EventTarget
+foreign import _relatedTarget :: FocusEvent -> Nullable EventTarget
 
 relatedTarget :: FocusEvent -> Maybe EventTarget
-relatedTarget = toMaybe <$> relatedTargetNullable
+relatedTarget = toMaybe <$> _relatedTarget

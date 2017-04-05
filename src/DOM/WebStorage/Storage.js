@@ -6,7 +6,7 @@ exports.length = function (storage) {
   };
 };
 
-exports.key = function (index) {
+exports._key = function (index) {
   return function (storage) {
     return function () {
       return storage.key(index);
@@ -14,7 +14,7 @@ exports.key = function (index) {
   };
 };
 
-exports.getItem = function (key) {
+exports._getItem = function (key) {
   return function (storage) {
     return function () {
       return storage.getItem(key);

@@ -1,8 +1,20 @@
-module DOM.Node.ParentNode where
+module DOM.Node.ParentNode
+  ( children
+  , firstElementChild
+  , lastElementChild
+  , childElementCount
+  , QuerySelector(..)
+  , querySelector
+  , querySelectorAll
+  ) where
+
+import Prelude
 
 import Control.Monad.Eff (Eff)
 
-import Data.Nullable (Nullable)
+import Data.Newtype (class Newtype)
+import Data.Maybe (Maybe)
+import Data.Nullable (Nullable, toMaybe)
 
 import DOM (DOM)
 import DOM.Node.Types (NodeList, ParentNode, Element, HTMLCollection)
@@ -11,17 +23,32 @@ import DOM.Node.Types (NodeList, ParentNode, Element, HTMLCollection)
 foreign import children :: forall eff. ParentNode -> Eff (dom :: DOM | eff) HTMLCollection
 
 -- | The first child that is an element, or null if no such element exists.
-foreign import firstElementChild :: forall eff. ParentNode -> Eff (dom :: DOM | eff) (Nullable Element)
+firstElementChild :: forall eff. ParentNode -> Eff (dom :: DOM | eff) (Maybe Element)
+firstElementChild = map toMaybe <<< _firstElementChild
+
+foreign import _firstElementChild :: forall eff. ParentNode -> Eff (dom :: DOM | eff) (Nullable Element)
 
 -- | The last child that is an element, or null if no such element exists.
-foreign import lastElementChild :: forall eff. ParentNode -> Eff (dom :: DOM | eff) (Nullable Element)
+lastElementChild :: forall eff. ParentNode -> Eff (dom :: DOM | eff) (Maybe Element)
+lastElementChild = map toMaybe <<< _lastElementChild
+
+foreign import _lastElementChild :: forall eff. ParentNode -> Eff (dom :: DOM | eff) (Nullable Element)
 
 -- | The number of child elements.
 foreign import childElementCount :: forall eff. ParentNode -> Eff (dom :: DOM | eff) Int
 
+newtype QuerySelector = QuerySelector String
+
+derive newtype instance eqQuerySelector :: Eq QuerySelector
+derive newtype instance ordQuerySelector :: Ord QuerySelector
+derive instance newtypeQuerySelector :: Newtype QuerySelector _
+
 -- | Finds the first child that is an element that matches the selector(s), or
 -- | null if no such element exists.
-foreign import querySelector :: forall eff. String -> ParentNode -> Eff (dom :: DOM | eff) (Nullable Element)
+querySelector :: forall eff. QuerySelector -> ParentNode -> Eff (dom :: DOM | eff) (Maybe Element)
+querySelector qs = map toMaybe <<< _querySelector qs
+
+foreign import _querySelector :: forall eff. QuerySelector -> ParentNode -> Eff (dom :: DOM | eff) (Nullable Element)
 
 -- | Finds all the child elements that matches the selector(s).
-foreign import querySelectorAll :: forall eff. String -> ParentNode -> Eff (dom :: DOM | eff) NodeList
+foreign import querySelectorAll :: forall eff. QuerySelector -> ParentNode -> Eff (dom :: DOM | eff) NodeList

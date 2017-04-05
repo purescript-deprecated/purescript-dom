@@ -1,10 +1,32 @@
-module DOM.HTML.HTMLObjectElement where
+module DOM.HTML.HTMLObjectElement
+  ( data_
+  , setData
+  , type_
+  , setType
+  , typeMustMatch
+  , name
+  , setName
+  , useMap
+  , setUseMap
+  , form
+  , width
+  , setWidth
+  , height
+  , setHeight
+  , contentDocument
+  , willValidate
+  , validity
+  , validationMessage
+  , checkValidity
+  , setCustomValidity
+  ) where
 
-import Prelude (Unit)
+import Prelude
 
 import Control.Monad.Eff (Eff)
 
-import Data.Nullable (Nullable)
+import Data.Maybe (Maybe)
+import Data.Nullable (Nullable, toMaybe)
 
 import DOM (DOM)
 import DOM.HTML.Types (HTMLObjectElement, HTMLFormElement, ValidityState)
@@ -24,7 +46,10 @@ foreign import setName :: forall eff. String -> HTMLObjectElement -> Eff (dom ::
 foreign import useMap :: forall eff. HTMLObjectElement -> Eff (dom :: DOM | eff) String
 foreign import setUseMap :: forall eff. String -> HTMLObjectElement -> Eff (dom :: DOM | eff) Unit
 
-foreign import form :: forall eff. HTMLObjectElement -> Eff (dom :: DOM | eff) (Nullable HTMLFormElement)
+form :: forall eff. HTMLObjectElement -> Eff (dom :: DOM | eff) (Maybe HTMLFormElement)
+form = map toMaybe <<< _form
+
+foreign import _form :: forall eff. HTMLObjectElement -> Eff (dom :: DOM | eff) (Nullable HTMLFormElement)
 
 foreign import width :: forall eff. HTMLObjectElement -> Eff (dom :: DOM | eff) String
 foreign import setWidth :: forall eff. String -> HTMLObjectElement -> Eff (dom :: DOM | eff) Unit
@@ -32,7 +57,10 @@ foreign import setWidth :: forall eff. String -> HTMLObjectElement -> Eff (dom :
 foreign import height :: forall eff. HTMLObjectElement -> Eff (dom :: DOM | eff) String
 foreign import setHeight :: forall eff. String -> HTMLObjectElement -> Eff (dom :: DOM | eff) Unit
 
-foreign import contentDocument :: forall eff. HTMLObjectElement -> Eff (dom :: DOM | eff) (Nullable Document)
+contentDocument :: forall eff. HTMLObjectElement -> Eff (dom :: DOM | eff) (Maybe Document)
+contentDocument = map toMaybe <<< _contentDocument
+
+foreign import _contentDocument :: forall eff. HTMLObjectElement -> Eff (dom :: DOM | eff) (Nullable Document)
 
 --   readonly attribute WindowProxy? contentWindow;
 

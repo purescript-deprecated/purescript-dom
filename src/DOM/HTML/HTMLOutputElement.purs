@@ -1,10 +1,26 @@
-module DOM.HTML.HTMLOutputElement where
+module DOM.HTML.HTMLOutputElement
+  ( form
+  , name
+  , setName
+  , type_
+  , defaultValue
+  , setDefaultValue
+  , value
+  , setValue
+  , willValidate
+  , validity
+  , validationMessage
+  , checkValidity
+  , setCustomValidity
+  , labels
+  ) where
 
-import Prelude (Unit)
+import Prelude
 
 import Control.Monad.Eff (Eff)
 
-import Data.Nullable (Nullable)
+import Data.Maybe (Maybe)
+import Data.Nullable (Nullable, toMaybe)
 
 import DOM (DOM)
 import DOM.Node.Types (NodeList)
@@ -12,7 +28,10 @@ import DOM.HTML.Types (HTMLOutputElement, HTMLFormElement, ValidityState)
 
 --   [PutForwards=value] readonly attribute DOMSettableTokenList htmlFor;
 
-foreign import form :: forall eff. HTMLOutputElement -> Eff (dom :: DOM | eff) (Nullable HTMLFormElement)
+form :: forall eff. HTMLOutputElement -> Eff (dom :: DOM | eff) (Maybe HTMLFormElement)
+form = map toMaybe <<< _form
+
+foreign import _form :: forall eff. HTMLOutputElement -> Eff (dom :: DOM | eff) (Nullable HTMLFormElement)
 
 foreign import name :: forall eff. HTMLOutputElement -> Eff (dom :: DOM | eff) String
 foreign import setName :: forall eff. String -> HTMLOutputElement -> Eff (dom :: DOM | eff) Unit

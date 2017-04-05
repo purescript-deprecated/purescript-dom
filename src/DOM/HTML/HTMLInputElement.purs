@@ -1,9 +1,100 @@
-module DOM.HTML.HTMLInputElement where
+module DOM.HTML.HTMLInputElement
+  ( accept
+  , setAccept
+  , alt
+  , setAlt
+  , autocomplete
+  , setAutocomplete
+  , autofocus
+  , setAutofocus
+  , defaultChecked
+  , setDefaultChecked
+  , checked
+  , setChecked
+  , dirName
+  , setDirName
+  , disabled
+  , setDisabled
+  , form
+  , files
+  , formAction
+  , setFormAction
+  , formEnctype
+  , setFormEnctype
+  , formMethod
+  , setFormMethod
+  , formNoValidate
+  , setFormNoValidate
+  , formTarget
+  , setFormTarget
+  , height
+  , setHeight
+  , indeterminate
+  , setIndeterminate
+  , list
+  , max
+  , setMax
+  , maxLength
+  , setMaxLength
+  , min
+  , setMin
+  , minLength
+  , setMinLength
+  , multiple
+  , setMultiple
+  , name
+  , setName
+  , pattern
+  , setPattern
+  , placeholder
+  , setPlaceholder
+  , readOnly
+  , setReadOnly
+  , required
+  , setRequired
+  , size
+  , setSize
+  , src
+  , setSrc
+  , step
+  , setStep
+  , type_
+  , setType
+  , defaultValue
+  , setDefaultValue
+  , value
+  , setValue
+  , valueAsDate
+  , setValueAsDate
+  , valueAsNumber
+  , setValueAsNumber
+  , width
+  , setWidth
+  , stepUp'
+  , stepDown'
+  , willValidate
+  , validity
+  , validationMessage
+  , checkValidity
+  , setCustomValidity
+  , labels
+  , select
+  , selectionStart
+  , setSelectionStart
+  , selectionEnd
+  , setSelectionEnd
+  , selectionDirection
+  , setSelectionDirection
+  , setRangeText
+  , setRangeText'
+  , setSelectionRange
+  ) where
 
-import Prelude (Unit)
+import Prelude
 import Control.Monad.Eff (Eff)
 import Data.JSDate (JSDate)
-import Data.Nullable (Nullable)
+import Data.Maybe (Maybe)
+import Data.Nullable (Nullable, toMaybe)
 import DOM (DOM)
 import DOM.File.Types (FileList)
 import DOM.HTML.SelectionMode (SelectionMode)
@@ -34,9 +125,15 @@ foreign import setDirName :: forall eff. String -> HTMLInputElement -> Eff (dom 
 foreign import disabled :: forall eff. HTMLInputElement -> Eff (dom :: DOM | eff) Boolean
 foreign import setDisabled :: forall eff. Boolean -> HTMLInputElement -> Eff (dom :: DOM | eff) Unit
 
-foreign import form :: forall eff. HTMLInputElement -> Eff (dom :: DOM | eff) (Nullable HTMLFormElement)
+form :: forall eff. HTMLInputElement -> Eff (dom :: DOM | eff) (Maybe HTMLFormElement)
+form = map toMaybe <<< _form
 
-foreign import files :: forall eff. HTMLInputElement -> Eff (dom :: DOM | eff) (Nullable FileList)
+foreign import _form :: forall eff. HTMLInputElement -> Eff (dom :: DOM | eff) (Nullable HTMLFormElement)
+
+files :: forall eff. HTMLInputElement -> Eff (dom :: DOM | eff) (Maybe FileList)
+files = map toMaybe <<< _files
+
+foreign import _files :: forall eff. HTMLInputElement -> Eff (dom :: DOM | eff) (Nullable FileList)
 
 foreign import formAction :: forall eff. HTMLInputElement -> Eff (dom :: DOM | eff) String
 foreign import setFormAction :: forall eff. String -> HTMLInputElement -> Eff (dom :: DOM | eff) Unit
@@ -59,7 +156,10 @@ foreign import setHeight :: forall eff. Int -> HTMLInputElement -> Eff (dom :: D
 foreign import indeterminate :: forall eff. HTMLInputElement -> Eff (dom :: DOM | eff) Boolean
 foreign import setIndeterminate :: forall eff. Boolean -> HTMLInputElement -> Eff (dom :: DOM | eff) Unit
 
-foreign import list :: forall eff. HTMLInputElement -> Eff (dom :: DOM | eff) (Nullable HTMLElement)
+list :: forall eff. HTMLInputElement -> Eff (dom :: DOM | eff) (Maybe HTMLElement)
+list = map toMaybe <<< _list
+
+foreign import _list :: forall eff. HTMLInputElement -> Eff (dom :: DOM | eff) (Nullable HTMLElement)
 
 foreign import max :: forall eff. HTMLInputElement -> Eff (dom :: DOM | eff) String
 foreign import setMax :: forall eff. String -> HTMLInputElement -> Eff (dom :: DOM | eff) Unit

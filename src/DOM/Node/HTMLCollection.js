@@ -6,7 +6,7 @@ exports.length = function (list) {
   };
 };
 
-exports.item = function (index) {
+exports._item = function (index) {
   return function (list) {
     return function () {
       return list.item(index);
@@ -14,7 +14,7 @@ exports.item = function (index) {
   };
 };
 
-exports.namedItem = function (name) {
+exports._namedItem = function (name) {
   return function (list) {
     return function () {
       return list.namedItem(name);

@@ -128,7 +128,7 @@ exports.setDisabled = function (disabled) {
 
 // ----------------------------------------------------------------------------
 
-exports.form = function (input) {
+exports._form = function (input) {
   return function () {
     return input.form;
   };
@@ -136,7 +136,7 @@ exports.form = function (input) {
 
 // ----------------------------------------------------------------------------
 
-exports.files = function (input) {
+exports._files = function (input) {
   return function () {
     return input.files;
   };
@@ -256,7 +256,7 @@ exports.setIndeterminate = function (indeterminate) {
 
 // ----------------------------------------------------------------------------
 
-exports.list = function (input) {
+exports._list = function (input) {
   return function () {
     return input.list;
   };

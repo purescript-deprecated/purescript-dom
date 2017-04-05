@@ -32,7 +32,7 @@ exports.setDisabled = function (disabled) {
 
 // ----------------------------------------------------------------------------
 
-exports.form = function (button) {
+exports._form = function (button) {
   return function () {
     return button.form;
   };

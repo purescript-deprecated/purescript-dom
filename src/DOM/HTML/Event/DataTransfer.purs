@@ -1,7 +1,6 @@
 module DOM.HTML.Event.DataTransfer
   ( DataTransfer
   , files
-  , filesNullable
   , types
   , getData
   , setData
@@ -23,9 +22,9 @@ foreign import data DataTransfer :: Type
 -- | It's possible that a drag operation may have null files, instead of an
 -- | empty file list. In these cases Nothing is returned.
 files :: DataTransfer -> Maybe FileList
-files = toMaybe <$> filesNullable
+files = toMaybe <$> _files
 
-foreign import filesNullable :: DataTransfer -> Nullable FileList
+foreign import _files :: DataTransfer -> Nullable FileList
 
 -- | Returns an array of data formats used in the drag operation.
 -- | If the drag operation included no data, then the array is empty.

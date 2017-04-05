@@ -208,7 +208,7 @@ exports.getBoundingClientRect = function (el) {
   };
 };
 
-exports.offsetParent = function (el) {
+exports._offsetParent = function (el) {
   return function () {
     return el.offsetParent;
   };

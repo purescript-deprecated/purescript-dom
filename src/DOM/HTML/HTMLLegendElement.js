@@ -1,6 +1,6 @@
 "use strict";
 
-exports.form = function (le) {
+exports._form = function (le) {
   return function () {
     return le.form;
   };

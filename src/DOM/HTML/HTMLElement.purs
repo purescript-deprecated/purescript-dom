@@ -1,8 +1,38 @@
-module DOM.HTML.HTMLElement where
+module DOM.HTML.HTMLElement
+  ( title
+  , setTitle
+  , lang
+  , setLang
+  , dir
+  , setDir
+  , className
+  , setClassName
+  , hidden
+  , setHidden
+  , tabIndex
+  , setTabIndex
+  , draggable
+  , setDraggable
+  , contentEditable
+  , setContentEditable
+  , isContentEditable
+  , spellcheck
+  , setSpellcheck
+  , click
+  , focus
+  , blur
+  , getBoundingClientRect
+  , offsetParent
+  , offsetTop
+  , offsetLeft
+  , offsetWidth
+  , offsetHeight
+  ) where
 
 import Prelude
 import Control.Monad.Eff (Eff)
-import Data.Nullable (Nullable)
+import Data.Nullable (Nullable, toMaybe)
+import Data.Maybe (Maybe)
 import DOM (DOM)
 import DOM.HTML.Types (HTMLElement)
 import DOM.Node.Types (Element)
@@ -52,7 +82,11 @@ foreign import getBoundingClientRect
       , height :: Number
       }
 
-foreign import offsetParent :: forall eff. HTMLElement -> Eff (dom :: DOM | eff) (Nullable Element)
+foreign import _offsetParent :: forall eff. HTMLElement -> Eff (dom :: DOM | eff) (Nullable Element)
+
+offsetParent :: forall eff. HTMLElement -> Eff (dom :: DOM | eff) (Maybe Element)
+offsetParent = map toMaybe <<< _offsetParent
+
 foreign import offsetTop :: forall eff. HTMLElement -> Eff (dom :: DOM | eff) Number
 foreign import offsetLeft :: forall eff. HTMLElement -> Eff (dom :: DOM | eff) Number
 foreign import offsetWidth :: forall eff. HTMLElement -> Eff (dom :: DOM | eff) Number

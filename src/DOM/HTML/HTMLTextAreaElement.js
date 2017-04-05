@@ -80,7 +80,7 @@ exports.setDisabled = function (disabled) {
 
 // ----------------------------------------------------------------------------
 
-exports.form = function (textarea) {
+exports._form = function (textarea) {
   return function () {
     return textarea.form;
   };

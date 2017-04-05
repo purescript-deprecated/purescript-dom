@@ -1,29 +1,69 @@
-module DOM.HTML.HTMLTableElement where
+module DOM.HTML.HTMLTableElement
+  ( caption
+  , setCaption
+  , createCaption
+  , deleteCaption
+  , tHead
+  , setTHead
+  , createTHead
+  , deleteTHead
+  , tFoot
+  , setTFoot
+  , createTFoot
+  , deleteTFoot
+  , tBodies
+  , createTBody
+  , rows
+  , insertRow
+  , insertRow'
+  , deleteRow
+  , border
+  , setBorder
+  ) where
 
-import Prelude (Unit, negate)
+import Prelude
 
 import Control.Monad.Eff (Eff)
 
-import Data.Nullable (Nullable)
+import Data.Maybe (Maybe)
+import Data.Nullable (Nullable, toMaybe, toNullable)
 
 import DOM (DOM)
 import DOM.HTML.Types (HTMLTableElement, HTMLTableCaptionElement, HTMLElement, HTMLTableSectionElement)
 import DOM.Node.Types (HTMLCollection)
 
-foreign import caption :: forall eff. HTMLTableElement -> Eff (dom :: DOM | eff) (Nullable HTMLTableCaptionElement)
-foreign import setCaption :: forall eff. Nullable HTMLTableCaptionElement -> HTMLTableElement -> Eff (dom :: DOM | eff) Unit
+caption :: forall eff. HTMLTableElement -> Eff (dom :: DOM | eff) (Maybe HTMLTableCaptionElement)
+caption = map toMaybe <<< _caption
+
+setCaption :: forall eff. Maybe HTMLTableCaptionElement -> HTMLTableElement -> Eff (dom :: DOM | eff) Unit
+setCaption = _setCaption <<< toNullable
+
+foreign import _caption :: forall eff. HTMLTableElement -> Eff (dom :: DOM | eff) (Nullable HTMLTableCaptionElement)
+foreign import _setCaption :: forall eff. Nullable HTMLTableCaptionElement -> HTMLTableElement -> Eff (dom :: DOM | eff) Unit
 
 foreign import createCaption :: forall eff. HTMLTableElement -> Eff (dom :: DOM | eff) HTMLElement
 foreign import deleteCaption :: forall eff. HTMLTableElement -> Eff (dom :: DOM | eff) Unit
 
-foreign import tHead :: forall eff. HTMLTableElement -> Eff (dom :: DOM | eff) (Nullable HTMLTableSectionElement)
-foreign import setTHead :: forall eff. Nullable HTMLTableSectionElement -> HTMLTableElement -> Eff (dom :: DOM | eff) Unit
+tHead :: forall eff. HTMLTableElement -> Eff (dom :: DOM | eff) (Maybe HTMLTableSectionElement)
+tHead = map toMaybe <<< _tHead
+
+setTHead :: forall eff. Maybe HTMLTableSectionElement -> HTMLTableElement -> Eff (dom :: DOM | eff) Unit
+setTHead = _setTHead <<< toNullable
+
+foreign import _tHead :: forall eff. HTMLTableElement -> Eff (dom :: DOM | eff) (Nullable HTMLTableSectionElement)
+foreign import _setTHead :: forall eff. Nullable HTMLTableSectionElement -> HTMLTableElement -> Eff (dom :: DOM | eff) Unit
 
 foreign import createTHead :: forall eff. HTMLTableElement -> Eff (dom :: DOM | eff) HTMLElement
 foreign import deleteTHead :: forall eff. HTMLTableElement -> Eff (dom :: DOM | eff) Unit
 
-foreign import tFoot :: forall eff. HTMLTableElement -> Eff (dom :: DOM | eff) (Nullable HTMLTableSectionElement)
-foreign import setTFoot :: forall eff. Nullable HTMLTableSectionElement -> HTMLTableElement -> Eff (dom :: DOM | eff) Unit
+tFoot :: forall eff. HTMLTableElement -> Eff (dom :: DOM | eff) (Maybe HTMLTableSectionElement)
+tFoot = map toMaybe <<< _tFoot
+
+setTFoot :: forall eff. Maybe HTMLTableSectionElement -> HTMLTableElement -> Eff (dom :: DOM | eff) Unit
+setTFoot = _setTFoot <<< toNullable
+
+foreign import _tFoot :: forall eff. HTMLTableElement -> Eff (dom :: DOM | eff) (Nullable HTMLTableSectionElement)
+foreign import _setTFoot :: forall eff. Nullable HTMLTableSectionElement -> HTMLTableElement -> Eff (dom :: DOM | eff) Unit
 
 foreign import createTFoot :: forall eff. HTMLTableElement -> Eff (dom :: DOM | eff) HTMLElement
 foreign import deleteTFoot :: forall eff. HTMLTableElement -> Eff (dom :: DOM | eff) Unit

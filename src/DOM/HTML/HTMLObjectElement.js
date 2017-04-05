@@ -72,7 +72,7 @@ exports.setUseMap = function (useMap) {
 
 // ----------------------------------------------------------------------------
 
-exports.form = function (object) {
+exports._form = function (object) {
   return function () {
     return object.form;
   };
@@ -112,7 +112,7 @@ exports.setHeight = function (height) {
 
 // ----------------------------------------------------------------------------
 
-exports.contentDocument = function (object) {
+exports._contentDocument = function (object) {
   return function () {
     return object.contentDocument;
   };

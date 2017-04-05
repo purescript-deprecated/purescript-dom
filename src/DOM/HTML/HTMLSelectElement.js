@@ -48,7 +48,7 @@ exports.setMultiple = function (multiple) {
 
 // ----------------------------------------------------------------------------
 
-exports.form = function (select) {
+exports._form = function (select) {
   return function () {
     return select.form;
   };

@@ -1,10 +1,61 @@
-module DOM.HTML.HTMLTextAreaElement where
+module DOM.HTML.HTMLTextAreaElement
+  ( autocomplete
+  , setAutocomplete
+  , autofocus
+  , setAutofocus
+  , cols
+  , setCols
+  , dirName
+  , setDirName
+  , disabled
+  , setDisabled
+  , form
+  , maxLength
+  , setMaxLength
+  , minLength
+  , setMinLength
+  , name
+  , setName
+  , placeholder
+  , setPlaceholder
+  , readOnly
+  , setReadOnly
+  , required
+  , setRequired
+  , rows
+  , setRows
+  , wrap
+  , setWrap
+  , type_
+  , defaultValue
+  , setDefaultValue
+  , value
+  , setValue
+  , textLength
+  , willValidate
+  , validity
+  , validationMessage
+  , checkValidity
+  , setCustomValidity
+  , labels
+  , select
+  , selectionStart
+  , setSelectionStart
+  , selectionEnd
+  , setSelectionEnd
+  , selectionDirection
+  , setSelectionDirection
+  , setRangeText
+  , setRangeText'
+  , setSelectionRange
+  ) where
 
-import Prelude (Unit)
+import Prelude
 
 import Control.Monad.Eff (Eff)
 
-import Data.Nullable (Nullable)
+import Data.Maybe (Maybe)
+import Data.Nullable (Nullable, toMaybe)
 
 import DOM (DOM)
 import DOM.HTML.SelectionMode (SelectionMode)
@@ -26,7 +77,10 @@ foreign import setDirName :: forall eff. String -> HTMLTextAreaElement -> Eff (d
 foreign import disabled :: forall eff. HTMLTextAreaElement -> Eff (dom :: DOM | eff) Boolean
 foreign import setDisabled :: forall eff. Boolean -> HTMLTextAreaElement -> Eff (dom :: DOM | eff) Unit
 
-foreign import form :: forall eff. HTMLTextAreaElement -> Eff (dom :: DOM | eff) (Nullable HTMLFormElement)
+form :: forall eff. HTMLTextAreaElement -> Eff (dom :: DOM | eff) (Maybe HTMLFormElement)
+form = map toMaybe <<< _form
+
+foreign import _form :: forall eff. HTMLTextAreaElement -> Eff (dom :: DOM | eff) (Nullable HTMLFormElement)
 
 foreign import maxLength :: forall eff. HTMLTextAreaElement -> Eff (dom :: DOM | eff) Int
 foreign import setMaxLength :: forall eff. Int -> HTMLTextAreaElement -> Eff (dom :: DOM | eff) Unit

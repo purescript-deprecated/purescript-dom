@@ -18,11 +18,11 @@ exports.nodeName = function (node) {
 
 exports.baseURI = getEffProp("baseURI");
 
-exports.ownerDocument = getEffProp("ownerDocument");
+exports._ownerDocument = getEffProp("ownerDocument");
 
-exports.parentNode = getEffProp("parentNode");
+exports._parentNode = getEffProp("parentNode");
 
-exports.parentElement = getEffProp("parentElement");
+exports._parentElement = getEffProp("parentElement");
 
 exports.hasChildNodes = function (node) {
   return function () {
@@ -32,13 +32,13 @@ exports.hasChildNodes = function (node) {
 
 exports.childNodes = getEffProp("childNodes");
 
-exports.firstChild = getEffProp("firstChild");
+exports._firstChild = getEffProp("firstChild");
 
-exports.lastChild = getEffProp("lastChild");
+exports._lastChild = getEffProp("lastChild");
 
-exports.previousSibling = getEffProp("previousSibling");
+exports._previousSibling = getEffProp("previousSibling");
 
-exports.nextSibling = getEffProp("nextSibling");
+exports._nextSibling = getEffProp("nextSibling");
 
 exports.nodeValue = getEffProp("nodeValue");
 
@@ -105,7 +105,7 @@ exports.contains = function (node1) {
   };
 };
 
-exports.lookupPrefix = function (prefix) {
+exports._lookupPrefix = function (prefix) {
   return function (node) {
     return function () {
       return node.lookupPrefix(prefix);
@@ -113,7 +113,7 @@ exports.lookupPrefix = function (prefix) {
   };
 };
 
-exports.lookupNamespaceURI = function (ns) {
+exports._lookupNamespaceURI = function (ns) {
   return function (node) {
     return function () {
       return node.lookupNamespaceURI(ns);
