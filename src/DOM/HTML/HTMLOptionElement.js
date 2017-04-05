@@ -16,7 +16,7 @@ exports.setDisabled = function (disabled) {
 
 // ----------------------------------------------------------------------------
 
-exports.form = function (option) {
+exports._form = function (option) {
   return function () {
     return option.form;
   };

@@ -1,10 +1,39 @@
-module DOM.HTML.HTMLSelectElement where
+module DOM.HTML.HTMLSelectElement
+  ( autofocus
+  , setAutofocus
+  , disabled
+  , setDisabled
+  , form
+  , multiple
+  , setMultiple
+  , name
+  , setName
+  , required
+  , setRequired
+  , size
+  , setSize
+  , type_
+  , length
+  , setLength
+  , selectedOptions
+  , selectedIndex
+  , setSelectedIndex
+  , value
+  , setValue
+  , willValidate
+  , validity
+  , validationMessage
+  , checkValidity
+  , setCustomValidity
+  , labels
+  ) where
 
-import Prelude (Unit)
+import Prelude
 
 import Control.Monad.Eff (Eff)
 
-import Data.Nullable (Nullable)
+import Data.Maybe (Maybe)
+import Data.Nullable (Nullable, toMaybe)
 
 import DOM (DOM)
 import DOM.HTML.Types (HTMLSelectElement, HTMLFormElement, ValidityState)
@@ -16,7 +45,10 @@ foreign import setAutofocus :: forall eff. Boolean -> HTMLSelectElement -> Eff (
 foreign import disabled :: forall eff. HTMLSelectElement -> Eff (dom :: DOM | eff) Boolean
 foreign import setDisabled :: forall eff. Boolean -> HTMLSelectElement -> Eff (dom :: DOM | eff) Unit
 
-foreign import form :: forall eff. HTMLSelectElement -> Eff (dom :: DOM | eff) (Nullable HTMLFormElement)
+form :: forall eff. HTMLSelectElement -> Eff (dom :: DOM | eff) (Maybe HTMLFormElement)
+form = map toMaybe <<< _form
+
+foreign import _form :: forall eff. HTMLSelectElement -> Eff (dom :: DOM | eff) (Nullable HTMLFormElement)
 
 foreign import multiple :: forall eff. HTMLSelectElement -> Eff (dom :: DOM | eff) Boolean
 foreign import setMultiple :: forall eff. Boolean -> HTMLSelectElement -> Eff (dom :: DOM | eff) Unit

@@ -15,8 +15,8 @@ exports.compatMode = getEffProp("compatMode");
 exports.characterSet = getEffProp("characterSet");
 exports.contentType = getEffProp("contentType");
 
-exports.doctype = getEffProp("doctype");
-exports.documentElement = getEffProp("documentElement");
+exports._doctype = getEffProp("doctype");
+exports._documentElement = getEffProp("documentElement");
 
 exports.getElementsByTagName = function (localName) {
   return function (doc) {
@@ -26,7 +26,7 @@ exports.getElementsByTagName = function (localName) {
   };
 };
 
-exports.getElementsByTagNameNS = function (ns) {
+exports._getElementsByTagNameNS = function (ns) {
   return function (localName) {
     return function (doc) {
       return function () {
@@ -52,7 +52,7 @@ exports.createElement = function (localName) {
   };
 };
 
-exports.createElementNS = function (ns) {
+exports._createElementNS = function (ns) {
   return function (qualifiedName) {
     return function (doc) {
       return function () {

@@ -45,10 +45,10 @@ foreign import metaKey :: MouseEvent -> Boolean
 
 foreign import button :: MouseEvent -> Int
 
-foreign import relatedTargetNullable :: MouseEvent -> Nullable EventTarget
+foreign import _relatedTarget :: MouseEvent -> Nullable EventTarget
 
 relatedTarget :: MouseEvent -> Maybe EventTarget
-relatedTarget = toMaybe <$> relatedTargetNullable
+relatedTarget = toMaybe <$> _relatedTarget
 
 foreign import buttons :: MouseEvent -> Int
 

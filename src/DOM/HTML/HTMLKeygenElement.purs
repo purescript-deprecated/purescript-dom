@@ -1,10 +1,30 @@
-module DOM.HTML.HTMLKeygenElement where
+module DOM.HTML.HTMLKeygenElement
+  ( autofocus
+  , setAutofocus
+  , challenge
+  , setChallenge
+  , disabled
+  , setDisabled
+  , form
+  , keytype
+  , setKeytype
+  , name
+  , setName
+  , type_
+  , willValidate
+  , validity
+  , validationMessage
+  , checkValidity
+  , setCustomValidity
+  , labels
+  ) where
 
-import Prelude (Unit)
+import Prelude
 
 import Control.Monad.Eff (Eff)
 
-import Data.Nullable (Nullable)
+import Data.Maybe (Maybe)
+import Data.Nullable (Nullable, toMaybe)
 
 import DOM (DOM)
 import DOM.Node.Types (NodeList)
@@ -19,7 +39,10 @@ foreign import setChallenge :: forall eff. String -> HTMLKeygenElement -> Eff (d
 foreign import disabled :: forall eff. HTMLKeygenElement -> Eff (dom :: DOM | eff) Boolean
 foreign import setDisabled :: forall eff. Boolean -> HTMLKeygenElement -> Eff (dom :: DOM | eff) Unit
 
-foreign import form :: forall eff. HTMLKeygenElement -> Eff (dom :: DOM | eff) (Nullable HTMLFormElement)
+form :: forall eff. HTMLKeygenElement -> Eff (dom :: DOM | eff) (Maybe HTMLFormElement)
+form = map toMaybe <<< _form
+
+foreign import _form :: forall eff. HTMLKeygenElement -> Eff (dom :: DOM | eff) (Nullable HTMLFormElement)
 
 foreign import keytype :: forall eff. HTMLKeygenElement -> Eff (dom :: DOM | eff) String
 foreign import setKeytype :: forall eff. String -> HTMLKeygenElement -> Eff (dom :: DOM | eff) Unit

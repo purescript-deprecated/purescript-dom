@@ -80,7 +80,7 @@ exports.setHeight = function (height) {
 
 // ----------------------------------------------------------------------------
 
-exports.contentDocument = function (iframe) {
+exports._contentDocument = function (iframe) {
   return function () {
     return iframe.contentDocument;
   };

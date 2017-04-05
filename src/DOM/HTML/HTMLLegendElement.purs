@@ -1,9 +1,17 @@
-module DOM.HTML.HTMLLegendElement where
+module DOM.HTML.HTMLLegendElement
+  ( form
+  ) where
+
+import Prelude
 
 import Control.Monad.Eff (Eff)
-import Data.Nullable (Nullable)
+import Data.Maybe (Maybe)
+import Data.Nullable (Nullable, toMaybe)
 
 import DOM (DOM)
 import DOM.HTML.Types (HTMLLegendElement, HTMLFormElement)
 
-foreign import form :: forall eff. HTMLLegendElement -> Eff (dom :: DOM | eff) (Nullable HTMLFormElement)
+form :: forall eff. HTMLLegendElement -> Eff (dom :: DOM | eff) (Maybe HTMLFormElement)
+form = map toMaybe <<< _form
+
+foreign import _form :: forall eff. HTMLLegendElement -> Eff (dom :: DOM | eff) (Nullable HTMLFormElement)

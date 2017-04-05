@@ -1,6 +1,6 @@
 "use strict";
 
-exports.form = function (label) {
+exports._form = function (label) {
   return function () {
     return label.form;
   };
@@ -24,7 +24,7 @@ exports.setHtmlFor = function (htmlFor) {
 
 // ----------------------------------------------------------------------------
 
-exports.control = function (label) {
+exports._control = function (label) {
   return function () {
     return label.control;
   };

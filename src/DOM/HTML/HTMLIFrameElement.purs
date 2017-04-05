@@ -1,10 +1,23 @@
-module DOM.HTML.HTMLIFrameElement where
+module DOM.HTML.HTMLIFrameElement
+  ( src
+  , setSrc
+  , srcdoc
+  , setSrcdoc
+  , name
+  , setName
+  , width
+  , setWidth
+  , height
+  , setHeight
+  , contentDocument
+  ) where
 
-import Prelude (Unit)
+import Prelude
 
 import Control.Monad.Eff (Eff)
 
-import Data.Nullable (Nullable)
+import Data.Maybe (Maybe)
+import Data.Nullable (Nullable, toMaybe)
 
 import DOM (DOM)
 import DOM.HTML.Types (HTMLIFrameElement)
@@ -27,6 +40,9 @@ foreign import setWidth :: forall eff. String -> HTMLIFrameElement -> Eff (dom :
 foreign import height :: forall eff. HTMLIFrameElement -> Eff (dom :: DOM | eff) String
 foreign import setHeight :: forall eff. String -> HTMLIFrameElement -> Eff (dom :: DOM | eff) Unit
 
-foreign import contentDocument :: forall eff. HTMLIFrameElement -> Eff (dom :: DOM | eff) (Nullable Document)
+foreign import _contentDocument :: forall eff. HTMLIFrameElement -> Eff (dom :: DOM | eff) (Nullable Document)
+
+contentDocument :: forall eff. HTMLIFrameElement -> Eff (dom :: DOM | eff) (Maybe Document)
+contentDocument = map toMaybe <<< _contentDocument
 
 --   readonly attribute WindowProxy? contentWindow;

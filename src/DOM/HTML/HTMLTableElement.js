@@ -1,12 +1,12 @@
 "use strict";
 
-exports.caption = function (table) {
+exports._caption = function (table) {
   return function () {
     return table.caption;
   };
 };
 
-exports.setCaption = function (caption) {
+exports._setCaption = function (caption) {
   return function (table) {
     return function () {
       table.caption = caption;
@@ -32,13 +32,13 @@ exports.deleteCaption = function (table) {
 
 // ----------------------------------------------------------------------------
 
-exports.tHead = function (table) {
+exports._tHead = function (table) {
   return function () {
     return table.tHead;
   };
 };
 
-exports.setTHead = function (tHead) {
+exports._setTHead = function (tHead) {
   return function (table) {
     return function () {
       table.tHead = tHead;
@@ -64,13 +64,13 @@ exports.deleteTHead = function (table) {
 
 // ----------------------------------------------------------------------------
 
-exports.tFoot = function (table) {
+exports._tFoot = function (table) {
   return function () {
     return table.tFoot;
   };
 };
 
-exports.setTFoot = function (tFoot) {
+exports._setTFoot = function (tFoot) {
   return function (table) {
     return function () {
       table.tFoot = tFoot;

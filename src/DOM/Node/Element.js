@@ -6,8 +6,8 @@ var getProp = function (name) {
   };
 };
 
-exports.namespaceURI = getProp("namespaceURI");
-exports.prefix = getProp("prefix");
+exports._namespaceURI = getProp("namespaceURI");
+exports._prefix = getProp("prefix");
 exports.localName = getProp("localName");
 exports.tagName = getProp("tagName");
 
@@ -49,7 +49,7 @@ exports.getElementsByTagName = function (localName) {
   };
 };
 
-exports.getElementsByTagNameNS = function (ns) {
+exports._getElementsByTagNameNS = function (ns) {
   return function (localName) {
     return function (doc) {
       return function () {
@@ -78,7 +78,7 @@ exports.setAttribute = function (name) {
   };
 };
 
-exports.getAttribute = function (name) {
+exports._getAttribute = function (name) {
   return function (element) {
     return function () {
       return element.getAttribute(name);

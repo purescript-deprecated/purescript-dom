@@ -1,5 +1,5 @@
 "use strict";
 
-exports.relatedTargetNullable = function (e) {
+exports._relatedTarget = function (e) {
   return e.relatedTarget;
 };

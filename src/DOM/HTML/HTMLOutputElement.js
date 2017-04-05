@@ -1,6 +1,6 @@
 "use strict";
 
-exports.form = function (output) {
+exports._form = function (output) {
   return function () {
     return output.form;
   };

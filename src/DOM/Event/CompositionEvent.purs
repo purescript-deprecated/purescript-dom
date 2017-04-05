@@ -1,8 +1,8 @@
-module DOM.Event.CompositionEvent (
-    module T,
-    eventToCompositionEvent,
-    data_
-    ) where
+module DOM.Event.CompositionEvent
+  ( module T
+  , eventToCompositionEvent
+  , data_
+  ) where
 
 import Prelude
 import Data.Foreign (F, toForeign)

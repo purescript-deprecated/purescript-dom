@@ -1,7 +1,12 @@
-module DOM.Node.NodeList where
+module DOM.Node.NodeList
+  ( length
+  , item
+  ) where
 
+import Prelude
 import Control.Monad.Eff (Eff)
-import Data.Nullable (Nullable)
+import Data.Maybe (Maybe)
+import Data.Nullable (Nullable, toMaybe)
 import DOM (DOM)
 import DOM.Node.Types (Node, NodeList)
 
@@ -10,4 +15,7 @@ foreign import length :: forall eff. NodeList -> Eff (dom :: DOM | eff) Int
 
 -- | The item in a NodeList at the specified index, or null if no such node
 -- | exists.
-foreign import item :: forall eff. Int -> NodeList -> Eff (dom :: DOM | eff) (Nullable Node)
+item :: forall eff. Int -> NodeList -> Eff (dom :: DOM | eff) (Maybe Node)
+item i = map toMaybe <<< _item i
+
+foreign import _item :: forall eff. Int -> NodeList -> Eff (dom :: DOM | eff) (Nullable Node)

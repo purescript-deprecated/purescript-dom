@@ -1,10 +1,26 @@
-module DOM.HTML.HTMLOptionElement where
+module DOM.HTML.HTMLOptionElement
+  ( disabled
+  , setDisabled
+  , form
+  , label
+  , setLabel
+  , defaultSelected
+  , setDefaultSelected
+  , selected
+  , setSelected
+  , value
+  , setValue
+  , text
+  , setText
+  , index
+  ) where
 
-import Prelude (Unit)
+import Prelude
 
 import Control.Monad.Eff (Eff)
 
-import Data.Nullable (Nullable)
+import Data.Maybe (Maybe)
+import Data.Nullable (Nullable, toMaybe)
 
 import DOM (DOM)
 import DOM.HTML.Types (HTMLOptionElement, HTMLFormElement)
@@ -14,7 +30,10 @@ import DOM.HTML.Types (HTMLOptionElement, HTMLFormElement)
 foreign import disabled :: forall eff. HTMLOptionElement -> Eff (dom :: DOM | eff) Boolean
 foreign import setDisabled :: forall eff. Boolean -> HTMLOptionElement -> Eff (dom :: DOM | eff) Unit
 
-foreign import form :: forall eff. HTMLOptionElement -> Eff (dom :: DOM | eff) (Nullable HTMLFormElement)
+form :: forall eff. HTMLOptionElement -> Eff (dom :: DOM | eff) (Maybe HTMLFormElement)
+form = map toMaybe <<< _form
+
+foreign import _form :: forall eff. HTMLOptionElement -> Eff (dom :: DOM | eff) (Nullable HTMLFormElement)
 
 foreign import label :: forall eff. HTMLOptionElement -> Eff (dom :: DOM | eff) String
 foreign import setLabel :: forall eff. String -> HTMLOptionElement -> Eff (dom :: DOM | eff) Unit

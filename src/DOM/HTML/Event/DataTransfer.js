@@ -1,6 +1,6 @@
 "use strict";
 
-exports.filesNullable = function (dataTransfer) {
+exports._files = function (dataTransfer) {
   return dataTransfer.files;
 };
 

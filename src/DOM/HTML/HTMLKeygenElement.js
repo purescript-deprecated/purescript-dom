@@ -48,7 +48,7 @@ exports.setDisabled = function (disabled) {
 
 // ----------------------------------------------------------------------------
 
-exports.form = function (keygen) {
+exports._form = function (keygen) {
   return function () {
     return keygen.form;
   };

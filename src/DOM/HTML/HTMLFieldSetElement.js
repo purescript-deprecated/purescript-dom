@@ -16,7 +16,7 @@ exports.setDisabled = function (disabled) {
 
 // ----------------------------------------------------------------------------
 
-exports.form = function (fieldset) {
+exports._form = function (fieldset) {
   return function () {
     return fieldset.form;
   };
