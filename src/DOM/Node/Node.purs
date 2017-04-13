@@ -1,5 +1,6 @@
 module DOM.Node.Node
-  ( nodeTypeIndex
+  ( nodeType
+  , nodeTypeIndex
   , nodeName
   , baseURI
   , ownerDocument
