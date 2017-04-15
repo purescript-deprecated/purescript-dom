@@ -21,7 +21,7 @@ foreign import eventListener
 foreign import addEventListener
   :: forall eff
    . EventType
-  -> EventListener eff
+  -> EventListener (dom :: DOM | eff)
   -> Boolean
   -> EventTarget
   -> Eff (dom :: DOM | eff) Unit
@@ -31,7 +31,7 @@ foreign import addEventListener
 foreign import removeEventListener
   :: forall eff
    . EventType
-  -> EventListener eff
+  -> EventListener (dom :: DOM | eff)
   -> Boolean
   -> EventTarget
   -> Eff (dom :: DOM | eff) Unit
