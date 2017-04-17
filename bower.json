@@ -20,6 +20,7 @@
     "package.json"
   ],
   "dependencies": {
+    "purescript-arraybuffer-types": "^1.0.0",
     "purescript-datetime": "^3.0.0",
     "purescript-enums": "^3.0.0",
     "purescript-exceptions": "^3.0.0",
