@@ -20,7 +20,7 @@ instance enumBinaryType :: Enum BinaryType where
   pred = defaultPred toEnumBinaryType fromEnumBinaryType
 
 instance boundedEnumBinaryType :: BoundedEnum BinaryType where
-  cardinality = Cardinality 3
+  cardinality = Cardinality 2
   toEnum = toEnumBinaryType
   fromEnum = fromEnumBinaryType
 
