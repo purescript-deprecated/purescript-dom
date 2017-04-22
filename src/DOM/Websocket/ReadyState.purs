@@ -22,7 +22,7 @@ instance enumReadyState :: Enum ReadyState where
   pred = defaultPred toEnumReadyState fromEnumReadyState
 
 instance boundedEnumReadyState :: BoundedEnum ReadyState where
-  cardinality = Cardinality 3
+  cardinality = Cardinality 4
   toEnum = toEnumReadyState
   fromEnum = fromEnumReadyState
 
