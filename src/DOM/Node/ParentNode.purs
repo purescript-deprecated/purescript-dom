@@ -22,13 +22,13 @@ import DOM.Node.Types (NodeList, ParentNode, Element, HTMLCollection)
 -- | The child elements for the node.
 foreign import children :: forall eff. ParentNode -> Eff (dom :: DOM | eff) HTMLCollection
 
--- | The first child that is an element, or null if no such element exists.
+-- | The first child that is an element, or Nothing if no such element exists.
 firstElementChild :: forall eff. ParentNode -> Eff (dom :: DOM | eff) (Maybe Element)
 firstElementChild = map toMaybe <<< _firstElementChild
 
 foreign import _firstElementChild :: forall eff. ParentNode -> Eff (dom :: DOM | eff) (Nullable Element)
 
--- | The last child that is an element, or null if no such element exists.
+-- | The last child that is an element, or Nothing if no such element exists.
 lastElementChild :: forall eff. ParentNode -> Eff (dom :: DOM | eff) (Maybe Element)
 lastElementChild = map toMaybe <<< _lastElementChild
 
@@ -44,7 +44,7 @@ derive newtype instance ordQuerySelector :: Ord QuerySelector
 derive instance newtypeQuerySelector :: Newtype QuerySelector _
 
 -- | Finds the first child that is an element that matches the selector(s), or
--- | null if no such element exists.
+-- | Nothing if no such element exists.
 querySelector :: forall eff. QuerySelector -> ParentNode -> Eff (dom :: DOM | eff) (Maybe Element)
 querySelector qs = map toMaybe <<< _querySelector qs
 
