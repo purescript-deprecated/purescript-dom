@@ -59,6 +59,9 @@ dragend = EventType "dragend"
 dragenter :: EventType
 dragenter = EventType "dragenter"
 
+dragexit :: EventType
+dragexit = EventType "dragexit"
+
 dragleave :: EventType
 dragleave = EventType "dragleave"
 
@@ -77,11 +80,20 @@ error = EventType "error"
 focus :: EventType
 focus = EventType "focus"
 
+focusin :: EventType
+focusin = EventType "focusin"
+
+focusout :: EventType
+focusout = EventType "focusout"
+
 hashchange :: EventType
 hashchange = EventType "hashchange"
 
 input :: EventType
 input = EventType "input"
+
+invalid :: EventType
+invalid = EventType "invalid"
 
 keydown :: EventType
 keydown = EventType "keydown"
