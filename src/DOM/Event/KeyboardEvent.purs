@@ -1,3 +1,17 @@
+-- | Functions that expose the KeyboardEvent API.
+-- |
+-- | https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
+-- |
+-- | Note: The deprecated attributes `.keyCode`, `.charCode`, and
+-- | `.which` are deliberately omitted. It is currently recommended to use
+-- | `KeyboardEvent.key` instead.
+-- | 
+-- | If browser support for `KeyboardEvent.key` is not yet widespread
+-- | enough for your use case, consider using a polyfill
+-- | (e.g. https://github.com/inexorabletash/polyfill#keyboard-events)
+-- | or use the purescript FFI to access the deprecated attributes you
+-- | want to work with.
+-- |
 module DOM.Event.KeyboardEvent
   ( module T
   , eventToKeyboardEvent
@@ -29,8 +43,12 @@ import DOM.Event.Types (KeyboardEvent, keyboardEventToEvent, readKeyboardEvent) 
 eventToKeyboardEvent :: Event -> F KeyboardEvent
 eventToKeyboardEvent = readKeyboardEvent <<< toForeign
 
+-- | A non-empty Unicode character string containing the printable representation
+-- | of the key, if available.
 foreign import key :: KeyboardEvent -> String
 
+-- | Returns a string representing a physical key on the keyboard. Not
+-- | affected by keyboard layout or state of the modifier keys.
 foreign import code :: KeyboardEvent -> String
 
 foreign import locationIndex :: KeyboardEvent -> Int
