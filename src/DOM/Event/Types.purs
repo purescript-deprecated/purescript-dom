@@ -39,9 +39,10 @@ module DOM.Event.Types
   ) where
 
 import Prelude
+import Data.Bifunctor (lmap)
 import Data.Either (Either(..))
-import Data.Foreign (F, Foreign, unsafeReadTagged)
-import Data.Newtype (class Newtype)
+import Data.Foreign (F, Foreign, ForeignError(ForeignError), unsafeReadTagged)
+import Data.Newtype (class Newtype, wrap)
 import Unsafe.Coerce as U
 
 -- | Basic type for all DOM events.
@@ -58,13 +59,15 @@ derive newtype instance ordEventType :: Ord EventType
 foreign import data EventTarget :: Type
 
 readEventTarget :: Foreign -> F EventTarget
-readEventTarget = _readEventTarget Left Right
+readEventTarget =
+  wrap <<< wrap <<< lmap (pure <<< ForeignError) <<<
+    _readEventTarget Left Right
 
 foreign import _readEventTarget
   :: (forall a b. a -> Either a b)
   -> (forall a b. b -> Either a b)
   -> Foreign
-  -> F EventTarget
+  -> Either String EventTarget
 
 foreign import data CustomEvent :: Type
 
