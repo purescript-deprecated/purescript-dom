@@ -36,5 +36,5 @@
     "purescript-test-unit": "^11.0.0",
     "purescript-phantom": "^2.0.0",
     "purescript-exitcodes": "^3.0.0"
-  }  
+  }
 }

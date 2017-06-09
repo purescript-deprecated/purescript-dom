@@ -1,5 +1,6 @@
 module Test.Main where
 
+import Prelude (($), discard)
 import Control.Monad.Aff (launchAff, Canceler)
 import Control.Monad.Aff.AVar (AVAR)
 import Control.Monad.Eff (Eff)
@@ -11,16 +12,11 @@ import DOM.HTML.Types (WINDOW)
 import Data.Enum (fromEnum)
 import ExitCodes (ExitCode(Success))
 import PhantomJS.Phantom (exit, PHANTOMJS)
-import Prelude (($), discard)
 import Test.DOM.HTML.Window (domHtmlWindowTests)
 import Test.DOM.Node.DOMTokenList (domTokenListTests)
 import Test.Unit (describe, it)
 import Test.Unit.Assert (assert)
 import Test.Unit.Output.Simple (runTest)
-
-
--- liftEff :: forall eff a. Eff (phantomjs :: PHANTOMJS | eff) a -> Aff (phantomjs :: PHANTOMJS | eff) a
--- liftEff = EffClass.liftEff
 
 main
   :: forall eff
