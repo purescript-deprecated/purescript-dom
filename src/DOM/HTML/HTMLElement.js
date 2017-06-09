@@ -68,6 +68,12 @@ exports.setClassName = function (className) {
   };
 };
 
+exports.classList = function (element) {
+  return function () {
+    return element.classList;
+  };
+};
+
 // ----------------------------------------------------------------------------
 
 exports.hidden = function (elt) {
