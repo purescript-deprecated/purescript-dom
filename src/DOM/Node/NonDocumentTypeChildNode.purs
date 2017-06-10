@@ -10,13 +10,13 @@ import Data.Nullable (Nullable, toMaybe)
 import DOM (DOM)
 import DOM.Node.Types (Element, NonDocumentTypeChildNode)
 
--- | The previous sibling that is an element, or null if no such element exists.
+-- | The previous sibling that is an element, or Nothing if no such element exists.
 previousElementSibling :: forall eff. NonDocumentTypeChildNode -> Eff (dom :: DOM | eff) (Maybe Element)
 previousElementSibling = map toMaybe <<< _previousElementSibling
 
 foreign import _previousElementSibling :: forall eff. NonDocumentTypeChildNode -> Eff (dom :: DOM | eff) (Nullable Element)
 
--- | The next sibling that is an element, or null if no such element exists.
+-- | The next sibling that is an element, or Nothing if no such element exists.
 nextElementSibling :: forall eff. NonDocumentTypeChildNode -> Eff (dom :: DOM | eff) (Maybe Element)
 nextElementSibling = map toMaybe <<< _nextElementSibling
 

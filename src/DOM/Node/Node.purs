@@ -57,7 +57,7 @@ foreign import nodeName :: Node -> String
 foreign import baseURI :: forall eff. Node -> Eff (dom :: DOM | eff) String
 
 -- | The document the node belongs to, unless the node is a document in which
--- | case the value is null.
+-- | case the value is Nothing.
 ownerDocument :: forall eff. Node -> Eff (dom :: DOM | eff) (Maybe Document)
 ownerDocument = map toMaybe <<< _ownerDocument
 
@@ -81,26 +81,26 @@ foreign import hasChildNodes :: forall eff. Node -> Eff (dom :: DOM | eff) Boole
 -- | The children of the node.
 foreign import childNodes :: forall eff. Node -> Eff (dom :: DOM | eff) NodeList
 
--- | The first child of the node, or null if the node has no children.
+-- | The first child of the node, or Nothing if the node has no children.
 firstChild :: forall eff. Node -> Eff (dom :: DOM | eff) (Maybe Node)
 firstChild = map toMaybe <<< _firstChild
 
 foreign import _firstChild :: forall eff. Node -> Eff (dom :: DOM | eff) (Nullable Node)
 
 
--- | The last child of the node, or null if the node has no children.
+-- | The last child of the node, or Nothing if the node has no children.
 lastChild :: forall eff. Node -> Eff (dom :: DOM | eff) (Maybe Node)
 lastChild = map toMaybe <<< _lastChild
 
 foreign import _lastChild :: forall eff. Node -> Eff (dom :: DOM | eff) (Nullable Node)
 
--- | The previous sibling node, or null if there is no previous sibling.
+-- | The previous sibling node, or Nothing if there is no previous sibling.
 previousSibling :: forall eff. Node -> Eff (dom :: DOM | eff) (Maybe Node)
 previousSibling = map toMaybe <<< _previousSibling
 
 foreign import _previousSibling :: forall eff. Node -> Eff (dom :: DOM | eff) (Nullable Node)
 
--- | The next sibling node, or null if there is no next sibling.
+-- | The next sibling node, or Nothing if there is no next sibling.
 nextSibling :: forall eff. Node -> Eff (dom :: DOM | eff) (Maybe Node)
 nextSibling = map toMaybe <<< _nextSibling
 
