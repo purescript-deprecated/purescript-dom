@@ -2,7 +2,8 @@
   "private": true,
   "scripts": {
     "clean": "rimraf output && rimraf .pulp-cache",
-    "build": "eslint src && pulp build -- --censor-lib --strict"
+    "build": "eslint src && pulp build -- --censor-lib --strict",
+    "test": "PHANTOM_TEST_PATH=$(pwd) pulp test --runtime phantomjs"
   },
   "devDependencies": {
     "eslint": "^3.19.0",

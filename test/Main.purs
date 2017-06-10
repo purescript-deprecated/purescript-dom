@@ -1,6 +1,6 @@
 module Test.Main where
 
-import Prelude (($), bind)
+import Prelude (($), discard)
 import DOM (DOM)
 import DOM.HTML.Types (WINDOW)
 import Data.Enum (fromEnum)
@@ -24,7 +24,7 @@ liftEff = EffClass.liftEff
 
 main
   :: forall eff
-   . Eff (err :: EXCEPTION, console :: CONSOLE, avar :: AVAR, dom :: DOM, window :: WINDOW, phantomjs :: PHANTOMJS | eff)
+   . Eff (exception :: EXCEPTION, console :: CONSOLE, avar :: AVAR, dom :: DOM, window :: WINDOW, phantomjs :: PHANTOMJS | eff)
          (Canceler (console :: CONSOLE, avar :: AVAR, dom :: DOM, window :: WINDOW, phantomjs :: PHANTOMJS | eff))
 main = launchAff $ runTest do
   domHtmlWindowTests
