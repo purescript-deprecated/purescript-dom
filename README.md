@@ -1,7 +1,7 @@
 # purescript-dom
 
-[![Latest release](http://img.shields.io/github/release/purescript-contrib/purescript-dom.svg)](https://github.com/purescript-contrib/purescript-dom/releases)
-[![Build status](https://travis-ci.org/purescript-contrib/purescript-dom.svg?branch=master)](https://travis-ci.org/purescript-contrib/purescript-dom)
+[![Latest release](http://img.shields.io/github/release/purescript-web/purescript-dom.svg)](https://github.com/purescript-web/purescript-dom/releases)
+[![Build status](https://travis-ci.org/purescript-web/purescript-dom.svg?branch=master)](https://travis-ci.org/purescript-web/purescript-dom)
 [![Maintainer: garyb](https://img.shields.io/badge/maintainer-garyb-lightgrey.svg)](http://github.com/garyb)
 
 Type definitions, low level interface implementations, and standard effect type for use while interacting with the DOM.
@@ -21,9 +21,9 @@ The API isn't primarily intended for "human consumption", but instead aims to pr
 This consists of:
 - `foreign data` types for the various interfaces described.
 - Functions that read `Foreign` typed values (and `IsForeign` instances) for foreign types.
-- No classes or other niceties to aid with subtyping relationships. However, coercions are provided from subtypes to their supertypes. For example, from `DOM.Node.Types`,  [`elementToNode`](https://github.com/purescript-contrib/purescript-dom/blob/master/docs/DOM/Node/Types.md#elementtonode).
+- No classes or other niceties to aid with subtyping relationships. However, coercions are provided from subtypes to their supertypes. For example, from `DOM.Node.Types`,  [`elementToNode`](https://github.com/purescript-web/purescript-dom/blob/master/docs/DOM/Node/Types.md#elementtonode).
 - Functions that can mutate the DOM, or that don't always return the same value, or return a value that may be mutated at a distance use `Eff` with the `DOM` effect
-- Enumeration values are provided as ADTs, but with an option to read the raw value too. For example, from `DOM.Node.Node`, [`nodeType`](https://github.com/purescript-contrib/purescript-dom/blob/master/docs/DOM/Node/Node.md#nodetype) and [`nodeTypeIndex`](https://github.com/purescript-contrib/purescript-dom/blob/master/docs/DOM/Node/Node.md#nodetypeindex).
+- Enumeration values are provided as ADTs, but with an option to read the raw value too. For example, from `DOM.Node.Node`, [`nodeType`](https://github.com/purescript-web/purescript-dom/blob/master/docs/DOM/Node/Node.md#nodetype) and [`nodeTypeIndex`](https://github.com/purescript-web/purescript-dom/blob/master/docs/DOM/Node/Node.md#nodetypeindex).
 
 ## Module structure
 
