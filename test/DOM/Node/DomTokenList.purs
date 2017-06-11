@@ -26,7 +26,7 @@ domTokenListTests = do
                   Just body'' -> liftEff do
                     _ <- setClassName "a b c" body''
                     list <- classList body''
-                    CL.contains "a" list
+                    CL.contains list "a"
                   Nothing -> pure false
 
       result `shouldEqual` true
@@ -38,7 +38,7 @@ domTokenListTests = do
                     -- clear class names, first
                     _ <- setClassName "" body''
                     list <- classList body''
-                    _ <- CL.add "a" list
+                    _ <- CL.add list "a"
                     className body''
                   Nothing -> pure "failed"
 
@@ -50,10 +50,10 @@ domTokenListTests = do
                   Just body'' -> liftEff do
                     _ <- setClassName "a b c" body''
                     list <- classList body''
-                    _ <- CL.remove "b" list
-                    resultA <- CL.contains "a" list
-                    resultB <- CL.contains "b" list
-                    resultC <- CL.contains "c" list
+                    _ <- CL.remove list "b"
+                    resultA <- CL.contains list "a"
+                    resultB <- CL.contains list "b"
+                    resultC <- CL.contains list "c"
                     -- Only "b" should be removed
                     pure $ resultA && not resultB && resultC
                   Nothing -> pure false
@@ -66,7 +66,7 @@ domTokenListTests = do
                   Just body'' -> liftEff do
                     _ <- setClassName "a b c" body''
                     list <- classList body''
-                    _ <- CL.toggle "c" list
+                    _ <- CL.toggle list "c"
                     className body''
                   Nothing -> pure "failed"
 
@@ -78,7 +78,7 @@ domTokenListTests = do
                   Just body'' -> liftEff do
                     _ <- setClassName "a b" body''
                     list <- classList body''
-                    _ <- CL.toggle "c" list
+                    _ <- CL.toggle list "c"
                     className body''
                   Nothing -> pure "failed"
 
@@ -90,7 +90,7 @@ domTokenListTests = do
                   Just body'' -> liftEff do
                     _ <- setClassName "a b" body''
                     list <- classList body''
-                    _ <- CL.toggleForce "c" true list
+                    _ <- CL.toggleForce list "c" true
                     className body''
                   Nothing -> pure "failed"
 
@@ -102,7 +102,7 @@ domTokenListTests = do
                   Just body'' -> liftEff do
                     _ <- setClassName "a b c" body''
                     list <- classList body''
-                    _ <- CL.toggleForce "c" true list
+                    _ <- CL.toggleForce list "c" true
                     className body''
                   Nothing -> pure "failed"
 
@@ -114,7 +114,7 @@ domTokenListTests = do
                   Just body'' -> liftEff do
                     _ <- setClassName "a b c" body''
                     list <- classList body''
-                    _ <- CL.toggleForce "c" false list
+                    _ <- CL.toggleForce list "c" false
                     className body''
                   Nothing -> pure "failed"
 
@@ -126,7 +126,7 @@ domTokenListTests = do
                   Just body'' -> liftEff do
                     _ <- setClassName "a b" body''
                     list <- classList body''
-                    _ <- CL.toggleForce "c" false list
+                    _ <- CL.toggleForce list "c" false
                     className body''
                   Nothing -> pure "failed"
 
@@ -138,7 +138,7 @@ domTokenListTests = do
                   Just body'' -> liftEff do
                     _ <- setClassName "a b c" body''
                     list <- classList body''
-                    CL.item 2 list
+                    CL.item list 2
                   Nothing -> pure Nothing
 
       (fromMaybe "not found" result) `shouldEqual` "c"
@@ -149,7 +149,7 @@ domTokenListTests = do
                   Just body'' -> liftEff do
                     _ <- setClassName "a b c" body''
                     list <- classList body''
-                    CL.item 5 list
+                    CL.item list 5
                   Nothing -> pure Nothing
 
       (fromMaybe "not found" result) `shouldEqual` "not found"
