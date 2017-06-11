@@ -7,6 +7,7 @@ module DOM.HTML.HTMLElement
   , setDir
   , className
   , setClassName
+  , classList
   , hidden
   , setHidden
   , tabIndex
@@ -30,12 +31,13 @@ module DOM.HTML.HTMLElement
   ) where
 
 import Prelude
+
 import Control.Monad.Eff (Eff)
-import Data.Nullable (Nullable, toMaybe)
-import Data.Maybe (Maybe)
 import DOM (DOM)
 import DOM.HTML.Types (HTMLElement)
-import DOM.Node.Types (Element)
+import DOM.Node.Types (DOMTokenList, Element)
+import Data.Maybe (Maybe)
+import Data.Nullable (Nullable, toMaybe)
 
 foreign import title :: forall eff. HTMLElement -> Eff (dom :: DOM | eff) String
 foreign import setTitle :: forall eff. String -> HTMLElement -> Eff (dom :: DOM | eff) Unit
@@ -48,6 +50,8 @@ foreign import setDir :: forall eff. String -> HTMLElement -> Eff (dom :: DOM | 
 
 foreign import className :: forall eff. HTMLElement -> Eff (dom :: DOM | eff) String
 foreign import setClassName :: forall eff. String -> HTMLElement -> Eff (dom :: DOM | eff) Unit
+
+foreign import classList :: forall eff. HTMLElement -> Eff (dom :: DOM | eff) DOMTokenList
 
 foreign import hidden :: forall eff. HTMLElement -> Eff (dom :: DOM | eff) Boolean
 foreign import setHidden :: forall eff. Boolean -> HTMLElement -> Eff (dom :: DOM | eff) Unit
