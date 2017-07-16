@@ -6,6 +6,12 @@ exports.length = function (list) {
   };
 };
 
+exports.toArray = function (list) {
+  return function () {
+    return [].slice.call(list);
+  };
+};
+
 exports._item = function (index) {
   return function (list) {
     return function () {

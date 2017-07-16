@@ -14,6 +14,9 @@ import DOM.Node.Types (Element, HTMLCollection, ElementId)
 -- | The number of elements in a HTMLCollection.
 foreign import length :: forall eff. HTMLCollection -> Eff (dom :: DOM | eff) Int
 
+-- | The elements of an HTMLCollection represented in an array.
+foreign import toArray :: forall eff. HTMLCollection -> Eff (dom :: DOM | eff) (Array Element)
+
 -- | The element in a HTMLCollection at the specified index, or Nothing if no such
 -- | element exists.
 item :: forall eff. Int -> HTMLCollection -> Eff (dom :: DOM | eff) (Maybe Element)
