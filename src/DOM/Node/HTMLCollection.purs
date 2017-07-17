@@ -2,6 +2,7 @@ module DOM.Node.HTMLCollection
   ( length
   , item
   , namedItem
+  , toArray
   ) where
 
 import Prelude
