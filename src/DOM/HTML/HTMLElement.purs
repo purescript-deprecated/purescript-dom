@@ -23,6 +23,7 @@ module DOM.HTML.HTMLElement
   , focus
   , blur
   , getBoundingClientRect
+  , DOMRect
   , offsetParent
   , offsetTop
   , offsetLeft
@@ -73,18 +74,16 @@ foreign import click :: forall eff. HTMLElement -> Eff (dom :: DOM | eff) Unit
 foreign import focus :: forall eff. HTMLElement -> Eff (dom :: DOM | eff) Unit
 foreign import blur :: forall eff. HTMLElement -> Eff (dom :: DOM | eff) Unit
 
-foreign import getBoundingClientRect
-  :: forall eff
-   . HTMLElement
-  -> Eff
-      (dom :: DOM | eff)
-      { left :: Number
-      , top :: Number
-      , right :: Number
-      , bottom :: Number
-      , width :: Number
-      , height :: Number
-      }
+type DOMRect =
+  { top :: Number
+  , right :: Number
+  , bottom :: Number
+  , left :: Number
+  , width :: Number
+  , height :: Number
+  }
+
+foreign import getBoundingClientRect :: forall eff . HTMLElement -> Eff (dom :: DOM | eff) DOMRect
 
 foreign import _offsetParent :: forall eff. HTMLElement -> Eff (dom :: DOM | eff) (Nullable Element)
 

@@ -210,7 +210,15 @@ exports.setSpellcheck = function (spellcheck) {
 
 exports.getBoundingClientRect = function (el) {
   return function () {
-    return el.getBoundingClientRect();
+    var rect = el.getBoundingClientRect();
+    return {
+      top: rect.top,
+      right: rect.right,
+      bottom: rect.bottom,
+      left: rect.left,
+      width: rect.width,
+      height: rect.height
+    };
   };
 };
 
