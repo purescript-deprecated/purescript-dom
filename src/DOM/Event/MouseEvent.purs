@@ -5,6 +5,8 @@ module DOM.Event.MouseEvent
   , screenY
   , clientX
   , clientY
+  , pageX
+  , pageY
   , ctrlKey
   , shiftKey
   , altKey
@@ -34,6 +36,10 @@ foreign import screenY :: MouseEvent -> Int
 foreign import clientX :: MouseEvent -> Int
 
 foreign import clientY :: MouseEvent -> Int
+
+foreign import pageX :: MouseEvent -> Int
+
+foreign import pageY :: MouseEvent -> Int
 
 foreign import ctrlKey :: MouseEvent -> Boolean
 

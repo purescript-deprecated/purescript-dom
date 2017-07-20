@@ -16,6 +16,14 @@ exports.clientY = function (e) {
   return e.clientY;
 };
 
+exports.pageX = function (e) {
+  return e.pageX;
+};
+
+exports.pageY = function (e) {
+  return e.pageY;
+};
+
 exports.ctrlKey = function (e) {
   return e.ctrlKey;
 };
