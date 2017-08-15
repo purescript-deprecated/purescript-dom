@@ -16,7 +16,7 @@ exports.url = function (ws) {
 
 exports.readyStateImpl = function (ws) {
   return function () {
-    return ws.readyStateImpl;
+    return ws.readyState;
   };
 };
 
