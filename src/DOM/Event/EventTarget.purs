@@ -7,7 +7,7 @@ import DOM (DOM)
 import DOM.Event.Types (EventTarget, Event, EventType)
 
 -- | A boxed function that can be used as an event listener. This is necessary
--- | due to the underling implementation of Eff functions.
+-- | due to the underlying implementation of Eff functions.
 foreign import data EventListener :: # Effect -> Type
 
 -- | Creates an EventListener from a normal PureScript Eff function.
