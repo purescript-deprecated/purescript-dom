@@ -38,7 +38,7 @@ foreign import hostname :: forall eff. Location -> Eff (dom :: DOM | eff) String
 foreign import setHostname :: forall eff. String -> Location -> Eff (dom :: DOM | eff) Unit
 
 foreign import href :: forall eff. Location -> Eff (dom :: DOM | eff) String
-foreign import setHref :: forall eff. String -> Location -> Eff (dom :: DOM | eff) String
+foreign import setHref :: forall eff. String -> Location -> Eff (dom :: DOM | eff) Unit
 
 foreign import origin :: forall eff. Location -> Eff (dom :: DOM | eff) String
 foreign import setOrigin :: forall eff. String -> Location -> Eff (dom :: DOM | eff) Unit
