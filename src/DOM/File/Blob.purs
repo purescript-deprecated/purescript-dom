@@ -61,13 +61,9 @@ idxFromNumber = round >>> unsafeCoerce
 
 -- | Creates a new `Blob` object (with specified `MediaType`), containing the
 -- | data in the specified range of bytes of the source Blob, by setting .
-slice ∷ MediaType -> StartByte -> EndByte -> Blob -> Blob
-slice mediaType (StartByte start) (EndByte end) blob =
-  _slice blob start end (unwrap mediaType)
+foreign import slice ∷ MediaType -> StartByte -> EndByte -> Blob -> Blob
 
 -- | Creates a new `Blob` object containing the data in the specified range
 -- | of bytes of the source Blob.
 slice' ∷ StartByte -> EndByte -> Blob -> Blob
-slice' (StartByte start) (EndByte end) blob = _slice blob start end ""
-
-foreign import _slice ∷ Blob -> ByteIdx -> ByteIdx -> String -> Blob
+slice' = slice (MediaType "")
