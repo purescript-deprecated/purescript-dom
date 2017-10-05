@@ -66,7 +66,7 @@ foreign import moveBy :: forall eff. Int -> Int -> Window -> Eff (window :: WIND
 foreign import moveTo :: forall eff. Int -> Int -> Window -> Eff (window :: WINDOW | eff) Unit
 
 open :: forall eff. String -> String -> String -> Window -> Eff (window :: WINDOW | eff) (Maybe Window)
-open window url' name features = toMaybe <$> _open window url' name features
+open url' name features window = toMaybe <$> _open url' name features window
 
 foreign import _open
   :: forall eff
