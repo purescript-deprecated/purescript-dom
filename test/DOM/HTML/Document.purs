@@ -15,4 +15,4 @@ domHtmlDocumentTests = do
   describe "readyState" do
     it "should return a sensible readyState" do
       rs <- liftEff $ readyState =<< document =<< window
-      rs `shouldEqual` Interactive
+      rs `shouldEqual` Complete
