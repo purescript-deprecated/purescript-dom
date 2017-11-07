@@ -30,6 +30,9 @@ module DOM.Event.Types
   , CompositionEvent
   , compositionEventToEvent
   , readCompositionEvent
+  , PopStateEvent
+  , popStateEventToEvent
+  , readPopStateEvent
   , ProgressEvent
   , progressEventToEvent
   , readProgressEvent
@@ -140,6 +143,14 @@ compositionEventToEvent = U.unsafeCoerce
 
 readCompositionEvent :: Foreign -> F CompositionEvent
 readCompositionEvent = unsafeReadTagged "CompositionEvent"
+
+foreign import data PopStateEvent :: Type
+
+popStateEventToEvent :: PopStateEvent -> Event
+popStateEventToEvent = U.unsafeCoerce
+
+readPopStateEvent :: Foreign -> F PopStateEvent
+readPopStateEvent = unsafeReadTagged "PopStateEvent"
 
 foreign import data ProgressEvent :: Type
 
