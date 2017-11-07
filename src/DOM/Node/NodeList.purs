@@ -1,6 +1,7 @@
 module DOM.Node.NodeList
   ( length
   , item
+  , toArray
   ) where
 
 import Prelude
@@ -12,6 +13,9 @@ import DOM.Node.Types (Node, NodeList)
 
 -- | The number of items in a NodeList.
 foreign import length :: forall eff. NodeList -> Eff (dom :: DOM | eff) Int
+
+-- | The elements of a NodeList represented in an array.
+foreign import toArray :: forall eff. NodeList -> Eff (dom :: DOM | eff) (Array Node)
 
 -- | The item in a NodeList at the specified index, or Nothing if no such node
 -- | exists.

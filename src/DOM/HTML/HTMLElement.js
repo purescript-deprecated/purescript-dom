@@ -93,14 +93,6 @@ exports.setHidden = function (hidden) {
 
 // ----------------------------------------------------------------------------
 
-exports.click = function (elt) {
-  return function () {
-    return elt.click();
-  };
-};
-
-// ----------------------------------------------------------------------------
-
 exports.tabIndex = function (elt) {
   return function () {
     return elt.tabIndex;
@@ -113,39 +105,6 @@ exports.setTabIndex = function (tabIndex) {
       elt.tabIndex = tabIndex;
       return {};
     };
-  };
-};
-
-// ----------------------------------------------------------------------------
-
-exports.hidden = function (elt) {
-  return function () {
-    return elt.hidden;
-  };
-};
-
-exports.setHidden = function (hidden) {
-  return function (elt) {
-    return function () {
-      elt.hidden = hidden;
-      return {};
-    };
-  };
-};
-
-// ----------------------------------------------------------------------------
-
-exports.focus = function (elt) {
-  return function () {
-    return elt.focus();
-  };
-};
-
-// ----------------------------------------------------------------------------
-
-exports.blur = function (elt) {
-  return function () {
-    return elt.blur();
   };
 };
 
@@ -203,6 +162,26 @@ exports.setSpellcheck = function (spellcheck) {
       elt.spellcheck = spellcheck;
       return {};
     };
+  };
+};
+
+// ----------------------------------------------------------------------------
+
+exports.click = function (elt) {
+  return function () {
+    return elt.click();
+  };
+};
+
+exports.focus = function (elt) {
+  return function () {
+    return elt.focus();
+  };
+};
+
+exports.blur = function (elt) {
+  return function () {
+    return elt.blur();
   };
 };
 
