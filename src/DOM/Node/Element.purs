@@ -12,6 +12,7 @@ module DOM.Node.Element
   , getElementsByClassName
   , setAttribute
   , getAttribute
+  , hasAttribute
   , removeAttribute
   , scrollTop
   , setScrollTop
@@ -63,6 +64,7 @@ getAttribute :: forall eff. String -> Element -> Eff (dom :: DOM | eff) (Maybe S
 getAttribute attr = map toMaybe <<< _getAttribute attr
 
 foreign import _getAttribute :: forall eff. String -> Element -> Eff (dom :: DOM | eff) (Nullable String)
+foreign import hasAttribute :: forall eff. String -> Element -> Eff (dom :: DOM | eff) Boolean
 foreign import removeAttribute :: forall eff. String -> Element -> Eff (dom :: DOM | eff) Unit
 
 foreign import scrollTop :: forall eff. Element -> Eff (dom :: DOM | eff) Number

@@ -86,6 +86,12 @@ exports._getAttribute = function (name) {
   };
 };
 
+exports.hasAttribute = function(name) {
+  return function (element) {
+    return element.hasAttribute(name);
+  };
+};
+
 exports.removeAttribute = function (name) {
   return function (element) {
     return function () {
