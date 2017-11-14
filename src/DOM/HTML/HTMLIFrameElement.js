@@ -85,3 +85,9 @@ exports._contentDocument = function (iframe) {
     return iframe.contentDocument;
   };
 };
+
+exports._contentWindow = function (iframe) {
+  return function () {
+    return iframe.contentWindow;
+  };
+};

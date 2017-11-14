@@ -20,7 +20,7 @@ import Data.Maybe (Maybe)
 import Data.Nullable (Nullable, toMaybe)
 
 import DOM (DOM)
-import DOM.HTML.Types (HTMLIFrameElement)
+import DOM.HTML.Types (Window, HTMLIFrameElement)
 import DOM.Node.Types (Document)
 
 foreign import src :: forall eff. HTMLIFrameElement -> Eff (dom :: DOM | eff) String
@@ -41,8 +41,10 @@ foreign import height :: forall eff. HTMLIFrameElement -> Eff (dom :: DOM | eff)
 foreign import setHeight :: forall eff. String -> HTMLIFrameElement -> Eff (dom :: DOM | eff) Unit
 
 foreign import _contentDocument :: forall eff. HTMLIFrameElement -> Eff (dom :: DOM | eff) (Nullable Document)
+foreign import _contentWindow :: forall eff. HTMLIFrameElement -> Eff (dom :: DOM | eff) (Nullable Window)
 
 contentDocument :: forall eff. HTMLIFrameElement -> Eff (dom :: DOM | eff) (Maybe Document)
 contentDocument = map toMaybe <<< _contentDocument
 
---   readonly attribute WindowProxy? contentWindow;
+contentWindow :: forall eff. HTMLIFrameElement -> Eff (dom :: DOM | eff) (Maybe Window)
+contentWindow = map toMaybe <<< _contentWindow
