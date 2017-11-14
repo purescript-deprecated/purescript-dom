@@ -10,6 +10,7 @@ module DOM.HTML.HTMLIFrameElement
   , height
   , setHeight
   , contentDocument
+  , contentWindow
   ) where
 
 import Prelude
