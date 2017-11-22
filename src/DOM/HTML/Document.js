@@ -11,3 +11,9 @@ exports._readyState = function (doc) {
     return doc.readyState;
   };
 };
+
+exports._activeElement = function (doc) {
+  return function () {
+    return doc.activeElement;
+  };
+};
