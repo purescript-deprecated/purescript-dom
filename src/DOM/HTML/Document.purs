@@ -1,6 +1,7 @@
 module DOM.HTML.Document
   ( body
   , readyState
+  , activeElement
   , module Exports
   ) where
 
