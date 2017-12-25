@@ -25,3 +25,17 @@ exports.setDataImpl = function (format) {
     };
   };
 };
+
+exports.dropEffectImpl = function (dataTransfer) {
+  return function () {
+    return dataTransfer.dropEffect;
+  };
+};
+
+exports.setDropEffectImpl = function (e) {
+  return function (dataTransfer) {
+    return function () {
+      dataTransfer.dropEffect = e;
+    };
+  };
+};

@@ -4,15 +4,20 @@ module DOM.HTML.Event.DataTransfer
   , types
   , getData
   , setData
+  , DropEffect(..)
+  , dropEffect
+  , setDropEffect
   ) where
 
 import Prelude
+
 import Control.Monad.Eff (Eff)
 import DOM (DOM)
 import DOM.File.Types (FileList)
 import Data.Maybe (Maybe)
 import Data.MediaType (MediaType(..))
 import Data.Nullable (Nullable, toMaybe)
+import Partial.Unsafe (unsafePartialBecause)
 
 foreign import data DataTransfer :: Type
 
@@ -61,3 +66,27 @@ setData
   -> DataTransfer
   -> Eff (dom :: DOM | eff) Unit
 setData (MediaType format) dat dt = setDataImpl format dat dt
+
+foreign import dropEffectImpl :: forall eff. DataTransfer -> Eff (dom :: DOM | eff) String
+
+data DropEffect = None | Copy | Move | Link
+
+--| Gets the data transfer object's drop effect.
+dropEffect :: forall eff. DataTransfer -> Eff (dom :: DOM | eff) DropEffect
+dropEffect dt = do
+  de <- dropEffectImpl dt
+  pure $ unsafePartialBecause "No other values are possible https://developer.mozilla.org/en-US/docs/Web/API/DataTransfer/dropEffect" case de of
+    "copy" -> Copy
+    "move" -> Move
+    "link" -> Link
+    "none" -> None
+
+foreign import setDropEffectImpl :: forall eff. String -> DataTransfer -> Eff (dom :: DOM | eff) Unit
+
+--| Sets the data transfer object's drop effect.
+setDropEffect :: forall eff. DropEffect -> DataTransfer -> Eff (dom :: DOM | eff) Unit
+setDropEffect de = setDropEffectImpl case de of
+  Copy -> "copy"
+  None -> "none"
+  Move -> "move"
+  Link -> "link"
