@@ -17,7 +17,8 @@ import DOM.File.Types (FileList)
 import Data.Maybe (Maybe)
 import Data.MediaType (MediaType(..))
 import Data.Nullable (Nullable, toMaybe)
-import Partial.Unsafe (unsafePartialBecause)
+import Partial (crashWith)
+import Partial.Unsafe (unsafePartial)
 
 foreign import data DataTransfer :: Type
 
@@ -69,17 +70,21 @@ setData (MediaType format) dat dt = setDataImpl format dat dt
 
 foreign import dropEffectImpl :: forall eff. DataTransfer -> Eff (dom :: DOM | eff) String
 
-data DropEffect = None | Copy | Move | Link
+data DropEffect = Copy | Link | Move | None
+
+derive instance eqDropEffect :: Eq DropEffect
+derive instance ordDropEffect :: Ord DropEffect
 
 --| Gets the data transfer object's drop effect.
 dropEffect :: forall eff. DataTransfer -> Eff (dom :: DOM | eff) DropEffect
 dropEffect dt = do
   de <- dropEffectImpl dt
-  pure $ unsafePartialBecause "No other values are possible https://developer.mozilla.org/en-US/docs/Web/API/DataTransfer/dropEffect" case de of
+  pure $ unsafePartial $ case de of
     "copy" -> Copy
-    "move" -> Move
     "link" -> Link
+    "move" -> Move
     "none" -> None
+    _ -> crashWith "Impossible according to https://developer.mozilla.org/en-US/docs/Web/API/DataTransfer/dropEffect"
 
 foreign import setDropEffectImpl :: forall eff. String -> DataTransfer -> Eff (dom :: DOM | eff) Unit
 
@@ -87,6 +92,6 @@ foreign import setDropEffectImpl :: forall eff. String -> DataTransfer -> Eff (d
 setDropEffect :: forall eff. DropEffect -> DataTransfer -> Eff (dom :: DOM | eff) Unit
 setDropEffect de = setDropEffectImpl case de of
   Copy -> "copy"
-  None -> "none"
-  Move -> "move"
   Link -> "link"
+  Move -> "move"
+  None -> "none"
