@@ -21,47 +21,46 @@ module DOM.Node.Document
   ) where
 
 import Prelude
-import Control.Monad.Eff (Eff)
+import Control.Monad.Effect (Effect)
 import Data.Maybe (Maybe)
 import Data.Nullable (Nullable, toMaybe, toNullable)
-import DOM (DOM)
 import DOM.Node.Types (Node, Document, ProcessingInstruction, Comment, Text, DocumentFragment, Element, HTMLCollection, DocumentType)
 
-foreign import url :: forall eff. Document -> Eff (dom :: DOM | eff) String
-foreign import documentURI :: forall eff. Document -> Eff (dom :: DOM | eff) String
-foreign import origin :: forall eff. Document -> Eff (dom :: DOM | eff) String
-foreign import compatMode :: forall eff. Document -> Eff (dom :: DOM | eff) String
-foreign import characterSet :: forall eff. Document -> Eff (dom :: DOM | eff) String
-foreign import contentType :: forall eff. Document -> Eff (dom :: DOM | eff) String
+foreign import url :: Document -> Effect String
+foreign import documentURI :: Document -> Effect String
+foreign import origin :: Document -> Effect String
+foreign import compatMode :: Document -> Effect String
+foreign import characterSet :: Document -> Effect String
+foreign import contentType :: Document -> Effect String
 
-doctype :: forall eff. Document -> Eff (dom :: DOM | eff) (Maybe DocumentType)
+doctype :: Document -> Effect (Maybe DocumentType)
 doctype = map toMaybe <<< _doctype
 
-foreign import _doctype :: forall eff. Document -> Eff (dom :: DOM | eff) (Nullable DocumentType)
+foreign import _doctype :: Document -> Effect (Nullable DocumentType)
 
-documentElement :: forall eff. Document -> Eff (dom :: DOM | eff) (Maybe Element)
+documentElement :: Document -> Effect (Maybe Element)
 documentElement = map toMaybe <<< _documentElement
 
-foreign import _documentElement :: forall eff. Document -> Eff (dom :: DOM | eff) (Nullable Element)
+foreign import _documentElement :: Document -> Effect (Nullable Element)
 
-foreign import getElementsByTagName :: forall eff. String -> Document -> Eff (dom :: DOM | eff) HTMLCollection
+foreign import getElementsByTagName :: String -> Document -> Effect HTMLCollection
 
-getElementsByTagNameNS :: forall eff. Maybe String -> String -> Document -> Eff (dom :: DOM | eff) HTMLCollection
+getElementsByTagNameNS :: Maybe String -> String -> Document -> Effect HTMLCollection
 getElementsByTagNameNS = _getElementsByTagNameNS <<< toNullable
 
-foreign import _getElementsByTagNameNS :: forall eff. Nullable String -> String -> Document -> Eff (dom :: DOM | eff) HTMLCollection
-foreign import getElementsByClassName :: forall eff. String -> Document -> Eff (dom :: DOM | eff) HTMLCollection
+foreign import _getElementsByTagNameNS :: Nullable String -> String -> Document -> Effect HTMLCollection
+foreign import getElementsByClassName :: String -> Document -> Effect HTMLCollection
 
-foreign import createElement :: forall eff. String -> Document -> Eff (dom :: DOM | eff) Element
+foreign import createElement :: String -> Document -> Effect Element
 
-createElementNS :: forall eff. Maybe String -> String -> Document -> Eff (dom :: DOM | eff) Element
+createElementNS :: Maybe String -> String -> Document -> Effect Element
 createElementNS = _createElementNS <<< toNullable
 
-foreign import _createElementNS :: forall eff. Nullable String -> String -> Document -> Eff (dom :: DOM | eff) Element
-foreign import createDocumentFragment :: forall eff. Document -> Eff (dom :: DOM | eff) DocumentFragment
-foreign import createTextNode :: forall eff. String -> Document -> Eff (dom :: DOM | eff) Text
-foreign import createComment :: forall eff. String -> Document -> Eff (dom :: DOM | eff) Comment
-foreign import createProcessingInstruction :: forall eff. String -> String -> Document -> Eff (dom :: DOM | eff) ProcessingInstruction
+foreign import _createElementNS :: Nullable String -> String -> Document -> Effect Element
+foreign import createDocumentFragment :: Document -> Effect DocumentFragment
+foreign import createTextNode :: String -> Document -> Effect Text
+foreign import createComment :: String -> Document -> Effect Comment
+foreign import createProcessingInstruction :: String -> String -> Document -> Effect ProcessingInstruction
 
-foreign import importNode :: forall eff. Node -> Boolean -> Document -> Eff (dom :: DOM | eff) Node
-foreign import adoptNode :: forall eff. Node -> Document -> Eff (dom :: DOM | eff) Node
+foreign import importNode :: Node -> Boolean -> Document -> Effect Node
+foreign import adoptNode :: Node -> Document -> Effect Node

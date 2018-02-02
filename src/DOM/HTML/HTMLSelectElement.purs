@@ -30,44 +30,43 @@ module DOM.HTML.HTMLSelectElement
 
 import Prelude
 
-import Control.Monad.Eff (Eff)
+import Control.Monad.Effect (Effect)
 
 import Data.Maybe (Maybe)
 import Data.Nullable (Nullable, toMaybe)
 
-import DOM (DOM)
 import DOM.HTML.Types (HTMLSelectElement, HTMLFormElement, ValidityState)
 import DOM.Node.Types (NodeList, HTMLCollection)
 
-foreign import autofocus :: forall eff. HTMLSelectElement -> Eff (dom :: DOM | eff) Boolean
-foreign import setAutofocus :: forall eff. Boolean -> HTMLSelectElement -> Eff (dom :: DOM | eff) Unit
+foreign import autofocus :: HTMLSelectElement -> Effect Boolean
+foreign import setAutofocus :: Boolean -> HTMLSelectElement -> Effect Unit
 
-foreign import disabled :: forall eff. HTMLSelectElement -> Eff (dom :: DOM | eff) Boolean
-foreign import setDisabled :: forall eff. Boolean -> HTMLSelectElement -> Eff (dom :: DOM | eff) Unit
+foreign import disabled :: HTMLSelectElement -> Effect Boolean
+foreign import setDisabled :: Boolean -> HTMLSelectElement -> Effect Unit
 
-form :: forall eff. HTMLSelectElement -> Eff (dom :: DOM | eff) (Maybe HTMLFormElement)
+form :: HTMLSelectElement -> Effect (Maybe HTMLFormElement)
 form = map toMaybe <<< _form
 
-foreign import _form :: forall eff. HTMLSelectElement -> Eff (dom :: DOM | eff) (Nullable HTMLFormElement)
+foreign import _form :: HTMLSelectElement -> Effect (Nullable HTMLFormElement)
 
-foreign import multiple :: forall eff. HTMLSelectElement -> Eff (dom :: DOM | eff) Boolean
-foreign import setMultiple :: forall eff. Boolean -> HTMLSelectElement -> Eff (dom :: DOM | eff) Unit
+foreign import multiple :: HTMLSelectElement -> Effect Boolean
+foreign import setMultiple :: Boolean -> HTMLSelectElement -> Effect Unit
 
-foreign import name :: forall eff. HTMLSelectElement -> Eff (dom :: DOM | eff) String
-foreign import setName :: forall eff. String -> HTMLSelectElement -> Eff (dom :: DOM | eff) Unit
+foreign import name :: HTMLSelectElement -> Effect String
+foreign import setName :: String -> HTMLSelectElement -> Effect Unit
 
-foreign import required :: forall eff. HTMLSelectElement -> Eff (dom :: DOM | eff) Boolean
-foreign import setRequired :: forall eff. Boolean -> HTMLSelectElement -> Eff (dom :: DOM | eff) Unit
+foreign import required :: HTMLSelectElement -> Effect Boolean
+foreign import setRequired :: Boolean -> HTMLSelectElement -> Effect Unit
 
-foreign import size :: forall eff. HTMLSelectElement -> Eff (dom :: DOM | eff) Int
-foreign import setSize :: forall eff. Int -> HTMLSelectElement -> Eff (dom :: DOM | eff) Unit
+foreign import size :: HTMLSelectElement -> Effect Int
+foreign import setSize :: Int -> HTMLSelectElement -> Effect Unit
 
-foreign import type_ :: forall eff. HTMLSelectElement -> Eff (dom :: DOM | eff) String
+foreign import type_ :: HTMLSelectElement -> Effect String
 
 --   readonly attribute HTMLOptionsCollection options;
 
-foreign import length :: forall eff. HTMLSelectElement -> Eff (dom :: DOM | eff) Int
-foreign import setLength :: forall eff. Int -> HTMLSelectElement -> Eff (dom :: DOM | eff) Unit
+foreign import length :: HTMLSelectElement -> Effect Int
+foreign import setLength :: Int -> HTMLSelectElement -> Effect Unit
 
 --   getter Element? item(unsigned long index);
 --   HTMLOptionElement? namedItem(DOMString name);
@@ -76,22 +75,22 @@ foreign import setLength :: forall eff. Int -> HTMLSelectElement -> Eff (dom :: 
 --   void remove(long index);
 --   setter creator void (unsigned long index, HTMLOptionElement? option);
 
-foreign import selectedOptions :: forall eff. HTMLSelectElement -> Eff (dom :: DOM | eff) HTMLCollection
+foreign import selectedOptions :: HTMLSelectElement -> Effect HTMLCollection
 
-foreign import selectedIndex :: forall eff. HTMLSelectElement -> Eff (dom :: DOM | eff) Int
-foreign import setSelectedIndex :: forall eff. Int -> HTMLSelectElement -> Eff (dom :: DOM | eff) Unit
+foreign import selectedIndex :: HTMLSelectElement -> Effect Int
+foreign import setSelectedIndex :: Int -> HTMLSelectElement -> Effect Unit
 
-foreign import value :: forall eff. HTMLSelectElement -> Eff (dom :: DOM | eff) String
-foreign import setValue :: forall eff. String -> HTMLSelectElement -> Eff (dom :: DOM | eff) Unit
+foreign import value :: HTMLSelectElement -> Effect String
+foreign import setValue :: String -> HTMLSelectElement -> Effect Unit
 
-foreign import willValidate :: forall eff. HTMLSelectElement -> Eff (dom :: DOM | eff) Boolean
+foreign import willValidate :: HTMLSelectElement -> Effect Boolean
 
-foreign import validity :: forall eff. HTMLSelectElement -> Eff (dom :: DOM | eff) ValidityState
+foreign import validity :: HTMLSelectElement -> Effect ValidityState
 
-foreign import validationMessage :: forall eff. HTMLSelectElement -> Eff (dom :: DOM | eff) String
+foreign import validationMessage :: HTMLSelectElement -> Effect String
 
-foreign import checkValidity :: forall eff. HTMLSelectElement -> Eff (dom :: DOM | eff) Boolean
+foreign import checkValidity :: HTMLSelectElement -> Effect Boolean
 
-foreign import setCustomValidity :: forall eff. String -> HTMLSelectElement -> Eff (dom :: DOM | eff) Unit
+foreign import setCustomValidity :: String -> HTMLSelectElement -> Effect Unit
 
-foreign import labels :: forall eff. HTMLSelectElement -> Eff (dom :: DOM | eff) NodeList
+foreign import labels :: HTMLSelectElement -> Effect NodeList

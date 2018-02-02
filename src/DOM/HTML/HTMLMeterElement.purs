@@ -2,28 +2,27 @@ module DOM.HTML.HTMLMeterElement where
 
 import Prelude (Unit)
 
-import Control.Monad.Eff (Eff)
+import Control.Monad.Effect (Effect)
 
-import DOM (DOM)
 import DOM.HTML.Types (HTMLMeterElement)
 import DOM.Node.Types (NodeList)
 
-foreign import value :: forall eff. HTMLMeterElement -> Eff (dom :: DOM | eff) Number
-foreign import setValue :: forall eff. Number -> HTMLMeterElement -> Eff (dom :: DOM | eff) Unit
+foreign import value :: HTMLMeterElement -> Effect Number
+foreign import setValue :: Number -> HTMLMeterElement -> Effect Unit
 
-foreign import min :: forall eff. HTMLMeterElement -> Eff (dom :: DOM | eff) Number
-foreign import setMin :: forall eff. Number -> HTMLMeterElement -> Eff (dom :: DOM | eff) Unit
+foreign import min :: HTMLMeterElement -> Effect Number
+foreign import setMin :: Number -> HTMLMeterElement -> Effect Unit
 
-foreign import max :: forall eff. HTMLMeterElement -> Eff (dom :: DOM | eff) Number
-foreign import setMax :: forall eff. Number -> HTMLMeterElement -> Eff (dom :: DOM | eff) Unit
+foreign import max :: HTMLMeterElement -> Effect Number
+foreign import setMax :: Number -> HTMLMeterElement -> Effect Unit
 
-foreign import low :: forall eff. HTMLMeterElement -> Eff (dom :: DOM | eff) Number
-foreign import setLow :: forall eff. Number -> HTMLMeterElement -> Eff (dom :: DOM | eff) Unit
+foreign import low :: HTMLMeterElement -> Effect Number
+foreign import setLow :: Number -> HTMLMeterElement -> Effect Unit
 
-foreign import high :: forall eff. HTMLMeterElement -> Eff (dom :: DOM | eff) Number
-foreign import setHigh :: forall eff. Number -> HTMLMeterElement -> Eff (dom :: DOM | eff) Unit
+foreign import high :: HTMLMeterElement -> Effect Number
+foreign import setHigh :: Number -> HTMLMeterElement -> Effect Unit
 
-foreign import optimum :: forall eff. HTMLMeterElement -> Eff (dom :: DOM | eff) Number
-foreign import setOptimum :: forall eff. Number -> HTMLMeterElement -> Eff (dom :: DOM | eff) Unit
+foreign import optimum :: HTMLMeterElement -> Effect Number
+foreign import setOptimum :: Number -> HTMLMeterElement -> Effect Unit
 
-foreign import labels :: forall eff. HTMLMeterElement -> Eff (dom :: DOM | eff) NodeList
+foreign import labels :: HTMLMeterElement -> Effect NodeList

@@ -2,35 +2,34 @@ module DOM.HTML.HTMLImageElement where
 
 import Prelude (Unit)
 
-import Control.Monad.Eff (Eff)
+import Control.Monad.Effect (Effect)
 
-import DOM (DOM)
 import DOM.HTML.Types (HTMLImageElement)
 
-foreign import create :: forall eff. Unit -> Eff (dom :: DOM | eff) HTMLImageElement
-foreign import create' :: forall eff. Int -> Int -> Eff (dom :: DOM | eff) HTMLImageElement
+foreign import create :: Unit -> Effect HTMLImageElement
+foreign import create' :: Int -> Int -> Effect HTMLImageElement
 
-foreign import alt :: forall eff. HTMLImageElement -> Eff (dom :: DOM | eff) String
-foreign import setAlt :: forall eff. String -> HTMLImageElement -> Eff (dom :: DOM | eff) Unit
+foreign import alt :: HTMLImageElement -> Effect String
+foreign import setAlt :: String -> HTMLImageElement -> Effect Unit
 
-foreign import src :: forall eff. HTMLImageElement -> Eff (dom :: DOM | eff) String
-foreign import setSrc :: forall eff. String -> HTMLImageElement -> Eff (dom :: DOM | eff) Unit
+foreign import src :: HTMLImageElement -> Effect String
+foreign import setSrc :: String -> HTMLImageElement -> Effect Unit
 
-foreign import crossOrigin :: forall eff. HTMLImageElement -> Eff (dom :: DOM | eff) String
-foreign import setCrossOrigin :: forall eff. String -> HTMLImageElement -> Eff (dom :: DOM | eff) Unit
+foreign import crossOrigin :: HTMLImageElement -> Effect String
+foreign import setCrossOrigin :: String -> HTMLImageElement -> Effect Unit
 
-foreign import useMap :: forall eff. HTMLImageElement -> Eff (dom :: DOM | eff) String
-foreign import setUseMap :: forall eff. String -> HTMLImageElement -> Eff (dom :: DOM | eff) Unit
+foreign import useMap :: HTMLImageElement -> Effect String
+foreign import setUseMap :: String -> HTMLImageElement -> Effect Unit
 
-foreign import isMap :: forall eff. HTMLImageElement -> Eff (dom :: DOM | eff) Boolean
-foreign import setIsMap :: forall eff. Boolean -> HTMLImageElement -> Eff (dom :: DOM | eff) Unit
+foreign import isMap :: HTMLImageElement -> Effect Boolean
+foreign import setIsMap :: Boolean -> HTMLImageElement -> Effect Unit
 
-foreign import width :: forall eff. HTMLImageElement -> Eff (dom :: DOM | eff) Int
-foreign import setWidth :: forall eff. Int -> HTMLImageElement -> Eff (dom :: DOM | eff) Unit
+foreign import width :: HTMLImageElement -> Effect Int
+foreign import setWidth :: Int -> HTMLImageElement -> Effect Unit
 
-foreign import height :: forall eff. HTMLImageElement -> Eff (dom :: DOM | eff) Int
-foreign import setHeight :: forall eff. Int -> HTMLImageElement -> Eff (dom :: DOM | eff) Unit
+foreign import height :: HTMLImageElement -> Effect Int
+foreign import setHeight :: Int -> HTMLImageElement -> Effect Unit
 
-foreign import naturalWidth :: forall eff. HTMLImageElement -> Eff (dom :: DOM | eff) Int
-foreign import naturalHeight :: forall eff. HTMLImageElement -> Eff (dom :: DOM | eff) Int
-foreign import complete :: forall eff. HTMLImageElement -> Eff (dom :: DOM | eff) Boolean
+foreign import naturalWidth :: HTMLImageElement -> Effect Int
+foreign import naturalHeight :: HTMLImageElement -> Effect Int
+foreign import complete :: HTMLImageElement -> Effect Boolean

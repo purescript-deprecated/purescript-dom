@@ -34,81 +34,79 @@ module DOM.HTML.Window
   , RequestIdleCallbackId
   ) where
 
-import Control.Monad.Eff (Eff)
-import DOM (DOM)
-import DOM.HTML.Types (ALERT, CONFIRM, HISTORY, HTMLDocument, History, Location, Navigator, PROMPT, WINDOW, Window, URL)
+import Control.Monad.Effect (Effect)
+import DOM.HTML.Types (HTMLDocument, History, Location, Navigator, Window, URL)
 import DOM.WebStorage.Types (Storage)
 import Data.Maybe (Maybe)
 import Data.Nullable (Nullable, toMaybe)
 import Data.Newtype (class Newtype, unwrap)
 import Prelude (class Eq, class Ord, Unit, (<$>), (<<<), map)
 
-foreign import document :: forall eff. Window -> Eff (dom :: DOM | eff) HTMLDocument
+foreign import document :: Window -> Effect HTMLDocument
 
-foreign import navigator :: forall eff. Window -> Eff (dom :: DOM | eff) Navigator
+foreign import navigator :: Window -> Effect Navigator
 
-foreign import location :: forall eff. Window -> Eff (dom :: DOM | eff) Location
+foreign import location :: Window -> Effect Location
 
-foreign import history :: forall e. Window -> Eff (history :: HISTORY | e) History
+foreign import history :: Window -> Effect History
 
-foreign import url :: forall eff. Window -> Eff (dom :: DOM | eff) URL
+foreign import url :: Window -> Effect URL
 
-foreign import innerWidth :: forall eff. Window -> Eff (dom :: DOM | eff) Int
+foreign import innerWidth :: Window -> Effect Int
 
-foreign import innerHeight :: forall eff. Window -> Eff (dom :: DOM | eff) Int
+foreign import innerHeight :: Window -> Effect Int
 
-foreign import alert :: forall eff. String -> Window -> Eff (alert :: ALERT | eff) Unit
+foreign import alert :: String -> Window -> Effect Unit
 
-foreign import confirm :: forall eff. String -> Window -> Eff (confirm :: CONFIRM | eff) Boolean
+foreign import confirm :: String -> Window -> Effect Boolean
 
-foreign import moveBy :: forall eff. Int -> Int -> Window -> Eff (window :: WINDOW | eff) Unit
+foreign import moveBy :: Int -> Int -> Window -> Effect Unit
 
-foreign import moveTo :: forall eff. Int -> Int -> Window -> Eff (window :: WINDOW | eff) Unit
+foreign import moveTo :: Int -> Int -> Window -> Effect Unit
 
-open :: forall eff. String -> String -> String -> Window -> Eff (window :: WINDOW | eff) (Maybe Window)
+open :: String -> String -> String -> Window -> Effect (Maybe Window)
 open url' name features window = toMaybe <$> _open url' name features window
 
 foreign import _open
-  :: forall eff
-   . String
+  :: String
   -> String
   -> String
   -> Window
-  -> Eff (window :: WINDOW | eff) (Nullable Window)
+  -> Effect (Nullable Window)
 
-foreign import outerHeight :: forall eff. Window -> Eff (dom :: DOM | eff) Int
+foreign import outerHeight :: Window -> Effect Int
 
-foreign import outerWidth :: forall eff. Window -> Eff (dom :: DOM | eff) Int
+foreign import outerWidth :: Window -> Effect Int
 
-foreign import print :: forall eff. Window -> Eff (window :: WINDOW | eff) Unit
+foreign import print :: Window -> Effect Unit
 
-prompt :: forall eff. String -> Window -> Eff (prompt :: PROMPT | eff) (Maybe String)
+prompt :: String -> Window -> Effect (Maybe String)
 prompt msg window = toMaybe <$> _prompt msg "" window
 
-promptDefault :: forall eff. String -> String -> Window -> Eff (prompt :: PROMPT | eff) (Maybe String)
+promptDefault :: String -> String -> Window -> Effect (Maybe String)
 promptDefault msg defaultText window = toMaybe <$> _prompt msg defaultText window
 
-foreign import _prompt :: forall eff. String -> String -> Window -> Eff (prompt :: PROMPT | eff) (Nullable String)
+foreign import _prompt :: String -> String -> Window -> Effect (Nullable String)
 
-foreign import resizeBy :: forall eff. Int -> Int -> Window -> Eff (window :: WINDOW | eff) Unit
+foreign import resizeBy :: Int -> Int -> Window -> Effect Unit
 
-foreign import resizeTo :: forall eff. Int -> Int -> Window -> Eff (window :: WINDOW | eff) Unit
+foreign import resizeTo :: Int -> Int -> Window -> Effect Unit
 
-foreign import screenX :: forall eff. Window -> Eff (dom :: DOM | eff) Int
+foreign import screenX :: Window -> Effect Int
 
-foreign import screenY :: forall eff. Window -> Eff (dom :: DOM | eff) Int
+foreign import screenY :: Window -> Effect Int
 
-foreign import scroll :: forall eff. Int -> Int -> Window -> Eff (window :: WINDOW | eff) Unit
+foreign import scroll :: Int -> Int -> Window -> Effect Unit
 
-foreign import scrollBy :: forall eff. Int -> Int -> Window -> Eff (window :: WINDOW | eff) Unit
+foreign import scrollBy :: Int -> Int -> Window -> Effect Unit
 
-foreign import scrollX :: forall eff. Window -> Eff (dom :: DOM | eff) Int
+foreign import scrollX :: Window -> Effect Int
 
-foreign import scrollY :: forall eff. Window -> Eff (dom :: DOM | eff) Int
+foreign import scrollY :: Window -> Effect Int
 
-foreign import localStorage :: forall eff. Window -> Eff (dom :: DOM | eff) Storage
+foreign import localStorage :: Window -> Effect Storage
 
-foreign import sessionStorage :: forall eff. Window -> Eff (dom :: DOM | eff) Storage
+foreign import sessionStorage :: Window -> Effect Storage
 
 newtype RequestAnimationFrameId = RequestAnimationFrameId Int
 
@@ -116,14 +114,14 @@ derive instance newtypeRequestAnimationFrameId :: Newtype RequestAnimationFrameI
 derive instance eqRequestAnimationFrameId :: Eq RequestAnimationFrameId
 derive instance ordRequestAnimationFrameId :: Ord RequestAnimationFrameId
 
-foreign import _requestAnimationFrame :: forall eff. Eff (dom :: DOM | eff) Unit -> Window -> Eff (dom :: DOM | eff) Int
+foreign import _requestAnimationFrame :: Effect Unit -> Window -> Effect Int
 
-requestAnimationFrame :: forall eff. Eff (dom :: DOM | eff) Unit -> Window -> Eff (dom :: DOM | eff ) RequestAnimationFrameId
+requestAnimationFrame :: Effect Unit -> Window -> Effect RequestAnimationFrameId
 requestAnimationFrame fn = map RequestAnimationFrameId <<< _requestAnimationFrame fn
 
-foreign import _cancelAnimationFrame :: forall eff. Int -> Window -> Eff (dom :: DOM | eff) Unit
+foreign import _cancelAnimationFrame :: Int -> Window -> Effect Unit
 
-cancelAnimationFrame :: forall eff. RequestAnimationFrameId -> Window -> Eff (dom :: DOM | eff) Unit
+cancelAnimationFrame :: RequestAnimationFrameId -> Window -> Effect Unit
 cancelAnimationFrame idAF = _cancelAnimationFrame (unwrap idAF)
 
 newtype RequestIdleCallbackId = RequestIdleCallbackId Int
@@ -132,14 +130,14 @@ derive instance newtypeRequestIdleCallbackId :: Newtype RequestIdleCallbackId _
 derive instance eqRequestIdleCallbackId :: Eq RequestIdleCallbackId
 derive instance ordRequestIdleCallbackId :: Ord RequestIdleCallbackId
 
-foreign import _requestIdleCallback :: forall eff. { timeout :: Int } -> Eff (dom :: DOM | eff) Unit -> Window -> Eff (dom :: DOM | eff) Int 
+foreign import _requestIdleCallback :: { timeout :: Int } -> Effect Unit -> Window -> Effect Int 
 
 -- | Set timeout to `0` to get the same behaviour as when it is `undefined` in
 -- | [JavaScript](https://w3c.github.io/requestidlecallback/#h-the-requestidle-callback-method).
-requestIdleCallback :: forall eff. { timeout :: Int } -> Eff (dom :: DOM | eff) Unit -> Window -> Eff (dom :: DOM | eff ) RequestIdleCallbackId
+requestIdleCallback :: { timeout :: Int } -> Effect Unit -> Window -> Effect RequestIdleCallbackId
 requestIdleCallback opts fn = map RequestIdleCallbackId <<< _requestIdleCallback opts fn
 
-foreign import _cancelIdleCallback :: forall eff. Int -> Window -> Eff (dom :: DOM | eff) Unit
+foreign import _cancelIdleCallback :: Int -> Window -> Effect Unit
 
-cancelIdleCallback :: forall eff. RequestIdleCallbackId -> Window -> Eff (dom :: DOM | eff) Unit
+cancelIdleCallback :: RequestIdleCallbackId -> Window -> Effect Unit
 cancelIdleCallback idAF = _cancelIdleCallback (unwrap idAF)

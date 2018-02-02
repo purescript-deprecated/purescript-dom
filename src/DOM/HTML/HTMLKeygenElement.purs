@@ -21,45 +21,44 @@ module DOM.HTML.HTMLKeygenElement
 
 import Prelude
 
-import Control.Monad.Eff (Eff)
+import Control.Monad.Effect (Effect)
 
 import Data.Maybe (Maybe)
 import Data.Nullable (Nullable, toMaybe)
 
-import DOM (DOM)
 import DOM.Node.Types (NodeList)
 import DOM.HTML.Types (HTMLKeygenElement, HTMLFormElement, ValidityState)
 
-foreign import autofocus :: forall eff. HTMLKeygenElement -> Eff (dom :: DOM | eff) Boolean
-foreign import setAutofocus :: forall eff. Boolean -> HTMLKeygenElement -> Eff (dom :: DOM | eff) Unit
+foreign import autofocus :: HTMLKeygenElement -> Effect Boolean
+foreign import setAutofocus :: Boolean -> HTMLKeygenElement -> Effect Unit
 
-foreign import challenge :: forall eff. HTMLKeygenElement -> Eff (dom :: DOM | eff) String
-foreign import setChallenge :: forall eff. String -> HTMLKeygenElement -> Eff (dom :: DOM | eff) Unit
+foreign import challenge :: HTMLKeygenElement -> Effect String
+foreign import setChallenge :: String -> HTMLKeygenElement -> Effect Unit
 
-foreign import disabled :: forall eff. HTMLKeygenElement -> Eff (dom :: DOM | eff) Boolean
-foreign import setDisabled :: forall eff. Boolean -> HTMLKeygenElement -> Eff (dom :: DOM | eff) Unit
+foreign import disabled :: HTMLKeygenElement -> Effect Boolean
+foreign import setDisabled :: Boolean -> HTMLKeygenElement -> Effect Unit
 
-form :: forall eff. HTMLKeygenElement -> Eff (dom :: DOM | eff) (Maybe HTMLFormElement)
+form :: HTMLKeygenElement -> Effect (Maybe HTMLFormElement)
 form = map toMaybe <<< _form
 
-foreign import _form :: forall eff. HTMLKeygenElement -> Eff (dom :: DOM | eff) (Nullable HTMLFormElement)
+foreign import _form :: HTMLKeygenElement -> Effect (Nullable HTMLFormElement)
 
-foreign import keytype :: forall eff. HTMLKeygenElement -> Eff (dom :: DOM | eff) String
-foreign import setKeytype :: forall eff. String -> HTMLKeygenElement -> Eff (dom :: DOM | eff) Unit
+foreign import keytype :: HTMLKeygenElement -> Effect String
+foreign import setKeytype :: String -> HTMLKeygenElement -> Effect Unit
 
-foreign import name :: forall eff. HTMLKeygenElement -> Eff (dom :: DOM | eff) String
-foreign import setName :: forall eff. String -> HTMLKeygenElement -> Eff (dom :: DOM | eff) Unit
+foreign import name :: HTMLKeygenElement -> Effect String
+foreign import setName :: String -> HTMLKeygenElement -> Effect Unit
 
-foreign import type_ :: forall eff. HTMLKeygenElement -> Eff (dom :: DOM | eff) String
+foreign import type_ :: HTMLKeygenElement -> Effect String
 
-foreign import willValidate :: forall eff. HTMLKeygenElement -> Eff (dom :: DOM | eff) Boolean
+foreign import willValidate :: HTMLKeygenElement -> Effect Boolean
 
-foreign import validity :: forall eff. HTMLKeygenElement -> Eff (dom :: DOM | eff) ValidityState
+foreign import validity :: HTMLKeygenElement -> Effect ValidityState
 
-foreign import validationMessage :: forall eff. HTMLKeygenElement -> Eff (dom :: DOM | eff) String
+foreign import validationMessage :: HTMLKeygenElement -> Effect String
 
-foreign import checkValidity :: forall eff. HTMLKeygenElement -> Eff (dom :: DOM | eff) Boolean
+foreign import checkValidity :: HTMLKeygenElement -> Effect Boolean
 
-foreign import setCustomValidity :: forall eff. String -> HTMLKeygenElement -> Eff (dom :: DOM | eff) Unit
+foreign import setCustomValidity :: String -> HTMLKeygenElement -> Effect Unit
 
-foreign import labels :: forall eff. HTMLKeygenElement -> Eff (dom :: DOM | eff) NodeList
+foreign import labels :: HTMLKeygenElement -> Effect NodeList

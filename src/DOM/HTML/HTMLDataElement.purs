@@ -2,10 +2,9 @@ module DOM.HTML.HTMLDataElement where
 
 import Prelude (Unit)
 
-import Control.Monad.Eff (Eff)
+import Control.Monad.Effect (Effect)
 
-import DOM (DOM)
 import DOM.HTML.Types (HTMLDataElement)
 
-foreign import value :: forall eff. HTMLDataElement -> Eff (dom :: DOM | eff) String
-foreign import setValue :: forall eff. String -> HTMLDataElement -> Eff (dom :: DOM | eff) Unit
+foreign import value :: HTMLDataElement -> Effect String
+foreign import setValue :: String -> HTMLDataElement -> Effect Unit

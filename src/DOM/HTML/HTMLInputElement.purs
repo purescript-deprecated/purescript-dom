@@ -91,167 +91,167 @@ module DOM.HTML.HTMLInputElement
   ) where
 
 import Prelude
-import Control.Monad.Eff (Eff)
+import Control.Monad.Effect (Effect)
 import Data.JSDate (JSDate)
 import Data.Maybe (Maybe)
 import Data.Nullable (Nullable, toMaybe)
-import DOM (DOM)
+
 import DOM.File.Types (FileList)
 import DOM.HTML.SelectionMode (SelectionMode)
 import DOM.HTML.Types (HTMLElement, HTMLInputElement, HTMLFormElement, ValidityState)
 import DOM.Node.Types (NodeList)
 
-foreign import accept :: forall eff. HTMLInputElement -> Eff (dom :: DOM | eff) Boolean
-foreign import setAccept :: forall eff. Boolean -> HTMLInputElement -> Eff (dom :: DOM | eff) Unit
+foreign import accept :: HTMLInputElement -> Effect Boolean
+foreign import setAccept :: Boolean -> HTMLInputElement -> Effect Unit
 
-foreign import alt :: forall eff. HTMLInputElement -> Eff (dom :: DOM | eff) Boolean
-foreign import setAlt :: forall eff. Boolean -> HTMLInputElement -> Eff (dom :: DOM | eff) Unit
+foreign import alt :: HTMLInputElement -> Effect Boolean
+foreign import setAlt :: Boolean -> HTMLInputElement -> Effect Unit
 
-foreign import autocomplete :: forall eff. HTMLInputElement -> Eff (dom :: DOM | eff) Boolean
-foreign import setAutocomplete :: forall eff. Boolean -> HTMLInputElement -> Eff (dom :: DOM | eff) Unit
+foreign import autocomplete :: HTMLInputElement -> Effect Boolean
+foreign import setAutocomplete :: Boolean -> HTMLInputElement -> Effect Unit
 
-foreign import autofocus :: forall eff. HTMLInputElement -> Eff (dom :: DOM | eff) Boolean
-foreign import setAutofocus :: forall eff. Boolean -> HTMLInputElement -> Eff (dom :: DOM | eff) Unit
+foreign import autofocus :: HTMLInputElement -> Effect Boolean
+foreign import setAutofocus :: Boolean -> HTMLInputElement -> Effect Unit
 
-foreign import defaultChecked :: forall eff. HTMLInputElement -> Eff (dom :: DOM | eff) Boolean
-foreign import setDefaultChecked :: forall eff. Boolean -> HTMLInputElement -> Eff (dom :: DOM | eff) Unit
+foreign import defaultChecked :: HTMLInputElement -> Effect Boolean
+foreign import setDefaultChecked :: Boolean -> HTMLInputElement -> Effect Unit
 
-foreign import checked :: forall eff. HTMLInputElement -> Eff (dom :: DOM | eff) Boolean
-foreign import setChecked :: forall eff. Boolean -> HTMLInputElement -> Eff (dom :: DOM | eff) Unit
+foreign import checked :: HTMLInputElement -> Effect Boolean
+foreign import setChecked :: Boolean -> HTMLInputElement -> Effect Unit
 
-foreign import dirName :: forall eff. HTMLInputElement -> Eff (dom :: DOM | eff) String
-foreign import setDirName :: forall eff. String -> HTMLInputElement -> Eff (dom :: DOM | eff) Unit
+foreign import dirName :: HTMLInputElement -> Effect String
+foreign import setDirName :: String -> HTMLInputElement -> Effect Unit
 
-foreign import disabled :: forall eff. HTMLInputElement -> Eff (dom :: DOM | eff) Boolean
-foreign import setDisabled :: forall eff. Boolean -> HTMLInputElement -> Eff (dom :: DOM | eff) Unit
+foreign import disabled :: HTMLInputElement -> Effect Boolean
+foreign import setDisabled :: Boolean -> HTMLInputElement -> Effect Unit
 
-form :: forall eff. HTMLInputElement -> Eff (dom :: DOM | eff) (Maybe HTMLFormElement)
+form :: HTMLInputElement -> Effect (Maybe HTMLFormElement)
 form = map toMaybe <<< _form
 
-foreign import _form :: forall eff. HTMLInputElement -> Eff (dom :: DOM | eff) (Nullable HTMLFormElement)
+foreign import _form :: HTMLInputElement -> Effect (Nullable HTMLFormElement)
 
-files :: forall eff. HTMLInputElement -> Eff (dom :: DOM | eff) (Maybe FileList)
+files :: HTMLInputElement -> Effect (Maybe FileList)
 files = map toMaybe <<< _files
 
-foreign import _files :: forall eff. HTMLInputElement -> Eff (dom :: DOM | eff) (Nullable FileList)
+foreign import _files :: HTMLInputElement -> Effect (Nullable FileList)
 
-foreign import formAction :: forall eff. HTMLInputElement -> Eff (dom :: DOM | eff) String
-foreign import setFormAction :: forall eff. String -> HTMLInputElement -> Eff (dom :: DOM | eff) Unit
+foreign import formAction :: HTMLInputElement -> Effect String
+foreign import setFormAction :: String -> HTMLInputElement -> Effect Unit
 
-foreign import formEnctype :: forall eff. HTMLInputElement -> Eff (dom :: DOM | eff) String
-foreign import setFormEnctype :: forall eff. String -> HTMLInputElement -> Eff (dom :: DOM | eff) Unit
+foreign import formEnctype :: HTMLInputElement -> Effect String
+foreign import setFormEnctype :: String -> HTMLInputElement -> Effect Unit
 
-foreign import formMethod :: forall eff. HTMLInputElement -> Eff (dom :: DOM | eff) String
-foreign import setFormMethod :: forall eff. String -> HTMLInputElement -> Eff (dom :: DOM | eff) Unit
+foreign import formMethod :: HTMLInputElement -> Effect String
+foreign import setFormMethod :: String -> HTMLInputElement -> Effect Unit
 
-foreign import formNoValidate :: forall eff. HTMLInputElement -> Eff (dom :: DOM | eff) Boolean
-foreign import setFormNoValidate :: forall eff. Boolean -> HTMLInputElement -> Eff (dom :: DOM | eff) Unit
+foreign import formNoValidate :: HTMLInputElement -> Effect Boolean
+foreign import setFormNoValidate :: Boolean -> HTMLInputElement -> Effect Unit
 
-foreign import formTarget :: forall eff. HTMLInputElement -> Eff (dom :: DOM | eff) String
-foreign import setFormTarget :: forall eff. String -> HTMLInputElement -> Eff (dom :: DOM | eff) Unit
+foreign import formTarget :: HTMLInputElement -> Effect String
+foreign import setFormTarget :: String -> HTMLInputElement -> Effect Unit
 
-foreign import height :: forall eff. HTMLInputElement -> Eff (dom :: DOM | eff) Int
-foreign import setHeight :: forall eff. Int -> HTMLInputElement -> Eff (dom :: DOM | eff) Unit
+foreign import height :: HTMLInputElement -> Effect Int
+foreign import setHeight :: Int -> HTMLInputElement -> Effect Unit
 
-foreign import indeterminate :: forall eff. HTMLInputElement -> Eff (dom :: DOM | eff) Boolean
-foreign import setIndeterminate :: forall eff. Boolean -> HTMLInputElement -> Eff (dom :: DOM | eff) Unit
+foreign import indeterminate :: HTMLInputElement -> Effect Boolean
+foreign import setIndeterminate :: Boolean -> HTMLInputElement -> Effect Unit
 
-list :: forall eff. HTMLInputElement -> Eff (dom :: DOM | eff) (Maybe HTMLElement)
+list :: HTMLInputElement -> Effect (Maybe HTMLElement)
 list = map toMaybe <<< _list
 
-foreign import _list :: forall eff. HTMLInputElement -> Eff (dom :: DOM | eff) (Nullable HTMLElement)
+foreign import _list :: HTMLInputElement -> Effect (Nullable HTMLElement)
 
-foreign import max :: forall eff. HTMLInputElement -> Eff (dom :: DOM | eff) String
-foreign import setMax :: forall eff. String -> HTMLInputElement -> Eff (dom :: DOM | eff) Unit
+foreign import max :: HTMLInputElement -> Effect String
+foreign import setMax :: String -> HTMLInputElement -> Effect Unit
 
-foreign import maxLength :: forall eff. HTMLInputElement -> Eff (dom :: DOM | eff) Int
-foreign import setMaxLength :: forall eff. Int -> HTMLInputElement -> Eff (dom :: DOM | eff) Unit
+foreign import maxLength :: HTMLInputElement -> Effect Int
+foreign import setMaxLength :: Int -> HTMLInputElement -> Effect Unit
 
-foreign import min :: forall eff. HTMLInputElement -> Eff (dom :: DOM | eff) String
-foreign import setMin :: forall eff. String -> HTMLInputElement -> Eff (dom :: DOM | eff) Unit
+foreign import min :: HTMLInputElement -> Effect String
+foreign import setMin :: String -> HTMLInputElement -> Effect Unit
 
-foreign import minLength :: forall eff. HTMLInputElement -> Eff (dom :: DOM | eff) Int
-foreign import setMinLength :: forall eff. Int -> HTMLInputElement -> Eff (dom :: DOM | eff) Unit
+foreign import minLength :: HTMLInputElement -> Effect Int
+foreign import setMinLength :: Int -> HTMLInputElement -> Effect Unit
 
-foreign import multiple :: forall eff. HTMLInputElement -> Eff (dom :: DOM | eff) Boolean
-foreign import setMultiple :: forall eff. Boolean -> HTMLInputElement -> Eff (dom :: DOM | eff) Unit
+foreign import multiple :: HTMLInputElement -> Effect Boolean
+foreign import setMultiple :: Boolean -> HTMLInputElement -> Effect Unit
 
-foreign import name :: forall eff. HTMLInputElement -> Eff (dom :: DOM | eff) String
-foreign import setName :: forall eff. String -> HTMLInputElement -> Eff (dom :: DOM | eff) Unit
+foreign import name :: HTMLInputElement -> Effect String
+foreign import setName :: String -> HTMLInputElement -> Effect Unit
 
-foreign import pattern :: forall eff. HTMLInputElement -> Eff (dom :: DOM | eff) String
-foreign import setPattern :: forall eff. String -> HTMLInputElement -> Eff (dom :: DOM | eff) Unit
+foreign import pattern :: HTMLInputElement -> Effect String
+foreign import setPattern :: String -> HTMLInputElement -> Effect Unit
 
-foreign import placeholder :: forall eff. HTMLInputElement -> Eff (dom :: DOM | eff) String
-foreign import setPlaceholder :: forall eff. String -> HTMLInputElement -> Eff (dom :: DOM | eff) Unit
+foreign import placeholder :: HTMLInputElement -> Effect String
+foreign import setPlaceholder :: String -> HTMLInputElement -> Effect Unit
 
-foreign import readOnly :: forall eff. HTMLInputElement -> Eff (dom :: DOM | eff) Boolean
-foreign import setReadOnly :: forall eff. Boolean -> HTMLInputElement -> Eff (dom :: DOM | eff) Unit
+foreign import readOnly :: HTMLInputElement -> Effect Boolean
+foreign import setReadOnly :: Boolean -> HTMLInputElement -> Effect Unit
 
-foreign import required :: forall eff. HTMLInputElement -> Eff (dom :: DOM | eff) Boolean
-foreign import setRequired :: forall eff. Boolean -> HTMLInputElement -> Eff (dom :: DOM | eff) Unit
+foreign import required :: HTMLInputElement -> Effect Boolean
+foreign import setRequired :: Boolean -> HTMLInputElement -> Effect Unit
 
-foreign import size :: forall eff. HTMLInputElement -> Eff (dom :: DOM | eff) Int
-foreign import setSize :: forall eff. Int -> HTMLInputElement -> Eff (dom :: DOM | eff) Unit
+foreign import size :: HTMLInputElement -> Effect Int
+foreign import setSize :: Int -> HTMLInputElement -> Effect Unit
 
-foreign import src :: forall eff. HTMLInputElement -> Eff (dom :: DOM | eff) String
-foreign import setSrc :: forall eff. String -> HTMLInputElement -> Eff (dom :: DOM | eff) Unit
+foreign import src :: HTMLInputElement -> Effect String
+foreign import setSrc :: String -> HTMLInputElement -> Effect Unit
 
-foreign import step :: forall eff. HTMLInputElement -> Eff (dom :: DOM | eff) String
-foreign import setStep :: forall eff. String -> HTMLInputElement -> Eff (dom :: DOM | eff) Unit
+foreign import step :: HTMLInputElement -> Effect String
+foreign import setStep :: String -> HTMLInputElement -> Effect Unit
 
-foreign import type_ :: forall eff. HTMLInputElement -> Eff (dom :: DOM | eff) String
-foreign import setType :: forall eff. String -> HTMLInputElement -> Eff (dom :: DOM | eff) Unit
+foreign import type_ :: HTMLInputElement -> Effect String
+foreign import setType :: String -> HTMLInputElement -> Effect Unit
 
-foreign import defaultValue :: forall eff. HTMLInputElement -> Eff (dom :: DOM | eff) String
-foreign import setDefaultValue :: forall eff. String -> HTMLInputElement -> Eff (dom :: DOM | eff) Unit
+foreign import defaultValue :: HTMLInputElement -> Effect String
+foreign import setDefaultValue :: String -> HTMLInputElement -> Effect Unit
 
-foreign import value :: forall eff. HTMLInputElement -> Eff (dom :: DOM | eff) String
-foreign import setValue :: forall eff. String -> HTMLInputElement -> Eff (dom :: DOM | eff) Unit
+foreign import value :: HTMLInputElement -> Effect String
+foreign import setValue :: String -> HTMLInputElement -> Effect Unit
 
-foreign import valueAsDate :: forall eff. HTMLInputElement -> Eff (dom :: DOM | eff) JSDate
-foreign import setValueAsDate :: forall eff. JSDate -> HTMLInputElement -> Eff (dom :: DOM | eff) Unit
+foreign import valueAsDate :: HTMLInputElement -> Effect JSDate
+foreign import setValueAsDate :: JSDate -> HTMLInputElement -> Effect Unit
 
-foreign import valueAsNumber :: forall eff. HTMLInputElement -> Eff (dom :: DOM | eff) Number
-foreign import setValueAsNumber :: forall eff. Number -> HTMLInputElement -> Eff (dom :: DOM | eff) Unit
+foreign import valueAsNumber :: HTMLInputElement -> Effect Number
+foreign import setValueAsNumber :: Number -> HTMLInputElement -> Effect Unit
 
-foreign import width :: forall eff. HTMLInputElement -> Eff (dom :: DOM | eff) Int
-foreign import setWidth :: forall eff. Int -> HTMLInputElement -> Eff (dom :: DOM | eff) Unit
+foreign import width :: HTMLInputElement -> Effect Int
+foreign import setWidth :: Int -> HTMLInputElement -> Effect Unit
 
-stepUp :: forall eff. HTMLInputElement -> Eff (dom :: DOM | eff) Unit
+stepUp :: HTMLInputElement -> Effect Unit
 stepUp = stepUp' 1
 
-foreign import stepUp' :: forall eff. Int -> HTMLInputElement -> Eff (dom :: DOM | eff) Unit
+foreign import stepUp' :: Int -> HTMLInputElement -> Effect Unit
 
-stepDown :: forall eff. HTMLInputElement -> Eff (dom :: DOM | eff) Unit
+stepDown :: HTMLInputElement -> Effect Unit
 stepDown = stepDown' 1
 
-foreign import stepDown' :: forall eff. Int -> HTMLInputElement -> Eff (dom :: DOM | eff) Unit
+foreign import stepDown' :: Int -> HTMLInputElement -> Effect Unit
 
-foreign import willValidate :: forall eff. HTMLInputElement -> Eff (dom :: DOM | eff) Boolean
+foreign import willValidate :: HTMLInputElement -> Effect Boolean
 
-foreign import validity :: forall eff. HTMLInputElement -> Eff (dom :: DOM | eff) ValidityState
+foreign import validity :: HTMLInputElement -> Effect ValidityState
 
-foreign import validationMessage :: forall eff. HTMLInputElement -> Eff (dom :: DOM | eff) String
+foreign import validationMessage :: HTMLInputElement -> Effect String
 
-foreign import checkValidity :: forall eff. HTMLInputElement -> Eff (dom :: DOM | eff) Boolean
+foreign import checkValidity :: HTMLInputElement -> Effect Boolean
 
-foreign import setCustomValidity :: forall eff. String -> HTMLInputElement -> Eff (dom :: DOM | eff) Unit
+foreign import setCustomValidity :: String -> HTMLInputElement -> Effect Unit
 
-foreign import labels :: forall eff. HTMLInputElement -> Eff (dom :: DOM | eff) NodeList
+foreign import labels :: HTMLInputElement -> Effect NodeList
 
-foreign import select :: forall eff. HTMLInputElement -> Eff (dom :: DOM | eff) Unit
+foreign import select :: HTMLInputElement -> Effect Unit
 
-foreign import selectionStart :: forall eff. HTMLInputElement -> Eff (dom :: DOM | eff) Int
-foreign import setSelectionStart :: forall eff. Int -> HTMLInputElement -> Eff (dom :: DOM | eff) Unit
+foreign import selectionStart :: HTMLInputElement -> Effect Int
+foreign import setSelectionStart :: Int -> HTMLInputElement -> Effect Unit
 
-foreign import selectionEnd :: forall eff. HTMLInputElement -> Eff (dom :: DOM | eff) Int
-foreign import setSelectionEnd :: forall eff. Int -> HTMLInputElement -> Eff (dom :: DOM | eff) Unit
+foreign import selectionEnd :: HTMLInputElement -> Effect Int
+foreign import setSelectionEnd :: Int -> HTMLInputElement -> Effect Unit
 
-foreign import selectionDirection :: forall eff. HTMLInputElement -> Eff (dom :: DOM | eff) String
-foreign import setSelectionDirection :: forall eff. String -> HTMLInputElement -> Eff (dom :: DOM | eff) Unit
+foreign import selectionDirection :: HTMLInputElement -> Effect String
+foreign import setSelectionDirection :: String -> HTMLInputElement -> Effect Unit
 
-foreign import setRangeText :: forall eff. String -> HTMLInputElement -> Eff (dom :: DOM | eff) Unit
-foreign import setRangeText' :: forall eff. String -> Int -> Int -> SelectionMode -> HTMLInputElement -> Eff (dom :: DOM | eff) Unit
+foreign import setRangeText :: String -> HTMLInputElement -> Effect Unit
+foreign import setRangeText' :: String -> Int -> Int -> SelectionMode -> HTMLInputElement -> Effect Unit
 
-foreign import setSelectionRange :: forall eff. Int -> Int -> String -> HTMLInputElement -> Eff (dom :: DOM | eff) Unit
+foreign import setSelectionRange :: Int -> Int -> String -> HTMLInputElement -> Effect Unit

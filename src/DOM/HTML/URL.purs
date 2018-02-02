@@ -3,12 +3,11 @@ module DOM.HTML.URL
   , revokeObjectURL
   ) where
 
-import Control.Monad.Eff (Eff)
-import DOM (DOM)
+import Control.Monad.Effect (Effect)
 import DOM.File.Types (File)
 import DOM.HTML.Types (URL)
 import Data.Unit (Unit)
 
-foreign import createObjectURL :: forall eff. File -> URL -> Eff (dom :: DOM | eff) String
+foreign import createObjectURL :: File -> URL -> Effect String
 
-foreign import revokeObjectURL :: forall eff. String -> URL -> Eff (dom :: DOM | eff) Unit
+foreign import revokeObjectURL :: String -> URL -> Effect Unit

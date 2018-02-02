@@ -2,13 +2,12 @@ module DOM.HTML.HTMLParamElement where
 
 import Prelude (Unit)
 
-import Control.Monad.Eff (Eff)
+import Control.Monad.Effect (Effect)
 
-import DOM (DOM)
 import DOM.HTML.Types (HTMLParamElement)
 
-foreign import name :: forall eff. HTMLParamElement -> Eff (dom :: DOM | eff) String
-foreign import setName :: forall eff. String -> HTMLParamElement -> Eff (dom :: DOM | eff) Unit
+foreign import name :: HTMLParamElement -> Effect String
+foreign import setName :: String -> HTMLParamElement -> Effect Unit
 
-foreign import value :: forall eff. HTMLParamElement -> Eff (dom :: DOM | eff) String
-foreign import setValue :: forall eff. String -> HTMLParamElement -> Eff (dom :: DOM | eff) Unit
+foreign import value :: HTMLParamElement -> Effect String
+foreign import setValue :: String -> HTMLParamElement -> Effect Unit

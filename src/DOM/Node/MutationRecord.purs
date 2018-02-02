@@ -15,8 +15,7 @@ module DOM.Node.MutationRecord
 
 import Prelude
 
-import Control.Monad.Eff (Eff)
-import DOM (DOM)
+import Control.Monad.Effect (Effect)
 import DOM.Node.Types (Node, NodeList)
 import Data.Maybe (Maybe)
 import Data.Nullable (Nullable, toMaybe)
@@ -28,9 +27,9 @@ data MutationRecordType
   | MutationRecordCharacterData
   | MutationRecordChildList
 
-foreign import typeString :: forall eff. MutationRecord -> Eff (dom :: DOM | eff) String
+foreign import typeString :: MutationRecord -> Effect String
 
-type_ :: forall eff. Partial => MutationRecord -> Eff (dom :: DOM | eff) MutationRecordType
+type_ :: Partial => MutationRecord -> Effect MutationRecordType
 type_ = map stringToType <<< typeString
   where
   stringToType = case _ of
@@ -38,33 +37,33 @@ type_ = map stringToType <<< typeString
     "characterData" -> MutationRecordCharacterData
     "childList" -> MutationRecordChildList
 
-foreign import target :: forall eff. MutationRecord -> Eff (dom :: DOM | eff) Node
+foreign import target :: MutationRecord -> Effect Node
 
-foreign import addedNodes :: forall eff. MutationRecord -> Eff (dom :: DOM | eff) NodeList
+foreign import addedNodes :: MutationRecord -> Effect NodeList
 
-foreign import removedNodes :: forall eff. MutationRecord -> Eff (dom :: DOM | eff) NodeList
+foreign import removedNodes :: MutationRecord -> Effect NodeList
 
-foreign import _nextSibling :: forall eff. MutationRecord -> Eff (dom :: DOM | eff) (Nullable Node)
+foreign import _nextSibling :: MutationRecord -> Effect (Nullable Node)
 
-nextSibling :: forall eff. MutationRecord -> Eff (dom :: DOM | eff) (Maybe Node)
+nextSibling :: MutationRecord -> Effect (Maybe Node)
 nextSibling = map toMaybe <<< _nextSibling
 
-foreign import _previousSibling :: forall eff. MutationRecord -> Eff (dom :: DOM | eff) (Nullable Node)
+foreign import _previousSibling :: MutationRecord -> Effect (Nullable Node)
 
-previousSibling :: forall eff. MutationRecord -> Eff (dom :: DOM | eff) (Maybe Node)
+previousSibling :: MutationRecord -> Effect (Maybe Node)
 previousSibling = map toMaybe <<< _previousSibling
 
-foreign import _attributeName :: forall eff. MutationRecord -> Eff (dom :: DOM | eff) (Nullable String)
+foreign import _attributeName :: MutationRecord -> Effect (Nullable String)
 
-attributeName :: forall eff. MutationRecord -> Eff (dom :: DOM | eff) (Maybe String)
+attributeName :: MutationRecord -> Effect (Maybe String)
 attributeName = map toMaybe <<< _attributeName
 
-foreign import _attributeNamespace :: forall eff. MutationRecord -> Eff (dom :: DOM | eff) (Nullable String)
+foreign import _attributeNamespace :: MutationRecord -> Effect (Nullable String)
 
-attributeNamespace :: forall eff. MutationRecord -> Eff (dom :: DOM | eff) (Maybe String)
+attributeNamespace :: MutationRecord -> Effect (Maybe String)
 attributeNamespace = map toMaybe <<< _attributeNamespace
 
-foreign import _oldValue :: forall eff. MutationRecord -> Eff (dom :: DOM | eff) (Nullable String)
+foreign import _oldValue :: MutationRecord -> Effect (Nullable String)
 
-oldValue :: forall eff. MutationRecord -> Eff (dom :: DOM | eff) (Maybe String)
+oldValue :: MutationRecord -> Effect (Maybe String)
 oldValue = map toMaybe <<< _oldValue

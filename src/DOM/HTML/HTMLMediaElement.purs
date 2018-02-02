@@ -2,13 +2,12 @@ module DOM.HTML.HTMLMediaElement where
 
 import Prelude (Unit, map, (<<<))
 
-import Control.Monad.Eff (Eff)
+import Control.Monad.Effect (Effect)
 
 import Data.JSDate (JSDate)
 import Data.Enum (toEnum)
 import Data.Maybe (fromJust)
 
-import DOM (DOM)
 import DOM.HTML.HTMLMediaElement.CanPlayType (CanPlayType)
 import DOM.HTML.HTMLMediaElement.NetworkState (NetworkState)
 import DOM.HTML.HTMLMediaElement.ReadyState (ReadyState)
@@ -16,81 +15,81 @@ import DOM.HTML.Types (HTMLMediaElement)
 
 --   readonly attribute MediaError? error;
 
-foreign import src :: forall eff. HTMLMediaElement -> Eff (dom :: DOM | eff) String
-foreign import setSrc :: forall eff. String -> HTMLMediaElement -> Eff (dom :: DOM | eff) Unit
+foreign import src :: HTMLMediaElement -> Effect String
+foreign import setSrc :: String -> HTMLMediaElement -> Effect Unit
 
-foreign import currentSrc :: forall eff. HTMLMediaElement -> Eff (dom :: DOM | eff) String
+foreign import currentSrc :: HTMLMediaElement -> Effect String
 
-foreign import crossOrigin :: forall eff. HTMLMediaElement -> Eff (dom :: DOM | eff) String
-foreign import setCrossOrigin :: forall eff. String -> HTMLMediaElement -> Eff (dom :: DOM | eff) Unit
+foreign import crossOrigin :: HTMLMediaElement -> Effect String
+foreign import setCrossOrigin :: String -> HTMLMediaElement -> Effect Unit
 
-networkState :: forall eff. Partial => HTMLMediaElement -> Eff (dom :: DOM | eff) NetworkState
+networkState :: Partial => HTMLMediaElement -> Effect NetworkState
 networkState = map (fromJust <<< toEnum) <<< readyStateIndex
 
-foreign import networkStateIndex :: forall eff. HTMLMediaElement -> Eff (dom :: DOM | eff) Int
+foreign import networkStateIndex :: HTMLMediaElement -> Effect Int
 
-foreign import preload :: forall eff. HTMLMediaElement -> Eff (dom :: DOM | eff) String
-foreign import setPreload :: forall eff. String -> HTMLMediaElement -> Eff (dom :: DOM | eff) Unit
+foreign import preload :: HTMLMediaElement -> Effect String
+foreign import setPreload :: String -> HTMLMediaElement -> Effect Unit
 
 --   readonly attribute TimeRanges buffered;
 
-foreign import load :: forall eff. HTMLMediaElement -> Eff (dom :: DOM | eff) Unit
+foreign import load :: HTMLMediaElement -> Effect Unit
 
-foreign import canPlayType :: forall eff. String -> HTMLMediaElement -> Eff (dom :: DOM | eff) CanPlayType
+foreign import canPlayType :: String -> HTMLMediaElement -> Effect CanPlayType
 
-readyState :: forall eff. Partial => HTMLMediaElement -> Eff (dom :: DOM | eff) ReadyState
+readyState :: Partial => HTMLMediaElement -> Effect ReadyState
 readyState = map (fromJust <<< toEnum) <<< readyStateIndex
 
-foreign import readyStateIndex :: forall eff. HTMLMediaElement -> Eff (dom :: DOM | eff) Int
+foreign import readyStateIndex :: HTMLMediaElement -> Effect Int
 
-foreign import seeking :: forall eff. HTMLMediaElement -> Eff (dom :: DOM | eff) Boolean
+foreign import seeking :: HTMLMediaElement -> Effect Boolean
 
-foreign import currentTime :: forall eff. HTMLMediaElement -> Eff (dom :: DOM | eff) Number
-foreign import setCurrentTime :: forall eff. Number -> HTMLMediaElement -> Eff (dom :: DOM | eff) Unit
+foreign import currentTime :: HTMLMediaElement -> Effect Number
+foreign import setCurrentTime :: Number -> HTMLMediaElement -> Effect Unit
 
-foreign import duration :: forall eff. HTMLMediaElement -> Eff (dom :: DOM | eff) Number
+foreign import duration :: HTMLMediaElement -> Effect Number
 
-foreign import getStartDate :: forall eff. HTMLMediaElement -> Eff (dom :: DOM | eff) JSDate
+foreign import getStartDate :: HTMLMediaElement -> Effect JSDate
 
-foreign import paused :: forall eff. HTMLMediaElement -> Eff (dom :: DOM | eff) Boolean
+foreign import paused :: HTMLMediaElement -> Effect Boolean
 
-foreign import defaultPlaybackRate :: forall eff. HTMLMediaElement -> Eff (dom :: DOM | eff) Number
-foreign import setDefaultPlaybackRate :: forall eff. Number -> HTMLMediaElement -> Eff (dom :: DOM | eff) Unit
+foreign import defaultPlaybackRate :: HTMLMediaElement -> Effect Number
+foreign import setDefaultPlaybackRate :: Number -> HTMLMediaElement -> Effect Unit
 
-foreign import playbackRate :: forall eff. HTMLMediaElement -> Eff (dom :: DOM | eff) Number
-foreign import setPlaybackRate :: forall eff. Number -> HTMLMediaElement -> Eff (dom :: DOM | eff) Unit
+foreign import playbackRate :: HTMLMediaElement -> Effect Number
+foreign import setPlaybackRate :: Number -> HTMLMediaElement -> Effect Unit
 
 --   readonly attribute TimeRanges played;
 --   readonly attribute TimeRanges seekable;
 
-foreign import ended :: forall eff. HTMLMediaElement -> Eff (dom :: DOM | eff) Boolean
+foreign import ended :: HTMLMediaElement -> Effect Boolean
 
-foreign import autoplay :: forall eff. HTMLMediaElement -> Eff (dom :: DOM | eff) Boolean
-foreign import setAutoplay :: forall eff. Boolean -> HTMLMediaElement -> Eff (dom :: DOM | eff) Unit
+foreign import autoplay :: HTMLMediaElement -> Effect Boolean
+foreign import setAutoplay :: Boolean -> HTMLMediaElement -> Effect Unit
 
-foreign import loop :: forall eff. HTMLMediaElement -> Eff (dom :: DOM | eff) Boolean
-foreign import setLoop :: forall eff. Boolean -> HTMLMediaElement -> Eff (dom :: DOM | eff) Unit
+foreign import loop :: HTMLMediaElement -> Effect Boolean
+foreign import setLoop :: Boolean -> HTMLMediaElement -> Effect Unit
 
-foreign import play :: forall eff. HTMLMediaElement -> Eff (dom :: DOM | eff) Unit
+foreign import play :: HTMLMediaElement -> Effect Unit
 
-foreign import pause :: forall eff. HTMLMediaElement -> Eff (dom :: DOM | eff) Unit
+foreign import pause :: HTMLMediaElement -> Effect Unit
 
-foreign import mediaGroup :: forall eff. HTMLMediaElement -> Eff (dom :: DOM | eff) String
-foreign import setMediaGroup :: forall eff. String -> HTMLMediaElement -> Eff (dom :: DOM | eff) Unit
+foreign import mediaGroup :: HTMLMediaElement -> Effect String
+foreign import setMediaGroup :: String -> HTMLMediaElement -> Effect Unit
 
 --            attribute MediaController? controller;
 
-foreign import controls :: forall eff. HTMLMediaElement -> Eff (dom :: DOM | eff) Boolean
-foreign import setControls :: forall eff. Boolean -> HTMLMediaElement -> Eff (dom :: DOM | eff) Unit
+foreign import controls :: HTMLMediaElement -> Effect Boolean
+foreign import setControls :: Boolean -> HTMLMediaElement -> Effect Unit
 
-foreign import volume :: forall eff. HTMLMediaElement -> Eff (dom :: DOM | eff) Number
-foreign import setVolume :: forall eff. Number -> HTMLMediaElement -> Eff (dom :: DOM | eff) Unit
+foreign import volume :: HTMLMediaElement -> Effect Number
+foreign import setVolume :: Number -> HTMLMediaElement -> Effect Unit
 
-foreign import muted :: forall eff. HTMLMediaElement -> Eff (dom :: DOM | eff) Boolean
-foreign import setMuted :: forall eff. Boolean -> HTMLMediaElement -> Eff (dom :: DOM | eff) Unit
+foreign import muted :: HTMLMediaElement -> Effect Boolean
+foreign import setMuted :: Boolean -> HTMLMediaElement -> Effect Unit
 
-foreign import defaultMuted :: forall eff. HTMLMediaElement -> Eff (dom :: DOM | eff) Boolean
-foreign import setDefaultMuted :: forall eff. Boolean -> HTMLMediaElement -> Eff (dom :: DOM | eff) Unit
+foreign import defaultMuted :: HTMLMediaElement -> Effect Boolean
+foreign import setDefaultMuted :: Boolean -> HTMLMediaElement -> Effect Unit
 
 --   readonly attribute AudioTrackList audioTracks;
 --   readonly attribute VideoTrackList videoTracks;

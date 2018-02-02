@@ -17,41 +17,40 @@ module DOM.HTML.HTMLOutputElement
 
 import Prelude
 
-import Control.Monad.Eff (Eff)
+import Control.Monad.Effect (Effect)
 
 import Data.Maybe (Maybe)
 import Data.Nullable (Nullable, toMaybe)
 
-import DOM (DOM)
 import DOM.Node.Types (NodeList)
 import DOM.HTML.Types (HTMLOutputElement, HTMLFormElement, ValidityState)
 
 --   [PutForwards=value] readonly attribute DOMSettableTokenList htmlFor;
 
-form :: forall eff. HTMLOutputElement -> Eff (dom :: DOM | eff) (Maybe HTMLFormElement)
+form :: HTMLOutputElement -> Effect (Maybe HTMLFormElement)
 form = map toMaybe <<< _form
 
-foreign import _form :: forall eff. HTMLOutputElement -> Eff (dom :: DOM | eff) (Nullable HTMLFormElement)
+foreign import _form :: HTMLOutputElement -> Effect (Nullable HTMLFormElement)
 
-foreign import name :: forall eff. HTMLOutputElement -> Eff (dom :: DOM | eff) String
-foreign import setName :: forall eff. String -> HTMLOutputElement -> Eff (dom :: DOM | eff) Unit
+foreign import name :: HTMLOutputElement -> Effect String
+foreign import setName :: String -> HTMLOutputElement -> Effect Unit
 
-foreign import type_ :: forall eff. HTMLOutputElement -> Eff (dom :: DOM | eff) String
+foreign import type_ :: HTMLOutputElement -> Effect String
 
-foreign import defaultValue :: forall eff. HTMLOutputElement -> Eff (dom :: DOM | eff) String
-foreign import setDefaultValue :: forall eff. String -> HTMLOutputElement -> Eff (dom :: DOM | eff) Unit
+foreign import defaultValue :: HTMLOutputElement -> Effect String
+foreign import setDefaultValue :: String -> HTMLOutputElement -> Effect Unit
 
-foreign import value :: forall eff. HTMLOutputElement -> Eff (dom :: DOM | eff) String
-foreign import setValue :: forall eff. String -> HTMLOutputElement -> Eff (dom :: DOM | eff) Unit
+foreign import value :: HTMLOutputElement -> Effect String
+foreign import setValue :: String -> HTMLOutputElement -> Effect Unit
 
-foreign import willValidate :: forall eff. HTMLOutputElement -> Eff (dom :: DOM | eff) Boolean
+foreign import willValidate :: HTMLOutputElement -> Effect Boolean
 
-foreign import validity :: forall eff. HTMLOutputElement -> Eff (dom :: DOM | eff) ValidityState
+foreign import validity :: HTMLOutputElement -> Effect ValidityState
 
-foreign import validationMessage :: forall eff. HTMLOutputElement -> Eff (dom :: DOM | eff) String
+foreign import validationMessage :: HTMLOutputElement -> Effect String
 
-foreign import checkValidity :: forall eff. HTMLOutputElement -> Eff (dom :: DOM | eff) Boolean
+foreign import checkValidity :: HTMLOutputElement -> Effect Boolean
 
-foreign import setCustomValidity :: forall eff. String -> HTMLOutputElement -> Eff (dom :: DOM | eff) Unit
+foreign import setCustomValidity :: String -> HTMLOutputElement -> Effect Unit
 
-foreign import labels :: forall eff. HTMLOutputElement -> Eff (dom :: DOM | eff) NodeList
+foreign import labels :: HTMLOutputElement -> Effect NodeList

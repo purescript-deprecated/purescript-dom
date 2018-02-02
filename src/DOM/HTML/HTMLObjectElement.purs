@@ -23,55 +23,54 @@ module DOM.HTML.HTMLObjectElement
 
 import Prelude
 
-import Control.Monad.Eff (Eff)
+import Control.Monad.Effect (Effect)
 
 import Data.Maybe (Maybe)
 import Data.Nullable (Nullable, toMaybe)
 
-import DOM (DOM)
 import DOM.HTML.Types (HTMLObjectElement, HTMLFormElement, ValidityState)
 import DOM.Node.Types (Document)
 
-foreign import data_ :: forall eff. HTMLObjectElement -> Eff (dom :: DOM | eff) String
-foreign import setData :: forall eff. String -> HTMLObjectElement -> Eff (dom :: DOM | eff) Unit
+foreign import data_ :: HTMLObjectElement -> Effect String
+foreign import setData :: String -> HTMLObjectElement -> Effect Unit
 
-foreign import type_ :: forall eff. HTMLObjectElement -> Eff (dom :: DOM | eff) String
-foreign import setType :: forall eff. String -> HTMLObjectElement -> Eff (dom :: DOM | eff) Unit
+foreign import type_ :: HTMLObjectElement -> Effect String
+foreign import setType :: String -> HTMLObjectElement -> Effect Unit
 
-foreign import typeMustMatch :: forall eff. HTMLObjectElement -> Eff (dom :: DOM | eff) Boolean
+foreign import typeMustMatch :: HTMLObjectElement -> Effect Boolean
 
-foreign import name :: forall eff. HTMLObjectElement -> Eff (dom :: DOM | eff) String
-foreign import setName :: forall eff. String -> HTMLObjectElement -> Eff (dom :: DOM | eff) Unit
+foreign import name :: HTMLObjectElement -> Effect String
+foreign import setName :: String -> HTMLObjectElement -> Effect Unit
 
-foreign import useMap :: forall eff. HTMLObjectElement -> Eff (dom :: DOM | eff) String
-foreign import setUseMap :: forall eff. String -> HTMLObjectElement -> Eff (dom :: DOM | eff) Unit
+foreign import useMap :: HTMLObjectElement -> Effect String
+foreign import setUseMap :: String -> HTMLObjectElement -> Effect Unit
 
-form :: forall eff. HTMLObjectElement -> Eff (dom :: DOM | eff) (Maybe HTMLFormElement)
+form :: HTMLObjectElement -> Effect (Maybe HTMLFormElement)
 form = map toMaybe <<< _form
 
-foreign import _form :: forall eff. HTMLObjectElement -> Eff (dom :: DOM | eff) (Nullable HTMLFormElement)
+foreign import _form :: HTMLObjectElement -> Effect (Nullable HTMLFormElement)
 
-foreign import width :: forall eff. HTMLObjectElement -> Eff (dom :: DOM | eff) String
-foreign import setWidth :: forall eff. String -> HTMLObjectElement -> Eff (dom :: DOM | eff) Unit
+foreign import width :: HTMLObjectElement -> Effect String
+foreign import setWidth :: String -> HTMLObjectElement -> Effect Unit
 
-foreign import height :: forall eff. HTMLObjectElement -> Eff (dom :: DOM | eff) String
-foreign import setHeight :: forall eff. String -> HTMLObjectElement -> Eff (dom :: DOM | eff) Unit
+foreign import height :: HTMLObjectElement -> Effect String
+foreign import setHeight :: String -> HTMLObjectElement -> Effect Unit
 
-contentDocument :: forall eff. HTMLObjectElement -> Eff (dom :: DOM | eff) (Maybe Document)
+contentDocument :: HTMLObjectElement -> Effect (Maybe Document)
 contentDocument = map toMaybe <<< _contentDocument
 
-foreign import _contentDocument :: forall eff. HTMLObjectElement -> Eff (dom :: DOM | eff) (Nullable Document)
+foreign import _contentDocument :: HTMLObjectElement -> Effect (Nullable Document)
 
 --   readonly attribute WindowProxy? contentWindow;
 
-foreign import willValidate :: forall eff. HTMLObjectElement -> Eff (dom :: DOM | eff) Boolean
+foreign import willValidate :: HTMLObjectElement -> Effect Boolean
 
-foreign import validity :: forall eff. HTMLObjectElement -> Eff (dom :: DOM | eff) ValidityState
+foreign import validity :: HTMLObjectElement -> Effect ValidityState
 
-foreign import validationMessage :: forall eff. HTMLObjectElement -> Eff (dom :: DOM | eff) String
+foreign import validationMessage :: HTMLObjectElement -> Effect String
 
-foreign import checkValidity :: forall eff. HTMLObjectElement -> Eff (dom :: DOM | eff) Boolean
+foreign import checkValidity :: HTMLObjectElement -> Effect Boolean
 
-foreign import setCustomValidity :: forall eff. String -> HTMLObjectElement -> Eff (dom :: DOM | eff) Unit
+foreign import setCustomValidity :: String -> HTMLObjectElement -> Effect Unit
 
 --   legacycaller any (any... arguments);

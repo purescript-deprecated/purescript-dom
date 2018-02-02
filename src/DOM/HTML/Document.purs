@@ -7,8 +7,7 @@ module DOM.HTML.Document
 
 import Prelude
 
-import Control.Monad.Eff (Eff)
-import DOM (DOM)
+import Control.Monad.Effect (Effect)
 import DOM.HTML.Document.ReadyState (ReadyState(..)) as Exports
 import DOM.HTML.Document.ReadyState (ReadyState, parseReadyState)
 import DOM.HTML.Types (HTMLElement, HTMLDocument)
@@ -16,17 +15,17 @@ import Data.Maybe (Maybe, fromJust)
 import Data.Nullable (Nullable, toMaybe)
 import Partial.Unsafe (unsafePartial)
 
-foreign import _body :: forall eff. HTMLDocument -> Eff (dom :: DOM | eff) (Nullable HTMLElement)
+foreign import _body :: HTMLDocument -> Effect (Nullable HTMLElement)
 
-body :: forall eff. HTMLDocument -> Eff (dom :: DOM | eff) (Maybe HTMLElement)
+body :: HTMLDocument -> Effect (Maybe HTMLElement)
 body = map toMaybe <<< _body
 
-foreign import _readyState :: forall eff. HTMLDocument -> Eff (dom :: DOM | eff) String
+foreign import _readyState :: HTMLDocument -> Effect String
 
-readyState :: forall eff. HTMLDocument -> Eff (dom :: DOM | eff) ReadyState
+readyState :: HTMLDocument -> Effect ReadyState
 readyState = map (unsafePartial fromJust <<< parseReadyState) <<< _readyState
 
-foreign import _activeElement :: forall eff. HTMLDocument -> Eff (dom :: DOM | eff) (Nullable HTMLElement)
+foreign import _activeElement :: HTMLDocument -> Effect (Nullable HTMLElement)
 
-activeElement :: forall eff. HTMLDocument -> Eff (dom :: DOM | eff) (Maybe HTMLElement)
+activeElement :: HTMLDocument -> Effect (Maybe HTMLElement)
 activeElement = map toMaybe <<< _activeElement

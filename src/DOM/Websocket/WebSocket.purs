@@ -20,13 +20,12 @@ module DOM.Websocket.WebSocket
 
 import Prelude
 
-import Control.Monad.Eff (Eff)
+import Control.Monad.Effect (Effect)
 
 import Data.ArrayBuffer.Types (ArrayBuffer, ArrayView)
 import Data.Foreign (Foreign, toForeign)
 import Data.Maybe (fromJust)
 
-import DOM (DOM)
 import DOM.File.Types (Blob)
 import DOM.Websocket.BinaryType (BinaryType(..), fromEnumBinaryType, printBinaryType, toEnumBinaryType)
 import DOM.Websocket.Event.Types (CloseEvent, MessageEvent, readCloseEvent, readMessageEvent)
@@ -35,46 +34,46 @@ import DOM.Websocket.Types (Protocol(..), URL(..), WebSocket, readWebSocket, soc
 
 import Partial.Unsafe (unsafePartial)
 
-foreign import create :: forall eff. URL -> Array Protocol -> Eff (dom :: DOM | eff) WebSocket
+foreign import create :: URL -> Array Protocol -> Effect WebSocket
 
-foreign import url :: forall eff. WebSocket -> Eff (dom :: DOM | eff) String
+foreign import url :: WebSocket -> Effect String
 
-foreign import readyStateImpl :: forall eff. WebSocket -> Eff (dom :: DOM | eff) Int
+foreign import readyStateImpl :: WebSocket -> Effect Int
 
-readyState :: forall eff. WebSocket -> Eff (dom :: DOM | eff) ReadyState
+readyState :: WebSocket -> Effect ReadyState
 readyState ws = do
   rs <- readyStateImpl ws
   pure $ unsafePartial $ fromJust $ toEnumReadyState rs
 
-foreign import bufferedAmount :: forall eff. WebSocket -> Eff (dom :: DOM | eff) Number
+foreign import bufferedAmount :: WebSocket -> Effect Number
 
-foreign import extensions :: forall eff. WebSocket -> Eff (dom :: DOM | eff) String
-foreign import protocol :: forall eff. WebSocket -> Eff (dom :: DOM | eff) String
+foreign import extensions :: WebSocket -> Effect String
+foreign import protocol :: WebSocket -> Effect String
 
-foreign import close :: forall eff. WebSocket -> Eff (dom :: DOM | eff) Unit
+foreign import close :: WebSocket -> Effect Unit
 
-foreign import getBinaryTypeImpl :: forall eff. WebSocket -> Eff (dom :: DOM | eff) String
-foreign import setBinaryTypeImpl :: forall eff. WebSocket -> String -> Eff (dom :: DOM | eff) Unit
+foreign import getBinaryTypeImpl :: WebSocket -> Effect String
+foreign import setBinaryTypeImpl :: WebSocket -> String -> Effect Unit
 
-getBinaryType :: forall eff. WebSocket -> Eff (dom :: DOM | eff) BinaryType
+getBinaryType :: WebSocket -> Effect BinaryType
 getBinaryType ws = unsafePartial do
   getBinaryTypeImpl ws <#> case _ of
     "blob" -> Blob
     "arraybuffer" -> ArrayBuffer
 
-setBinaryType :: forall eff. WebSocket -> BinaryType -> Eff (dom :: DOM | eff) Unit
+setBinaryType :: WebSocket -> BinaryType -> Effect Unit
 setBinaryType ws = setBinaryTypeImpl ws <<< printBinaryType
 
-foreign import sendImpl :: forall eff. WebSocket -> Foreign -> Eff (dom :: DOM | eff) Unit
+foreign import sendImpl :: WebSocket -> Foreign -> Effect Unit
 
-sendString :: forall eff. WebSocket -> String -> Eff (dom :: DOM | eff) Unit
+sendString :: WebSocket -> String -> Effect Unit
 sendString ws = sendImpl ws <<< toForeign
 
-sendBlob :: forall eff. WebSocket -> Blob -> Eff (dom :: DOM | eff) Unit
+sendBlob :: WebSocket -> Blob -> Effect Unit
 sendBlob ws = sendImpl ws <<< toForeign
 
-sendArrayBuffer :: forall eff. WebSocket -> ArrayBuffer -> Eff (dom :: DOM | eff) Unit
+sendArrayBuffer :: WebSocket -> ArrayBuffer -> Effect Unit
 sendArrayBuffer ws = sendImpl ws <<< toForeign
 
-sendArrayBufferView :: forall t eff. WebSocket -> ArrayView t -> Eff (dom :: DOM | eff) Unit
+sendArrayBufferView :: forall t. WebSocket -> ArrayView t -> Effect Unit
 sendArrayBufferView ws = sendImpl ws <<< toForeign
