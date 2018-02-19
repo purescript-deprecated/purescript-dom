@@ -1,4 +1,5 @@
--- https://html.spec.whatwg.org/multipage/links.html#htmlhyperlinkelementutils
+-- The `URLUtils` interface, referenced in https://www.w3.org/TR/html50/infrastructure.html#urlutils
+--   now documented at https://html.spec.whatwg.org/multipage/links.html#htmlhyperlinkelementutils
 module DOM.HTML.HTMLHyperlinkElementUtils where
 
 import Prelude (Unit)
