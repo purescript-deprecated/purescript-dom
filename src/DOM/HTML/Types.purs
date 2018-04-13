@@ -82,6 +82,8 @@ module DOM.HTML.Types
   , HTMLAnchorElement
   , htmlAnchorElementToHTMLElement
   , readHTMLAnchorElement
+  , HTMLHyperlinkElementUtils
+  , htmlAnchorElementToHTMLHyperlinkElementUtils
   , HTMLDataElement
   , htmlDataElementToHTMLElement
   , readHTMLDataElement
@@ -456,6 +458,11 @@ htmlAnchorElementToHTMLElement = U.unsafeCoerce
 
 readHTMLAnchorElement :: Foreign -> F HTMLAnchorElement
 readHTMLAnchorElement = unsafeReadTagged "HTMLAnchorElement"
+
+foreign import data HTMLHyperlinkElementUtils :: Type
+
+htmlAnchorElementToHTMLHyperlinkElementUtils :: HTMLAnchorElement -> HTMLHyperlinkElementUtils
+htmlAnchorElementToHTMLHyperlinkElementUtils = U.unsafeCoerce
 
 foreign import data HTMLDataElement :: Type
 
