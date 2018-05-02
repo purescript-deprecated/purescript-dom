@@ -2,7 +2,7 @@
 
 exports.eventListener = function (fn) {
   return function (event) {
-    return fn(event)();
+    return fn(event);
   };
 };
 

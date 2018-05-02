@@ -12,7 +12,7 @@ foreign import data EventListener :: Type
 foreign import eventListener
   :: forall a
    . (Event -> Effect a)
-  -> EventListener
+  -> Effect EventListener
 
 -- | Adds a listener to an event target. The boolean argument indicates whether
 -- | the listener should be added for the "capture" phase.
