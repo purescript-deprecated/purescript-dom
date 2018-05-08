@@ -2,17 +2,16 @@ module DOM.HTML.HTMLTableCellElement where
 
 import Prelude (Unit)
 
-import Control.Monad.Eff (Eff)
+import Control.Monad.Effect (Effect)
 
-import DOM (DOM)
 import DOM.HTML.Types (HTMLTableCellElement)
 
-foreign import colSpan :: forall eff. HTMLTableCellElement -> Eff (dom :: DOM | eff) Int
-foreign import setColSpan :: forall eff. Int -> HTMLTableCellElement -> Eff (dom :: DOM | eff) Unit
+foreign import colSpan :: HTMLTableCellElement -> Effect Int
+foreign import setColSpan :: Int -> HTMLTableCellElement -> Effect Unit
 
-foreign import rowSpan :: forall eff. HTMLTableCellElement -> Eff (dom :: DOM | eff) Int
-foreign import setRowSpan :: forall eff. Int -> HTMLTableCellElement -> Eff (dom :: DOM | eff) Unit
+foreign import rowSpan :: HTMLTableCellElement -> Effect Int
+foreign import setRowSpan :: Int -> HTMLTableCellElement -> Effect Unit
 
 --   [PutForwards=value] readonly attribute DOMSettableTokenList headers;
 
-foreign import cellIndex :: forall eff. HTMLTableCellElement -> Eff (dom :: DOM | eff) Int
+foreign import cellIndex :: HTMLTableCellElement -> Effect Int

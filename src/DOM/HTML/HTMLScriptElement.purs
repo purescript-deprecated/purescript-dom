@@ -2,28 +2,27 @@ module DOM.HTML.HTMLScriptElement where
 
 import Prelude (Unit)
 
-import Control.Monad.Eff (Eff)
+import Control.Monad.Effect (Effect)
 
-import DOM (DOM)
 import DOM.HTML.Types (HTMLScriptElement)
 
-foreign import src :: forall eff. HTMLScriptElement -> Eff (dom :: DOM | eff) String
-foreign import setSrc :: forall eff. String -> HTMLScriptElement -> Eff (dom :: DOM | eff) Unit
+foreign import src :: HTMLScriptElement -> Effect String
+foreign import setSrc :: String -> HTMLScriptElement -> Effect Unit
 
-foreign import type_ :: forall eff. HTMLScriptElement -> Eff (dom :: DOM | eff) String
-foreign import setType :: forall eff. String -> HTMLScriptElement -> Eff (dom :: DOM | eff) Unit
+foreign import type_ :: HTMLScriptElement -> Effect String
+foreign import setType :: String -> HTMLScriptElement -> Effect Unit
 
-foreign import charset :: forall eff. HTMLScriptElement -> Eff (dom :: DOM | eff) String
-foreign import setCharset :: forall eff. String -> HTMLScriptElement -> Eff (dom :: DOM | eff) Unit
+foreign import charset :: HTMLScriptElement -> Effect String
+foreign import setCharset :: String -> HTMLScriptElement -> Effect Unit
 
-foreign import async :: forall eff. HTMLScriptElement -> Eff (dom :: DOM | eff) Boolean
-foreign import setAsync :: forall eff. Boolean -> HTMLScriptElement -> Eff (dom :: DOM | eff) Unit
+foreign import async :: HTMLScriptElement -> Effect Boolean
+foreign import setAsync :: Boolean -> HTMLScriptElement -> Effect Unit
 
-foreign import defer :: forall eff. HTMLScriptElement -> Eff (dom :: DOM | eff) Boolean
-foreign import setDefer :: forall eff. Boolean -> HTMLScriptElement -> Eff (dom :: DOM | eff) Unit
+foreign import defer :: HTMLScriptElement -> Effect Boolean
+foreign import setDefer :: Boolean -> HTMLScriptElement -> Effect Unit
 
-foreign import crossOrigin :: forall eff. HTMLScriptElement -> Eff (dom :: DOM | eff) String
-foreign import setCrossOrigin :: forall eff. String -> HTMLScriptElement -> Eff (dom :: DOM | eff) Unit
+foreign import crossOrigin :: HTMLScriptElement -> Effect String
+foreign import setCrossOrigin :: String -> HTMLScriptElement -> Effect Unit
 
-foreign import text :: forall eff. HTMLScriptElement -> Eff (dom :: DOM | eff) String
-foreign import setText :: forall eff. String -> HTMLScriptElement -> Eff (dom :: DOM | eff) Unit
+foreign import text :: HTMLScriptElement -> Effect String
+foreign import setText :: String -> HTMLScriptElement -> Effect Unit

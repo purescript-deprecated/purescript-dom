@@ -2,19 +2,18 @@ module DOM.HTML.HTMLEmbedElement where
 
 import Prelude (Unit)
 
-import Control.Monad.Eff (Eff)
+import Control.Monad.Effect (Effect)
 
-import DOM (DOM)
 import DOM.HTML.Types (HTMLEmbedElement)
 
-foreign import src :: forall eff. HTMLEmbedElement -> Eff (dom :: DOM | eff) String
-foreign import setSrc :: forall eff. String -> HTMLEmbedElement -> Eff (dom :: DOM | eff) Unit
+foreign import src :: HTMLEmbedElement -> Effect String
+foreign import setSrc :: String -> HTMLEmbedElement -> Effect Unit
 
-foreign import type_ :: forall eff. HTMLEmbedElement -> Eff (dom :: DOM | eff) String
-foreign import setType :: forall eff. String -> HTMLEmbedElement -> Eff (dom :: DOM | eff) Unit
+foreign import type_ :: HTMLEmbedElement -> Effect String
+foreign import setType :: String -> HTMLEmbedElement -> Effect Unit
 
-foreign import width :: forall eff. HTMLEmbedElement -> Eff (dom :: DOM | eff) String
-foreign import setWidth :: forall eff. String -> HTMLEmbedElement -> Eff (dom :: DOM | eff) Unit
+foreign import width :: HTMLEmbedElement -> Effect String
+foreign import setWidth :: String -> HTMLEmbedElement -> Effect Unit
 
-foreign import height :: forall eff. HTMLEmbedElement -> Eff (dom :: DOM | eff) String
-foreign import setHeight :: forall eff. String -> HTMLEmbedElement -> Eff (dom :: DOM | eff) Unit
+foreign import height :: HTMLEmbedElement -> Effect String
+foreign import setHeight :: String -> HTMLEmbedElement -> Effect Unit

@@ -52,94 +52,93 @@ module DOM.HTML.HTMLTextAreaElement
 
 import Prelude
 
-import Control.Monad.Eff (Eff)
+import Control.Monad.Effect (Effect)
 
 import Data.Maybe (Maybe)
 import Data.Nullable (Nullable, toMaybe)
 
-import DOM (DOM)
 import DOM.HTML.SelectionMode (SelectionMode)
 import DOM.HTML.Types (HTMLTextAreaElement, HTMLFormElement, ValidityState)
 import DOM.Node.Types (NodeList)
 
-foreign import autocomplete :: forall eff. HTMLTextAreaElement -> Eff (dom :: DOM | eff) String
-foreign import setAutocomplete :: forall eff. String -> HTMLTextAreaElement -> Eff (dom :: DOM | eff) Unit
+foreign import autocomplete :: HTMLTextAreaElement -> Effect String
+foreign import setAutocomplete :: String -> HTMLTextAreaElement -> Effect Unit
 
-foreign import autofocus :: forall eff. HTMLTextAreaElement -> Eff (dom :: DOM | eff) Boolean
-foreign import setAutofocus :: forall eff. Boolean -> HTMLTextAreaElement -> Eff (dom :: DOM | eff) Unit
+foreign import autofocus :: HTMLTextAreaElement -> Effect Boolean
+foreign import setAutofocus :: Boolean -> HTMLTextAreaElement -> Effect Unit
 
-foreign import cols :: forall eff. HTMLTextAreaElement -> Eff (dom :: DOM | eff) Int
-foreign import setCols :: forall eff. Int -> HTMLTextAreaElement -> Eff (dom :: DOM | eff) Unit
+foreign import cols :: HTMLTextAreaElement -> Effect Int
+foreign import setCols :: Int -> HTMLTextAreaElement -> Effect Unit
 
-foreign import dirName :: forall eff. HTMLTextAreaElement -> Eff (dom :: DOM | eff) String
-foreign import setDirName :: forall eff. String -> HTMLTextAreaElement -> Eff (dom :: DOM | eff) Unit
+foreign import dirName :: HTMLTextAreaElement -> Effect String
+foreign import setDirName :: String -> HTMLTextAreaElement -> Effect Unit
 
-foreign import disabled :: forall eff. HTMLTextAreaElement -> Eff (dom :: DOM | eff) Boolean
-foreign import setDisabled :: forall eff. Boolean -> HTMLTextAreaElement -> Eff (dom :: DOM | eff) Unit
+foreign import disabled :: HTMLTextAreaElement -> Effect Boolean
+foreign import setDisabled :: Boolean -> HTMLTextAreaElement -> Effect Unit
 
-form :: forall eff. HTMLTextAreaElement -> Eff (dom :: DOM | eff) (Maybe HTMLFormElement)
+form :: HTMLTextAreaElement -> Effect (Maybe HTMLFormElement)
 form = map toMaybe <<< _form
 
-foreign import _form :: forall eff. HTMLTextAreaElement -> Eff (dom :: DOM | eff) (Nullable HTMLFormElement)
+foreign import _form :: HTMLTextAreaElement -> Effect (Nullable HTMLFormElement)
 
-foreign import maxLength :: forall eff. HTMLTextAreaElement -> Eff (dom :: DOM | eff) Int
-foreign import setMaxLength :: forall eff. Int -> HTMLTextAreaElement -> Eff (dom :: DOM | eff) Unit
+foreign import maxLength :: HTMLTextAreaElement -> Effect Int
+foreign import setMaxLength :: Int -> HTMLTextAreaElement -> Effect Unit
 
-foreign import minLength :: forall eff. HTMLTextAreaElement -> Eff (dom :: DOM | eff) Int
-foreign import setMinLength :: forall eff. Int -> HTMLTextAreaElement -> Eff (dom :: DOM | eff) Unit
+foreign import minLength :: HTMLTextAreaElement -> Effect Int
+foreign import setMinLength :: Int -> HTMLTextAreaElement -> Effect Unit
 
-foreign import name :: forall eff. HTMLTextAreaElement -> Eff (dom :: DOM | eff) String
-foreign import setName :: forall eff. String -> HTMLTextAreaElement -> Eff (dom :: DOM | eff) Unit
+foreign import name :: HTMLTextAreaElement -> Effect String
+foreign import setName :: String -> HTMLTextAreaElement -> Effect Unit
 
-foreign import placeholder :: forall eff. HTMLTextAreaElement -> Eff (dom :: DOM | eff) String
-foreign import setPlaceholder :: forall eff. String -> HTMLTextAreaElement -> Eff (dom :: DOM | eff) Unit
+foreign import placeholder :: HTMLTextAreaElement -> Effect String
+foreign import setPlaceholder :: String -> HTMLTextAreaElement -> Effect Unit
 
-foreign import readOnly :: forall eff. HTMLTextAreaElement -> Eff (dom :: DOM | eff) Boolean
-foreign import setReadOnly :: forall eff. Boolean -> HTMLTextAreaElement -> Eff (dom :: DOM | eff) Unit
+foreign import readOnly :: HTMLTextAreaElement -> Effect Boolean
+foreign import setReadOnly :: Boolean -> HTMLTextAreaElement -> Effect Unit
 
-foreign import required :: forall eff. HTMLTextAreaElement -> Eff (dom :: DOM | eff) Boolean
-foreign import setRequired :: forall eff. Boolean -> HTMLTextAreaElement -> Eff (dom :: DOM | eff) Unit
+foreign import required :: HTMLTextAreaElement -> Effect Boolean
+foreign import setRequired :: Boolean -> HTMLTextAreaElement -> Effect Unit
 
-foreign import rows :: forall eff. HTMLTextAreaElement -> Eff (dom :: DOM | eff) Int
-foreign import setRows :: forall eff. Int -> HTMLTextAreaElement -> Eff (dom :: DOM | eff) Unit
+foreign import rows :: HTMLTextAreaElement -> Effect Int
+foreign import setRows :: Int -> HTMLTextAreaElement -> Effect Unit
 
-foreign import wrap :: forall eff. HTMLTextAreaElement -> Eff (dom :: DOM | eff) String
-foreign import setWrap :: forall eff. String -> HTMLTextAreaElement -> Eff (dom :: DOM | eff) Unit
+foreign import wrap :: HTMLTextAreaElement -> Effect String
+foreign import setWrap :: String -> HTMLTextAreaElement -> Effect Unit
 
-foreign import type_ :: forall eff. HTMLTextAreaElement -> Eff (dom :: DOM | eff) String
+foreign import type_ :: HTMLTextAreaElement -> Effect String
 
-foreign import defaultValue :: forall eff. HTMLTextAreaElement -> Eff (dom :: DOM | eff) String
-foreign import setDefaultValue :: forall eff. String -> HTMLTextAreaElement -> Eff (dom :: DOM | eff) Unit
+foreign import defaultValue :: HTMLTextAreaElement -> Effect String
+foreign import setDefaultValue :: String -> HTMLTextAreaElement -> Effect Unit
 
-foreign import value :: forall eff. HTMLTextAreaElement -> Eff (dom :: DOM | eff) String
-foreign import setValue :: forall eff. String -> HTMLTextAreaElement -> Eff (dom :: DOM | eff) Unit
+foreign import value :: HTMLTextAreaElement -> Effect String
+foreign import setValue :: String -> HTMLTextAreaElement -> Effect Unit
 
-foreign import textLength :: forall eff. HTMLTextAreaElement -> Eff (dom :: DOM | eff) Int
+foreign import textLength :: HTMLTextAreaElement -> Effect Int
 
-foreign import willValidate :: forall eff. HTMLTextAreaElement -> Eff (dom :: DOM | eff) Boolean
+foreign import willValidate :: HTMLTextAreaElement -> Effect Boolean
 
-foreign import validity :: forall eff. HTMLTextAreaElement -> Eff (dom :: DOM | eff) ValidityState
+foreign import validity :: HTMLTextAreaElement -> Effect ValidityState
 
-foreign import validationMessage :: forall eff. HTMLTextAreaElement -> Eff (dom :: DOM | eff) String
+foreign import validationMessage :: HTMLTextAreaElement -> Effect String
 
-foreign import checkValidity :: forall eff. HTMLTextAreaElement -> Eff (dom :: DOM | eff) Boolean
+foreign import checkValidity :: HTMLTextAreaElement -> Effect Boolean
 
-foreign import setCustomValidity :: forall eff. String -> HTMLTextAreaElement -> Eff (dom :: DOM | eff) Unit
+foreign import setCustomValidity :: String -> HTMLTextAreaElement -> Effect Unit
 
-foreign import labels :: forall eff. HTMLTextAreaElement -> Eff (dom :: DOM | eff) NodeList
+foreign import labels :: HTMLTextAreaElement -> Effect NodeList
 
-foreign import select :: forall eff. HTMLTextAreaElement -> Eff (dom :: DOM | eff) Unit
+foreign import select :: HTMLTextAreaElement -> Effect Unit
 
-foreign import selectionStart :: forall eff. HTMLTextAreaElement -> Eff (dom :: DOM | eff) Int
-foreign import setSelectionStart :: forall eff. Int -> HTMLTextAreaElement -> Eff (dom :: DOM | eff) Unit
+foreign import selectionStart :: HTMLTextAreaElement -> Effect Int
+foreign import setSelectionStart :: Int -> HTMLTextAreaElement -> Effect Unit
 
-foreign import selectionEnd :: forall eff. HTMLTextAreaElement -> Eff (dom :: DOM | eff) Int
-foreign import setSelectionEnd :: forall eff. Int -> HTMLTextAreaElement -> Eff (dom :: DOM | eff) Unit
+foreign import selectionEnd :: HTMLTextAreaElement -> Effect Int
+foreign import setSelectionEnd :: Int -> HTMLTextAreaElement -> Effect Unit
 
-foreign import selectionDirection :: forall eff. HTMLTextAreaElement -> Eff (dom :: DOM | eff) String
-foreign import setSelectionDirection :: forall eff. String -> HTMLTextAreaElement -> Eff (dom :: DOM | eff) Unit
+foreign import selectionDirection :: HTMLTextAreaElement -> Effect String
+foreign import setSelectionDirection :: String -> HTMLTextAreaElement -> Effect Unit
 
-foreign import setRangeText :: forall eff. String -> HTMLTextAreaElement -> Eff (dom :: DOM | eff) Unit
-foreign import setRangeText' :: forall eff. String -> Int -> Int -> SelectionMode -> HTMLTextAreaElement -> Eff (dom :: DOM | eff) Unit
+foreign import setRangeText :: String -> HTMLTextAreaElement -> Effect Unit
+foreign import setRangeText' :: String -> Int -> Int -> SelectionMode -> HTMLTextAreaElement -> Effect Unit
 
-foreign import setSelectionRange :: forall eff. Int -> Int -> String -> HTMLTextAreaElement -> Eff (dom :: DOM | eff) Unit
+foreign import setSelectionRange :: Int -> Int -> String -> HTMLTextAreaElement -> Effect Unit

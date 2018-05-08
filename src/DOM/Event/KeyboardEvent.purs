@@ -32,11 +32,10 @@ module DOM.Event.KeyboardEvent
   ) where
 
 import Prelude
-import Control.Monad.Eff (Eff)
+import Control.Monad.Effect (Effect)
 import Data.Enum (class BoundedEnum, class Enum, Cardinality(..), defaultPred, defaultSucc, toEnum)
 import Data.Foreign (F, toForeign)
 import Data.Maybe (Maybe(..), fromJust)
-import DOM (DOM)
 import DOM.Event.Types (Event, KeyboardEvent, readKeyboardEvent)
 import DOM.Event.Types (KeyboardEvent, keyboardEventToEvent, readKeyboardEvent) as T
 
@@ -108,7 +107,6 @@ foreign import repeat :: KeyboardEvent -> Boolean
 foreign import isComposing :: KeyboardEvent -> Boolean
 
 foreign import getModifierState
-  :: forall eff
-   . String
+  :: String
   -> KeyboardEvent
-  -> Eff (dom :: DOM | eff) Boolean
+  -> Effect Boolean

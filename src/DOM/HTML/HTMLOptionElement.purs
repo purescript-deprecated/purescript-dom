@@ -17,37 +17,36 @@ module DOM.HTML.HTMLOptionElement
 
 import Prelude
 
-import Control.Monad.Eff (Eff)
+import Control.Monad.Effect (Effect)
 
 import Data.Maybe (Maybe)
 import Data.Nullable (Nullable, toMaybe)
 
-import DOM (DOM)
 import DOM.HTML.Types (HTMLOptionElement, HTMLFormElement)
 
 -- [NamedConstructor=Option(optional DOMString text = "", optional DOMString value, optional boolean defaultSelected = false, optional boolean selected = false)]
 
-foreign import disabled :: forall eff. HTMLOptionElement -> Eff (dom :: DOM | eff) Boolean
-foreign import setDisabled :: forall eff. Boolean -> HTMLOptionElement -> Eff (dom :: DOM | eff) Unit
+foreign import disabled :: HTMLOptionElement -> Effect Boolean
+foreign import setDisabled :: Boolean -> HTMLOptionElement -> Effect Unit
 
-form :: forall eff. HTMLOptionElement -> Eff (dom :: DOM | eff) (Maybe HTMLFormElement)
+form :: HTMLOptionElement -> Effect (Maybe HTMLFormElement)
 form = map toMaybe <<< _form
 
-foreign import _form :: forall eff. HTMLOptionElement -> Eff (dom :: DOM | eff) (Nullable HTMLFormElement)
+foreign import _form :: HTMLOptionElement -> Effect (Nullable HTMLFormElement)
 
-foreign import label :: forall eff. HTMLOptionElement -> Eff (dom :: DOM | eff) String
-foreign import setLabel :: forall eff. String -> HTMLOptionElement -> Eff (dom :: DOM | eff) Unit
+foreign import label :: HTMLOptionElement -> Effect String
+foreign import setLabel :: String -> HTMLOptionElement -> Effect Unit
 
-foreign import defaultSelected :: forall eff. HTMLOptionElement -> Eff (dom :: DOM | eff) Boolean
-foreign import setDefaultSelected :: forall eff. Boolean -> HTMLOptionElement -> Eff (dom :: DOM | eff) Unit
+foreign import defaultSelected :: HTMLOptionElement -> Effect Boolean
+foreign import setDefaultSelected :: Boolean -> HTMLOptionElement -> Effect Unit
 
-foreign import selected :: forall eff. HTMLOptionElement -> Eff (dom :: DOM | eff) Boolean
-foreign import setSelected :: forall eff. Boolean -> HTMLOptionElement -> Eff (dom :: DOM | eff) Unit
+foreign import selected :: HTMLOptionElement -> Effect Boolean
+foreign import setSelected :: Boolean -> HTMLOptionElement -> Effect Unit
 
-foreign import value :: forall eff. HTMLOptionElement -> Eff (dom :: DOM | eff) String
-foreign import setValue :: forall eff. String -> HTMLOptionElement -> Eff (dom :: DOM | eff) Unit
+foreign import value :: HTMLOptionElement -> Effect String
+foreign import setValue :: String -> HTMLOptionElement -> Effect Unit
 
-foreign import text :: forall eff. HTMLOptionElement -> Eff (dom :: DOM | eff) String
-foreign import setText :: forall eff. String -> HTMLOptionElement -> Eff (dom :: DOM | eff) Unit
+foreign import text :: HTMLOptionElement -> Effect String
+foreign import setText :: String -> HTMLOptionElement -> Effect Unit
 
-foreign import index :: forall eff. HTMLOptionElement -> Eff (dom :: DOM | eff) Int
+foreign import index :: HTMLOptionElement -> Effect Int

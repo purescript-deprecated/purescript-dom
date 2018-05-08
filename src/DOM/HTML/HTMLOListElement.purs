@@ -2,16 +2,15 @@ module DOM.HTML.HTMLOListElement where
 
 import Prelude (Unit)
 
-import Control.Monad.Eff (Eff)
+import Control.Monad.Effect (Effect)
 
-import DOM (DOM)
 import DOM.HTML.Types (HTMLOListElement)
 
-foreign import reversed :: forall eff. HTMLOListElement -> Eff (dom :: DOM | eff) Boolean
-foreign import setReversed :: forall eff. Boolean -> HTMLOListElement -> Eff (dom :: DOM | eff) Unit
+foreign import reversed :: HTMLOListElement -> Effect Boolean
+foreign import setReversed :: Boolean -> HTMLOListElement -> Effect Unit
 
-foreign import start :: forall eff. HTMLOListElement -> Eff (dom :: DOM | eff) Int
-foreign import setStart :: forall eff. Int -> HTMLOListElement -> Eff (dom :: DOM | eff) Unit
+foreign import start :: HTMLOListElement -> Effect Int
+foreign import setStart :: Int -> HTMLOListElement -> Effect Unit
 
-foreign import type_ :: forall eff. HTMLOListElement -> Eff (dom :: DOM | eff) String
-foreign import setType :: forall eff. String -> HTMLOListElement -> Eff (dom :: DOM | eff) Unit
+foreign import type_ :: HTMLOListElement -> Effect String
+foreign import setType :: String -> HTMLOListElement -> Effect Unit

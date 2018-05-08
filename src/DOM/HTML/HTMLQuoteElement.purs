@@ -2,10 +2,9 @@ module DOM.HTML.HTMLQuoteElement where
 
 import Prelude (Unit)
 
-import Control.Monad.Eff (Eff)
+import Control.Monad.Effect (Effect)
 
-import DOM (DOM)
 import DOM.HTML.Types (HTMLQuoteElement)
 
-foreign import cite :: forall eff. HTMLQuoteElement -> Eff (dom :: DOM | eff) Boolean
-foreign import setCite :: forall eff. Boolean -> HTMLQuoteElement -> Eff (dom :: DOM | eff) Unit
+foreign import cite :: HTMLQuoteElement -> Effect Boolean
+foreign import setCite :: Boolean -> HTMLQuoteElement -> Effect Unit

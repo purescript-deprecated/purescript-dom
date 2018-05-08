@@ -2,18 +2,17 @@ module DOM.HTML.HTMLCanvasElement where
 
 import Prelude (Unit)
 
-import Control.Monad.Eff (Eff)
+import Control.Monad.Effect (Effect)
 
-import DOM (DOM)
 import DOM.HTML.Types (HTMLCanvasElement)
 
 -- typedef (CanvasRenderingContext2D or WebGLRenderingContext) RenderingContext;
 
-foreign import width :: forall eff. HTMLCanvasElement -> Eff (dom :: DOM | eff) Int
-foreign import setWidth :: forall eff. Int -> HTMLCanvasElement -> Eff (dom :: DOM | eff) Unit
+foreign import width :: HTMLCanvasElement -> Effect Int
+foreign import setWidth :: Int -> HTMLCanvasElement -> Effect Unit
 
-foreign import height :: forall eff. HTMLCanvasElement -> Eff (dom :: DOM | eff) Int
-foreign import setHeight :: forall eff. Int -> HTMLCanvasElement -> Eff (dom :: DOM | eff) Unit
+foreign import height :: HTMLCanvasElement -> Effect Int
+foreign import setHeight :: Int -> HTMLCanvasElement -> Effect Unit
 
 --   RenderingContext? getContext(DOMString contextId, any... arguments);
 

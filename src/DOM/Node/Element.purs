@@ -27,10 +27,9 @@ module DOM.Node.Element
   ) where
 
 import Prelude
-import Control.Monad.Eff (Eff)
+import Control.Monad.Effect (Effect)
 import Data.Maybe (Maybe)
 import Data.Nullable (Nullable, toMaybe, toNullable)
-import DOM (DOM)
 import DOM.Node.Types (Element, HTMLCollection, ElementId)
 
 namespaceURI :: Element -> Maybe String
@@ -44,38 +43,38 @@ foreign import _prefix :: Element -> Nullable String
 foreign import localName :: Element -> String
 foreign import tagName :: Element -> String
 
-foreign import id :: forall eff. Element -> Eff (dom :: DOM | eff) ElementId
-foreign import setId :: forall eff. ElementId -> Element -> Eff (dom :: DOM | eff) Unit
-foreign import className :: forall eff. Element -> Eff (dom :: DOM | eff) String
-foreign import setClassName :: forall eff. String -> Element -> Eff (dom :: DOM | eff) Unit
+foreign import id :: Element -> Effect ElementId
+foreign import setId :: ElementId -> Element -> Effect Unit
+foreign import className :: Element -> Effect String
+foreign import setClassName :: String -> Element -> Effect Unit
 
-foreign import getElementsByTagName :: forall eff. String -> Element -> Eff (dom :: DOM | eff) HTMLCollection
+foreign import getElementsByTagName :: String -> Element -> Effect HTMLCollection
 
-getElementsByTagNameNS :: forall eff. Maybe String -> String -> Element -> Eff (dom :: DOM | eff) HTMLCollection
+getElementsByTagNameNS :: Maybe String -> String -> Element -> Effect HTMLCollection
 getElementsByTagNameNS = _getElementsByTagNameNS <<< toNullable
 
-foreign import _getElementsByTagNameNS :: forall eff. Nullable String -> String -> Element -> Eff (dom :: DOM | eff) HTMLCollection
+foreign import _getElementsByTagNameNS :: Nullable String -> String -> Element -> Effect HTMLCollection
 
-foreign import getElementsByClassName :: forall eff. String -> Element -> Eff (dom :: DOM | eff) HTMLCollection
+foreign import getElementsByClassName :: String -> Element -> Effect HTMLCollection
 
-foreign import setAttribute :: forall eff. String -> String -> Element -> Eff (dom :: DOM | eff) Unit
+foreign import setAttribute :: String -> String -> Element -> Effect Unit
 
-getAttribute :: forall eff. String -> Element -> Eff (dom :: DOM | eff) (Maybe String)
+getAttribute :: String -> Element -> Effect (Maybe String)
 getAttribute attr = map toMaybe <<< _getAttribute attr
 
-foreign import _getAttribute :: forall eff. String -> Element -> Eff (dom :: DOM | eff) (Nullable String)
-foreign import hasAttribute :: forall eff. String -> Element -> Eff (dom :: DOM | eff) Boolean
-foreign import removeAttribute :: forall eff. String -> Element -> Eff (dom :: DOM | eff) Unit
+foreign import _getAttribute :: String -> Element -> Effect (Nullable String)
+foreign import hasAttribute :: String -> Element -> Effect Boolean
+foreign import removeAttribute :: String -> Element -> Effect Unit
 
-foreign import scrollTop :: forall eff. Element -> Eff (dom :: DOM | eff) Number
-foreign import setScrollTop :: forall eff. Number -> Element -> Eff (dom :: DOM | eff) Unit
+foreign import scrollTop :: Element -> Effect Number
+foreign import setScrollTop :: Number -> Element -> Effect Unit
 
-foreign import scrollLeft :: forall eff. Element -> Eff (dom :: DOM | eff) Number
-foreign import setScrollLeft :: forall eff. Number -> Element -> Eff (dom :: DOM | eff) Unit
+foreign import scrollLeft :: Element -> Effect Number
+foreign import setScrollLeft :: Number -> Element -> Effect Unit
 
-foreign import scrollWidth :: forall eff. Element -> Eff (dom :: DOM | eff) Number
-foreign import scrollHeight :: forall eff. Element -> Eff (dom :: DOM | eff) Number
-foreign import clientTop :: forall eff. Element -> Eff (dom :: DOM | eff) Number
-foreign import clientLeft :: forall eff. Element -> Eff (dom :: DOM | eff) Number
-foreign import clientWidth :: forall eff. Element -> Eff (dom :: DOM | eff) Number
-foreign import clientHeight :: forall eff. Element -> Eff (dom :: DOM | eff) Number
+foreign import scrollWidth :: Element -> Effect Number
+foreign import scrollHeight :: Element -> Effect Number
+foreign import clientTop :: Element -> Effect Number
+foreign import clientLeft :: Element -> Effect Number
+foreign import clientWidth :: Element -> Effect Number
+foreign import clientHeight :: Element -> Effect Number

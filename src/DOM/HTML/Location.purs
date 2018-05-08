@@ -24,37 +24,36 @@ module DOM.HTML.Location
   ) where
 
 import Prelude
-import Control.Monad.Eff (Eff)
-import DOM (DOM)
+import Control.Monad.Effect (Effect)
 import DOM.HTML.Types (Location)
 
-foreign import hash :: forall eff. Location -> Eff (dom :: DOM | eff) String
-foreign import setHash :: forall eff. String -> Location -> Eff (dom :: DOM | eff) Unit
+foreign import hash :: Location -> Effect String
+foreign import setHash :: String -> Location -> Effect Unit
 
-foreign import host :: forall eff. Location -> Eff (dom :: DOM | eff) String
-foreign import setHost :: forall eff. String -> Location -> Eff (dom :: DOM | eff) Unit
+foreign import host :: Location -> Effect String
+foreign import setHost :: String -> Location -> Effect Unit
 
-foreign import hostname :: forall eff. Location -> Eff (dom :: DOM | eff) String
-foreign import setHostname :: forall eff. String -> Location -> Eff (dom :: DOM | eff) Unit
+foreign import hostname :: Location -> Effect String
+foreign import setHostname :: String -> Location -> Effect Unit
 
-foreign import href :: forall eff. Location -> Eff (dom :: DOM | eff) String
-foreign import setHref :: forall eff. String -> Location -> Eff (dom :: DOM | eff) Unit
+foreign import href :: Location -> Effect String
+foreign import setHref :: String -> Location -> Effect Unit
 
-foreign import origin :: forall eff. Location -> Eff (dom :: DOM | eff) String
-foreign import setOrigin :: forall eff. String -> Location -> Eff (dom :: DOM | eff) Unit
+foreign import origin :: Location -> Effect String
+foreign import setOrigin :: String -> Location -> Effect Unit
 
-foreign import pathname :: forall eff. Location -> Eff (dom :: DOM | eff) String
-foreign import setPathname :: forall eff. String -> Location -> Eff (dom :: DOM | eff) Unit
+foreign import pathname :: Location -> Effect String
+foreign import setPathname :: String -> Location -> Effect Unit
 
-foreign import port :: forall eff. Location -> Eff (dom :: DOM | eff) String
-foreign import setPort :: forall eff. String -> Location -> Eff (dom :: DOM | eff) Unit
+foreign import port :: Location -> Effect String
+foreign import setPort :: String -> Location -> Effect Unit
 
-foreign import protocol :: forall eff. Location -> Eff (dom :: DOM | eff) String
-foreign import setProtocol :: forall eff. String -> Location -> Eff (dom :: DOM | eff) Unit
+foreign import protocol :: Location -> Effect String
+foreign import setProtocol :: String -> Location -> Effect Unit
 
-foreign import search :: forall eff. Location -> Eff (dom :: DOM | eff) String
-foreign import setSearch :: forall eff. String -> Location -> Eff (dom :: DOM | eff) Unit
+foreign import search :: Location -> Effect String
+foreign import setSearch :: String -> Location -> Effect Unit
 
-foreign import assign :: forall eff. String -> Location -> Eff (dom :: DOM | eff) Unit
-foreign import replace :: forall eff. String -> Location -> Eff (dom :: DOM | eff) Unit
-foreign import reload :: forall eff. Location -> Eff (dom :: DOM | eff) Unit
+foreign import assign :: String -> Location -> Effect Unit
+foreign import replace :: String -> Location -> Effect Unit
+foreign import reload :: Location -> Effect Unit

@@ -15,36 +15,35 @@ module DOM.HTML.HTMLFieldSetElement
 
 import Prelude
 
-import Control.Monad.Eff (Eff)
+import Control.Monad.Effect (Effect)
 
 import Data.Maybe (Maybe)
 import Data.Nullable (Nullable, toMaybe)
 
-import DOM (DOM)
 import DOM.HTML.Types (HTMLFieldSetElement, HTMLFormElement, ValidityState)
 
-foreign import disabled :: forall eff. HTMLFieldSetElement -> Eff (dom :: DOM | eff) Boolean
-foreign import setDisabled :: forall eff. Boolean -> HTMLFieldSetElement -> Eff (dom :: DOM | eff) Unit
+foreign import disabled :: HTMLFieldSetElement -> Effect Boolean
+foreign import setDisabled :: Boolean -> HTMLFieldSetElement -> Effect Unit
 
-foreign import _form :: forall eff. HTMLFieldSetElement -> Eff (dom :: DOM | eff) (Nullable HTMLFormElement)
+foreign import _form :: HTMLFieldSetElement -> Effect (Nullable HTMLFormElement)
 
-form :: forall eff. HTMLFieldSetElement -> Eff (dom :: DOM | eff) (Maybe HTMLFormElement)
+form :: HTMLFieldSetElement -> Effect (Maybe HTMLFormElement)
 form = map toMaybe <<< _form
 
-foreign import name :: forall eff. HTMLFieldSetElement -> Eff (dom :: DOM | eff) String
-foreign import setName :: forall eff. String -> HTMLFieldSetElement -> Eff (dom :: DOM | eff) Unit
+foreign import name :: HTMLFieldSetElement -> Effect String
+foreign import setName :: String -> HTMLFieldSetElement -> Effect Unit
 
-foreign import type_ :: forall eff. HTMLFieldSetElement -> Eff (dom :: DOM | eff) String
-foreign import setType :: forall eff. String -> HTMLFieldSetElement -> Eff (dom :: DOM | eff) Unit
+foreign import type_ :: HTMLFieldSetElement -> Effect String
+foreign import setType :: String -> HTMLFieldSetElement -> Effect Unit
 
 --   readonly attribute HTMLFormControlsCollection elements;
 
-foreign import willValidate :: forall eff. HTMLFieldSetElement -> Eff (dom :: DOM | eff) Boolean
+foreign import willValidate :: HTMLFieldSetElement -> Effect Boolean
 
-foreign import validity :: forall eff. HTMLFieldSetElement -> Eff (dom :: DOM | eff) ValidityState
+foreign import validity :: HTMLFieldSetElement -> Effect ValidityState
 
-foreign import validationMessage :: forall eff. HTMLFieldSetElement -> Eff (dom :: DOM | eff) String
+foreign import validationMessage :: HTMLFieldSetElement -> Effect String
 
-foreign import checkValidity :: forall eff. HTMLFieldSetElement -> Eff (dom :: DOM | eff) Boolean
+foreign import checkValidity :: HTMLFieldSetElement -> Effect Boolean
 
-foreign import setCustomValidity :: forall eff. String -> HTMLFieldSetElement -> Eff (dom :: DOM | eff) Unit
+foreign import setCustomValidity :: String -> HTMLFieldSetElement -> Effect Unit

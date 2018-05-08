@@ -2,34 +2,33 @@ module DOM.HTML.HTMLAreaElement where
 
 import Prelude (Unit)
 
-import Control.Monad.Eff (Eff)
+import Control.Monad.Effect (Effect)
 
-import DOM (DOM)
 import DOM.HTML.Types (HTMLAreaElement)
 import DOM.Node.Types (DOMTokenList)
 
-foreign import alt :: forall eff. HTMLAreaElement -> Eff (dom :: DOM | eff) String
-foreign import setAlt :: forall eff. String -> HTMLAreaElement -> Eff (dom :: DOM | eff) Unit
+foreign import alt :: HTMLAreaElement -> Effect String
+foreign import setAlt :: String -> HTMLAreaElement -> Effect Unit
 
-foreign import coords :: forall eff. HTMLAreaElement -> Eff (dom :: DOM | eff) String
-foreign import setCoords :: forall eff. String -> HTMLAreaElement -> Eff (dom :: DOM | eff) Unit
+foreign import coords :: HTMLAreaElement -> Effect String
+foreign import setCoords :: String -> HTMLAreaElement -> Effect Unit
 
-foreign import shape :: forall eff. HTMLAreaElement -> Eff (dom :: DOM | eff) String
-foreign import setShape :: forall eff. String -> HTMLAreaElement -> Eff (dom :: DOM | eff) Unit
+foreign import shape :: HTMLAreaElement -> Effect String
+foreign import setShape :: String -> HTMLAreaElement -> Effect Unit
 
-foreign import target :: forall eff. HTMLAreaElement -> Eff (dom :: DOM | eff) String
-foreign import setTarget :: forall eff. String -> HTMLAreaElement -> Eff (dom :: DOM | eff) Unit
+foreign import target :: HTMLAreaElement -> Effect String
+foreign import setTarget :: String -> HTMLAreaElement -> Effect Unit
 
-foreign import download :: forall eff. HTMLAreaElement -> Eff (dom :: DOM | eff) String
-foreign import setDownload :: forall eff. String -> HTMLAreaElement -> Eff (dom :: DOM | eff) Unit
+foreign import download :: HTMLAreaElement -> Effect String
+foreign import setDownload :: String -> HTMLAreaElement -> Effect Unit
 
-foreign import rel :: forall eff. HTMLAreaElement -> Eff (dom :: DOM | eff) String
-foreign import setRel :: forall eff. String -> HTMLAreaElement -> Eff (dom :: DOM | eff) Unit
+foreign import rel :: HTMLAreaElement -> Effect String
+foreign import setRel :: String -> HTMLAreaElement -> Effect Unit
 
-foreign import relList :: forall eff. HTMLAreaElement -> Eff (dom :: DOM | eff) DOMTokenList
+foreign import relList :: HTMLAreaElement -> Effect DOMTokenList
 
-foreign import hreflang :: forall eff. HTMLAreaElement -> Eff (dom :: DOM | eff) String
-foreign import setHreflang :: forall eff. String -> HTMLAreaElement -> Eff (dom :: DOM | eff) Unit
+foreign import hreflang :: HTMLAreaElement -> Effect String
+foreign import setHreflang :: String -> HTMLAreaElement -> Effect Unit
 
-foreign import type_ :: forall eff. HTMLAreaElement -> Eff (dom :: DOM | eff) String
-foreign import setType :: forall eff. String -> HTMLAreaElement -> Eff (dom :: DOM | eff) Unit
+foreign import type_ :: HTMLAreaElement -> Effect String
+foreign import setType :: String -> HTMLAreaElement -> Effect Unit

@@ -2,13 +2,12 @@ module DOM.HTML.HTMLModElement where
 
 import Prelude (Unit)
 
-import Control.Monad.Eff (Eff)
+import Control.Monad.Effect (Effect)
 
-import DOM (DOM)
 import DOM.HTML.Types (HTMLModElement)
 
-foreign import cite :: forall eff. HTMLModElement -> Eff (dom :: DOM | eff) String
-foreign import setCite :: forall eff. String -> HTMLModElement -> Eff (dom :: DOM | eff) Unit
+foreign import cite :: HTMLModElement -> Effect String
+foreign import setCite :: String -> HTMLModElement -> Effect Unit
 
-foreign import dateTime :: forall eff. HTMLModElement -> Eff (dom :: DOM | eff) String
-foreign import setDateTime :: forall eff. String -> HTMLModElement -> Eff (dom :: DOM | eff) Unit
+foreign import dateTime :: HTMLModElement -> Effect String
+foreign import setDateTime :: String -> HTMLModElement -> Effect Unit

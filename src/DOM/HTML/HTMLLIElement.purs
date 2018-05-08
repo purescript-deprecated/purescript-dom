@@ -2,10 +2,9 @@ module DOM.HTML.HTMLLIElement where
 
 import Prelude (Unit)
 
-import Control.Monad.Eff (Eff)
+import Control.Monad.Effect (Effect)
 
-import DOM (DOM)
 import DOM.HTML.Types (HTMLLIElement)
 
-foreign import value :: forall eff. HTMLLIElement -> Eff (dom :: DOM | eff) Int
-foreign import setValue :: forall eff. Int -> HTMLLIElement -> Eff (dom :: DOM | eff) Unit
+foreign import value :: HTMLLIElement -> Effect Int
+foreign import setValue :: Int -> HTMLLIElement -> Effect Unit
