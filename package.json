@@ -8,8 +8,8 @@
   "devDependencies": {
     "eslint": "^3.19.0",
     "phantomjs-prebuilt": "^2.1.14",
-    "pulp": "^11.0.0",
-    "purescript": "^0.11.1",
+    "pulp": "^12.0.0",
+    "purescript": "^0.12.1",
     "purescript-psa": "^0.5.0",
     "rimraf": "^2.6.1"
   }

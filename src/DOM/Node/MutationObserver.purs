@@ -13,6 +13,7 @@ import Control.Monad.Eff (Eff, kind Effect)
 import DOM (DOM)
 import DOM.Node.MutationRecord (MutationRecord)
 import DOM.Node.Types (Node)
+import Prim.Row
 
 foreign import data MutationObserver :: Type
 
